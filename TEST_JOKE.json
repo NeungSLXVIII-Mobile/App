@@ -1,0 +1,24 @@
+﻿[
+  {
+    "Joke_Category": [
+      {
+        "Category": "XXX"
+      },
+      {
+        "Category": "YYY"
+      }
+    ],
+    "Joke_Data": [
+      {
+        "Name": "AAA",
+        "Category": "XXX",
+        "Content": "BBB"
+      },
+      {
+        "Name": "CCC",
+        "Category": "YYY",
+        "Content": "DDD"
+      }
+    ]
+  }
+]
