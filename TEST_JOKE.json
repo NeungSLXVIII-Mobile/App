@@ -1,15 +1,11 @@
 ﻿[
   {
-    "Joke_Data": [
+    "Joke_Category": [
       {
-        "Name": "AAA",
-        "Category": "XXX",
-        "Content": "BBB"
+        "Category": "XXX"
       },
       {
-        "Name": "CCC",
-        "Category": "YYY",
-        "Content": "DDD"
+        "Category": "YYY"
       }
     ]
   }
