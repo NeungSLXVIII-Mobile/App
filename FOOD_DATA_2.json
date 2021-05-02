@@ -1,0 +1,52 @@
+{
+    "data": [
+        {
+            "Food_Category": [
+                {
+                    "Category": "VIEW ALL"
+                },
+                {
+                    "Category": "มันหวาน"
+                },
+                {
+                    "Category": "อาหารรวม"
+                },
+                {
+                    "Category": "อาหารไทย"
+                }
+            ],
+            "Food_Data": [
+                {
+                    "Name": "หมีไรกิน #ต้นตำรับซูชิพันธุ์ไทย - สาขา สัมมากร รามคำแหง 110",
+                    "Category": "อาหารรวม",
+                    "PhoneNumber": "0658538848",
+                    "Facebook": "หมีไรกิน",
+                    "Line": "ไม่มี",
+                    "Instagram": "ไม่มี",
+                    "Score": "0.00",
+                    "Youtube": "https://youtu.be/kmYA-XBasuA?t=5285"
+                },
+                {
+                    "Name": "Shi-Tori Thailand",
+                    "Category": "มันหวาน",
+                    "PhoneNumber": "0631924288",
+                    "Facebook": "Shi-Tori Thailand",
+                    "Line": "ไม่มี",
+                    "Instagram": "ไม่มี",
+                    "Score": "0.00",
+                    "Youtube": "https://youtu.be/kmYA-XBasuA?t=5381"
+                },
+                {
+                    "Name": "แล้วแต่ Food&Drink Bar",
+                    "Category": "อาหารไทย",
+                    "PhoneNumber": "0866458367",
+                    "Facebook": "แล้วแต่ Food&Drink Bar",
+                    "Line": "ไม่มี",
+                    "Instagram": "ไม่มี",
+                    "Score": "0.00",
+                    "Youtube": "https://youtu.be/kmYA-XBasuA?t=5474"
+                }
+            ]
+        }
+    ]
+}
