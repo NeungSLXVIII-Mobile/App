@@ -1,31 +1,39 @@
 <!DOCTYPE html>
 <html lang="en-us">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Unity WebGL Player | OrangePunchEX_WebGL</title>
-    <link rel="shortcut icon" href="TemplateData/favicon.ico">
-    <link rel="stylesheet" href="TemplateData/style.css">
-    <script src="TemplateData/UnityProgress.js"></script>
-    <script src="Build/UnityLoader.js"></script>
-    <script>
-      var unityInstance = UnityLoader.instantiate("unityContainer", "Build/OrangePunchEX_WebGL.json", {onProgress: UnityProgress});
-    </script>
-  </head>
-  <body>
-    <div class="webgl-content" style="display: none;">
-      <div id="unityContainer" style="width: 960px; height: 640px"></div>
-      <div class="footer">
-        <div class="webgl-logo"></div>
-        <div class="fullscreen" onclick="unityInstance.SetFullscreen(1)"></div>
-        <div class="title">OrangePunchEX_WebGL</div>
-      </div>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Unity WebGL Player | OrangePunchEX_WebGL</title>
+  <link rel="shortcut icon" href="TemplateData/favicon.ico">
+  <link rel="stylesheet" href="TemplateData/style.css">
+  <script src="TemplateData/UnityProgress.js"></script>
+  <script src="Build/UnityLoader.js"></script>
+  <script>
+    var unityInstance = UnityLoader.instantiate("unityContainer", "Build/OrangePunchEX_WebGL.json", { onProgress: UnityProgress });
+  </script>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+
+</head>
+
+<body>
+  <div class="webgl-content" style="display: none;">
+    <div id="unityContainer" style="width: 960px; height: 640px"></div>
+    <div class="footer">
+      <div class="webgl-logo"></div>
+      <div class="fullscreen" onclick="unityInstance.SetFullscreen(1)"></div>
+      <div class="title">OrangePunchEX_WebGL</div>
     </div>
-    <script>
-      setTimeout(function(){
-        $("#unityContainer").find("button").click();
-        $("body").fadeIn();
-      }, 1000)
-    </script>
-  </body>
+  </div>
+  <script>
+    setTimeout(function () {
+      $("#unityContainer").find("button").click();
+      $("body").fadeIn();
+    }, 1000)
+  </script>
+</body>
+
 </html>
