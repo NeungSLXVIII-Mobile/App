@@ -242,11 +242,11 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
 
     /* Load Model */
     var threeGLTFLoader = new THREE.GLTFLoader();
-    threeGLTFLoader.load("Data/models/heatwave.glb", function (gltf) {
+    threeGLTFLoader.load("Data/models/heatwave.gltf", function (gltf) {
         model = gltf.scene;
 
         model.position.x = 0;
-        model.position.y = -40;
+        model.position.y = 0;
         model.position.z = 0;
 
         model.scale.x = model.scale.y = model.scale.z = 10;
