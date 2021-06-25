@@ -249,7 +249,7 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
         model.position.y = -40;
         model.position.z = 0;
 
-        model.scale.x = model.scale.y = model.scale.z = 1;
+        model.scale.x = model.scale.y = model.scale.z = 10;
         
         root.add(model);
     });
