@@ -78,6 +78,10 @@ var main_texture_3 = THREE.ImageUtils.loadTexture('assets/sprites/animation_3.pn
 SpriteAnimator.add({ texture: main_texture_3, tilesHorizontal: 4, tilesVertical: 4, fps: 8, numberOfTiles: 12 });
 var main_animate_3 = new THREE.Mesh(new THREE.PlaneGeometry(100, 100), new THREE.MeshBasicMaterial({ transparent: true, map: main_texture_3 }));
 
+var floor_texture = THREE.ImageUtils.loadTexture('assets/sprites/floor.png');
+SpriteAnimator.add({ texture: floor_texture, tilesHorizontal: 16, tilesVertical: 16, fps: 8, numberOfTiles: 251 });
+var floor_animate = new THREE.Mesh(new THREE.PlaneGeometry(100, 100), new THREE.MeshBasicMaterial({ transparent: true, map: floor_texture }));
+
 //var worker;
 function start(container, marker, video, input_width, input_height, canvas_draw, render_update, track_update) {
     worker = new Worker('wasm_worker/artoolkit.wasm_worker.js');
@@ -253,6 +257,13 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
         
         root.add(model);
     });
+
+    floor_animate.position.x = 0;
+    floor_animate.position.y = 0;
+    floor_animate.position.z = 0;
+    floor_animate.scale.x = floor_animate.scale.y = floor_animate.scale.z = 1;
+    floor_animate.rotation.x = 90 * 0.0174532925;
+    root.add(floor_animate);
 
     var sphere = new THREE.Mesh(
         new THREE.SphereGeometry(0.5, 8, 8),
