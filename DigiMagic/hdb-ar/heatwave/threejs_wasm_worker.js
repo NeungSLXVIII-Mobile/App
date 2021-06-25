@@ -254,6 +254,11 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
         model.position.z = 0;
 
         model.scale.x = model.scale.y = model.scale.z = 0.1;
+
+        var floor = gltf.scene.children[1];
+
+        floor.material = new THREE.MeshBasicMaterial({ transparent: true, map: floor_texture });
+        floor.material.needsUpdate = true;
         
         root.add(model);
     });
