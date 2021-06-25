@@ -269,7 +269,7 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
     floor_animate.scale.x = 2;
     floor_animate.scale.y = 1;
     floor_animate.scale.z = 1;
-    //floor_animate.rotation.x = 90 * 0.0174532925;
+    floor_animate.rotation.x = 90 * 0.0174532925;
     root.add(floor_animate);
 
     var sphere = new THREE.Mesh(
