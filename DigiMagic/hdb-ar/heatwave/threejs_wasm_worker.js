@@ -259,9 +259,10 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
     });
 
     floor_animate.position.x = 0;
-    floor_animate.position.y = 0;
+    floor_animate.position.y = -2;
     floor_animate.position.z = 0;
-    floor_animate.scale.x = floor_animate.scale.y = floor_animate.scale.z = 1;
+    floor_animate.scale.x = floor_animate.scale.z = 1;
+    floor_animate.scale.y = 1.2;
     floor_animate.rotation.x = 90 * 0.0174532925;
     root.add(floor_animate);
 
