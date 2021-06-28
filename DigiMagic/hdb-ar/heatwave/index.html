@@ -71,6 +71,39 @@
 			display: none;
 		}
 
+		.choice1-btn {
+			position: absolute;
+			width: auto;
+			height: 8%;
+			top: 90%;
+			left: 50%;
+			transform: translate(-150%, -50%);
+			z-index: 2;
+			display: none;
+		}
+
+		.choice2-btn {
+			position: absolute;
+			width: auto;
+			height: 8%;
+			top: 90%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			z-index: 2;
+			display: none;
+		}
+
+		.choice3-btn {
+			position: absolute;
+			width: auto;
+			height: 8%;
+			top: 90%;
+			left: 50%;
+			transform: translate(50%, -50%);
+			z-index: 2;
+			display: none;
+		}
+
 		.instruct-page {
 			position: absolute;
 			width: auto;
@@ -166,7 +199,11 @@
 	<img class="finger360-icon" id="finger360-icon" src="assets/images/finger360_icon.png">
 
 	<img class="cycling-header" id="cycling-header" src="assets/images/recycling_header.png">
-	<img class="next-btn" id="next-btn" src="assets/images/next_btn.png" onclick="clickNextBtn()">
+	<!--<img class="next-btn" id="next-btn" src="assets/images/next_btn.png" onclick="clickNextBtn()">-->
+
+	<img class="choice1-btn" id="choice1-btn" src="assets/images/finger360_icon.png" onclick="choice1_worker()">
+	<img class="choice2-btn" id="choice2-btn" src="assets/images/finger360_icon.png" onclick="choice2_worker()">
+	<img class="choice3-btn" id="choice3-btn" src="assets/images/finger360_icon.png" onclick="choice3_worker()">
 
 	<!--for debug-->
 	<div class="tools">
@@ -261,7 +298,10 @@
 		function clickProceedBtn() {
 			console.log("click proceed btn...");
 			document.getElementById("instructPage").style.display = "none";
-			document.getElementById("next-btn").style.display = "block";
+			//document.getElementById("next-btn").style.display = "block";
+			document.getElementById("choice1-btn").style.display = "block";
+			document.getElementById("choice2-btn").style.display = "block";
+			document.getElementById("choice3-btn").style.display = "block";
 			document.getElementById("finger360-icon").style.display = "block";
 			openCamera();
 		}
