@@ -58,38 +58,20 @@ var adjust_px = 380 / 10;
 var adjust_py = 0;
 var adjust_angle = 25;
 //, side: THREE.DoubleSide
-// var rain_texture = THREE.ImageUtils.loadTexture('assets/sprites/rain_drop.png');
-// SpriteAnimator.add({ texture: rain_texture, tilesHorizontal: 4, tilesVertical: 4, fps: 10, numberOfTiles: 11 });
-// var rain_animate = new THREE.Mesh(new THREE.PlaneGeometry(100, 100), new THREE.MeshBasicMaterial({ transparent: true, depthTest: false, map: rain_texture, side: THREE.DoubleSide }));
+var bicycle_texture = THREE.ImageUtils.loadTexture('assets/sprites/bicycle.png');
+SpriteAnimator.add({ texture: bicycle_texture, tilesHorizontal: 1, tilesVertical: 1, fps: 24, numberOfTiles: 1 });
 
-// var cloud_texture = THREE.ImageUtils.loadTexture('assets/sprites/cloud.png');
-// SpriteAnimator.add({ texture: cloud_texture, tilesHorizontal: 12, tilesVertical: 12, fps: 10, numberOfTiles: 121 });
-// var cloud_animate = new THREE.Mesh(new THREE.PlaneGeometry(100, 100), new THREE.MeshBasicMaterial({ transparent: true, depthTest: false, map: cloud_texture, side: THREE.DoubleSide }));
+var human01_texture = THREE.ImageUtils.loadTexture('assets/sprites/human01.png');
+SpriteAnimator.add({ texture: bicycle_texture, tilesHorizontal: 1, tilesVertical: 1, fps: 24, numberOfTiles: 1 });
 
-// var main_texture_1 = THREE.ImageUtils.loadTexture('assets/sprites/animation_1.png');
-// SpriteAnimator.add({ texture: main_texture_1, tilesHorizontal: 4, tilesVertical: 4, fps: 8, numberOfTiles: 12 });
-// var main_animate_1 = new THREE.Mesh(new THREE.PlaneGeometry(100, 100), new THREE.MeshBasicMaterial({ transparent: true, depthTest: false, map: main_texture_1, side: THREE.DoubleSide }));
+var human02_texture = THREE.ImageUtils.loadTexture('assets/sprites/human02.png');
+SpriteAnimator.add({ texture: bicycle_texture, tilesHorizontal: 1, tilesVertical: 1, fps: 24, numberOfTiles: 1 });
 
-// var main_texture_2 = THREE.ImageUtils.loadTexture('assets/sprites/animation_2.png');
-// SpriteAnimator.add({ texture: main_texture_2, tilesHorizontal: 6, tilesVertical: 6, fps: 8, numberOfTiles: 24 });
-// var main_animate_2 = new THREE.Mesh(new THREE.PlaneGeometry(100, 100), new THREE.MeshBasicMaterial({ transparent: true, map: main_texture_2 }));
+var human03_texture = THREE.ImageUtils.loadTexture('assets/sprites/human03.png');
+SpriteAnimator.add({ texture: bicycle_texture, tilesHorizontal: 1, tilesVertical: 1, fps: 24, numberOfTiles: 1 });
 
-// var main_texture_3 = THREE.ImageUtils.loadTexture('assets/sprites/animation_3.png');
-// SpriteAnimator.add({ texture: main_texture_3, tilesHorizontal: 4, tilesVertical: 4, fps: 8, numberOfTiles: 12 });
-// var main_animate_3 = new THREE.Mesh(new THREE.PlaneGeometry(100, 100), new THREE.MeshBasicMaterial({ transparent: true, map: main_texture_3 }));
-
-// var sun_shade_texture = THREE.ImageUtils.loadTexture('assets/sprites/sun_shade.png');
-// SpriteAnimator.add({ texture: sun_shade_texture, tilesHorizontal: 16, tilesVertical: 16, fps: 24, numberOfTiles: 251 });
-// var sun_shade_animate = new THREE.Mesh(new THREE.PlaneGeometry(100, 100), new THREE.MeshBasicMaterial({ transparent: true, map: sun_shade_texture, side: THREE.DoubleSide }));
-
-// var solar_irradiance_texture = THREE.ImageUtils.loadTexture('assets/sprites/solar_irradiance.png');
-// SpriteAnimator.add({ texture: solar_irradiance_texture, tilesHorizontal: 16, tilesVertical: 16, fps: 24, numberOfTiles: 251 });
-// var solar_irradiance_animate = new THREE.Mesh(new THREE.PlaneGeometry(100, 100), new THREE.MeshBasicMaterial({ transparent: true, map: solar_irradiance_texture, side: THREE.DoubleSide }));
-
-// var wind_flow_texture = THREE.ImageUtils.loadTexture('assets/sprites/wind_flow.png');
-// SpriteAnimator.add({ texture: wind_flow_texture, tilesHorizontal: 20, tilesVertical: 7, fps: 24, numberOfTiles: 126 });
-// var wind_flow_animate = new THREE.Mesh(new THREE.PlaneGeometry(100, 100), new THREE.MeshBasicMaterial({ transparent: true, map: wind_flow_texture, side: THREE.DoubleSide }));
-
+var human04_texture = THREE.ImageUtils.loadTexture('assets/sprites/human04.png');
+SpriteAnimator.add({ texture: bicycle_texture, tilesHorizontal: 1, tilesVertical: 1, fps: 24, numberOfTiles: 1 });
 //var worker;
 function start(container, marker, video, input_width, input_height, canvas_draw, render_update, track_update) {
     worker = new Worker('wasm_worker/artoolkit.wasm_worker.js');
@@ -133,125 +115,6 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
     scene.add(root);
     root.visible = false;
 
-    // //add sprite animator
-    // rain_animate.position.x = 0;
-    // rain_animate.position.y = 55;
-    // rain_animate.position.z = 50;
-    // rain_animate.scale.x = rain_animate.scale.y = rain_animate.scale.z = 1;
-    // //rain_animate.rotation.x = adjust_angle * 0.0174532925;
-    // //root.add(rain_animate);
-    // //rain_animate.visible = false;
-
-    // cloud_animate.position.x = 0;
-    // cloud_animate.position.y = 55;
-    // cloud_animate.position.z = 51;
-    // cloud_animate.scale.x = cloud_animate.scale.y = cloud_animate.scale.z = 1;
-    // //cloud_animate.rotation.x = adjust_angle * 0.0174532925;
-    // //root.add(cloud_animate);
-    // //cloud_animate.visible = false;
-
-    // main_animate_1.position.x = 0;
-    // main_animate_1.position.y = 14;
-    // main_animate_1.position.z = 52;
-    // main_animate_1.scale.x = main_animate_1.scale.y = main_animate_1.scale.z = 1.2;
-    // //main_animate_1.rotation.x = adjust_angle * 0.0174532925;
-    // //root.add(main_animate_1);
-    // //main_animate_1.visible = false;
-
-    // main_animate_2.position.x = 0;
-    // main_animate_2.position.y = 14;
-    // main_animate_2.position.z = 52;
-    // main_animate_2.scale.x = main_animate_2.scale.y = main_animate_2.scale.z = 1.2;
-    // //main_animate_2.rotation.x = adjust_angle * 0.0174532925;
-    // //root.add(main_animate_2);
-    // main_animate_2.visible = false;
-
-    // main_animate_3.position.x = 0;
-    // main_animate_3.position.y = 14;
-    // main_animate_3.position.z = 52;
-    // main_animate_3.scale.x = main_animate_3.scale.y = main_animate_3.scale.z = 1.2;
-    // //main_animate_3.rotation.x = adjust_angle * 0.0174532925;
-    // //root.add(main_animate_3);
-    // main_animate_3.visible = false;
-
-    // //var loader = new THREE.TextureLoader();
-    // //var texture = loader.load( 'https://i.imgur.com/RoNmD7W.png' );
-
-    // const material_bg = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/background_building.png'), opacity: 1, transparent: true, side: THREE.DoubleSide });
-    // plane_bg = new THREE.Mesh(new THREE.PlaneGeometry(150, 150, 10, 10), material_bg);
-    // plane_bg.position.x = 0;
-    // plane_bg.position.y = 70;
-    // plane_bg.position.z = -45;
-    // plane_bg.scale.x = plane_bg.scale.y = plane_bg.scale.z = 1;
-    //plane_bg.rotation.x = adjust_angle * 0.0174532925;
-    //plane_bg.visible = false;
-
-    // //const geometry = new THREE.PlaneGeometry(50, 50, 10);
-    // const material_1 = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/description_1.png'), opacity: 1, transparent: true, side: THREE.DoubleSide });
-    // plane_1 = new THREE.Mesh(new THREE.PlaneGeometry(130, 35, 10, 10), material_1);
-    // plane_1.position.x = 0;
-    // plane_1.position.y = -45;
-    // plane_1.position.z = 55;
-    // plane_1.scale.x = plane_1.scale.y = plane_1.scale.z = 1.2;
-    // //plane_1.rotation.x = 20 * 0.0174532925;
-    // // plane_1.visible = false;
-
-    // const material_2 = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/description_2.png'), opacity: 1, transparent: true, side: THREE.DoubleSide });
-    // plane_2 = new THREE.Mesh(new THREE.PlaneGeometry(130, 35, 10, 10), material_2);
-    // plane_2.position.x = 0;
-    // plane_2.position.y = -45;
-    // plane_2.position.z = 55;
-    // plane_2.scale.x = plane_2.scale.y = plane_2.scale.z = 1.2;
-    // //plane_2.rotation.x = 20 * 0.0174532925;
-    // plane_2.visible = false;
-
-    // const material_3 = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/description_3.png'), opacity: 1, transparent: true, side: THREE.DoubleSide });
-    // plane_3 = new THREE.Mesh(new THREE.PlaneGeometry(130, 35, 10, 10), material_3);
-    // plane_3.position.x = 0;
-    // plane_3.position.y = -45;
-    // plane_3.position.z = 55;
-    // plane_3.scale.x = plane_3.scale.y = plane_3.scale.z = 1.2;
-    // // plane_3.rotation.x = 20 * 0.0174532925;
-    // plane_3.visible = false;
-
-    // const material_top_1 = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/animate_top_1.png'), opacity: 1, transparent: true, side: THREE.DoubleSide });
-    // plane_top_1 = new THREE.Mesh(new THREE.PlaneGeometry(95, 95, 10, 10), material_top_1);
-    // plane_top_1.position.x = 0;
-    // plane_top_1.position.y = 12;
-    // plane_top_1.position.z = 0;
-    // plane_top_1.scale.x = plane_top_1.scale.y = plane_top_1.scale.z = 1.05;
-    // //plane_top_1.rotation.x = (adjust_angle - 90) * 0.0174532925;
-    // plane_top_1.rotation.x = -(90) * 0.0174532925;
-    // // plane_top_1.visible = false;
-
-    // const material_top_2 = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/animate_top_2.png'), opacity: 1, transparent: true, side: THREE.DoubleSide });
-    // plane_top_2 = new THREE.Mesh(new THREE.PlaneGeometry(95, 95, 10, 10), material_top_2);
-    // plane_top_2.position.x = 0;
-    // plane_top_2.position.y = 12;
-    // plane_top_2.position.z = 0;
-    // plane_top_2.scale.x = plane_top_2.scale.y = plane_top_2.scale.z = 1.05;
-    // //plane_top_2.rotation.x = (adjust_angle - 90) * 0.0174532925;
-    // plane_top_2.rotation.x = - 90 * 0.0174532925;
-    // plane_top_2.visible = false;
-
-    // root.matrixAutoUpdate = false;
-    // root.add(plane_bg);
-
-    // root.matrixAutoUpdate = false;
-    // root.add(plane_1);
-
-    // root.matrixAutoUpdate = false;
-    // root.add(plane_2);
-
-    // root.matrixAutoUpdate = false;
-    // root.add(plane_3);
-
-    // root.matrixAutoUpdate = false;
-    // root.add(plane_top_1);
-
-    // root.matrixAutoUpdate = false;
-    // root.add(plane_top_2);
-
     /* Load Model */
     var threeGLTFLoader = new THREE.GLTFLoader();
     threeGLTFLoader.load("Data/models/smartlamppost.gltf", function (gltf) {
@@ -271,91 +134,121 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
         }
 
         // tree 1.
-        var tree1 = model.children[2];
+        var tree1 = model.children[12];
 
         tree1.material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/tree01.png'), opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide });
         tree1.material.needsUpdate = true;
 
         // tree 2.
-        var tree2 = model.children[1];
+        var tree2 = model.children[11];
 
         tree2.material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/tree02.png'), opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide });
         tree2.material.needsUpdate = true;
 
         // bg.
-        var bg = model.children[3];
+        var bg = model.children[13];
 
         bg.material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/bg.png'), opacity: 1, depthTest: false, transparent: false, side: THREE.DoubleSide });
         bg.material.needsUpdate = true;
 
         // floor.
-        var floor = model.children[4];
+        var floor = model.children[1];
 
         floor.material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/floor.png'), opacity: 1, depthTest: true, transparent: false });
         floor.material.needsUpdate = true;
 
         // lamp post 1.
-        var lamppost1 = model.children[13];
+        var lamppost1 = model.children[10];
 
         lamppost1.material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/lamppost01_light.png'), opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide });
         lamppost1.material.needsUpdate = true;
 
         // lamp post 2.
-        var lamppost2a = model.children[12];
+        var lamppost2a = model.children[9];
 
         lamppost2a.material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/lamppost02_light.png'), opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide });
         lamppost2a.material.needsUpdate = true;
 
         // lamp post 2.
-        var lamppost2b = model.children[11];
+        var lamppost2b = model.children[8];
 
         lamppost2b.material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/lamppost02_light.png'), opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide });
         lamppost2b.material.needsUpdate = true;
 
         // icon 1.
-        var icon1 = model.children[5];
+        var icon1 = model.children[7];
 
         icon1.material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/icon01.png'), opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide });
         icon1.material.needsUpdate = true;
 
-        // bicycle.
-        var bicycle = model.children[10];
-        var video_bicycle = new THREE.VideoTexture(document.getElementById('video_bicycle'));
+        // // bicycle.
+        // var bicycle = model.children[10];
+        // var video_bicycle = new THREE.VideoTexture(document.getElementById('video_bicycle'));
 
-        //bicycle.material = new THREE.MeshBasicMaterial({ map: video_bicycle, opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide});
-        bicycle.material = new THREE.MeshBasicMaterial({ map: video_bicycle, side: THREE.FrontSide, toneMapped: false });
+        // //bicycle.material = new THREE.MeshBasicMaterial({ map: video_bicycle, opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide});
+        // bicycle.material = new THREE.MeshBasicMaterial({ map: video_bicycle, side: THREE.FrontSide, toneMapped: false });
+        // bicycle.material.needsUpdate = true;
+
+        // // human01.
+        // var human01 = model.children[9];
+        // var video_human01 = new THREE.VideoTexture(document.getElementById('video_human01'));
+
+        // //human01.material = new THREE.MeshBasicMaterial({ map: video_human01 opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide});
+        // human01.material = new THREE.MeshBasicMaterial({ map: video_human01, side: THREE.FrontSide, toneMapped: false });
+        // human01.material.needsUpdate = true;
+
+        // // human2.
+        // var human02 = model.children[8];
+        // var video_human02 = new THREE.VideoTexture(document.getElementById('video_human02'));
+
+        // //human02.material = new THREE.MeshBasicMaterial({ map: video_human02 opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide});
+        // human02.material = new THREE.MeshBasicMaterial({ map: video_human02, side: THREE.FrontSide, toneMapped: false });
+        // human02.material.needsUpdate = true;
+
+        // // human03.
+        // var human03 = model.children[7];
+        // var video_human03 = new THREE.VideoTexture(document.getElementById('video_human03'));
+
+        // //human03.material = new THREE.MeshBasicMaterial({ map: video_human03 opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide});
+        // human03.material = new THREE.MeshBasicMaterial({ map: video_human03, side: THREE.FrontSide, toneMapped: false });
+        // human03.material.needsUpdate = true;
+
+        // // human04.
+        // var human04 = model.children[6];
+        // var video_human04 = new THREE.VideoTexture(document.getElementById('video_human04'));
+
+        // //human04.material = new THREE.MeshBasicMaterial({ map: video_human04 opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide});
+        // human04.material = new THREE.MeshBasicMaterial({ map: video_human04, side: THREE.FrontSide, toneMapped: false });
+        // human04.material.needsUpdate = true;
+
+        // bicycle.
+        var bicycle = model.children[6];
+
+        bicycle.material = new THREE.MeshBasicMaterial({ map: bicycle_texture, depthTest: false, transparent: true, side: THREE.DoubleSide});
         bicycle.material.needsUpdate = true;
 
         // human01.
-        var human01 = model.children[9];
-        var video_human01 = new THREE.VideoTexture(document.getElementById('video_human01'));
+        var human01 = model.children[5];
 
-        //human01.material = new THREE.MeshBasicMaterial({ map: video_human01 opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide});
-        human01.material = new THREE.MeshBasicMaterial({ map: video_human01, side: THREE.FrontSide, toneMapped: false });
+        human01.material = new THREE.MeshBasicMaterial({ map: human01_texture, depthTest: false, transparent: true, side: THREE.DoubleSide});
         human01.material.needsUpdate = true;
 
         // human2.
-        var human02 = model.children[8];
-        var video_human02 = new THREE.VideoTexture(document.getElementById('video_human02'));
+        var human02 = model.children[4];
 
-        //human02.material = new THREE.MeshBasicMaterial({ map: video_human02 opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide});
-        human02.material = new THREE.MeshBasicMaterial({ map: video_human02, side: THREE.FrontSide, toneMapped: false });
+        human02.material = new THREE.MeshBasicMaterial({ map: human02_texture, depthTest: false, transparent: true, side: THREE.DoubleSide});
         human02.material.needsUpdate = true;
 
         // human03.
-        var human03 = model.children[7];
-        var video_human03 = new THREE.VideoTexture(document.getElementById('video_human03'));
+        var human03 = model.children[3];
 
-        //human03.material = new THREE.MeshBasicMaterial({ map: video_human03 opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide});
-        human03.material = new THREE.MeshBasicMaterial({ map: video_human03, side: THREE.FrontSide, toneMapped: false });
+        human03.material = new THREE.MeshBasicMaterial({ map: human03_texture, depthTest: false, transparent: true, side: THREE.DoubleSide});
         human03.material.needsUpdate = true;
 
         // human04.
-        var human04 = model.children[6];
-        var video_human04 = new THREE.VideoTexture(document.getElementById('video_human04'));
-
-        //human04.material = new THREE.MeshBasicMaterial({ map: video_human04 opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide});
-        human04.material = new THREE.MeshBasicMaterial({ map: video_human04, side: THREE.FrontSide, toneMapped: false });
+        var human04 = model.children[2];
+       
+        human04.material = new THREE.MeshBasicMaterial({ map: human04_texture, depthTest: false, transparent: true, side: THREE.DoubleSide});
         human04.material.needsUpdate = true;
 
         bg.rotation.y = 180 * 0.0174532925;
@@ -365,6 +258,24 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
         lamppost2a.rotation.y = 180 * 0.0174532925;
         lamppost2b.rotation.y = 180 * 0.0174532925;
         icon1.rotation.y = 180 * 0.0174532925;
+        bicycle.rotation.y = 180 * 0.0174532925;
+        human01.rotation.y = 180 * 0.0174532925;
+        human02.rotation.y = 180 * 0.0174532925;
+        human03.rotation.y = 180 * 0.0174532925;
+        human04.rotation.y = 180 * 0.0174532925;
+
+        bg.rotation.z = 180 * 0.0174532925;
+        tree1.rotation.z = 180 * 0.0174532925;
+        tree2.rotation.z = 180 * 0.0174532925;
+        lamppost1.rotation.z = 180 * 0.0174532925;
+        lamppost2a.rotation.z = 180 * 0.0174532925;
+        lamppost2b.rotation.z = 180 * 0.0174532925;
+        icon1.rotation.z = 180 * 0.0174532925;
+        bicycle.rotation.z = 180 * 0.0174532925;
+        human01.rotation.z = 180 * 0.0174532925;
+        human02.rotation.z = 180 * 0.0174532925;
+        human03.rotation.z = 180 * 0.0174532925;
+        human04.rotation.z = 180 * 0.0174532925;
 
         root.add(model);
     });
