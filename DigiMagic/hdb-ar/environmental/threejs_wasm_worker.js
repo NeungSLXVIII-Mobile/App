@@ -89,7 +89,7 @@ SpriteAnimator.add({ texture: solar_irradiance_texture, tilesHorizontal: 16, til
 var solar_irradiance_animate = new THREE.Mesh(new THREE.PlaneGeometry(100, 100), new THREE.MeshBasicMaterial({ transparent: true, map: solar_irradiance_texture, side: THREE.DoubleSide }));
 
 var wind_flow_texture = THREE.ImageUtils.loadTexture('assets/sprites/wind_flow.png');
-SpriteAnimator.add({ texture: wind_flow_texture, tilesHorizontal: 20, tilesVertical: 7, fps: 24, numberOfTiles: 126 });
+SpriteAnimator.add({ texture: wind_flow_texture, tilesHorizontal: 12, tilesVertical: 11, fps: 24, numberOfTiles: 126 });
 var wind_flow_animate = new THREE.Mesh(new THREE.PlaneGeometry(100, 100), new THREE.MeshBasicMaterial({ transparent: true, map: wind_flow_texture, side: THREE.DoubleSide }));
 
 //var worker;
@@ -616,7 +616,7 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
             //
         }
 
-        // root.visible = true;
+        //root.visible = true;
 
         renderer.render(scene, camera);
         SpriteAnimator.update(clock.getDelta());
