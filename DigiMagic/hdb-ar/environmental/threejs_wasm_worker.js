@@ -349,7 +349,7 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
 
     // Wind Flow.
     wind_flow_animate.position.x = 0;
-    wind_flow_animate.position.y = 10;
+    wind_flow_animate.position.y = 30;
     wind_flow_animate.position.z = 0;
     wind_flow_animate.scale.x = 1.6;
     wind_flow_animate.scale.y = 1.1;
@@ -616,7 +616,7 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
             //
         }
 
-        //root.visible = true;
+        root.visible = true;
 
         renderer.render(scene, camera);
         SpriteAnimator.update(clock.getDelta());
