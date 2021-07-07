@@ -345,6 +345,7 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
 
         var building1;
         var building_floor1;
+        var building_plane1;
 
         for (count = 0; count < model1.children.length; count++) {
             console.log(model1.children[count]);
@@ -363,7 +364,7 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
             // Plane.
             if (model1.children[count].name == "Plane") {
                 console.log("Plane LV1");
-                model1.children[count].visible = false;
+                building_plane1 = model1.children[count];
             }
 
             for (count2 = 0; count2 < model1.children[count].children.length; count2++) {
@@ -384,7 +385,7 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
                 // Plane.
                 if (model1.children[count].name == "Plane") {
                     console.log("Plane LV2");
-                    model1.children[count].children[count2].visible = false;
+                    building_plane1 = model1.children[count].children[count2];
                 }
             }
         }
@@ -397,6 +398,12 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
         if (building_floor1 != undefined) {
             building_floor1.material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/building_floor1.png'), opacity: 1, side: THREE.DoubleSide });
             building_floor1.material.needsUpdate = true;
+        }
+
+        if (building_plane1 != undefined) {
+            building_plane1.material = new THREE.MeshBasicMaterial({ transparent: true, depthTest: true, map: sun_shade_texture, side: THREE.DoubleSide });
+            building_plane1.material.needsUpdate = true;
+            building_plane1.rotation.x = -180 * 0.0174532925;
         }
 
         root.add(model1);
@@ -417,6 +424,7 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
 
         var building2;
         var building_floor2;
+        var building_plane2;
 
         for (count = 0; count < model2.children.length; count++) {
             console.log(model2.children[count]);
@@ -430,6 +438,12 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
             if (model2.children[count].name == "Cube") {
                 console.log("Cube LV1");
                 building_floor2 = model2.children[count];
+            }
+
+            // Plane.
+            if (model2.children[count].name == "Plane") {
+                console.log("Plane LV1");
+                building_plane2 = model2.children[count];
             }
 
             for (count2 = 0; count2 < model2.children[count].children.length; count2++) {
@@ -446,6 +460,12 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
                     console.log("Cube LV2");
                     building_floor2 = model2.children[count].children[count2];
                 }
+
+                // Plane.
+                if (model2.children[count].name == "Plane") {
+                    console.log("Plane LV2");
+                    building_plane2 = model2.children[count].children[count2];
+                }
             }
         }
 
@@ -457,6 +477,12 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
         if (building_floor2 != undefined) {
             building_floor2.material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/building_floor2.png'), opacity: 1, side: THREE.DoubleSide });
             building_floor2.material.needsUpdate = true;
+        }
+
+        if (building_plane2 != undefined) {
+            building_plane2.material = new THREE.MeshBasicMaterial({ transparent: true, depthTest: true, map: solar_irradiance_texture, side: THREE.DoubleSide });
+            building_plane2.material.needsUpdate = true;
+            building_plane2.rotation.x = -180 * 0.0174532925;
         }
 
         root.add(model2);
@@ -477,6 +503,7 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
 
         var building3;
         var building_floor3;
+        var building_plane3;
 
         for (count = 0; count < model3.children.length; count++) {
             console.log(model3.children[count]);
@@ -490,6 +517,12 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
             if (model3.children[count].name == "Cube") {
                 console.log("Cube LV1");
                 building_floor3 = model3.children[count];
+            }
+
+            // Plane.
+            if (model3.children[count].name == "Plane1") {
+                console.log("Plane1 LV1");
+                building_plane3 = model3.children[count];
             }
 
             for (count2 = 0; count2 < model3.children[count].children.length; count2++) {
@@ -506,6 +539,12 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
                     console.log("Cube LV2");
                     building_floor3 = model3.children[count].children[count2];
                 }
+
+                // Plane.
+                if (model3.children[count].name == "Plane1") {
+                    console.log("Plane1 LV2");
+                    building_plane3 = model3.children[count].children[count2];
+                }
             }
         }
 
@@ -519,47 +558,53 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
             building_floor3.material.needsUpdate = true;
         }
 
+        if (building_plane3 != undefined) {
+            building_plane3.material = new THREE.MeshBasicMaterial({ transparent: true, depthTest: true, map: wind_flow_texture, side: THREE.DoubleSide });
+            building_plane3.material.needsUpdate = true;
+            building_plane3.rotation.x = -180 * 0.0174532925;
+        }
+
         root.add(model3);
     });
 
-    // Sun Shade.
-    sun_shade_animate.position.x = 0;
-    sun_shade_animate.position.y = 10.5;
-    sun_shade_animate.position.z = 0;
-    sun_shade_animate.scale.x = 1.6;
-    sun_shade_animate.scale.y = 1.1;
-    sun_shade_animate.scale.z = 1;
-    sun_shade_animate.rotation.x = -90 * 0.0174532925;
-    sun_shade_animate.visible = false;
+    // // Sun Shade.
+    // sun_shade_animate.position.x = 0;
+    // sun_shade_animate.position.y = 10.5;
+    // sun_shade_animate.position.z = 0;
+    // sun_shade_animate.scale.x = 1.6;
+    // sun_shade_animate.scale.y = 1.1;
+    // sun_shade_animate.scale.z = 1;
+    // sun_shade_animate.rotation.x = -90 * 0.0174532925;
+    // sun_shade_animate.visible = false;
 
-    // Soloar Irradiance.
-    solar_irradiance_animate.position.x = 0;
-    solar_irradiance_animate.position.y = 10.5;
-    solar_irradiance_animate.position.z = 0;
-    solar_irradiance_animate.scale.x = 1.6;
-    solar_irradiance_animate.scale.y = 1.1;
-    solar_irradiance_animate.scale.z = 1;
-    solar_irradiance_animate.rotation.x = -90 * 0.0174532925;
-    solar_irradiance_animate.visible = false;
+    // // Soloar Irradiance.
+    // solar_irradiance_animate.position.x = 0;
+    // solar_irradiance_animate.position.y = 10.5;
+    // solar_irradiance_animate.position.z = 0;
+    // solar_irradiance_animate.scale.x = 1.6;
+    // solar_irradiance_animate.scale.y = 1.1;
+    // solar_irradiance_animate.scale.z = 1;
+    // solar_irradiance_animate.rotation.x = -90 * 0.0174532925;
+    // solar_irradiance_animate.visible = false;
 
-    // Wind Flow.
-    wind_flow_animate.position.x = 0;
-    wind_flow_animate.position.y = 30;
-    wind_flow_animate.position.z = 0;
-    wind_flow_animate.scale.x = 1.6;
-    wind_flow_animate.scale.y = 1.1;
-    wind_flow_animate.scale.z = 1;
-    wind_flow_animate.rotation.x = -90 * 0.0174532925;
-    wind_flow_animate.visible = false;
+    // // Wind Flow.
+    // wind_flow_animate.position.x = 0;
+    // wind_flow_animate.position.y = 30;
+    // wind_flow_animate.position.z = 0;
+    // wind_flow_animate.scale.x = 1.6;
+    // wind_flow_animate.scale.y = 1.1;
+    // wind_flow_animate.scale.z = 1;
+    // wind_flow_animate.rotation.x = -90 * 0.0174532925;
+    // wind_flow_animate.visible = false;
 
-    root.matrixAutoUpdate = false;
-    root.add(sun_shade_animate);
+    // root.matrixAutoUpdate = false;
+    // root.add(sun_shade_animate);
 
-    root.matrixAutoUpdate = false;
-    root.add(solar_irradiance_animate);
+    // root.matrixAutoUpdate = false;
+    // root.add(solar_irradiance_animate);
 
-    root.matrixAutoUpdate = false;
-    root.add(wind_flow_animate);
+    // root.matrixAutoUpdate = false;
+    // root.add(wind_flow_animate);
 
     var sphere = new THREE.Mesh(
         new THREE.SphereGeometry(0.5, 8, 8),
@@ -862,50 +907,35 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
 }
 
 function choice1_worker() {
-    // console.log(model1);
-    // console.log(model1.children[0]);
-    // console.log(model1.children[0].children[0]);
-    // console.log(model1.children[0].children[1]);
-
     model0.visible = false;
     model1.visible = true;
     model2.visible = false;
     model3.visible = false;
 
-    sun_shade_animate.visible = true;
-    solar_irradiance_animate.visible = false;
-    wind_flow_animate.visible = false;
+    // sun_shade_animate.visible = true;
+    // solar_irradiance_animate.visible = false;
+    // wind_flow_animate.visible = false;
 }
 
 function choice2_worker() {
-    // console.log(model);
-    // console.log(model.children[0]);
-    // console.log(model.children[0].children[0]);
-    // console.log(model.children[0].children[1]);
-
     model0.visible = false;
     model1.visible = false;
     model2.visible = true;
     model3.visible = false;
 
-    sun_shade_animate.visible = false;
-    solar_irradiance_animate.visible = true;
-    wind_flow_animate.visible = false;
+    // sun_shade_animate.visible = false;
+    // solar_irradiance_animate.visible = true;
+    // wind_flow_animate.visible = false;
 }
 
 function choice3_worker() {
-    // console.log(model);
-    // console.log(model.children[0]);
-    // console.log(model.children[0].children[0]);
-    // console.log(model.children[0].children[1]);
-
     model0.visible = false;
     model1.visible = false;
     model2.visible = false;
     model3.visible = true;
 
-    sun_shade_animate.visible = false;
-    solar_irradiance_animate.visible = false;
-    wind_flow_animate.visible = true;
+    // sun_shade_animate.visible = false;
+    // solar_irradiance_animate.visible = false;
+    // wind_flow_animate.visible = true;
 }
 
