@@ -50,7 +50,9 @@ var plane_3;
 var plane_top_1;
 var plane_top_2;
 
-var model1;//gltf
+//gltf
+var model0;
+var model1;
 var model2;
 var model3;
 
@@ -81,16 +83,16 @@ SpriteAnimator.add({ texture: main_texture_3, tilesHorizontal: 4, tilesVertical:
 var main_animate_3 = new THREE.Mesh(new THREE.PlaneGeometry(100, 100), new THREE.MeshBasicMaterial({ transparent: true, map: main_texture_3 }));
 
 var sun_shade_texture = THREE.ImageUtils.loadTexture('assets/sprites/sun_shade.png');
-SpriteAnimator.add({ texture: sun_shade_texture, tilesHorizontal: 16, tilesVertical: 16, fps: 24, numberOfTiles: 251 });
-var sun_shade_animate = new THREE.Mesh(new THREE.PlaneGeometry(100, 100), new THREE.MeshBasicMaterial({ transparent: true, map: sun_shade_texture, side: THREE.DoubleSide }));
+SpriteAnimator.add({ texture: sun_shade_texture, tilesHorizontal: 18, tilesVertical: 17, fps: 24, numberOfTiles: 301 });
+var sun_shade_animate = new THREE.Mesh(new THREE.PlaneGeometry(100, 100), new THREE.MeshBasicMaterial({ transparent: true, depthTest: true, map: sun_shade_texture, side: THREE.DoubleSide }));
 
 var solar_irradiance_texture = THREE.ImageUtils.loadTexture('assets/sprites/solar_irradiance.png');
 SpriteAnimator.add({ texture: solar_irradiance_texture, tilesHorizontal: 16, tilesVertical: 16, fps: 24, numberOfTiles: 251 });
-var solar_irradiance_animate = new THREE.Mesh(new THREE.PlaneGeometry(100, 100), new THREE.MeshBasicMaterial({ transparent: true, map: solar_irradiance_texture, side: THREE.DoubleSide }));
+var solar_irradiance_animate = new THREE.Mesh(new THREE.PlaneGeometry(100, 100), new THREE.MeshBasicMaterial({ transparent: true, depthTest: true, map: solar_irradiance_texture, side: THREE.DoubleSide }));
 
 var wind_flow_texture = THREE.ImageUtils.loadTexture('assets/sprites/wind_flow.png');
 SpriteAnimator.add({ texture: wind_flow_texture, tilesHorizontal: 12, tilesVertical: 11, fps: 24, numberOfTiles: 126 });
-var wind_flow_animate = new THREE.Mesh(new THREE.PlaneGeometry(100, 100), new THREE.MeshBasicMaterial({ transparent: true, map: wind_flow_texture, side: THREE.DoubleSide }));
+var wind_flow_animate = new THREE.Mesh(new THREE.PlaneGeometry(100, 100), new THREE.MeshBasicMaterial({ transparent: true, depthTest: true, map: wind_flow_texture, side: THREE.DoubleSide }));
 
 //var worker;
 function start(container, marker, video, input_width, input_height, canvas_draw, render_update, track_update) {
@@ -255,6 +257,35 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
     // root.add(plane_top_2);
 
     /* Load Model */
+    var threeGLTFLoader0 = new THREE.GLTFLoader();
+    threeGLTFLoader0.load("Data/models/environmental1.gltf", function (gltf) {
+        model0 = gltf.scene;
+
+        model0.position.x = 0;
+        model0.position.y = 0;
+        model0.position.z = 0;
+
+        model0.scale.x = model0.scale.y = model0.scale.z = 0.1;
+
+        model0.visible = true;
+
+        console.log("model0");
+        console.log(model0);
+        console.log(model0.children[0]);
+        console.log(model0.children[0].children[0]);
+        console.log(model0.children[1]);
+
+        var building0 = model0.children[0].children[0];
+        var building_floor0 = model0.children[1];
+
+        building0.material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/building0.png'), opacity: 1, side: THREE.DoubleSide});
+        building0.material.needsUpdate = true;
+
+        building_floor0.material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/building_floor0.png'), opacity: 1, side: THREE.DoubleSide});
+        building_floor0.material.needsUpdate = true;
+
+        root.add(model0);
+    });
     var threeGLTFLoader1 = new THREE.GLTFLoader();
     threeGLTFLoader1.load("Data/models/environmental1.gltf", function (gltf) {
         model1 = gltf.scene;
@@ -265,19 +296,22 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
 
         model1.scale.x = model1.scale.y = model1.scale.z = 0.1;
 
-        model1.visible = true;
-        model1.children[1].visible = true;
+        model1.visible = false;
 
+        console.log("model1");
         console.log(model1);
         console.log(model1.children[0]);
         console.log(model1.children[0].children[0]);
-        console.log(model1.children[0].children[1]);
         console.log(model1.children[1]);
 
-        var building1 = model1.children[0].children[1];
+        var building1 = model1.children[0].children[0];
+        var building_floor1 = model1.children[1];
 
-        building1.material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/building1.png'), opacity: 1, transparent: true, side: THREE.DoubleSide});
+        building1.material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/building1.png'), opacity: 1, side: THREE.DoubleSide});
         building1.material.needsUpdate = true;
+
+        building_floor1.material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/building_floor1.png'), opacity: 1, side: THREE.DoubleSide});
+        building_floor1.material.needsUpdate = true;
 
         root.add(model1);
     });
@@ -293,10 +327,20 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
 
         model2.visible = false;
 
+        console.log("model2");
         console.log(model2);
         console.log(model2.children[0]);
         console.log(model2.children[0].children[0]);
         console.log(model2.children[0].children[1]);
+
+        var building2 = model2.children[0].children[1];
+        var building_floor2 = model2.children[0].children[0];
+
+        building2.material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/building2.png'), opacity: 1, side: THREE.DoubleSide});
+        building2.material.needsUpdate = true;
+
+        building_floor2.material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/building_floor2.png'), opacity: 1, side: THREE.DoubleSide});
+        building_floor2.material.needsUpdate = true;
 
         root.add(model2);
     });
@@ -311,25 +355,29 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
         model3.scale.x = model3.scale.y = model3.scale.z = 0.1;
 
         model3.visible = false;
-        model3.children[1].visible = true;
 
+        console.log("model3");
         console.log(model3);
         console.log(model3.children[0]);
         console.log(model3.children[0].children[0]);
         console.log(model3.children[0].children[1]);
         console.log(model3.children[1]);
 
-        var building3 = model3.children[0].children[1];
+        var building3 = model3.children[0].children[0];
+        var building_floor3 = model3.children[0].children[1];
 
-        building3.material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/building3.png'), opacity: 1, transparent: true, side: THREE.DoubleSide});
+        building3.material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/building3.png'), opacity: 1, side: THREE.DoubleSide});
         building3.material.needsUpdate = true;
+
+        building_floor3.material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/building_floor3.png'), opacity: 1, side: THREE.DoubleSide});
+        building_floor3.material.needsUpdate = true;
 
         root.add(model3);
     });
 
     // Sun Shade.
     sun_shade_animate.position.x = 0;
-    sun_shade_animate.position.y = 10;
+    sun_shade_animate.position.y = 10.5;
     sun_shade_animate.position.z = 0;
     sun_shade_animate.scale.x = 1.6;
     sun_shade_animate.scale.y = 1.1;
@@ -339,7 +387,7 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
 
     // Soloar Irradiance.
     solar_irradiance_animate.position.x = 0;
-    solar_irradiance_animate.position.y = 10;
+    solar_irradiance_animate.position.y = 10.5;
     solar_irradiance_animate.position.z = 0;
     solar_irradiance_animate.scale.x = 1.6;
     solar_irradiance_animate.scale.y = 1.1;
@@ -601,6 +649,9 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
             root.visible = true;
         }
 
+        if (model0 !== undefined) {
+            //
+        }
         if (model1 !== undefined) {
 
             /* console.log("modelX:" + model.position.x);
@@ -664,18 +715,12 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
 }
 
 function choice1_worker() {
-    console.log(model1);
-    console.log(model1.children[0]);
-    console.log(model1.children[0].children[0]);
-    console.log(model1.children[0].children[1]);
+    // console.log(model1);
+    // console.log(model1.children[0]);
+    // console.log(model1.children[0].children[0]);
+    // console.log(model1.children[0].children[1]);
 
-    model1.children[1].visible = false;
-
-    // var building = model.children[0].children[1];
-
-    // building.material = new THREE.MeshBasicMaterial({ transparent: false, map: new THREE.TextureLoader().load('Data/textures/building2.png') });
-    // building.material.needsUpdate = true;
-
+    model0.visible = false;
     model1.visible = true;
     model2.visible = false;
     model3.visible = false;
@@ -691,11 +736,7 @@ function choice2_worker() {
     // console.log(model.children[0].children[0]);
     // console.log(model.children[0].children[1]);
 
-    // var building = model.children[0].children[1];
-
-    // building.material = new THREE.MeshBasicMaterial({ transparent: false, map: new THREE.TextureLoader().load('Data/textures/building3.png') });
-    // building.material.needsUpdate = true;
-
+    model0.visible = false;
     model1.visible = false;
     model2.visible = true;
     model3.visible = false;
@@ -711,11 +752,7 @@ function choice3_worker() {
     // console.log(model.children[0].children[0]);
     // console.log(model.children[0].children[1]);
 
-    // var building = model.children[0].children[1];
-
-    // building.material = new THREE.MeshBasicMaterial({ transparent: false, map: new THREE.TextureLoader().load('Data/textures/building4.png') });
-    // building.material.needsUpdate = true;
-
+    model0.visible = false;
     model1.visible = false;
     model2.visible = false;
     model3.visible = true;
