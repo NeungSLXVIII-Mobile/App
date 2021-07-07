@@ -270,19 +270,50 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
         model0.visible = true;
 
         console.log("model0");
-        console.log(model0);
-        console.log(model0.children[0]);
-        console.log(model0.children[0].children[0]);
-        console.log(model0.children[1]);
 
-        var building0 = model0.children[0].children[0];
-        var building_floor0 = model0.children[1];
+        var building0;
+        var building_floor0;
 
-        building0.material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/building0.png'), opacity: 1, side: THREE.DoubleSide});
-        building0.material.needsUpdate = true;
+        for (count = 0; count < model0.children.length; count++) {
+            console.log(model0.children[count]);
+            // Building.
+            if (model0.children[count].name == "Building") {
+                console.log("Building LV1");
+                building0 = model0.children[count];
+            }
 
-        building_floor0.material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/building_floor0.png'), opacity: 1, side: THREE.DoubleSide});
-        building_floor0.material.needsUpdate = true;
+            // Floor.
+            if (model0.children[count].name == "Cube") {
+                console.log("Cube LV1");
+                building_floor0 = model0.children[count];
+            }
+
+            for (count2 = 0; count2 < model0.children[count].children.length; count2++) {
+                console.log(model0.children[count].children[count2]);
+
+                // Building.
+                if (model0.children[count].children[count2].name == "Building") {
+                    console.log("Building LV2");
+                    building0 = model0.children[count].children[count2];
+                }
+
+                // Floor.
+                if (model0.children[count].children[count2].name == "Cube") {
+                    console.log("Cube LV2");
+                    building_floor0 = model0.children[count].children[count2];
+                }
+            }
+        }
+
+        if (building0 != undefined) {
+            building0.material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/building0.png'), opacity: 1, side: THREE.DoubleSide });
+            building0.material.needsUpdate = true;
+        }
+
+        if (building_floor0 != undefined) {
+            building_floor0.material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/building_floor0.png'), opacity: 1, side: THREE.DoubleSide });
+            building_floor0.material.needsUpdate = true;
+        }
 
         root.add(model0);
     });
@@ -299,19 +330,50 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
         model1.visible = false;
 
         console.log("model1");
-        console.log(model1);
-        console.log(model1.children[0]);
-        console.log(model1.children[0].children[0]);
-        console.log(model1.children[1]);
+        
+        var building1;
+        var building_floor1;
 
-        var building1 = model1.children[0].children[0];
-        var building_floor1 = model1.children[1];
+        for (count = 0; count < model1.children.length; count++) {
+            console.log(model1.children[count]);
+            // Building.
+            if (model1.children[count].name == "Building") {
+                console.log("Building LV1");
+                building1 = model1.children[count];
+            }
 
-        building1.material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/building1.png'), opacity: 1, side: THREE.DoubleSide});
-        building1.material.needsUpdate = true;
+            // Floor.
+            if (model1.children[count].name == "Cube") {
+                console.log("Cube LV1");
+                building_floor1 = model1.children[count];
+            }
 
-        building_floor1.material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/building_floor1.png'), opacity: 1, side: THREE.DoubleSide});
-        building_floor1.material.needsUpdate = true;
+            for (count2 = 0; count2 < model1.children[count].children.length; count2++) {
+                console.log(model1.children[count].children[count2]);
+
+                // Building.
+                if (model1.children[count].children[count2].name == "Building") {
+                    console.log("Building LV2");
+                    building1 = model1.children[count].children[count2];
+                }
+
+                // Floor.
+                if (model1.children[count].children[count2].name == "Cube") {
+                    console.log("Cube LV2");
+                    building_floor1 = model1.children[count].children[count2];
+                }
+            }
+        }
+
+        if (building1 != undefined) {
+            building1.material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/building1.png'), opacity: 1, side: THREE.DoubleSide });
+            building1.material.needsUpdate = true;
+        }
+
+        if (building_floor1 != undefined) {
+            building_floor1.material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/building_floor1.png'), opacity: 1, side: THREE.DoubleSide });
+            building_floor1.material.needsUpdate = true;
+        }
 
         root.add(model1);
     });
@@ -328,19 +390,50 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
         model2.visible = false;
 
         console.log("model2");
-        console.log(model2);
-        console.log(model2.children[0]);
-        console.log(model2.children[0].children[0]);
-        console.log(model2.children[0].children[1]);
+        
+        var building2;
+        var building_floor2;
 
-        var building2 = model2.children[0].children[1];
-        var building_floor2 = model2.children[0].children[0];
+        for (count = 0; count < model2.children.length; count++) {
+            console.log(model2.children[count]);
+            // Building.
+            if (model2.children[count].name == "Building") {
+                console.log("Building LV1");
+                building2 = model2.children[count];
+            }
 
-        building2.material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/building2.png'), opacity: 1, side: THREE.DoubleSide});
-        building2.material.needsUpdate = true;
+            // Floor.
+            if (model2.children[count].name == "Cube") {
+                console.log("Cube LV1");
+                building_floor2 = model2.children[count];
+            }
 
-        building_floor2.material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/building_floor2.png'), opacity: 1, side: THREE.DoubleSide});
-        building_floor2.material.needsUpdate = true;
+            for (count2 = 0; count2 < model2.children[count].children.length; count2++) {
+                console.log(model2.children[count].children[count2]);
+
+                // Building.
+                if (model2.children[count].children[count2].name == "Building") {
+                    console.log("Building LV2");
+                    building2 = model2.children[count].children[count2];
+                }
+
+                // Floor.
+                if (model2.children[count].children[count2].name == "Cube") {
+                    console.log("Cube LV2");
+                    building_floor2 = model2.children[count].children[count2];
+                }
+            }
+        }
+
+        if (building2 != undefined) {
+            building2.material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/building2.png'), opacity: 1, side: THREE.DoubleSide });
+            building2.material.needsUpdate = true;
+        }
+
+        if (building_floor2 != undefined) {
+            building_floor2.material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/building_floor2.png'), opacity: 1, side: THREE.DoubleSide });
+            building_floor2.material.needsUpdate = true;
+        }
 
         root.add(model2);
     });
@@ -357,20 +450,50 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
         model3.visible = false;
 
         console.log("model3");
-        console.log(model3);
-        console.log(model3.children[0]);
-        console.log(model3.children[0].children[0]);
-        console.log(model3.children[0].children[1]);
-        console.log(model3.children[1]);
+        
+        var building3;
+        var building_floor3;
 
-        var building3 = model3.children[0].children[0];
-        var building_floor3 = model3.children[0].children[1];
+        for (count = 0; count < model3.children.length; count++) {
+            console.log(model3.children[count]);
+            // Building.
+            if (model3.children[count].name == "Building") {
+                console.log("Building LV1");
+                building3 = model3.children[count];
+            }
 
-        building3.material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/building3.png'), opacity: 1, side: THREE.DoubleSide});
-        building3.material.needsUpdate = true;
+            // Floor.
+            if (model3.children[count].name == "Cube") {
+                console.log("Cube LV1");
+                building_floor3 = model3.children[count];
+            }
 
-        building_floor3.material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/building_floor3.png'), opacity: 1, side: THREE.DoubleSide});
-        building_floor3.material.needsUpdate = true;
+            for (count2 = 0; count2 < model3.children[count].children.length; count2++) {
+                console.log(model3.children[count].children[count2]);
+
+                // Building.
+                if (model3.children[count].children[count2].name == "Building") {
+                    console.log("Building LV2");
+                    building3 = model3.children[count].children[count2];
+                }
+
+                // Floor.
+                if (model3.children[count].children[count2].name == "Cube") {
+                    console.log("Cube LV2");
+                    building_floor3 = model3.children[count].children[count2];
+                }
+            }
+        }
+
+        if (building3 != undefined) {
+            building3.material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/building3.png'), opacity: 1, side: THREE.DoubleSide });
+            building3.material.needsUpdate = true;
+        }
+
+        if (building_floor3 != undefined) {
+            building_floor3.material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/building_floor3.png'), opacity: 1, side: THREE.DoubleSide });
+            building_floor3.material.needsUpdate = true;
+        }
 
         root.add(model3);
     });
