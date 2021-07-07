@@ -500,7 +500,7 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
 
     // Sun Shade.
     sun_shade_animate.position.x = 0;
-    sun_shade_animate.position.y = 10.5;
+    sun_shade_animate.position.y = 12;
     sun_shade_animate.position.z = 0;
     sun_shade_animate.scale.x = 1.6;
     sun_shade_animate.scale.y = 1.1;
@@ -510,7 +510,7 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
 
     // Soloar Irradiance.
     solar_irradiance_animate.position.x = 0;
-    solar_irradiance_animate.position.y = 10.5;
+    solar_irradiance_animate.position.y = 12;
     solar_irradiance_animate.position.z = 0;
     solar_irradiance_animate.scale.x = 1.6;
     solar_irradiance_animate.scale.y = 1.1;
