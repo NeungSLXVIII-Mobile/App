@@ -288,6 +288,12 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
                 building_floor0 = model0.children[count];
             }
 
+            // Plane.
+            if (model0.children[count].name == "Plane") {
+                console.log("Plane LV1");
+                model0.children[count].visible = false;
+            }
+
             for (count2 = 0; count2 < model0.children[count].children.length; count2++) {
                 console.log(model0.children[count].children[count2]);
 
@@ -301,6 +307,12 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
                 if (model0.children[count].children[count2].name == "Cube") {
                     console.log("Cube LV2");
                     building_floor0 = model0.children[count].children[count2];
+                }
+
+                // Plane.
+                if (model0.children[count].name == "Plane") {
+                    console.log("Plane LV2");
+                    model0.children[count].children[count2].visible = false;
                 }
             }
         }
@@ -330,7 +342,7 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
         model1.visible = false;
 
         console.log("model1");
-        
+
         var building1;
         var building_floor1;
 
@@ -348,6 +360,12 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
                 building_floor1 = model1.children[count];
             }
 
+            // Plane.
+            if (model1.children[count].name == "Plane") {
+                console.log("Plane LV1");
+                model1.children[count].visible = false;
+            }
+
             for (count2 = 0; count2 < model1.children[count].children.length; count2++) {
                 console.log(model1.children[count].children[count2]);
 
@@ -361,6 +379,12 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
                 if (model1.children[count].children[count2].name == "Cube") {
                     console.log("Cube LV2");
                     building_floor1 = model1.children[count].children[count2];
+                }
+
+                // Plane.
+                if (model1.children[count].name == "Plane") {
+                    console.log("Plane LV2");
+                    model1.children[count].children[count2].visible = false;
                 }
             }
         }
@@ -390,7 +414,7 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
         model2.visible = false;
 
         console.log("model2");
-        
+
         var building2;
         var building_floor2;
 
@@ -450,7 +474,7 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
         model3.visible = false;
 
         console.log("model3");
-        
+
         var building3;
         var building_floor3;
 
@@ -500,7 +524,7 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
 
     // Sun Shade.
     sun_shade_animate.position.x = 0;
-    sun_shade_animate.position.y = 12;
+    sun_shade_animate.position.y = 10.5;
     sun_shade_animate.position.z = 0;
     sun_shade_animate.scale.x = 1.6;
     sun_shade_animate.scale.y = 1.1;
@@ -510,7 +534,7 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
 
     // Soloar Irradiance.
     solar_irradiance_animate.position.x = 0;
-    solar_irradiance_animate.position.y = 12;
+    solar_irradiance_animate.position.y = 10.5;
     solar_irradiance_animate.position.z = 0;
     solar_irradiance_animate.scale.x = 1.6;
     solar_irradiance_animate.scale.y = 1.1;
