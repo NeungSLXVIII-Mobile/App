@@ -66,18 +66,6 @@ var bicycle_texture = THREE.ImageUtils.loadTexture('assets/sprites/part1_bicycle
 SpriteAnimator.add({ texture: bicycle_texture, tilesHorizontal: 23, tilesVertical: 22, fps: 24, numberOfTiles: 500 });
 var bicycle_animate = new THREE.Mesh(new THREE.PlaneGeometry(100, 100), new THREE.MeshBasicMaterial({ transparent: true, depthTest: false, map: bicycle_texture, side: THREE.DoubleSide }));
 
-var human01_texture = THREE.ImageUtils.loadTexture('assets/sprites/human01.png');
-SpriteAnimator.add({ texture: bicycle_texture, tilesHorizontal: 1, tilesVertical: 1, fps: 24, numberOfTiles: 1 });
-
-var human02_texture = THREE.ImageUtils.loadTexture('assets/sprites/human02.png');
-SpriteAnimator.add({ texture: bicycle_texture, tilesHorizontal: 1, tilesVertical: 1, fps: 24, numberOfTiles: 1 });
-
-var human03_texture = THREE.ImageUtils.loadTexture('assets/sprites/human03.png');
-SpriteAnimator.add({ texture: bicycle_texture, tilesHorizontal: 1, tilesVertical: 1, fps: 24, numberOfTiles: 1 });
-
-var human04_texture = THREE.ImageUtils.loadTexture('assets/sprites/human04.png');
-SpriteAnimator.add({ texture: bicycle_texture, tilesHorizontal: 1, tilesVertical: 1, fps: 24, numberOfTiles: 1 });
-
 // P1.
 var p1_bicycle_frame = 0;
 var p1_bicycle_duration = 0;
@@ -536,6 +524,9 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
         if (human2_5 != undefined) {
             human2_5.material = p1_human5_material;
             human2_5.material.needsUpdate = true;
+
+            human2_5.rotation.y = 180 * 0.0174532925;
+            human2_5.rotation.z = 180 * 0.0174532925;
         }
 
         if (human2_6 != undefined) {
@@ -904,6 +895,14 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
 }
 
 function choice1_worker() {
+    p1_bicycle_frame = 0;
+    p1_human2_frame = 0;
+    p1_human3_frame = 0;
+    p1_human4_frame = 0;
+    p1_human5_frame = 0;
+    p1_human6_frame = 0;
+    p1_icon_frame = 0;
+
     model1.visible = false;
     model2.visible = true;
     // model3.visible = false;
