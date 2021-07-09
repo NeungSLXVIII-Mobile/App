@@ -439,13 +439,14 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
     // var mesh = new THREE.Mesh(geometry, material); // Mesh model object Mesh
     // scene.add(mesh); // The mesh model is added to the scene
 
-    console.log("xxxxxx2")
+    console.log("xxxxxx3")
     p1_bicycle_video = document.createElement('video');
     //p1_bicycle_video.src = "video/01_Color.mp4";
     p1_bicycle_video.src = "video/test.webm";
     p1_bicycle_video.playsInline = true;
     p1_bicycle_video.autoplay = "autoplay";
     p1_bicycle_video.loop = true;
+    p1_bicycle_video.crossOrigin = "anonymous";
     p1_bicycle_video.onloadeddata = function () {
         console.log("play")
         p1_bicycle_video.play();
@@ -461,6 +462,7 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
     p1_human2_video.playsInline = true;
     p1_human2_video.autoplay = "autoplay";
     p1_human2_video.loop = true;
+    p1_human2_video.crossOrigin = "anonymous";
     p1_human2_video.onloadeddata = function () {
         p1_human2_video.play();
     };
