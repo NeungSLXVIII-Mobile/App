@@ -62,6 +62,9 @@ var adjust_py = 0;
 var adjust_angle = 25;
 //, side: THREE.DoubleSide
 
+var p1_bicycle_video;
+var p1_human2_video;
+
 var bicycle_texture = new THREE.TextureLoader().load('assets/sprites/part1_bicycle.png');
 SpriteAnimator.add({ texture: bicycle_texture, tilesHorizontal: 23, tilesVertical: 22, fps: 24, numberOfTiles: 500 });
 var bicycle_animate = new THREE.Mesh(new THREE.PlaneGeometry(100, 100), new THREE.MeshBasicMaterial({ transparent: true, depthTest: false, map: bicycle_texture, side: THREE.DoubleSide }));
@@ -436,15 +439,16 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
     // var mesh = new THREE.Mesh(geometry, material); // Mesh model object Mesh
     // scene.add(mesh); // The mesh model is added to the scene
 
-    console.log("xxxxxx1")
-    let p1_bicycle_video = document.createElement('video');
+    console.log("xxxxxx2")
+    p1_bicycle_video = document.createElement('video');
     //p1_bicycle_video.src = "video/01_Color.mp4";
     p1_bicycle_video.src = "video/test.webm";
     p1_bicycle_video.playsInline = true;
     p1_bicycle_video.autoplay = "autoplay";
     p1_bicycle_video.loop = true;
     p1_bicycle_video.onloadeddata = function () {
-        p1_bicycle_video.play()
+        console.log("play")
+        p1_bicycle_video.play();
     };
 
     var p1_bicycle_video_texture = new THREE.VideoTexture(p1_bicycle_video);
@@ -452,13 +456,13 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
     p1_bicycle_video_texture.magFilter = THREE.LinearFilter;
     p1_bicycle_video_texture.format = THREE.RGBAFormat;
 
-    let p1_human2_video = document.createElement('video');
-    p1_human2_video.src = "video/test.ogg";
+    p1_human2_video = document.createElement('video');
+    p1_human2_video.src = "video/test.webm";
     p1_human2_video.playsInline = true;
     p1_human2_video.autoplay = "autoplay";
     p1_human2_video.loop = true;
     p1_human2_video.onloadeddata = function () {
-        p1_human2_video.play()
+        p1_human2_video.play();
     };
 
     var p1_human2_video_texture = new THREE.VideoTexture(p1_human2_video);
@@ -467,7 +471,7 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
     p1_human2_video_texture.format = THREE.RGBAFormat;
 
     var p1_bicycle_material = new THREE.MeshPhongMaterial({ map: p1_bicycle_video_texture, transparent: true, side: THREE.DoubleSide, opacity: 1, alphaMap: p1_bicycle_video_texture });
-    var p1_human2_material = new THREE.MeshPhongMaterial({ map: p1_human2_video_texture, transparent: true, side: THREE.DoubleSide, opacity: 1, alphaMap: p1_human2_video_texture });
+    var p1_human2_material = new THREE.MeshPhongMaterial({ map: p1_human2_video_texture, transparent: true, side: THREE.DoubleSide, opacity: 1 });
 
     // var geometry = new THREE.PlaneGeometry(108, 71);
     // var mesh = new THREE.Mesh(geometry,  p1_bicycle_material);
@@ -1243,6 +1247,9 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
     function downScreen(e) {
         console.log("downscreen");
         isDragging = true;
+
+        p1_bicycle_video.play();
+        p1_human2_video.play();
     }
 
     function moveScreen(e) {
