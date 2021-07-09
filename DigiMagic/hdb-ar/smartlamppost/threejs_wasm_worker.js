@@ -442,6 +442,9 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
     p1_bicycle_video.playsInline = true;
     p1_bicycle_video.autoplay = "autoplay";
     p1_bicycle_video.loop = true;
+    p1_bicycle_video.onloadeddata = function () {
+        p1_bicycle_video.play()
+    };
 
     var p1_bicycle_video_texture = new THREE.VideoTexture(p1_bicycle_video);
     p1_bicycle_video_texture.minFilter = THREE.LinearFilter;
@@ -453,6 +456,9 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
     p1_human2_video.playsInline = true;
     p1_human2_video.autoplay = "autoplay";
     p1_human2_video.loop = true;
+    p1_human2_video.onloadeddata = function () {
+        p1_human2_video.play()
+    };
 
     var p1_human2_video_texture = new THREE.VideoTexture(p1_human2_video);
     p1_human2_video_texture.minFilter = THREE.LinearFilter;
