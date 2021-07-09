@@ -494,11 +494,11 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
     p1_human4_video = document.getElementById('video_test');
 
     var p1_human4_video_texture = new THREE.VideoTexture(p1_human4_video);
-    p1_human4_video_texture.minFilter = THREE.LinearFilter;
-    p1_human4_video_texture.magFilter = THREE.LinearFilter;
-    p1_human4_video_texture.format = THREE.RGBAFormat;
+    // p1_human4_video_texture.minFilter = THREE.LinearFilter;
+    // p1_human4_video_texture.magFilter = THREE.LinearFilter;
+    // p1_human4_video_texture.format = THREE.RGBAFormat;
 
-    var p1_human4_material = new THREE.MeshPhongMaterial({ map: p1_human2_video_texture, transparent: true, side: THREE.DoubleSide, opacity: 1 });
+    var p1_human4_material = new THREE.MeshPhongMaterial({ map: p1_human4_video_texture, transparent: true, side: THREE.DoubleSide, opacity: 1 });
 
     /* Load Model */
     var threeGLTFLoader1 = new THREE.GLTFLoader();
