@@ -479,6 +479,7 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
     var updateFcts = [];
     var p1_human3_video_texture = new THREEx.VideoTexture("video/sintel.ogv");
     p1_human3_video	= p1_human3_video_texture.video;
+    p1_human3_video.muted = true;
     updateFcts.push(function (delta, now) {
         p1_human3_video_texture.update(delta, now);
         console.log("XXXXX " + delta);
@@ -489,6 +490,15 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
     // var geometry = new THREE.PlaneGeometry(108, 71);
     // var mesh = new THREE.Mesh(geometry,  p1_bicycle_material);
     // scene.add(mesh);
+
+    p1_human4_video = document.getElementById('video_test');
+
+    var p1_human4_video_texture = new THREE.VideoTexture(p1_human4_video);
+    p1_human4_video_texture.minFilter = THREE.LinearFilter;
+    p1_human4_video_texture.magFilter = THREE.LinearFilter;
+    p1_human4_video_texture.format = THREE.RGBAFormat;
+
+    var p1_human4_material = new THREE.MeshPhongMaterial({ map: p1_human2_video_texture, transparent: true, side: THREE.DoubleSide, opacity: 1 });
 
     /* Load Model */
     var threeGLTFLoader1 = new THREE.GLTFLoader();
@@ -565,7 +575,8 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
 
         // BG.
         if (bg1_1 != undefined) {
-            bg1_1.material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/bg.png'), opacity: 1, depthTest: false, transparent: false, side: THREE.DoubleSide });
+            //bg1_1.material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/bg.png'), opacity: 1, depthTest: false, transparent: false, side: THREE.DoubleSide });
+            bg1_1.material = p1_human4_material;
             bg1_1.material.needsUpdate = true;
 
             bg1_1.rotation.y = 180 * 0.0174532925;
