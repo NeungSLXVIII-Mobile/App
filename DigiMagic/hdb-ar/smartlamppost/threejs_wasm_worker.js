@@ -437,7 +437,8 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
     // scene.add(mesh); // The mesh model is added to the scene
 
     let p1_bicycle_video = document.createElement('video');
-    p1_bicycle_video.src = "video/01_Color.mp4";
+    //p1_bicycle_video.src = "video/01_Color.mp4";
+    p1_bicycle_video.src = "video/test.webm";
     p1_bicycle_video.autoplay = "autoplay";
     p1_bicycle_video.loop = true;
 
