@@ -446,33 +446,39 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
     // var mesh = new THREE.Mesh(geometry, material); // Mesh model object Mesh
     // scene.add(mesh); // The mesh model is added to the scene
 
-    console.log("xxxxxx6")
-    p1_bicycle_video = document.createElement('video');
-    //p1_bicycle_video.src = "video/01_Color.mp4";
-    p1_bicycle_video.src = "video/test.webm";
-    p1_bicycle_video.playsInline = true;
-    p1_bicycle_video.setAttribute("webkit-playsinline", "webkit-playsinline");
-    p1_bicycle_video.autoplay = "autoplay";
-    p1_bicycle_video.loop = true;
-    p1_bicycle_video.crossOrigin = "anonymous";
-    p1_bicycle_video.onloadeddata = function () {
-        console.log("play")
-        p1_bicycle_video.play();
-    };
+    console.log("xxxxxx7")
 
-    p1_human2_video = document.createElement('video');
-    p1_human2_video.src = "video/test.webm";
-    p1_human2_video.playsInline = true;
-    p1_human2_video.setAttribute("webkit-playsinline", "webkit-playsinline");
-    p1_human2_video.autoplay = "autoplay";
-    p1_human2_video.loop = true;
-    p1_human2_video.crossOrigin = "anonymous";
-    p1_human2_video.onloadeddata = function () {
-        p1_human2_video.play();
-    };
+    // p1_bicycle_video = document.createElement('video');
+    // //p1_bicycle_video.src = "video/01_Color.mp4";
+    // p1_bicycle_video.src = "video/test.webm";
+    // p1_bicycle_video.playsInline = true;
+    // p1_bicycle_video.setAttribute("webkit-playsinline", "webkit-playsinline");
+    // p1_bicycle_video.autoplay = "autoplay";
+    // p1_bicycle_video.loop = true;
+    // p1_bicycle_video.crossOrigin = "anonymous";
+    // p1_bicycle_video.onloadeddata = function () {
+    //     console.log("play")
+    //     p1_bicycle_video.play();
+    // };
 
+    // p1_human2_video = document.createElement('video');
+    // p1_human2_video.src = "video/test.webm";
+    // p1_human2_video.playsInline = true;
+    // p1_human2_video.setAttribute("webkit-playsinline", "webkit-playsinline");
+    // p1_human2_video.autoplay = "autoplay";
+    // p1_human2_video.loop = true;
+    // p1_human2_video.crossOrigin = "anonymous";
+    // p1_human2_video.onloadeddata = function () {
+    //     p1_human2_video.play();
+    // };
+
+    p1_bicycle_video = document.createElement('p1_human1_video');
+    p1_human2_video = document.createElement('p1_human2_video');
     p1_human3_video = document.getElementById('p1_human3_video');
     p1_human4_video = document.getElementById('p1_human4_video');
+    p1_human5_video = document.getElementById('p1_human5_video');
+    p1_human6_video = document.getElementById('p1_human6_video');
+    p1_icon_video = document.getElementById('p1_icon_video');
 
     p1_bicycle_video_texture = new THREE.VideoTexture(p1_bicycle_video);
     p1_bicycle_video_texture.minFilter = THREE.LinearFilter;
@@ -496,10 +502,31 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
     p1_human4_video_texture.format = THREE.RGBAFormat;
     p1_human4_video_texture.needsUpdate = true;
 
+    p1_human5_video_texture = new THREE.VideoTexture(p1_human5_video);
+    p1_human5_video_texture.minFilter = THREE.LinearFilter;
+    p1_human5_video_texture.magFilter = THREE.LinearFilter;
+    p1_human5_video_texture.format = THREE.RGBAFormat;
+    p1_human5_video_texture.needsUpdate = true;
+
+    p1_human6_video_texture = new THREE.VideoTexture(p1_human6_video);
+    p1_human6_video_texture.minFilter = THREE.LinearFilter;
+    p1_human6_video_texture.magFilter = THREE.LinearFilter;
+    p1_human6_video_texture.format = THREE.RGBAFormat;
+    p1_human6_video_texture.needsUpdate = true;
+
+    p1_icon_video_texture = new THREE.VideoTexture(p1_icon_video);
+    p1_icon_video_texture.minFilter = THREE.LinearFilter;
+    p1_icon_video_texture.magFilter = THREE.LinearFilter;
+    p1_icon_video_texture.format = THREE.RGBAFormat;
+    p1_icon_video_texture.needsUpdate = true;
+
     var p1_bicycle_material = new THREE.MeshPhongMaterial({ map: p1_bicycle_video_texture, transparent: true, side: THREE.DoubleSide, opacity: 1, alphaMap: p1_bicycle_video_texture });
     var p1_human2_material = new THREE.MeshPhongMaterial({ map: p1_human2_video_texture, transparent: true, side: THREE.DoubleSide, opacity: 1 });
     var p1_human3_material = new THREE.MeshPhongMaterial({ map: p1_human3_video_texture, transparent: true, side: THREE.DoubleSide, opacity: 1, alphaMap: p1_human3_video_texture });
     var p1_human4_material = new THREE.MeshPhongMaterial({ map: p1_human4_video_texture, transparent: true, side: THREE.DoubleSide, opacity: 1 });
+    var p1_human5_material = new THREE.MeshPhongMaterial({ map: p1_human4_video_texture, transparent: true, side: THREE.DoubleSide, opacity: 1 });
+    var p1_human6_material = new THREE.MeshPhongMaterial({ map: p1_human4_video_texture, transparent: true, side: THREE.DoubleSide, opacity: 1 });
+    var p1_icon_material = new THREE.MeshPhongMaterial({ map: p1_human4_video_texture, transparent: true, side: THREE.DoubleSide, opacity: 1 });
 
     /* Load Model */
     var threeGLTFLoader1 = new THREE.GLTFLoader();
