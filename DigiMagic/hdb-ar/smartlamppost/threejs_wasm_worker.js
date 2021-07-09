@@ -477,14 +477,15 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
     var p1_human2_material = new THREE.MeshPhongMaterial({ map: p1_human2_video_texture, transparent: true, side: THREE.DoubleSide, opacity: 1 });
 
     var updateFcts = [];
-    var p1_human3_video_texture = new THREEx.VideoTexture("video/test.ogg");
+    var p1_human3_video_texture = new THREEx.VideoTexture("video/sintel.ogv");
     p1_human3_video	= p1_human3_video_texture.video;
     updateFcts.push(function (delta, now) {
         p1_human3_video_texture.update(delta, now);
+        console.log("XXXXX " + delta);
     })
 
     //var p1_human3_material = new THREE.MeshPhongMaterial({ map: p1_human3_video_texture.texture, transparent: true, side: THREE.DoubleSide, opacity: 1 });
-    var p1_human3_material = new THREE.MeshPhongMaterial({ map: p1_human3_video_texture.texture, side: THREE.DoubleSide });
+    var p1_human3_material = new THREE.MeshPhongMaterial({ map: p1_human3_video_texture.texture, side: THREE.DoubleSide, opacity: 1 });
     // var geometry = new THREE.PlaneGeometry(108, 71);
     // var mesh = new THREE.Mesh(geometry,  p1_bicycle_material);
     // scene.add(mesh);
@@ -1486,6 +1487,7 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
         renderer.render(scene, camera);
         SpriteAnimator.update(clock.getDelta());
 
+        p1_human3_video_texture.update(clock.getDelta(), now);
 
         // p1_bicycle_material.map = p1_bicycle1_textures[p1_bicycle1_frame];
         // p1_bicycle_duration += clock.getDelta();
