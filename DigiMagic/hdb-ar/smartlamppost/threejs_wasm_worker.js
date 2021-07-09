@@ -439,6 +439,7 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
     let p1_bicycle_video = document.createElement('video');
     //p1_bicycle_video.src = "video/01_Color.mp4";
     p1_bicycle_video.src = "video/test.webm";
+    p1_bicycle_video.playsInline = true;
     p1_bicycle_video.autoplay = "autoplay";
     p1_bicycle_video.loop = true;
 
@@ -447,8 +448,19 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
     p1_bicycle_video_texture.magFilter = THREE.LinearFilter;
     p1_bicycle_video_texture.format = THREE.RGBAFormat;
 
-    //var p1_bicycle_material = new THREE.MeshPhongMaterial({ map: p1_bicycle_video_texture, transparent: true, side: THREE.DoubleSide });
+    let p1_human2_video = document.createElement('video');
+    p1_human2_video.src = "video/test.ogg";
+    p1_human2_video.playsInline = true;
+    p1_human2_video.autoplay = "autoplay";
+    p1_human2_video.loop = true;
+
+    var p1_human2_video_texture = new THREE.VideoTexture(p1_human2_video);
+    p1_human2_video_texture.minFilter = THREE.LinearFilter;
+    p1_human2_video_texture.magFilter = THREE.LinearFilter;
+    p1_human2_video_texture.format = THREE.RGBAFormat;
+
     var p1_bicycle_material = new THREE.MeshPhongMaterial({ map: p1_bicycle_video_texture, transparent: true, side: THREE.DoubleSide, opacity: 1, alphaMap: p1_bicycle_video_texture });
+    var p1_human2_material = new THREE.MeshPhongMaterial({ map: p1_human2_video_texture, transparent: true, side: THREE.DoubleSide, opacity: 1, alphaMap: p1_human2_video_texture });
 
     // var geometry = new THREE.PlaneGeometry(108, 71);
     // var mesh = new THREE.Mesh(geometry,  p1_bicycle_material);
@@ -548,7 +560,8 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
 
         // lamppost 2a.
         if (lamppost1_2a != undefined) {
-            lamppost1_2a.material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/lamppost02.png'), opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide });
+            //lamppost1_2a.material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/lamppost02.png'), opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide });
+            lamppost1_2a.material = p1_human2_material;
             lamppost1_2a.material.needsUpdate = true;
 
             lamppost1_2a.rotation.y = 180 * 0.0174532925;
