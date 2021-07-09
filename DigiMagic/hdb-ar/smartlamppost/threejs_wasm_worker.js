@@ -55,8 +55,6 @@ var model2;
 var model3;
 var model4;
 
-var bicycle_video;
-
 //tools
 var adjust_scale = 2;
 var adjust_px = 380 / 10;
@@ -424,23 +422,36 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
     scene.add(root);
     root.visible = false;
 
-    // var bicycle_video = document.createElement('video');
-    // bicycle_video.src = "video/01_Color.ogv";
-    // bicycle_video.load();
-    // bicycle_video.play();
-    // var bicycle_video_image = document.createElement('canvas');
-    // bicycle_video_image.width = 900;
-    // bicycle_video_image.height = 300;
+    // Create video object
+    let video2 = document.createElement('video');
+    video2.src = "video/01_Color.mp4"; // Set video address
+    video2.autoplay = "autoplay"; // To set up playback
+    video2.loop = true;
+    // Video object is used as VideoTexture parameter to create texture object
+    // var texture = new THREE.VideoTexture(video2)
+    // var geometry = new THREE.PlaneGeometry(108, 71); // rectangular plane
+    // var material = new THREE.MeshPhongMaterial({
+    //     map: texture, // Set texture map
+    // }); // Material object Material
+    // var mesh = new THREE.Mesh(geometry, material); // Mesh model object Mesh
+    // scene.add(mesh); // The mesh model is added to the scene
 
-    // var bicycle_video_image_context = bicycle_video_image.getContext('2d');
-    // // background color if no video present
-    // bicycle_video_image_context.fillStyle = '#000000';
-    // bicycle_video_image_context.fillRect(0, 0, bicycle_video_image.width, bicycle_video_image.height);
+    let p1_bicycle_video = document.createElement('video');
+    p1_bicycle_video.src = "video/01_Color.mp4";
+    p1_bicycle_video.autoplay = "autoplay";
+    p1_bicycle_video.loop = true;
 
-    var bicycle_video_texture = new THREE.Texture(bicycle_video);
-    bicycle_video_texture.minFilter = THREE.LinearFilter;
-    bicycle_video_texture.magFilter = THREE.LinearFilter;
-    bicycle_video_texture.format = THREE.RGBFormat;
+    var p1_bicycle_video_texture = new THREE.VideoTexture(p1_bicycle_video);
+    p1_bicycle_video_texture.minFilter = THREE.LinearFilter;
+    p1_bicycle_video_texture.magFilter = THREE.LinearFilter;
+    p1_bicycle_video_texture.format = THREE.RGBAFormat;
+
+    //var p1_bicycle_material = new THREE.MeshPhongMaterial({ map: p1_bicycle_video_texture, transparent: true, side: THREE.DoubleSide });
+    var p1_bicycle_material = new THREE.MeshPhongMaterial({ map: p1_bicycle_video_texture, transparent: true, side: THREE.DoubleSide, opacity: 1, alphaMap: p1_bicycle_video_texture });
+
+    // var geometry = new THREE.PlaneGeometry(108, 71);
+    // var mesh = new THREE.Mesh(geometry,  p1_bicycle_material);
+    // scene.add(mesh);
 
     /* Load Model */
     var threeGLTFLoader1 = new THREE.GLTFLoader();
@@ -499,8 +510,7 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
 
         // tree 1.
         if (tree1_1 != undefined) {
-            //tree1_1.material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/tree01.png'), opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide });
-            tree1_1.material = new THREE.MeshBasicMaterial({ map: bicycle_video_texture, opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide });
+            tree1_1.material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/tree01.png'), opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide });
             tree1_1.material.needsUpdate = true;
 
             tree1_1.rotation.y = 180 * 0.0174532925;
@@ -527,7 +537,8 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
 
         // lamppost 1.
         if (lamppost1_1 != undefined) {
-            lamppost1_1.material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/lamppost01.png'), opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide });
+            //lamppost1_1.material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/lamppost01.png'), opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide });
+            lamppost1_1.material = p1_bicycle_material;
             lamppost1_1.material.needsUpdate = true;
 
             lamppost1_1.rotation.y = 180 * 0.0174532925;
@@ -554,7 +565,7 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
 
         // floor.
         if (floor1_1 != undefined) {
-            floor1_1.material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/floor.png'), opacity: 1, depthTest: true, transparent: false, side: THREE.DoubleSide });
+            floor1_1.material = new THREE.MeshPhongMaterial({ map: new THREE.TextureLoader().load('Data/textures/floor.png'), opacity: 1, depthTest: true, transparent: false, side: THREE.DoubleSide });
             floor1_1.material.needsUpdate = true;
         }
 
