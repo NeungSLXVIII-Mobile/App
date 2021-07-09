@@ -391,6 +391,15 @@ var bicycle_animate = new THREE.Mesh(new THREE.PlaneGeometry(100, 100), new THRE
 // var p3_human5_material = new THREE.MeshBasicMaterial({ map: p3_human5_textures[0], depthTest: false, transparent: true, side: THREE.DoubleSide });
 // var p3_icon_material = new THREE.MeshBasicMaterial({ map: p3_icon_textures[0], depthTest: false, transparent: true, side: THREE.DoubleSide });
 
+var tree1_material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/tree01.png'), opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide });
+var tree2_material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/tree02.png'), opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide });
+var bg_material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/bg.png'), opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide });
+var floor_material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/floor.png'), opacity: 1, depthTest: true, transparent: false, side: THREE.DoubleSide });
+var lamppost1_material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/lamppost01.png'), opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide });
+var lamppost2_material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/lamppost02.png'), opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide });
+var lamppost1_light_material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/lamppost01_light.png'), opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide });
+var lamppost2_light_material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/lamppost02_light.png'), opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide });
+
 //var worker;
 function start(container, marker, video, input_width, input_height, canvas_draw, render_update, track_update) {
     worker = new Worker('wasm_worker/artoolkit.wasm_worker.js');
@@ -454,30 +463,6 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
 
     console.log("xxxxxx-8")
 
-    // p1_bicycle_video = document.createElement('video');
-    // //p1_bicycle_video.src = "video/01_Color.mp4";
-    // p1_bicycle_video.src = "video/test.webm";
-    // p1_bicycle_video.playsInline = true;
-    // p1_bicycle_video.setAttribute("webkit-playsinline", "webkit-playsinline");
-    // p1_bicycle_video.autoplay = "autoplay";
-    // p1_bicycle_video.loop = true;
-    // p1_bicycle_video.crossOrigin = "anonymous";
-    // p1_bicycle_video.onloadeddata = function () {
-    //     console.log("play")
-    //     p1_bicycle_video.play();
-    // };
-
-    // p1_human2_video = document.createElement('video');
-    // p1_human2_video.src = "video/test.webm";
-    // p1_human2_video.playsInline = true;
-    // p1_human2_video.setAttribute("webkit-playsinline", "webkit-playsinline");
-    // p1_human2_video.autoplay = "autoplay";
-    // p1_human2_video.loop = true;
-    // p1_human2_video.crossOrigin = "anonymous";
-    // p1_human2_video.onloadeddata = function () {
-    //     p1_human2_video.play();
-    // };
-
     p1_bicycle_video = document.getElementById('p1_bicycle_video');
     p1_human2_video = document.getElementById('p1_human2_video');
     p1_human3_video = document.getElementById('p1_human3_video');
@@ -527,12 +512,12 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
     p1_icon_video_texture.needsUpdate = true;
 
     var p1_bicycle_material = new THREE.MeshPhongMaterial({ map: p1_bicycle_video_texture, transparent: true, side: THREE.DoubleSide, opacity: 1, alphaMap: p1_bicycle_video_texture });
-    var p1_human2_material = new THREE.MeshPhongMaterial({ map: p1_human2_video_texture, transparent: true, side: THREE.DoubleSide, opacity: 1 });
+    var p1_human2_material = new THREE.MeshPhongMaterial({ map: p1_human2_video_texture, transparent: true, side: THREE.DoubleSide, opacity: 1, alphaMap: p1_human2_video_texture });
     var p1_human3_material = new THREE.MeshPhongMaterial({ map: p1_human3_video_texture, transparent: true, side: THREE.DoubleSide, opacity: 1, alphaMap: p1_human3_video_texture });
-    var p1_human4_material = new THREE.MeshPhongMaterial({ map: p1_human4_video_texture, transparent: true, side: THREE.DoubleSide, opacity: 1 });
-    var p1_human5_material = new THREE.MeshPhongMaterial({ map: p1_human4_video_texture, transparent: true, side: THREE.DoubleSide, opacity: 1 });
-    var p1_human6_material = new THREE.MeshPhongMaterial({ map: p1_human4_video_texture, transparent: true, side: THREE.DoubleSide, opacity: 1 });
-    var p1_icon_material = new THREE.MeshPhongMaterial({ map: p1_human4_video_texture, transparent: true, side: THREE.DoubleSide, opacity: 1 });
+    var p1_human4_material = new THREE.MeshPhongMaterial({ map: p1_human4_video_texture, transparent: true, side: THREE.DoubleSide, opacity: 1, alphaMap: p1_human4_video_texture });
+    var p1_human5_material = new THREE.MeshPhongMaterial({ map: p1_human4_video_texture, transparent: true, side: THREE.DoubleSide, opacity: 1, alphaMap: p1_human5_video_texture });
+    var p1_human6_material = new THREE.MeshPhongMaterial({ map: p1_human4_video_texture, transparent: true, side: THREE.DoubleSide, opacity: 1, alphaMap: p1_human6_video_texture });
+    var p1_icon_material = new THREE.MeshPhongMaterial({ map: p1_human4_video_texture, transparent: true, side: THREE.DoubleSide, opacity: 1, alphaMap: p1_icon_video_texture });
 
     /* Load Model */
     var threeGLTFLoader1 = new THREE.GLTFLoader();
@@ -591,7 +576,7 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
 
         // tree 1.
         if (tree1_1 != undefined) {
-            tree1_1.material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/tree01.png'), opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide });
+            tree1_1.material = tree1_material;
             tree1_1.material.needsUpdate = true;
 
             tree1_1.rotation.y = 180 * 0.0174532925;
@@ -600,7 +585,7 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
 
         // tree 2.
         if (tree1_2 != undefined) {
-            tree1_2.material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/tree02.png'), opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide });
+            tree1_2.material = tree2_material;
             tree1_2.material.needsUpdate = true;
 
             tree1_2.rotation.y = 180 * 0.0174532925;
@@ -609,8 +594,7 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
 
         // BG.
         if (bg1_1 != undefined) {
-            //bg1_1.material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/bg.png'), opacity: 1, depthTest: false, transparent: false, side: THREE.DoubleSide });
-            bg1_1.material = p1_human4_material;
+            bg1_1.material = bg_material;
             bg1_1.material.needsUpdate = true;
 
             bg1_1.rotation.y = 180 * 0.0174532925;
@@ -619,8 +603,7 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
 
         // lamppost 1.
         if (lamppost1_1 != undefined) {
-            //lamppost1_1.material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/lamppost01.png'), opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide });
-            lamppost1_1.material = p1_bicycle_material;
+            lamppost1_1.material = lamppost1_material;
             lamppost1_1.material.needsUpdate = true;
 
             lamppost1_1.rotation.y = 180 * 0.0174532925;
@@ -629,8 +612,7 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
 
         // lamppost 2a.
         if (lamppost1_2a != undefined) {
-            //lamppost1_2a.material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/lamppost02.png'), opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide });
-            lamppost1_2a.material = p1_human2_material;
+            lamppost1_2a.material = lamppost2_material;
             lamppost1_2a.material.needsUpdate = true;
 
             lamppost1_2a.rotation.y = 180 * 0.0174532925;
@@ -639,8 +621,7 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
 
         // lamppost 2b.
         if (lamppost1_2b != undefined) {
-            //lamppost1_2b.material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/lamppost02.png'), opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide });
-            lamppost1_2b.material = p1_human3_material;
+            lamppost1_2b.material = lamppost2_material;
             lamppost1_2b.material.needsUpdate = true;
 
             lamppost1_2b.rotation.y = 180 * 0.0174532925;
@@ -649,221 +630,221 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
 
         // floor.
         if (floor1_1 != undefined) {
-            floor1_1.material = new THREE.MeshPhongMaterial({ map: new THREE.TextureLoader().load('Data/textures/floor.png'), opacity: 1, depthTest: true, transparent: false, side: THREE.DoubleSide });
+            floor1_1.material = floor_material;
             floor1_1.material.needsUpdate = true;
         }
 
         root.add(model1);
     });
 
-    // var threeGLTFLoader2 = new THREE.GLTFLoader();
-    // threeGLTFLoader2.load("Data/models/smartlamppost2.gltf", function (gltf) {
-    //     model2 = gltf.scene;
+    var threeGLTFLoader2 = new THREE.GLTFLoader();
+    threeGLTFLoader2.load("Data/models/smartlamppost2.gltf", function (gltf) {
+        model2 = gltf.scene;
 
-    //     model2.position.x = 0;
-    //     model2.position.y = 0;
-    //     model2.position.z = 0;
+        model2.position.x = 0;
+        model2.position.y = 0;
+        model2.position.z = 0;
 
-    //     model2.scale.x = model2.scale.y = model2.scale.z = 0.5;
+        model2.scale.x = model2.scale.y = model2.scale.z = 0.5;
 
-    //     model2.visible = false;
+        model2.visible = false;
 
-    //     var tree2_1;
-    //     var tree2_2;
-    //     var bg2_1;
-    //     var floor2_1;
-    //     var lamppost2_1;
-    //     var lamppost2_2a;
-    //     var lamppost2_2b;
-    //     var bicycle2_1;
-    //     var human2_2;
-    //     var human2_3;
-    //     var human2_4;
-    //     var human2_5;
-    //     var human2_6;
-    //     var icon2_1;
+        var tree2_1;
+        var tree2_2;
+        var bg2_1;
+        var floor2_1;
+        var lamppost2_1;
+        var lamppost2_2a;
+        var lamppost2_2b;
+        var bicycle2_1;
+        var human2_2;
+        var human2_3;
+        var human2_4;
+        var human2_5;
+        var human2_6;
+        var icon2_1;
 
-    //     console.log("model2");
-    //     console.log(model2);
-    //     for (count = 0; count < model2.children.length; count++) {
-    //         console.log(model2.children[count]);
-    //         if (model2.children[count].name == "Tree01") {
-    //             console.log("Tree01 LV1");
-    //             tree2_1 = model2.children[count];
-    //         }
-    //         if (model2.children[count].name == "Tree02") {
-    //             console.log("Tree02 LV1");
-    //             tree2_2 = model2.children[count];
-    //         }
-    //         if (model2.children[count].name == "BG") {
-    //             console.log("BG LV1");
-    //             bg2_1 = model2.children[count];
-    //         }
-    //         if (model2.children[count].name == "Lamppost01") {
-    //             console.log("Lamppost01 LV1");
-    //             lamppost2_1 = model2.children[count];
-    //         }
-    //         if (model2.children[count].name == "Lamppost02a") {
-    //             console.log("Lampost01a LV1");
-    //             lamppost2_2a = model2.children[count];
-    //         }
-    //         if (model2.children[count].name == "Lamppost02b") {
-    //             console.log("Lampost02b LV1");
-    //             lamppost2_2b = model2.children[count];
-    //         }
-    //         if (model2.children[count].name == "Cube") {
-    //             console.log("Cube LV1");
-    //             floor2_1 = model2.children[count];
-    //         }
-    //         if (model2.children[count].name == "Bicycle") {
-    //             console.log("Bicycle LV1");
-    //             bicycle2_1 = model2.children[count];
-    //         }
-    //         if (model2.children[count].name == "Human02") {
-    //             console.log("Human02 LV1");
-    //             human2_2 = model2.children[count];
-    //         }
-    //         if (model2.children[count].name == "Human03") {
-    //             console.log("Human03 LV1");
-    //             human2_3 = model2.children[count];
-    //         }
-    //         if (model2.children[count].name == "Human04") {
-    //             console.log("Human04 LV1");
-    //             human2_4 = model2.children[count];
-    //         }
-    //         if (model2.children[count].name == "Human05") {
-    //             console.log("Human05 LV1");
-    //             human2_5 = model2.children[count];
-    //         }
-    //         if (model2.children[count].name == "Human06") {
-    //             console.log("Human06 LV1");
-    //             human2_6 = model2.children[count];
-    //         }
-    //         if (model2.children[count].name == "Icon") {
-    //             console.log("Icon LV1");
-    //             icon2_1 = model2.children[count];
-    //         }
-    //     }
+        console.log("model2");
+        console.log(model2);
+        for (count = 0; count < model2.children.length; count++) {
+            console.log(model2.children[count]);
+            if (model2.children[count].name == "Tree01") {
+                console.log("Tree01 LV1");
+                tree2_1 = model2.children[count];
+            }
+            if (model2.children[count].name == "Tree02") {
+                console.log("Tree02 LV1");
+                tree2_2 = model2.children[count];
+            }
+            if (model2.children[count].name == "BG") {
+                console.log("BG LV1");
+                bg2_1 = model2.children[count];
+            }
+            if (model2.children[count].name == "Lamppost01") {
+                console.log("Lamppost01 LV1");
+                lamppost2_1 = model2.children[count];
+            }
+            if (model2.children[count].name == "Lamppost02a") {
+                console.log("Lampost01a LV1");
+                lamppost2_2a = model2.children[count];
+            }
+            if (model2.children[count].name == "Lamppost02b") {
+                console.log("Lampost02b LV1");
+                lamppost2_2b = model2.children[count];
+            }
+            if (model2.children[count].name == "Cube") {
+                console.log("Cube LV1");
+                floor2_1 = model2.children[count];
+            }
+            if (model2.children[count].name == "Bicycle") {
+                console.log("Bicycle LV1");
+                bicycle2_1 = model2.children[count];
+            }
+            if (model2.children[count].name == "Human02") {
+                console.log("Human02 LV1");
+                human2_2 = model2.children[count];
+            }
+            if (model2.children[count].name == "Human03") {
+                console.log("Human03 LV1");
+                human2_3 = model2.children[count];
+            }
+            if (model2.children[count].name == "Human04") {
+                console.log("Human04 LV1");
+                human2_4 = model2.children[count];
+            }
+            if (model2.children[count].name == "Human05") {
+                console.log("Human05 LV1");
+                human2_5 = model2.children[count];
+            }
+            if (model2.children[count].name == "Human06") {
+                console.log("Human06 LV1");
+                human2_6 = model2.children[count];
+            }
+            if (model2.children[count].name == "Icon") {
+                console.log("Icon LV1");
+                icon2_1 = model2.children[count];
+            }
+        }
 
-    //     // tree 1.
-    //     if (tree2_1 != undefined) {
-    //         tree2_1.material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/tree01.png'), opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide });
-    //         tree2_1.material.needsUpdate = true;
+        // tree 1.
+        if (tree2_1 != undefined) {
+            tree2_1.material = tree1_material;
+            tree2_1.material.needsUpdate = true;
 
-    //         tree2_1.rotation.y = 180 * 0.0174532925;
-    //         tree2_1.rotation.z = 180 * 0.0174532925;
-    //     }
+            tree2_1.rotation.y = 180 * 0.0174532925;
+            tree2_1.rotation.z = 180 * 0.0174532925;
+        }
 
-    //     // tree 2.
-    //     if (tree2_2 != undefined) {
-    //         tree2_2.material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/tree02.png'), opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide });
-    //         tree2_2.material.needsUpdate = true;
+        // tree 2.
+        if (tree2_2 != undefined) {
+            tree2_2.material = tree2_material;
+            tree2_2.material.needsUpdate = true;
 
-    //         tree2_2.rotation.y = 180 * 0.0174532925;
-    //         tree2_2.rotation.z = 180 * 0.0174532925;
-    //     }
+            tree2_2.rotation.y = 180 * 0.0174532925;
+            tree2_2.rotation.z = 180 * 0.0174532925;
+        }
 
-    //     // BG.
-    //     if (bg2_1 != undefined) {
-    //         bg2_1.material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/bg.png'), opacity: 1, depthTest: false, transparent: false, side: THREE.DoubleSide });
-    //         bg2_1.material.needsUpdate = true;
+        // BG.
+        if (bg2_1 != undefined) {
+            bg2_1.material = bg_material;
+            bg2_1.material.needsUpdate = true;
 
-    //         bg2_1.rotation.y = 180 * 0.0174532925;
-    //         bg2_1.rotation.z = 180 * 0.0174532925;
-    //     }
+            bg2_1.rotation.y = 180 * 0.0174532925;
+            bg2_1.rotation.z = 180 * 0.0174532925;
+        }
 
-    //     // lamppost 1.
-    //     if (lamppost2_1 != undefined) {
-    //         lamppost2_1.material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/lamppost01_light.png'), opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide });
-    //         lamppost2_1.material.needsUpdate = true;
+        // lamppost 1.
+        if (lamppost2_1 != undefined) {
+            lamppost2_1.material = lamppost1_light_material;
+            lamppost2_1.material.needsUpdate = true;
 
-    //         lamppost2_1.rotation.y = 180 * 0.0174532925;
-    //         lamppost2_1.rotation.z = 180 * 0.0174532925;
-    //     }
+            lamppost2_1.rotation.y = 180 * 0.0174532925;
+            lamppost2_1.rotation.z = 180 * 0.0174532925;
+        }
 
-    //     // lamppost 2a.
-    //     if (lamppost2_2a != undefined) {
-    //         lamppost2_2a.material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/lamppost02_light.png'), opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide });
-    //         lamppost2_2a.material.needsUpdate = true;
+        // lamppost 2a.
+        if (lamppost2_2a != undefined) {
+            lamppost2_2a.material = lamppost2_light_material;
+            lamppost2_2a.material.needsUpdate = true;
 
-    //         lamppost2_2a.rotation.y = 180 * 0.0174532925;
-    //         lamppost2_2a.rotation.z = 180 * 0.0174532925;
-    //     }
+            lamppost2_2a.rotation.y = 180 * 0.0174532925;
+            lamppost2_2a.rotation.z = 180 * 0.0174532925;
+        }
 
-    //     // lamppost 2b.
-    //     if (lamppost2_2b != undefined) {
-    //         lamppost2_2b.material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/lamppost02_light.png'), opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide });
-    //         lamppost2_2b.material.needsUpdate = true;
+        // lamppost 2b.
+        if (lamppost2_2b != undefined) {
+            lamppost2_2b.material = lamppost2_light_material;
+            lamppost2_2b.material.needsUpdate = true;
 
-    //         lamppost2_2b.rotation.y = 180 * 0.0174532925;
-    //         lamppost2_2b.rotation.z = 180 * 0.0174532925;
-    //     }
+            lamppost2_2b.rotation.y = 180 * 0.0174532925;
+            lamppost2_2b.rotation.z = 180 * 0.0174532925;
+        }
 
-    //     // floor.
-    //     if (floor2_1 != undefined) {
-    //         floor2_1.material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/floor.png'), opacity: 1, depthTest: true, transparent: false, side: THREE.DoubleSide });
-    //         floor2_1.material.needsUpdate = true;
-    //     }
+        // floor.
+        if (floor2_1 != undefined) {
+            floor2_1.material = floor_material;
+            floor2_1.material.needsUpdate = true;
+        }
 
-    //     // bicycle.
-    //     if (bicycle2_1 != undefined) {
-    //         bicycle2_1.material = p1_bicycle_material;
-    //         bicycle2_1.material.needsUpdate = true;
+        // bicycle.
+        if (bicycle2_1 != undefined) {
+            bicycle2_1.material = p1_bicycle_material;
+            bicycle2_1.material.needsUpdate = true;
 
-    //         bicycle2_1.rotation.y = 180 * 0.0174532925;
-    //         bicycle2_1.rotation.z = 180 * 0.0174532925;
-    //     }
+            bicycle2_1.rotation.y = 180 * 0.0174532925;
+            bicycle2_1.rotation.z = 180 * 0.0174532925;
+        }
 
-    //     if (human2_2 != undefined) {
-    //         human2_2.material = p1_human2_material;
-    //         human2_2.material.needsUpdate = true;
+        if (human2_2 != undefined) {
+            human2_2.material = p1_human2_material;
+            human2_2.material.needsUpdate = true;
 
-    //         human2_2.rotation.y = 180 * 0.0174532925;
-    //         human2_2.rotation.z = 180 * 0.0174532925;
-    //     }
+            human2_2.rotation.y = 180 * 0.0174532925;
+            human2_2.rotation.z = 180 * 0.0174532925;
+        }
 
-    //     if (human2_3 != undefined) {
-    //         human2_3.material = p1_human3_material;
-    //         human2_3.material.needsUpdate = true;
+        if (human2_3 != undefined) {
+            human2_3.material = p1_human3_material;
+            human2_3.material.needsUpdate = true;
 
-    //         human2_3.rotation.y = 180 * 0.0174532925;
-    //         human2_3.rotation.z = 180 * 0.0174532925;
-    //     }
+            human2_3.rotation.y = 180 * 0.0174532925;
+            human2_3.rotation.z = 180 * 0.0174532925;
+        }
 
-    //     if (human2_4 != undefined) {
-    //         human2_4.material = p1_human4_material;
-    //         human2_4.material.needsUpdate = true;
+        if (human2_4 != undefined) {
+            human2_4.material = p1_human4_material;
+            human2_4.material.needsUpdate = true;
 
-    //         human2_4.rotation.y = 180 * 0.0174532925;
-    //         human2_4.rotation.z = 180 * 0.0174532925;
-    //     }
+            human2_4.rotation.y = 180 * 0.0174532925;
+            human2_4.rotation.z = 180 * 0.0174532925;
+        }
 
-    //     if (human2_5 != undefined) {
-    //         human2_5.material = p1_human5_material;
-    //         human2_5.material.needsUpdate = true;
+        if (human2_5 != undefined) {
+            human2_5.material = p1_human5_material;
+            human2_5.material.needsUpdate = true;
 
-    //         human2_5.rotation.y = 180 * 0.0174532925;
-    //         human2_5.rotation.z = 180 * 0.0174532925;
-    //     }
+            human2_5.rotation.y = 180 * 0.0174532925;
+            human2_5.rotation.z = 180 * 0.0174532925;
+        }
 
-    //     if (human2_6 != undefined) {
-    //         human2_6.material = p1_human6_material;
-    //         human2_6.material.needsUpdate = true;
+        if (human2_6 != undefined) {
+            human2_6.material = p1_human6_material;
+            human2_6.material.needsUpdate = true;
 
-    //         human2_6.rotation.y = 180 * 0.0174532925;
-    //         human2_6.rotation.z = 180 * 0.0174532925;
-    //     }
+            human2_6.rotation.y = 180 * 0.0174532925;
+            human2_6.rotation.z = 180 * 0.0174532925;
+        }
 
-    //     if (icon2_1 != undefined) {
-    //         icon2_1.material = p1_icon_material;
-    //         icon2_1.material.needsUpdate = true;
+        if (icon2_1 != undefined) {
+            icon2_1.material = p1_icon_material;
+            icon2_1.material.needsUpdate = true;
 
-    //         icon2_1.rotation.y = 180 * 0.0174532925;
-    //         icon2_1.rotation.z = 180 * 0.0174532925;
-    //     }
+            icon2_1.rotation.y = 180 * 0.0174532925;
+            icon2_1.rotation.z = 180 * 0.0174532925;
+        }
 
-    //     root.add(model2);
-    // });
+        root.add(model2);
+    });
 
     // var threeGLTFLoader3 = new THREE.GLTFLoader();
     // threeGLTFLoader3.load("Data/models/smartlamppost3.gltf", function (gltf) {
@@ -1696,20 +1677,20 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
     }
 }
 
-// function choice1_worker() {
-//     p1_bicycle_frame = 0;
-//     p1_human2_frame = 0;
-//     p1_human3_frame = 0;
-//     p1_human4_frame = 0;
-//     p1_human5_frame = 0;
-//     p1_human6_frame = 0;
-//     p1_icon_frame = 0;
+function choice1_worker() {
+    // p1_bicycle_frame = 0;
+    // p1_human2_frame = 0;
+    // p1_human3_frame = 0;
+    // p1_human4_frame = 0;
+    // p1_human5_frame = 0;
+    // p1_human6_frame = 0;
+    // p1_icon_frame = 0;
 
-//     model1.visible = false;
-//     model2.visible = true;
-//     model3.visible = false;
-//     model4.visible = false;
-// }
+    model1.visible = false;
+    model2.visible = true;
+    // model3.visible = false;
+    // model4.visible = false;
+}
 
 // function choice2_worker() {
 //     p2_human1_frame = 0;
