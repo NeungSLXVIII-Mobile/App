@@ -66,11 +66,17 @@ var p1_bicycle_video;
 var p1_human2_video;
 var p1_human3_video;
 var p1_human4_video;
+var p1_human5_video;
+var p1_human6_video;
+var p1_icon_video;
 
 var p1_bicycle_video_texture;
 var p1_human2_video_texture;
 var p1_human3_video_texture;
 var p1_human4_video_texture;
+var p1_human5_video_texture;
+var p1_human6_video_texture;
+var p1_icon_video_texture;
 
 var bicycle_texture = new THREE.TextureLoader().load('assets/sprites/part1_bicycle.png');
 SpriteAnimator.add({ texture: bicycle_texture, tilesHorizontal: 23, tilesVertical: 22, fps: 24, numberOfTiles: 500 });
@@ -472,8 +478,8 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
     //     p1_human2_video.play();
     // };
 
-    p1_bicycle_video = document.createElement('p1_human1_video');
-    p1_human2_video = document.createElement('p1_human2_video');
+    p1_bicycle_video = document.getElementById('p1_bicycle_video');
+    p1_human2_video = document.getElementById('p1_human2_video');
     p1_human3_video = document.getElementById('p1_human3_video');
     p1_human4_video = document.getElementById('p1_human4_video');
     p1_human5_video = document.getElementById('p1_human5_video');
@@ -1305,6 +1311,9 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
         p1_human2_video.play();
         p1_human3_video.play();
         p1_human4_video.play();
+        p1_human5_video.play();
+        p1_human6_video.play();
+        p1_icon_video.play();
     }
 
     function moveScreen(e) {
@@ -1527,10 +1536,10 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
         renderer.render(scene, camera);
         SpriteAnimator.update(clock.getDelta());
 
-        p1_bicycle_video_texture.needsUpdate = true;
-        p1_human2_video_texture.needsUpdate = true;
-        p1_human3_video_texture.needsUpdate = true;
-        p1_human4_video_texture.needsUpdate = true;
+        // p1_bicycle_video_texture.needsUpdate = true;
+        // p1_human2_video_texture.needsUpdate = true;
+        // p1_human3_video_texture.needsUpdate = true;
+        // p1_human4_video_texture.needsUpdate = true;
 
         // p1_bicycle_material.map = p1_bicycle1_textures[p1_bicycle1_frame];
         // p1_bicycle_duration += clock.getDelta();
