@@ -270,6 +270,7 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
         model0.position.z = 0;
 
         model0.scale.x = model0.scale.y = model0.scale.z = 0.1;
+        model0.rotation.x = adjust_angle * 0.0174532925;
 
         model0.visible = true;
 
@@ -342,6 +343,7 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
         model1.position.z = 0;
 
         model1.scale.x = model1.scale.y = model1.scale.z = 0.1;
+        model1.rotation.x = adjust_angle * 0.0174532925;
 
         model1.visible = false;
 
@@ -421,6 +423,7 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
         model2.position.z = 0;
 
         model2.scale.x = model2.scale.y = model2.scale.z = 0.1;
+        model2.rotation.x = adjust_angle * 0.0174532925;
 
         model2.visible = false;
 
@@ -500,6 +503,7 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
         model3.position.z = 0;
 
         model3.scale.x = model3.scale.y = model3.scale.z = 0.1;
+        model3.rotation.x = adjust_angle * 0.0174532925;
 
         model3.visible = false;
 
@@ -846,7 +850,10 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
         }
 
         if (model0 !== undefined) {
-            //
+            // console.log("modelX:" + model1.position.x);
+            // console.log("modelY:" + model1.position.y);
+            // console.log("modelZ:" + model1.position.z);
+            // model1.rotation.y = 45 * 0.0174532925;
         }
         if (model1 !== undefined) {
 
