@@ -43,12 +43,7 @@ var setMatrix = function (matrix, value) {
     }
 };
 
-var plane_bg;
-var plane_1;
-var plane_2;
-var plane_3;
-var plane_top_1;
-var plane_top_2;
+var test_mode = true;
 
 var model1;//gltf
 var model2;
@@ -1694,92 +1689,125 @@ function choice1_worker() {
     model3.visible = false;
     model4.visible = false;
 
-    // P1.
-    p1_bicycle_textures = [];
-    for (count = 0; count < 125; count++) {
-        if (count < 10) {
-            p1_bicycle_textures[count] = new THREE.TextureLoader().load('assets/sprites/1/01_Bicycle/01_Bicycle_0000' + count + '.png');
-        }
-        else if (count >= 10 && count < 100) {
-            p1_bicycle_textures[count] = new THREE.TextureLoader().load('assets/sprites/1/01_Bicycle/01_Bicycle_000' + count + '.png');
-        }
-        else {
-            p1_bicycle_textures[count] = new THREE.TextureLoader().load('assets/sprites/1/01_Bicycle/01_Bicycle_00' + count + '.png');
-        }
-    }
-    p1_human2_textures = [];
-    for (count = 0; count < 248; count++) {
-        // if (count < 10) {
-        //     p1_human2_textures[count] = new THREE.TextureLoader().load('assets/sprites/1/02_Human/02_Human_0000' + count + '.png');
-        // }
-        // else if (count >= 10 && count < 100) {
-        //     p1_human2_textures[count] = new THREE.TextureLoader().load('assets/sprites/1/02_Human/02_Human_000' + count + '.png');
-        // }
-        // else {
-        //     p1_human2_textures[count] = new THREE.TextureLoader().load('assets/sprites/1/02_Human/02_Human_00' + count + '.png');
-        // }
-        p1_human2_textures[count] = new THREE.TextureLoader().load('assets/sprites/1/02_Human/02_Human_' + (count + 1) + '.png');
-    }
-    p1_human3_textures = [];
-    for (count = 0; count < 500; count++) {
-        if (count < 10) {
-            p1_human3_textures[count] = new THREE.TextureLoader().load('assets/sprites/1/03_Human/03_Human_0000' + count + '.png');
-        }
-        else if (count >= 10 && count < 100) {
-            p1_human3_textures[count] = new THREE.TextureLoader().load('assets/sprites/1/03_Human/03_Human_000' + count + '.png');
-        }
-        else {
-            p1_human3_textures[count] = new THREE.TextureLoader().load('assets/sprites/1/03_Human/03_Human_00' + count + '.png');
+    if (test_mode) {
+        // P1.
+        p1_bicycle_textures = [];
+        p1_human2_textures = [];
+        p1_human3_textures = [];
+        p1_human4_textures = [];
+        p1_human5_textures = [];
+        p1_human6_textures = [];
+        p1_icon_textures = [];
+
+        var path;
+        for (count = 0; count < 250; count++) {
+            if (count < 10) {
+                path = 'assets/sprites/4/Test/03_Human_0000' + count + '.png';
+            }
+            else if (count >= 10 && count < 100) {
+                path = 'assets/sprites/4/Test/03_Human_000' + count + '.png';
+            }
+            else {
+                path = 'assets/sprites/4/Test/03_Human_00' + count + '.png';
+            }
+
+            p1_bicycle_textures[count] = new THREE.TextureLoader().load(path);
+            p1_human2_textures[count] = new THREE.TextureLoader().load(path);
+            p1_human3_textures[count] = new THREE.TextureLoader().load(path);
+            p1_human4_textures[count] = new THREE.TextureLoader().load(path);
+            p1_human5_textures[count] = new THREE.TextureLoader().load(path);
+            p1_human6_textures[count] = new THREE.TextureLoader().load(path);
+            p1_icon_textures[count] = new THREE.TextureLoader().load(path);
         }
     }
-    p1_human4_textures = [];
-    for (count = 0; count < 500; count++) {
-        if (count < 10) {
-            p1_human4_textures[count] = new THREE.TextureLoader().load('assets/sprites/1/04_Human/04_Human_0000' + count + '.png');
+    else {
+        // P1.
+        p1_bicycle_textures = [];
+        for (count = 0; count < 125; count++) {
+            if (count < 10) {
+                p1_bicycle_textures[count] = new THREE.TextureLoader().load('assets/sprites/1/01_Bicycle/01_Bicycle_0000' + count + '.png');
+            }
+            else if (count >= 10 && count < 100) {
+                p1_bicycle_textures[count] = new THREE.TextureLoader().load('assets/sprites/1/01_Bicycle/01_Bicycle_000' + count + '.png');
+            }
+            else {
+                p1_bicycle_textures[count] = new THREE.TextureLoader().load('assets/sprites/1/01_Bicycle/01_Bicycle_00' + count + '.png');
+            }
         }
-        else if (count >= 10 && count < 100) {
-            p1_human4_textures[count] = new THREE.TextureLoader().load('assets/sprites/1/04_Human/04_Human_000' + count + '.png');
+        p1_human2_textures = [];
+        for (count = 0; count < 248; count++) {
+            // if (count < 10) {
+            //     p1_human2_textures[count] = new THREE.TextureLoader().load('assets/sprites/1/02_Human/02_Human_0000' + count + '.png');
+            // }
+            // else if (count >= 10 && count < 100) {
+            //     p1_human2_textures[count] = new THREE.TextureLoader().load('assets/sprites/1/02_Human/02_Human_000' + count + '.png');
+            // }
+            // else {
+            //     p1_human2_textures[count] = new THREE.TextureLoader().load('assets/sprites/1/02_Human/02_Human_00' + count + '.png');
+            // }
+            p1_human2_textures[count] = new THREE.TextureLoader().load('assets/sprites/1/02_Human/02_Human_' + (count + 1) + '.png');
         }
-        else {
-            p1_human4_textures[count] = new THREE.TextureLoader().load('assets/sprites/1/04_Human/04_Human_00' + count + '.png');
+        p1_human3_textures = [];
+        for (count = 0; count < 500; count++) {
+            if (count < 10) {
+                p1_human3_textures[count] = new THREE.TextureLoader().load('assets/sprites/1/03_Human/03_Human_0000' + count + '.png');
+            }
+            else if (count >= 10 && count < 100) {
+                p1_human3_textures[count] = new THREE.TextureLoader().load('assets/sprites/1/03_Human/03_Human_000' + count + '.png');
+            }
+            else {
+                p1_human3_textures[count] = new THREE.TextureLoader().load('assets/sprites/1/03_Human/03_Human_00' + count + '.png');
+            }
         }
-    }
-    p1_human5_textures = [];
-    for (count = 0; count < 359; count++) {
-        if (count < 10) {
-            p1_human5_textures[count] = new THREE.TextureLoader().load('assets/sprites/1/05_Human/05_Human_0000' + count + '.png');
+        p1_human4_textures = [];
+        for (count = 0; count < 500; count++) {
+            if (count < 10) {
+                p1_human4_textures[count] = new THREE.TextureLoader().load('assets/sprites/1/04_Human/04_Human_0000' + count + '.png');
+            }
+            else if (count >= 10 && count < 100) {
+                p1_human4_textures[count] = new THREE.TextureLoader().load('assets/sprites/1/04_Human/04_Human_000' + count + '.png');
+            }
+            else {
+                p1_human4_textures[count] = new THREE.TextureLoader().load('assets/sprites/1/04_Human/04_Human_00' + count + '.png');
+            }
         }
-        else if (count >= 10 && count < 100) {
-            p1_human5_textures[count] = new THREE.TextureLoader().load('assets/sprites/1/05_Human/05_Human_000' + count + '.png');
+        p1_human5_textures = [];
+        for (count = 0; count < 359; count++) {
+            if (count < 10) {
+                p1_human5_textures[count] = new THREE.TextureLoader().load('assets/sprites/1/05_Human/05_Human_0000' + count + '.png');
+            }
+            else if (count >= 10 && count < 100) {
+                p1_human5_textures[count] = new THREE.TextureLoader().load('assets/sprites/1/05_Human/05_Human_000' + count + '.png');
+            }
+            else {
+                p1_human5_textures[count] = new THREE.TextureLoader().load('assets/sprites/1/05_Human/05_Human_00' + count + '.png');
+            }
         }
-        else {
-            p1_human5_textures[count] = new THREE.TextureLoader().load('assets/sprites/1/05_Human/05_Human_00' + count + '.png');
+        p1_human6_textures = [];
+        for (count = 0; count < 428; count++) {
+            if (count < 10) {
+                p1_human6_textures[count] = new THREE.TextureLoader().load('assets/sprites/1/06_Human/06_Human_0000' + count + '.png');
+            }
+            else if (count >= 10 && count < 100) {
+                p1_human6_textures[count] = new THREE.TextureLoader().load('assets/sprites/1/06_Human/06_Human_000' + count + '.png');
+            }
+            else {
+                p1_human6_textures[count] = new THREE.TextureLoader().load('assets/sprites/1/06_Human/06_Human_00' + count + '.png');
+            }
         }
-    }
-    p1_human6_textures = [];
-    for (count = 0; count < 428; count++) {
-        if (count < 10) {
-            p1_human6_textures[count] = new THREE.TextureLoader().load('assets/sprites/1/06_Human/06_Human_0000' + count + '.png');
+        p1_icon_textures = [];
+        for (count = 0; count < 77; count++) {
+            // if (count < 10) {
+            //     p1_icon_textures[count] = new THREE.TextureLoader().load('assets/sprites/1/Part01_Icon/Part01_Icon_0000' + count + '.png');
+            // }
+            // else if (count >= 10 && count < 100) {
+            //     p1_icon_textures[count] = new THREE.TextureLoader().load('assets/sprites/1/Part01_Icon/Part01_Icon_000' + count + '.png');
+            // }
+            // else {
+            //     p1_icon_textures[count] = new THREE.TextureLoader().load('assets/sprites/1/Part01_Icon/Part01_Icon_00' + count + '.png');
+            // }
+            p1_icon_textures[count] = new THREE.TextureLoader().load('assets/sprites/1/Part01_Icon/Part01_Icon_' + count + '.png');
         }
-        else if (count >= 10 && count < 100) {
-            p1_human6_textures[count] = new THREE.TextureLoader().load('assets/sprites/1/06_Human/06_Human_000' + count + '.png');
-        }
-        else {
-            p1_human6_textures[count] = new THREE.TextureLoader().load('assets/sprites/1/06_Human/06_Human_00' + count + '.png');
-        }
-    }
-    p1_icon_textures = [];
-    for (count = 0; count < 77; count++) {
-        // if (count < 10) {
-        //     p1_icon_textures[count] = new THREE.TextureLoader().load('assets/sprites/1/Part01_Icon/Part01_Icon_0000' + count + '.png');
-        // }
-        // else if (count >= 10 && count < 100) {
-        //     p1_icon_textures[count] = new THREE.TextureLoader().load('assets/sprites/1/Part01_Icon/Part01_Icon_000' + count + '.png');
-        // }
-        // else {
-        //     p1_icon_textures[count] = new THREE.TextureLoader().load('assets/sprites/1/Part01_Icon/Part01_Icon_00' + count + '.png');
-        // }
-        p1_icon_textures[count] = new THREE.TextureLoader().load('assets/sprites/1/Part01_Icon/Part01_Icon_' + count + '.png');
     }
 
     // P2.
@@ -1818,81 +1846,112 @@ function choice2_worker() {
     p1_human4_textures = [];
     p1_human5_textures = [];
     p1_human6_textures = [];
-    p2_icon_textures = [];
+    p1_icon_textures = [];
 
-    // P2.
-    p2_human1_textures = [];
-    for (count = 0; count < 223; count++) {
-        if (count < 10) {
-            p2_human1_textures[count] = new THREE.TextureLoader().load('assets/sprites/2/Human01_v2/Human01_v2_0000' + count + '.png');
-        }
-        else if (count >= 10 && count < 100) {
-            p2_human1_textures[count] = new THREE.TextureLoader().load('assets/sprites/2/Human01_v2/Human01_v2_000' + count + '.png');
-        }
-        else {
-            p2_human1_textures[count] = new THREE.TextureLoader().load('assets/sprites/2/Human01_v2/Human01_v2_00' + count + '.png');
-        }
-    }
-    p2_human2_textures = [];
-    for (count = 0; count < 251; count++) {
-        if (count < 10) {
-            p2_human2_textures[count] = new THREE.TextureLoader().load('assets/sprites/2/Human02_v2/Human02_v2_0000' + count + '.png');
-        }
-        else if (count >= 10 && count < 100) {
-            p2_human2_textures[count] = new THREE.TextureLoader().load('assets/sprites/2/Human02_v2/Human02_v2_000' + count + '.png');
-        }
-        else {
-            p2_human2_textures[count] = new THREE.TextureLoader().load('assets/sprites/2/Human02_v2/Human02_v2_00' + count + '.png');
-        }
-    }
-    p2_human3_textures = [];
-    for (count = 0; count < 271; count++) {
-        if (count < 10) {
-            p2_human3_textures[count] = new THREE.TextureLoader().load('assets/sprites/2/Human03_v2/Human03_v2_0000' + count + '.png');
-        }
-        else if (count >= 10 && count < 100) {
-            p2_human3_textures[count] = new THREE.TextureLoader().load('assets/sprites/2/Human03_v2/Human03_v2_000' + count + '.png');
-        }
-        else {
-            p2_human3_textures[count] = new THREE.TextureLoader().load('assets/sprites/2/Human03_v2/Human03_v2_00' + count + '.png');
+    if (test_mode) {
+        // P1.
+        p2_human1_textures = [];
+        p2_human2_textures = [];
+        p2_human3_textures = [];
+        p2_human4_textures = [];
+        p2_human5_textures = [];
+        p2_icon_textures = [];
+
+        var path;
+        for (count = 0; count < 250; count++) {
+            if (count < 10) {
+                path = 'assets/sprites/4/Test/03_Human_0000' + count + '.png';
+            }
+            else if (count >= 10 && count < 100) {
+                path = 'assets/sprites/4/Test/03_Human_000' + count + '.png';
+            }
+            else {
+                path = 'assets/sprites/4/Test/03_Human_00' + count + '.png';
+            }
+
+            p2_human1_textures[count] = new THREE.TextureLoader().load(path);
+            p2_human2_textures[count] = new THREE.TextureLoader().load(path);
+            p2_human3_textures[count] = new THREE.TextureLoader().load(path);
+            p2_human4_textures[count] = new THREE.TextureLoader().load(path);
+            p2_human5_textures[count] = new THREE.TextureLoader().load(path);
+            p2_icon_textures[count] = new THREE.TextureLoader().load(path);
         }
     }
-    p2_human4_textures = [];
-    for (count = 0; count < 298; count++) {
-        if (count < 10) {
-            p2_human4_textures[count] = new THREE.TextureLoader().load('assets/sprites/2/Human04_v2/Human04_v2_0000' + count + '.png');
+    else {
+        // P2.
+        p2_human1_textures = [];
+        for (count = 0; count < 223; count++) {
+            if (count < 10) {
+                p2_human1_textures[count] = new THREE.TextureLoader().load('assets/sprites/2/Human01_v2/Human01_v2_0000' + count + '.png');
+            }
+            else if (count >= 10 && count < 100) {
+                p2_human1_textures[count] = new THREE.TextureLoader().load('assets/sprites/2/Human01_v2/Human01_v2_000' + count + '.png');
+            }
+            else {
+                p2_human1_textures[count] = new THREE.TextureLoader().load('assets/sprites/2/Human01_v2/Human01_v2_00' + count + '.png');
+            }
         }
-        else if (count >= 10 && count < 100) {
-            p2_human4_textures[count] = new THREE.TextureLoader().load('assets/sprites/2/Human04_v2/Human04_v2_000' + count + '.png');
+        p2_human2_textures = [];
+        for (count = 0; count < 251; count++) {
+            if (count < 10) {
+                p2_human2_textures[count] = new THREE.TextureLoader().load('assets/sprites/2/Human02_v2/Human02_v2_0000' + count + '.png');
+            }
+            else if (count >= 10 && count < 100) {
+                p2_human2_textures[count] = new THREE.TextureLoader().load('assets/sprites/2/Human02_v2/Human02_v2_000' + count + '.png');
+            }
+            else {
+                p2_human2_textures[count] = new THREE.TextureLoader().load('assets/sprites/2/Human02_v2/Human02_v2_00' + count + '.png');
+            }
         }
-        else {
-            p2_human4_textures[count] = new THREE.TextureLoader().load('assets/sprites/2/Human04_v2/Human04_v2_00' + count + '.png');
+        p2_human3_textures = [];
+        for (count = 0; count < 271; count++) {
+            if (count < 10) {
+                p2_human3_textures[count] = new THREE.TextureLoader().load('assets/sprites/2/Human03_v2/Human03_v2_0000' + count + '.png');
+            }
+            else if (count >= 10 && count < 100) {
+                p2_human3_textures[count] = new THREE.TextureLoader().load('assets/sprites/2/Human03_v2/Human03_v2_000' + count + '.png');
+            }
+            else {
+                p2_human3_textures[count] = new THREE.TextureLoader().load('assets/sprites/2/Human03_v2/Human03_v2_00' + count + '.png');
+            }
         }
-    }
-    p2_human5_textures = [];
-    for (count = 0; count < 229; count++) {
-        if (count < 10) {
-            p2_human5_textures[count] = new THREE.TextureLoader().load('assets/sprites/2/Human05_v2/Human05_v2_0000' + count + '.png');
+        p2_human4_textures = [];
+        for (count = 0; count < 298; count++) {
+            if (count < 10) {
+                p2_human4_textures[count] = new THREE.TextureLoader().load('assets/sprites/2/Human04_v2/Human04_v2_0000' + count + '.png');
+            }
+            else if (count >= 10 && count < 100) {
+                p2_human4_textures[count] = new THREE.TextureLoader().load('assets/sprites/2/Human04_v2/Human04_v2_000' + count + '.png');
+            }
+            else {
+                p2_human4_textures[count] = new THREE.TextureLoader().load('assets/sprites/2/Human04_v2/Human04_v2_00' + count + '.png');
+            }
         }
-        else if (count >= 10 && count < 100) {
-            p2_human5_textures[count] = new THREE.TextureLoader().load('assets/sprites/2/Human05_v2/Human05_v2_000' + count + '.png');
+        p2_human5_textures = [];
+        for (count = 0; count < 229; count++) {
+            if (count < 10) {
+                p2_human5_textures[count] = new THREE.TextureLoader().load('assets/sprites/2/Human05_v2/Human05_v2_0000' + count + '.png');
+            }
+            else if (count >= 10 && count < 100) {
+                p2_human5_textures[count] = new THREE.TextureLoader().load('assets/sprites/2/Human05_v2/Human05_v2_000' + count + '.png');
+            }
+            else {
+                p2_human5_textures[count] = new THREE.TextureLoader().load('assets/sprites/2/Human05_v2/Human05_v2_00' + count + '.png');
+            }
         }
-        else {
-            p2_human5_textures[count] = new THREE.TextureLoader().load('assets/sprites/2/Human05_v2/Human05_v2_00' + count + '.png');
+        p2_icon_textures = [];
+        for (count = 0; count < 77; count++) {
+            // if (count < 10) {
+            //     p2_icon_textures[count] = new THREE.TextureLoader().load('assets/sprites/2/PART02_Icon/PART02_Icon_0000' + count + '.png');
+            // }
+            // else if (count >= 10 && count < 100) {
+            //     p2_icon_textures[count] = new THREE.TextureLoader().load('assets/sprites/2/PART02_Icon/PART02_Icon_000' + count + '.png');
+            // }
+            // else {
+            //     p2_icon_textures[count] = new THREE.TextureLoader().load('assets/sprites/2/PART02_Icon/PART02_Icon_00' + count + '.png');
+            // }
+            p2_icon_textures[count] = new THREE.TextureLoader().load('assets/sprites/2/PART02_Icon/PART02_Icon_' + count + '.png');
         }
-    }
-    p2_icon_textures = [];
-    for (count = 0; count < 77; count++) {
-        // if (count < 10) {
-        //     p2_icon_textures[count] = new THREE.TextureLoader().load('assets/sprites/2/PART02_Icon/PART02_Icon_0000' + count + '.png');
-        // }
-        // else if (count >= 10 && count < 100) {
-        //     p2_icon_textures[count] = new THREE.TextureLoader().load('assets/sprites/2/PART02_Icon/PART02_Icon_000' + count + '.png');
-        // }
-        // else {
-        //     p2_icon_textures[count] = new THREE.TextureLoader().load('assets/sprites/2/PART02_Icon/PART02_Icon_00' + count + '.png');
-        // }
-        p2_icon_textures[count] = new THREE.TextureLoader().load('assets/sprites/2/PART02_Icon/PART02_Icon_' + count + '.png');
     }
 
     // P3.
@@ -1923,84 +1982,116 @@ function choice3_worker() {
     p1_human4_textures = [];
     p1_human5_textures = [];
     p1_human6_textures = [];
-    p2_icon_textures = [];
+    p1_icon_textures = [];
 
-    // P2.
-    p2_human1_textures = [];
-    for (count = 0; count < 223; count++) {
-        if (count < 10) {
-            p2_human1_textures[count] = new THREE.TextureLoader().load('assets/sprites/2/Human01_v2/Human01_v2_0000' + count + '.png');
-        }
-        else if (count >= 10 && count < 100) {
-            p2_human1_textures[count] = new THREE.TextureLoader().load('assets/sprites/2/Human01_v2/Human01_v2_000' + count + '.png');
-        }
-        else {
-            p2_human1_textures[count] = new THREE.TextureLoader().load('assets/sprites/2/Human01_v2/Human01_v2_00' + count + '.png');
-        }
-    }
-    p2_human2_textures = [];
-    for (count = 0; count < 251; count++) {
-        if (count < 10) {
-            p2_human2_textures[count] = new THREE.TextureLoader().load('assets/sprites/2/Human02_v2/Human02_v2_0000' + count + '.png');
-        }
-        else if (count >= 10 && count < 100) {
-            p2_human2_textures[count] = new THREE.TextureLoader().load('assets/sprites/2/Human02_v2/Human02_v2_000' + count + '.png');
-        }
-        else {
-            p2_human2_textures[count] = new THREE.TextureLoader().load('assets/sprites/2/Human02_v2/Human02_v2_00' + count + '.png');
-        }
-    }
-    p2_human3_textures = [];
-    for (count = 0; count < 271; count++) {
-        if (count < 10) {
-            p2_human3_textures[count] = new THREE.TextureLoader().load('assets/sprites/2/Human03_v2/Human03_v2_0000' + count + '.png');
-        }
-        else if (count >= 10 && count < 100) {
-            p2_human3_textures[count] = new THREE.TextureLoader().load('assets/sprites/2/Human03_v2/Human03_v2_000' + count + '.png');
-        }
-        else {
-            p2_human3_textures[count] = new THREE.TextureLoader().load('assets/sprites/2/Human03_v2/Human03_v2_00' + count + '.png');
-        }
-    }
-    p2_human4_textures = [];
-    for (count = 0; count < 298; count++) {
-        if (count < 10) {
-            p2_human4_textures[count] = new THREE.TextureLoader().load('assets/sprites/2/Human04_v2/Human04_v2_0000' + count + '.png');
-        }
-        else if (count >= 10 && count < 100) {
-            p2_human4_textures[count] = new THREE.TextureLoader().load('assets/sprites/2/Human04_v2/Human04_v2_000' + count + '.png');
-        }
-        else {
-            p2_human4_textures[count] = new THREE.TextureLoader().load('assets/sprites/2/Human04_v2/Human04_v2_00' + count + '.png');
-        }
-    }
-    p2_human5_textures = [];
-    for (count = 0; count < 229; count++) {
-        if (count < 10) {
-            p2_human5_textures[count] = new THREE.TextureLoader().load('assets/sprites/2/Human05_v2/Human05_v2_0000' + count + '.png');
-        }
-        else if (count >= 10 && count < 100) {
-            p2_human5_textures[count] = new THREE.TextureLoader().load('assets/sprites/2/Human05_v2/Human05_v2_000' + count + '.png');
-        }
-        else {
-            p2_human5_textures[count] = new THREE.TextureLoader().load('assets/sprites/2/Human05_v2/Human05_v2_00' + count + '.png');
-        }
-    }
-    p2_icon_textures = [];
+    if (test_mode) {
+        // P1.
+        p2_human1_textures = [];
+        p2_human2_textures = [];
+        p2_human3_textures = [];
+        p2_human4_textures = [];
+        p2_human5_textures = [];
+        p2_icon_textures = [];
+        p3_icon_textures = [];
 
-    // P3.
-    p3_icon_textures = [];
-    for (count = 0; count < 77; count++) {
-        // if (count < 10) {
-        //     p3_icon_textures[count] = new THREE.TextureLoader().load('assets/sprites/3/PART03_Icon/PART03_Icon_0000' + count + '.png');
-        // }
-        // else if (count >= 10 && count < 100) {
-        //     p3_icon_textures[count] = new THREE.TextureLoader().load('assets/sprites/3/PART03_Icon/PART03_Icon_000' + count + '.png');
-        // }
-        // else {
-        //     p3_icon_textures[count] = new THREE.TextureLoader().load('assets/sprites/3/PART03_Icon/PART03_Icon_00' + count + '.png');
-        // }
-        p3_icon_textures[count] = new THREE.TextureLoader().load('assets/sprites/3/PART03_Icon/PART03_Icon_' + count + '.png');
+        var path;
+        for (count = 0; count < 250; count++) {
+            if (count < 10) {
+                path = 'assets/sprites/4/Test/03_Human_0000' + count + '.png';
+            }
+            else if (count >= 10 && count < 100) {
+                path = 'assets/sprites/4/Test/03_Human_000' + count + '.png';
+            }
+            else {
+                path = 'assets/sprites/4/Test/03_Human_00' + count + '.png';
+            }
+
+            p2_human1_textures[count] = new THREE.TextureLoader().load(path);
+            p2_human2_textures[count] = new THREE.TextureLoader().load(path);
+            p2_human3_textures[count] = new THREE.TextureLoader().load(path);
+            p2_human4_textures[count] = new THREE.TextureLoader().load(path);
+            p2_human5_textures[count] = new THREE.TextureLoader().load(path);
+            p3_icon_textures[count] = new THREE.TextureLoader().load(path);
+        }
+    }
+    else {
+        // P2.
+        p2_human1_textures = [];
+        for (count = 0; count < 223; count++) {
+            if (count < 10) {
+                p2_human1_textures[count] = new THREE.TextureLoader().load('assets/sprites/2/Human01_v2/Human01_v2_0000' + count + '.png');
+            }
+            else if (count >= 10 && count < 100) {
+                p2_human1_textures[count] = new THREE.TextureLoader().load('assets/sprites/2/Human01_v2/Human01_v2_000' + count + '.png');
+            }
+            else {
+                p2_human1_textures[count] = new THREE.TextureLoader().load('assets/sprites/2/Human01_v2/Human01_v2_00' + count + '.png');
+            }
+        }
+        p2_human2_textures = [];
+        for (count = 0; count < 251; count++) {
+            if (count < 10) {
+                p2_human2_textures[count] = new THREE.TextureLoader().load('assets/sprites/2/Human02_v2/Human02_v2_0000' + count + '.png');
+            }
+            else if (count >= 10 && count < 100) {
+                p2_human2_textures[count] = new THREE.TextureLoader().load('assets/sprites/2/Human02_v2/Human02_v2_000' + count + '.png');
+            }
+            else {
+                p2_human2_textures[count] = new THREE.TextureLoader().load('assets/sprites/2/Human02_v2/Human02_v2_00' + count + '.png');
+            }
+        }
+        p2_human3_textures = [];
+        for (count = 0; count < 271; count++) {
+            if (count < 10) {
+                p2_human3_textures[count] = new THREE.TextureLoader().load('assets/sprites/2/Human03_v2/Human03_v2_0000' + count + '.png');
+            }
+            else if (count >= 10 && count < 100) {
+                p2_human3_textures[count] = new THREE.TextureLoader().load('assets/sprites/2/Human03_v2/Human03_v2_000' + count + '.png');
+            }
+            else {
+                p2_human3_textures[count] = new THREE.TextureLoader().load('assets/sprites/2/Human03_v2/Human03_v2_00' + count + '.png');
+            }
+        }
+        p2_human4_textures = [];
+        for (count = 0; count < 298; count++) {
+            if (count < 10) {
+                p2_human4_textures[count] = new THREE.TextureLoader().load('assets/sprites/2/Human04_v2/Human04_v2_0000' + count + '.png');
+            }
+            else if (count >= 10 && count < 100) {
+                p2_human4_textures[count] = new THREE.TextureLoader().load('assets/sprites/2/Human04_v2/Human04_v2_000' + count + '.png');
+            }
+            else {
+                p2_human4_textures[count] = new THREE.TextureLoader().load('assets/sprites/2/Human04_v2/Human04_v2_00' + count + '.png');
+            }
+        }
+        p2_human5_textures = [];
+        for (count = 0; count < 229; count++) {
+            if (count < 10) {
+                p2_human5_textures[count] = new THREE.TextureLoader().load('assets/sprites/2/Human05_v2/Human05_v2_0000' + count + '.png');
+            }
+            else if (count >= 10 && count < 100) {
+                p2_human5_textures[count] = new THREE.TextureLoader().load('assets/sprites/2/Human05_v2/Human05_v2_000' + count + '.png');
+            }
+            else {
+                p2_human5_textures[count] = new THREE.TextureLoader().load('assets/sprites/2/Human05_v2/Human05_v2_00' + count + '.png');
+            }
+        }
+        p2_icon_textures = [];
+
+        // P3.
+        p3_icon_textures = [];
+        for (count = 0; count < 77; count++) {
+            // if (count < 10) {
+            //     p3_icon_textures[count] = new THREE.TextureLoader().load('assets/sprites/3/PART03_Icon/PART03_Icon_0000' + count + '.png');
+            // }
+            // else if (count >= 10 && count < 100) {
+            //     p3_icon_textures[count] = new THREE.TextureLoader().load('assets/sprites/3/PART03_Icon/PART03_Icon_000' + count + '.png');
+            // }
+            // else {
+            //     p3_icon_textures[count] = new THREE.TextureLoader().load('assets/sprites/3/PART03_Icon/PART03_Icon_00' + count + '.png');
+            // }
+            p3_icon_textures[count] = new THREE.TextureLoader().load('assets/sprites/3/PART03_Icon/PART03_Icon_' + count + '.png');
+        }
     }
 
     p1_show = false;
