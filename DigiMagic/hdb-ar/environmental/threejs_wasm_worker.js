@@ -83,7 +83,7 @@ SpriteAnimator.add({ texture: main_texture_3, tilesHorizontal: 4, tilesVertical:
 var main_animate_3 = new THREE.Mesh(new THREE.PlaneGeometry(100, 100), new THREE.MeshBasicMaterial({ transparent: true, map: main_texture_3 }));
 
 var sun_shade_texture = THREE.ImageUtils.loadTexture('assets/sprites/sun_shade.png');
-SpriteAnimator.add({ texture: sun_shade_texture, tilesHorizontal: 18, tilesVertical: 17, fps: 24, numberOfTiles: 301 });
+SpriteAnimator.add({ texture: sun_shade_texture, tilesHorizontal: 16, tilesVertical: 16, fps: 24, numberOfTiles: 251 });
 var sun_shade_animate = new THREE.Mesh(new THREE.PlaneGeometry(100, 100), new THREE.MeshBasicMaterial({ transparent: true, depthTest: true, map: sun_shade_texture, side: THREE.DoubleSide }));
 
 var solar_irradiance_texture = THREE.ImageUtils.loadTexture('assets/sprites/solar_irradiance.png');
