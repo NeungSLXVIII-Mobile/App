@@ -62,334 +62,260 @@ var adjust_py = 0;
 var adjust_angle = 25;
 //, side: THREE.DoubleSide
 
-var p1_bicycle_video;
-var p1_human2_video;
-var p1_human3_video;
-var p1_human4_video;
-var p1_human5_video;
-var p1_human6_video;
-var p1_icon_video;
+// var p1_bicycle_video;
+// var p1_human2_video;
+// var p1_human3_video;
+// var p1_human4_video;
+// var p1_human5_video;
+// var p1_human6_video;
+// var p1_icon_video;
 
-var p1_bicycle_video_texture;
-var p1_human2_video_texture;
-var p1_human3_video_texture;
-var p1_human4_video_texture;
-var p1_human5_video_texture;
-var p1_human6_video_texture;
-var p1_icon_video_texture;
+// var p1_bicycle_video_texture;
+// var p1_human2_video_texture;
+// var p1_human3_video_texture;
+// var p1_human4_video_texture;
+// var p1_human5_video_texture;
+// var p1_human6_video_texture;
+// var p1_icon_video_texture;
 
-var bicycle_texture = new THREE.TextureLoader().load('assets/sprites/part1_bicycle.png');
-SpriteAnimator.add({ texture: bicycle_texture, tilesHorizontal: 23, tilesVertical: 22, fps: 24, numberOfTiles: 500 });
-var bicycle_animate = new THREE.Mesh(new THREE.PlaneGeometry(100, 100), new THREE.MeshBasicMaterial({ transparent: true, depthTest: false, map: bicycle_texture, side: THREE.DoubleSide }));
+// P1.
+var p1_bicycle_frame = 0;
+var p1_bicycle_duration = 0;
+var p1_bicycle_textures = [];
+for (count = 0; count < 125; count++) {
+    if (count < 10) {
+        p1_bicycle_textures[count] = new THREE.TextureLoader().load('assets/sprites/1/01_Bicycle/01_Bicycle_0000' + count + '.png');
+    }
+    else if (count >= 10 && count < 100) {
+        p1_bicycle_textures[count] = new THREE.TextureLoader().load('assets/sprites/1/01_Bicycle/01_Bicycle_000' + count + '.png');
+    }
+    else {
+        p1_bicycle_textures[count] = new THREE.TextureLoader().load('assets/sprites/1/01_Bicycle/01_Bicycle_00' + count + '.png');
+    }
+}
+var p1_human2_frame = 0;
+var p1_human2_duration = 0;
+var p1_human2_textures = [];
+for (count = 0; count < 248; count++) {
+    // if (count < 10) {
+    //     p1_human2_textures[count] = new THREE.TextureLoader().load('assets/sprites/1/02_Human/02_Human_0000' + count + '.png');
+    // }
+    // else if (count >= 10 && count < 100) {
+    //     p1_human2_textures[count] = new THREE.TextureLoader().load('assets/sprites/1/02_Human/02_Human_000' + count + '.png');
+    // }
+    // else {
+    //     p1_human2_textures[count] = new THREE.TextureLoader().load('assets/sprites/1/02_Human/02_Human_00' + count + '.png');
+    // }
+    p1_human2_textures[count] = new THREE.TextureLoader().load('assets/sprites/1/02_Human/02_Human_' + (count + 1) + '.png');
+}
+var p1_human3_frame = 0;
+var p1_human3_duration = 0;
+var p1_human3_textures = [];
+for (count = 0; count < 500; count++) {
+    if (count < 10) {
+        p1_human3_textures[count] = new THREE.TextureLoader().load('assets/sprites/1/03_Human/03_Human_0000' + count + '.png');
+    }
+    else if (count >= 10 && count < 100) {
+        p1_human3_textures[count] = new THREE.TextureLoader().load('assets/sprites/1/03_Human/03_Human_000' + count + '.png');
+    }
+    else {
+        p1_human3_textures[count] = new THREE.TextureLoader().load('assets/sprites/1/03_Human/03_Human_00' + count + '.png');
+    }
+}
+var p1_human4_frame = 0;
+var p1_human4_duration = 0;
+var p1_human4_textures = [];
+for (count = 0; count < 500; count++) {
+    if (count < 10) {
+        p1_human4_textures[count] = new THREE.TextureLoader().load('assets/sprites/1/04_Human/04_Human_0000' + count + '.png');
+    }
+    else if (count >= 10 && count < 100) {
+        p1_human4_textures[count] = new THREE.TextureLoader().load('assets/sprites/1/04_Human/04_Human_000' + count + '.png');
+    }
+    else {
+        p1_human4_textures[count] = new THREE.TextureLoader().load('assets/sprites/1/04_Human/04_Human_00' + count + '.png');
+    }
+}
+var p1_human5_frame = 0;
+var p1_human5_duration = 0;
+var p1_human5_textures = [];
+for (count = 0; count < 359; count++) {
+    if (count < 10) {
+        p1_human5_textures[count] = new THREE.TextureLoader().load('assets/sprites/1/05_Human/05_Human_0000' + count + '.png');
+    }
+    else if (count >= 10 && count < 100) {
+        p1_human5_textures[count] = new THREE.TextureLoader().load('assets/sprites/1/05_Human/05_Human_000' + count + '.png');
+    }
+    else {
+        p1_human5_textures[count] = new THREE.TextureLoader().load('assets/sprites/1/05_Human/05_Human_00' + count + '.png');
+    }
+}
+var p1_human6_frame = 0;
+var p1_human6_duration = 0;
+var p1_human6_textures = [];
+for (count = 0; count < 428; count++) {
+    if (count < 10) {
+        p1_human6_textures[count] = new THREE.TextureLoader().load('assets/sprites/1/06_Human/06_Human_0000' + count + '.png');
+    }
+    else if (count >= 10 && count < 100) {
+        p1_human6_textures[count] = new THREE.TextureLoader().load('assets/sprites/1/06_Human/06_Human_000' + count + '.png');
+    }
+    else {
+        p1_human6_textures[count] = new THREE.TextureLoader().load('assets/sprites/1/06_Human/06_Human_00' + count + '.png');
+    }
+}
+var p1_icon_frame = 0;
+var p1_icon_duration = 0;
+var p1_icon_textures = [];
+for (count = 0; count < 77; count++) {
+    // if (count < 10) {
+    //     p1_icon_textures[count] = new THREE.TextureLoader().load('assets/sprites/1/Part01_Icon/Part01_Icon_0000' + count + '.png');
+    // }
+    // else if (count >= 10 && count < 100) {
+    //     p1_icon_textures[count] = new THREE.TextureLoader().load('assets/sprites/1/Part01_Icon/Part01_Icon_000' + count + '.png');
+    // }
+    // else {
+    //     p1_icon_textures[count] = new THREE.TextureLoader().load('assets/sprites/1/Part01_Icon/Part01_Icon_00' + count + '.png');
+    // }
+    p1_icon_textures[count] = new THREE.TextureLoader().load('assets/sprites/1/Part01_Icon/Part01_Icon_' + count + '.png');
+}
 
-// // P1.
-// var p1_bicycle_frame = 0;
-// var p1_bicycle_duration = 0;
-// var p1_bicycle_textures = [];
-// for (count = 0; count < 500; count++) {
-//     if (count < 10) {
-//         p1_bicycle_textures[count] = new THREE.TextureLoader().load('assets/sprites/1/01_Bicycle/01_Bicycle_0000' + count + '.png');
-//     }
-//     else if (count >= 10 && count < 100) {
-//         p1_bicycle_textures[count] = new THREE.TextureLoader().load('assets/sprites/1/01_Bicycle/01_Bicycle_000' + count + '.png');
-//     }
-//     else {
-//         p1_bicycle_textures[count] = new THREE.TextureLoader().load('assets/sprites/1/01_Bicycle/01_Bicycle_00' + count + '.png');
-//     }
-// }
-// var p1_human2_frame = 0;
-// var p1_human2_duration = 0;
-// var p1_human2_textures = [];
-// for (count = 0; count < 500; count++) {
-//     if (count < 10) {
-//         p1_human2_textures[count] = new THREE.TextureLoader().load('assets/sprites/1/02_Human/02_Human_0000' + count + '.png');
-//     }
-//     else if (count >= 10 && count < 100) {
-//         p1_human2_textures[count] = new THREE.TextureLoader().load('assets/sprites/1/02_Human/02_Human_000' + count + '.png');
-//     }
-//     else {
-//         p1_human2_textures[count] = new THREE.TextureLoader().load('assets/sprites/1/02_Human/02_Human_00' + count + '.png');
-//     }
-// }
-// var p1_human3_frame = 0;
-// var p1_human3_duration = 0;
-// var p1_human3_textures = [];
-// for (count = 0; count < 500; count++) {
-//     if (count < 10) {
-//         p1_human3_textures[count] = new THREE.TextureLoader().load('assets/sprites/1/03_Human/03_Human_0000' + count + '.png');
-//     }
-//     else if (count >= 10 && count < 100) {
-//         p1_human3_textures[count] = new THREE.TextureLoader().load('assets/sprites/1/03_Human/03_Human_000' + count + '.png');
-//     }
-//     else {
-//         p1_human3_textures[count] = new THREE.TextureLoader().load('assets/sprites/1/03_Human/03_Human_00' + count + '.png');
-//     }
-// }
-// var p1_human4_frame = 0;
-// var p1_human4_duration = 0;
-// var p1_human4_textures = [];
-// for (count = 0; count < 500; count++) {
-//     if (count < 10) {
-//         p1_human4_textures[count] = new THREE.TextureLoader().load('assets/sprites/1/04_Human/04_Human_0000' + count + '.png');
-//     }
-//     else if (count >= 10 && count < 100) {
-//         p1_human4_textures[count] = new THREE.TextureLoader().load('assets/sprites/1/04_Human/04_Human_000' + count + '.png');
-//     }
-//     else {
-//         p1_human4_textures[count] = new THREE.TextureLoader().load('assets/sprites/1/04_Human/04_Human_00' + count + '.png');
-//     }
-// }
-// var p1_human5_frame = 0;
-// var p1_human5_duration = 0;
-// var p1_human5_textures = [];
-// for (count = 0; count < 500; count++) {
-//     if (count < 10) {
-//         p1_human5_textures[count] = new THREE.TextureLoader().load('assets/sprites/1/05_Human/05_Human_0000' + count + '.png');
-//     }
-//     else if (count >= 10 && count < 100) {
-//         p1_human5_textures[count] = new THREE.TextureLoader().load('assets/sprites/1/05_Human/05_Human_000' + count + '.png');
-//     }
-//     else {
-//         p1_human5_textures[count] = new THREE.TextureLoader().load('assets/sprites/1/05_Human/05_Human_00' + count + '.png');
-//     }
-// }
-// var p1_human6_frame = 0;
-// var p1_human6_duration = 0;
-// var p1_human6_textures = [];
-// for (count = 0; count < 500; count++) {
-//     if (count < 10) {
-//         p1_human6_textures[count] = new THREE.TextureLoader().load('assets/sprites/1/06_Human/06_Human_0000' + count + '.png');
-//     }
-//     else if (count >= 10 && count < 100) {
-//         p1_human6_textures[count] = new THREE.TextureLoader().load('assets/sprites/1/06_Human/06_Human_000' + count + '.png');
-//     }
-//     else {
-//         p1_human6_textures[count] = new THREE.TextureLoader().load('assets/sprites/1/06_Human/06_Human_00' + count + '.png');
-//     }
-// }
-// var p1_icon_frame = 0;
-// var p1_icon_duration = 0;
-// var p1_icon_textures = [];
-// for (count = 0; count < 500; count++) {
-//     if (count < 10) {
-//         p1_icon_textures[count] = new THREE.TextureLoader().load('assets/sprites/1/Part01_Icon/Part01_Icon_0000' + count + '.png');
-//     }
-//     else if (count >= 10 && count < 100) {
-//         p1_icon_textures[count] = new THREE.TextureLoader().load('assets/sprites/1/Part01_Icon/Part01_Icon_000' + count + '.png');
-//     }
-//     else {
-//         p1_icon_textures[count] = new THREE.TextureLoader().load('assets/sprites/1/Part01_Icon/Part01_Icon_00' + count + '.png');
-//     }
-// }
+var p1_bicycle_material = new THREE.MeshBasicMaterial({ map: p1_bicycle_textures[0], depthTest: false, transparent: true, side: THREE.DoubleSide });
+var p1_human2_material = new THREE.MeshBasicMaterial({ map: p1_human2_textures[0], depthTest: false, transparent: true, side: THREE.DoubleSide });
+var p1_human3_material = new THREE.MeshBasicMaterial({ map: p1_human3_textures[0], depthTest: false, transparent: true, side: THREE.DoubleSide });
+var p1_human4_material = new THREE.MeshBasicMaterial({ map: p1_human4_textures[0], depthTest: false, transparent: true, side: THREE.DoubleSide });
+var p1_human5_material = new THREE.MeshBasicMaterial({ map: p1_human5_textures[0], depthTest: false, transparent: true, side: THREE.DoubleSide });
+var p1_human6_material = new THREE.MeshBasicMaterial({ map: p1_human6_textures[0], depthTest: false, transparent: true, side: THREE.DoubleSide });
+var p1_icon_material = new THREE.MeshBasicMaterial({ map: p1_icon_textures[0], depthTest: false, transparent: true, side: THREE.DoubleSide });
 
-// var p1_bicycle_material = new THREE.MeshBasicMaterial({ map: p1_bicycle_textures[0], depthTest: false, transparent: true, side: THREE.DoubleSide });
-// var p1_human2_material = new THREE.MeshBasicMaterial({ map: p1_human2_textures[0], depthTest: false, transparent: true, side: THREE.DoubleSide });
-// var p1_human3_material = new THREE.MeshBasicMaterial({ map: p1_human3_textures[0], depthTest: false, transparent: true, side: THREE.DoubleSide });
-// var p1_human4_material = new THREE.MeshBasicMaterial({ map: p1_human4_textures[0], depthTest: false, transparent: true, side: THREE.DoubleSide });
-// var p1_human5_material = new THREE.MeshBasicMaterial({ map: p1_human5_textures[0], depthTest: false, transparent: true, side: THREE.DoubleSide });
-// var p1_human6_material = new THREE.MeshBasicMaterial({ map: p1_human6_textures[0], depthTest: false, transparent: true, side: THREE.DoubleSide });
-// var p1_icon_material = new THREE.MeshBasicMaterial({ map: p1_icon_textures[0], depthTest: false, transparent: true, side: THREE.DoubleSide });
+// P2.
+var p2_human1_frame = 0;
+var p2_human1_duration = 0;
+var p2_human1_textures = [];
+for (count = 0; count < 223; count++) {
+    if (count < 10) {
+        p2_human1_textures[count] = new THREE.TextureLoader().load('assets/sprites/2/Human01_v2/Human01_v2_0000' + count + '.png');
+    }
+    else if (count >= 10 && count < 100) {
+        p2_human1_textures[count] = new THREE.TextureLoader().load('assets/sprites/2/Human01_v2/Human01_v2_000' + count + '.png');
+    }
+    else {
+        p2_human1_textures[count] = new THREE.TextureLoader().load('assets/sprites/2/Human01_v2/Human01_v2_00' + count + '.png');
+    }
+}
+var p2_human2_frame = 0;
+var p2_human2_duration = 0;
+var p2_human2_textures = [];
+for (count = 0; count < 251; count++) {
+    if (count < 10) {
+        p2_human2_textures[count] = new THREE.TextureLoader().load('assets/sprites/2/Human02_v2/Human02_v2_0000' + count + '.png');
+    }
+    else if (count >= 10 && count < 100) {
+        p2_human2_textures[count] = new THREE.TextureLoader().load('assets/sprites/2/Human02_v2/Human02_v2_000' + count + '.png');
+    }
+    else {
+        p2_human2_textures[count] = new THREE.TextureLoader().load('assets/sprites/2/Human02_v2/Human02_v2_00' + count + '.png');
+    }
+}
+var p2_human3_frame = 0;
+var p2_human3_duration = 0;
+var p2_human3_textures = [];
+for (count = 0; count < 271; count++) {
+    if (count < 10) {
+        p2_human3_textures[count] = new THREE.TextureLoader().load('assets/sprites/2/Human03_v2/Human03_v2_0000' + count + '.png');
+    }
+    else if (count >= 10 && count < 100) {
+        p2_human3_textures[count] = new THREE.TextureLoader().load('assets/sprites/2/Human03_v2/Human03_v2_000' + count + '.png');
+    }
+    else {
+        p2_human3_textures[count] = new THREE.TextureLoader().load('assets/sprites/2/Human03_v2/Human03_v2_00' + count + '.png');
+    }
+}
+var p2_human4_frame = 0;
+var p2_human4_duration = 0;
+var p2_human4_textures = [];
+for (count = 0; count < 298; count++) {
+    if (count < 10) {
+        p2_human4_textures[count] = new THREE.TextureLoader().load('assets/sprites/2/Human04_v2/Human04_v2_0000' + count + '.png');
+    }
+    else if (count >= 10 && count < 100) {
+        p2_human4_textures[count] = new THREE.TextureLoader().load('assets/sprites/2/Human04_v2/Human04_v2_000' + count + '.png');
+    }
+    else {
+        p2_human4_textures[count] = new THREE.TextureLoader().load('assets/sprites/2/Human04_v2/Human04_v2_00' + count + '.png');
+    }
+}
+var p2_human5_frame = 0;
+var p2_human5_duration = 0;
+var p2_human5_textures = [];
+for (count = 0; count < 229; count++) {
+    if (count < 10) {
+        p2_human5_textures[count] = new THREE.TextureLoader().load('assets/sprites/2/Human05_v2/Human05_v2_0000' + count + '.png');
+    }
+    else if (count >= 10 && count < 100) {
+        p2_human5_textures[count] = new THREE.TextureLoader().load('assets/sprites/2/Human05_v2/Human05_v2_000' + count + '.png');
+    }
+    else {
+        p2_human5_textures[count] = new THREE.TextureLoader().load('assets/sprites/2/Human05_v2/Human05_v2_00' + count + '.png');
+    }
+}
+var p2_icon_frame = 0;
+var p2_icon_duration = 0;
+var p2_icon_textures = [];
+for (count = 0; count < 77; count++) {
+    // if (count < 10) {
+    //     p2_icon_textures[count] = new THREE.TextureLoader().load('assets/sprites/2/PART02_Icon/PART02_Icon_0000' + count + '.png');
+    // }
+    // else if (count >= 10 && count < 100) {
+    //     p2_icon_textures[count] = new THREE.TextureLoader().load('assets/sprites/2/PART02_Icon/PART02_Icon_000' + count + '.png');
+    // }
+    // else {
+    //     p2_icon_textures[count] = new THREE.TextureLoader().load('assets/sprites/2/PART02_Icon/PART02_Icon_00' + count + '.png');
+    // }
+    p2_icon_textures[count] = new THREE.TextureLoader().load('assets/sprites/2/PART02_Icon/PART02_Icon_' + count + '.png');
+}
 
-// // P2.
-// var p2_human1_frame = 0;
-// var p2_human1_duration = 0;
-// var p2_human1_textures = [];
-// for (count = 0; count < 500; count++) {
-//     if (count < 10) {
-//         p2_human1_textures[count] = new THREE.TextureLoader().load('assets/sprites/2/Human01/Human01_0000' + count + '.png');
-//     }
-//     else if (count >= 10 && count < 100) {
-//         p2_human1_textures[count] = new THREE.TextureLoader().load('assets/sprites/2/Human01/Human01_000' + count + '.png');
-//     }
-//     else {
-//         p2_human1_textures[count] = new THREE.TextureLoader().load('assets/sprites/2/Human01/Human01_00' + count + '.png');
-//     }
-// }
-// var p2_human2_frame = 0;
-// var p2_human2_duration = 0;
-// var p2_human2_textures = [];
-// for (count = 0; count < 500; count++) {
-//     if (count < 10) {
-//         p2_human2_textures[count] = new THREE.TextureLoader().load('assets/sprites/2/Human02/Human02_0000' + count + '.png');
-//     }
-//     else if (count >= 10 && count < 100) {
-//         p2_human2_textures[count] = new THREE.TextureLoader().load('assets/sprites/2/Human02/Human02_000' + count + '.png');
-//     }
-//     else {
-//         p2_human2_textures[count] = new THREE.TextureLoader().load('assets/sprites/2/Human02/Human02_00' + count + '.png');
-//     }
-// }
-// var p2_human3_frame = 0;
-// var p2_human3_duration = 0;
-// var p2_human3_textures = [];
-// for (count = 0; count < 500; count++) {
-//     if (count < 10) {
-//         p2_human3_textures[count] = new THREE.TextureLoader().load('assets/sprites/2/Human03/Human03_0000' + count + '.png');
-//     }
-//     else if (count >= 10 && count < 100) {
-//         p2_human3_textures[count] = new THREE.TextureLoader().load('assets/sprites/2/Human03/Human03_000' + count + '.png');
-//     }
-//     else {
-//         p2_human3_textures[count] = new THREE.TextureLoader().load('assets/sprites/2/Human03/Human03_00' + count + '.png');
-//     }
-// }
-// var p2_human4_frame = 0;
-// var p2_human4_duration = 0;
-// var p2_human4_textures = [];
-// for (count = 0; count < 500; count++) {
-//     if (count < 10) {
-//         p2_human4_textures[count] = new THREE.TextureLoader().load('assets/sprites/2/Human04/Human04_0000' + count + '.png');
-//     }
-//     else if (count >= 10 && count < 100) {
-//         p2_human4_textures[count] = new THREE.TextureLoader().load('assets/sprites/2/Human04/Human04_000' + count + '.png');
-//     }
-//     else {
-//         p2_human4_textures[count] = new THREE.TextureLoader().load('assets/sprites/2/Human04/Human04_00' + count + '.png');
-//     }
-// }
-// var p2_human5_frame = 0;
-// var p2_human5_duration = 0;
-// var p2_human5_textures = [];
-// for (count = 0; count < 500; count++) {
-//     if (count < 10) {
-//         p2_human5_textures[count] = new THREE.TextureLoader().load('assets/sprites/2/Human05/Human05_0000' + count + '.png');
-//     }
-//     else if (count >= 10 && count < 100) {
-//         p2_human5_textures[count] = new THREE.TextureLoader().load('assets/sprites/2/Human05/Human05_000' + count + '.png');
-//     }
-//     else {
-//         p2_human5_textures[count] = new THREE.TextureLoader().load('assets/sprites/2/Human05/Human05_00' + count + '.png');
-//     }
-// }
-// var p2_rain_frame = 0;
-// var p2_rain_duration = 0;
-// var p2_rain_textures = [];
-// for (count = 0; count < 500; count++) {
-//     if (count < 10) {
-//         p2_rain_textures[count] = new THREE.TextureLoader().load('assets/sprites/2/Rain02/Rain_0000' + count + '.png');
-//     }
-//     else if (count >= 10 && count < 100) {
-//         p2_rain_textures[count] = new THREE.TextureLoader().load('assets/sprites/2/Rain02/Rain_000' + count + '.png');
-//     }
-//     else {
-//         p2_rain_textures[count] = new THREE.TextureLoader().load('assets/sprites/2/Rain02/Rain_00' + count + '.png');
-//     }
-// }
-// var p2_icon_frame = 0;
-// var p2_icon_duration = 0;
-// var p2_icon_textures = [];
-// for (count = 0; count < 500; count++) {
-//     if (count < 10) {
-//         p2_icon_textures[count] = new THREE.TextureLoader().load('assets/sprites/2/PART02_Icon/PART02_Icon_0000' + count + '.png');
-//     }
-//     else if (count >= 10 && count < 100) {
-//         p2_icon_textures[count] = new THREE.TextureLoader().load('assets/sprites/2/PART02_Icon/PART02_Icon_000' + count + '.png');
-//     }
-//     else {
-//         p2_icon_textures[count] = new THREE.TextureLoader().load('assets/sprites/2/PART02_Icon/PART02_Icon_00' + count + '.png');
-//     }
-// }
+var p2_human1_material = new THREE.MeshBasicMaterial({ map: p2_human1_textures[0], depthTest: false, transparent: true, side: THREE.DoubleSide });
+var p2_human2_material = new THREE.MeshBasicMaterial({ map: p2_human2_textures[0], depthTest: false, transparent: true, side: THREE.DoubleSide });
+var p2_human3_material = new THREE.MeshBasicMaterial({ map: p2_human3_textures[0], depthTest: false, transparent: true, side: THREE.DoubleSide });
+var p2_human4_material = new THREE.MeshBasicMaterial({ map: p2_human4_textures[0], depthTest: false, transparent: true, side: THREE.DoubleSide });
+var p2_human5_material = new THREE.MeshBasicMaterial({ map: p2_human5_textures[0], depthTest: false, transparent: true, side: THREE.DoubleSide });
+var p2_icon_material = new THREE.MeshBasicMaterial({ map: p2_icon_textures[0], depthTest: false, transparent: true, side: THREE.DoubleSide });
 
-// var p2_human1_material = new THREE.MeshBasicMaterial({ map: p2_human1_textures[0], depthTest: false, transparent: true, side: THREE.DoubleSide });
-// var p2_human2_material = new THREE.MeshBasicMaterial({ map: p2_human2_textures[0], depthTest: false, transparent: true, side: THREE.DoubleSide });
-// var p2_human3_material = new THREE.MeshBasicMaterial({ map: p2_human3_textures[0], depthTest: false, transparent: true, side: THREE.DoubleSide });
-// var p2_human4_material = new THREE.MeshBasicMaterial({ map: p2_human4_textures[0], depthTest: false, transparent: true, side: THREE.DoubleSide });
-// var p2_human5_material = new THREE.MeshBasicMaterial({ map: p2_human5_textures[0], depthTest: false, transparent: true, side: THREE.DoubleSide });
-// var p2_rain_material = new THREE.MeshBasicMaterial({ map: p2_rain_textures[0], depthTest: false, transparent: true, side: THREE.DoubleSide });
-// var p2_icon_material = new THREE.MeshBasicMaterial({ map: p2_icon_textures[0], depthTest: false, transparent: true, side: THREE.DoubleSide });
+// P3.
+var p3_human1_frame = 0;
+var p3_human1_duration = 0;
+var p3_human2_frame = 0;
+var p3_human2_duration = 0;
+var p3_human3_frame = 0;
+var p3_human3_duration = 0;
+var p3_human4_frame = 0;
+var p3_human4_duration = 0;
+var p3_human5_frame = 0;
+var p3_human5_duration = 0;
 
-// // P3.
-// var p3_human1_frame = 0;
-// var p3_human1_duration = 0;
-// var p3_human1_textures = [];
-// for (count = 0; count < 500; count++) {
-//     if (count < 10) {
-//         p3_human1_textures[count] = new THREE.TextureLoader().load('assets/sprites/3/Human01/Human01_0000' + count + '.png');
-//     }
-//     else if (count >= 10 && count < 100) {
-//         p3_human1_textures[count] = new THREE.TextureLoader().load('assets/sprites/3/Human01/Human01_000' + count + '.png');
-//     }
-//     else {
-//         p3_human1_textures[count] = new THREE.TextureLoader().load('assets/sprites/3/Human01/Human01_00' + count + '.png');
-//     }
-// }
-// var p3_human2_frame = 0;
-// var p3_human2_duration = 0;
-// var p3_human2_textures = [];
-// for (count = 0; count < 500; count++) {
-//     if (count < 10) {
-//         p3_human2_textures[count] = new THREE.TextureLoader().load('assets/sprites/3/Human02/Human02_0000' + count + '.png');
-//     }
-//     else if (count >= 10 && count < 100) {
-//         p3_human2_textures[count] = new THREE.TextureLoader().load('assets/sprites/3/Human02/Human02_000' + count + '.png');
-//     }
-//     else {
-//         p3_human2_textures[count] = new THREE.TextureLoader().load('assets/sprites/3/Human02/Human02_00' + count + '.png');
-//     }
-// }
-// var p3_human3_frame = 0;
-// var p3_human3_duration = 0;
-// var p3_human3_textures = [];
-// for (count = 0; count < 500; count++) {
-//     if (count < 10) {
-//         p3_human3_textures[count] = new THREE.TextureLoader().load('assets/sprites/3/Human03/Human03_0000' + count + '.png');
-//     }
-//     else if (count >= 10 && count < 100) {
-//         p3_human3_textures[count] = new THREE.TextureLoader().load('assets/sprites/3/Human03/Human03_000' + count + '.png');
-//     }
-//     else {
-//         p3_human3_textures[count] = new THREE.TextureLoader().load('assets/sprites/3/Human03/Human03_00' + count + '.png');
-//     }
-// }
-// var p3_human4_frame = 0;
-// var p3_human4_duration = 0;
-// var p3_human4_textures = [];
-// for (count = 0; count < 500; count++) {
-//     if (count < 10) {
-//         p3_human4_textures[count] = new THREE.TextureLoader().load('assets/sprites/3/Human04/Human04_0000' + count + '.png');
-//     }
-//     else if (count >= 10 && count < 100) {
-//         p3_human4_textures[count] = new THREE.TextureLoader().load('assets/sprites/3/Human04/Human04_000' + count + '.png');
-//     }
-//     else {
-//         p3_human4_textures[count] = new THREE.TextureLoader().load('assets/sprites/3/Human04/Human04_00' + count + '.png');
-//     }
-// }
-// var p3_human5_frame = 0;
-// var p3_human5_duration = 0;
-// var p3_human5_textures = [];
-// for (count = 0; count < 500; count++) {
-//     if (count < 10) {
-//         p3_human5_textures[count] = new THREE.TextureLoader().load('assets/sprites/3/Human05/Human05_0000' + count + '.png');
-//     }
-//     else if (count >= 10 && count < 100) {
-//         p3_human5_textures[count] = new THREE.TextureLoader().load('assets/sprites/3/Human05/Human05_000' + count + '.png');
-//     }
-//     else {
-//         p3_human5_textures[count] = new THREE.TextureLoader().load('assets/sprites/3/Human05/Human05_00' + count + '.png');
-//     }
-// }
-// var p3_icon_frame = 0;
-// var p3_icon_duration = 0;
-// var p3_icon_textures = [];
-// for (count = 0; count < 500; count++) {
-//     if (count < 10) {
-//         p3_icon_textures[count] = new THREE.TextureLoader().load('assets/sprites/3/Part03_Icon/Part03_Icon_0000' + count + '.png');
-//     }
-//     else if (count >= 10 && count < 100) {
-//         p3_icon_textures[count] = new THREE.TextureLoader().load('assets/sprites/3/Part03_Icon/Part03_Icon_000' + count + '.png');
-//     }
-//     else {
-//         p3_icon_textures[count] = new THREE.TextureLoader().load('assets/sprites/3/Part03_Icon/Part03_Icon_00' + count + '.png');
-//     }
-// }
+var p3_icon_frame = 0;
+var p3_icon_duration = 0;
+var p3_icon_textures = [];
+for (count = 0; count < 77; count++) {
+    // if (count < 10) {
+    //     p3_icon_textures[count] = new THREE.TextureLoader().load('assets/sprites/3/Part03_Icon/Part03_Icon_0000' + count + '.png');
+    // }
+    // else if (count >= 10 && count < 100) {
+    //     p3_icon_textures[count] = new THREE.TextureLoader().load('assets/sprites/3/Part03_Icon/Part03_Icon_000' + count + '.png');
+    // }
+    // else {
+    //     p3_icon_textures[count] = new THREE.TextureLoader().load('assets/sprites/3/Part03_Icon/Part03_Icon_00' + count + '.png');
+    // }
+    p3_icon_textures[count] = new THREE.TextureLoader().load('assets/sprites/3/Part03_Icon/Part03_Icon_' + count + '.png');
+}
 
-// var p3_human1_material = new THREE.MeshBasicMaterial({ map: p3_human1_textures[0], depthTest: false, transparent: true, side: THREE.DoubleSide });
-// var p3_human2_material = new THREE.MeshBasicMaterial({ map: p3_human2_textures[0], depthTest: false, transparent: true, side: THREE.DoubleSide });
-// var p3_human3_material = new THREE.MeshBasicMaterial({ map: p3_human3_textures[0], depthTest: false, transparent: true, side: THREE.DoubleSide });
-// var p3_human4_material = new THREE.MeshBasicMaterial({ map: p3_human4_textures[0], depthTest: false, transparent: true, side: THREE.DoubleSide });
-// var p3_human5_material = new THREE.MeshBasicMaterial({ map: p3_human5_textures[0], depthTest: false, transparent: true, side: THREE.DoubleSide });
-// var p3_icon_material = new THREE.MeshBasicMaterial({ map: p3_icon_textures[0], depthTest: false, transparent: true, side: THREE.DoubleSide });
+var p3_human1_material = p2_human1_material;
+var p3_human2_material = p2_human2_material;
+var p3_human3_material = p2_human3_material;
+var p3_human4_material = p2_human4_material;
+var p3_human5_material = p2_human5_material;
+var p3_icon_material = new THREE.MeshBasicMaterial({ map: p3_icon_textures[0], depthTest: false, transparent: true, side: THREE.DoubleSide });
 
 var tree1_material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/tree01.png'), opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide });
 var tree2_material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/tree02.png'), opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide });
@@ -447,77 +373,61 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
     scene.add(root);
     root.visible = false;
 
-    // Create video object
-    let video2 = document.createElement('video');
-    video2.src = "video/01_Color.mp4"; // Set video address
-    video2.autoplay = "autoplay"; // To set up playback
-    video2.loop = true;
-    // Video object is used as VideoTexture parameter to create texture object
-    // var texture = new THREE.VideoTexture(video2)
-    // var geometry = new THREE.PlaneGeometry(108, 71); // rectangular plane
-    // var material = new THREE.MeshPhongMaterial({
-    //     map: texture, // Set texture map
-    // }); // Material object Material
-    // var mesh = new THREE.Mesh(geometry, material); // Mesh model object Mesh
-    // scene.add(mesh); // The mesh model is added to the scene
+    // p1_bicycle_video = document.getElementById('p1_bicycle_video');
+    // p1_human2_video = document.getElementById('p1_human2_video');
+    // p1_human3_video = document.getElementById('p1_human3_video');
+    // p1_human4_video = document.getElementById('p1_human4_video');
+    // p1_human5_video = document.getElementById('p1_human5_video');
+    // p1_human6_video = document.getElementById('p1_human6_video');
+    // p1_icon_video = document.getElementById('p1_icon_video');
 
-    console.log("xxxxxx-8")
+    // p1_bicycle_video_texture = new THREE.VideoTexture(p1_bicycle_video);
+    // p1_bicycle_video_texture.minFilter = THREE.LinearFilter;
+    // p1_bicycle_video_texture.magFilter = THREE.LinearFilter;
+    // p1_bicycle_video_texture.format = THREE.RGBAFormat;
 
-    p1_bicycle_video = document.getElementById('p1_bicycle_video');
-    p1_human2_video = document.getElementById('p1_human2_video');
-    p1_human3_video = document.getElementById('p1_human3_video');
-    p1_human4_video = document.getElementById('p1_human4_video');
-    p1_human5_video = document.getElementById('p1_human5_video');
-    p1_human6_video = document.getElementById('p1_human6_video');
-    p1_icon_video = document.getElementById('p1_icon_video');
+    // p1_human2_video_texture = new THREE.VideoTexture(p1_human2_video);
+    // p1_human2_video_texture.minFilter = THREE.LinearFilter;
+    // p1_human2_video_texture.magFilter = THREE.LinearFilter;
+    // p1_human2_video_texture.format = THREE.RGBAFormat;
 
-    p1_bicycle_video_texture = new THREE.VideoTexture(p1_bicycle_video);
-    p1_bicycle_video_texture.minFilter = THREE.LinearFilter;
-    p1_bicycle_video_texture.magFilter = THREE.LinearFilter;
-    p1_bicycle_video_texture.format = THREE.RGBAFormat;
+    // p1_human3_video_texture = new THREE.VideoTexture(p1_human3_video);
+    // p1_human3_video_texture.minFilter = THREE.LinearFilter;
+    // p1_human3_video_texture.magFilter = THREE.LinearFilter;
+    // p1_human3_video_texture.format = THREE.RGBAFormat;
+    // p1_human3_video_texture.needsUpdate = true;
 
-    p1_human2_video_texture = new THREE.VideoTexture(p1_human2_video);
-    p1_human2_video_texture.minFilter = THREE.LinearFilter;
-    p1_human2_video_texture.magFilter = THREE.LinearFilter;
-    p1_human2_video_texture.format = THREE.RGBAFormat;
+    // p1_human4_video_texture = new THREE.VideoTexture(p1_human4_video);
+    // p1_human4_video_texture.minFilter = THREE.LinearFilter;
+    // p1_human4_video_texture.magFilter = THREE.LinearFilter;
+    // p1_human4_video_texture.format = THREE.RGBAFormat;
+    // p1_human4_video_texture.needsUpdate = true;
 
-    p1_human3_video_texture = new THREE.VideoTexture(p1_human3_video);
-    p1_human3_video_texture.minFilter = THREE.LinearFilter;
-    p1_human3_video_texture.magFilter = THREE.LinearFilter;
-    p1_human3_video_texture.format = THREE.RGBAFormat;
-    p1_human3_video_texture.needsUpdate = true;
+    // p1_human5_video_texture = new THREE.VideoTexture(p1_human5_video);
+    // p1_human5_video_texture.minFilter = THREE.LinearFilter;
+    // p1_human5_video_texture.magFilter = THREE.LinearFilter;
+    // p1_human5_video_texture.format = THREE.RGBAFormat;
+    // p1_human5_video_texture.needsUpdate = true;
 
-    p1_human4_video_texture = new THREE.VideoTexture(p1_human4_video);
-    p1_human4_video_texture.minFilter = THREE.LinearFilter;
-    p1_human4_video_texture.magFilter = THREE.LinearFilter;
-    p1_human4_video_texture.format = THREE.RGBAFormat;
-    p1_human4_video_texture.needsUpdate = true;
+    // p1_human6_video_texture = new THREE.VideoTexture(p1_human6_video);
+    // p1_human6_video_texture.minFilter = THREE.LinearFilter;
+    // p1_human6_video_texture.magFilter = THREE.LinearFilter;
+    // p1_human6_video_texture.format = THREE.RGBAFormat;
+    // p1_human6_video_texture.needsUpdate = true;
 
-    p1_human5_video_texture = new THREE.VideoTexture(p1_human5_video);
-    p1_human5_video_texture.minFilter = THREE.LinearFilter;
-    p1_human5_video_texture.magFilter = THREE.LinearFilter;
-    p1_human5_video_texture.format = THREE.RGBAFormat;
-    p1_human5_video_texture.needsUpdate = true;
+    // p1_icon_video_texture = new THREE.VideoTexture(p1_icon_video);
+    // p1_icon_video_texture.minFilter = THREE.LinearFilter;
+    // p1_icon_video_texture.magFilter = THREE.LinearFilter;
+    // p1_icon_video_texture.format = THREE.RGBAFormat;
+    // p1_icon_video_texture.needsUpdate = true;
 
-    p1_human6_video_texture = new THREE.VideoTexture(p1_human6_video);
-    p1_human6_video_texture.minFilter = THREE.LinearFilter;
-    p1_human6_video_texture.magFilter = THREE.LinearFilter;
-    p1_human6_video_texture.format = THREE.RGBAFormat;
-    p1_human6_video_texture.needsUpdate = true;
-
-    p1_icon_video_texture = new THREE.VideoTexture(p1_icon_video);
-    p1_icon_video_texture.minFilter = THREE.LinearFilter;
-    p1_icon_video_texture.magFilter = THREE.LinearFilter;
-    p1_icon_video_texture.format = THREE.RGBAFormat;
-    p1_icon_video_texture.needsUpdate = true;
-
-    var p1_bicycle_material = new THREE.MeshPhongMaterial({ map: p1_bicycle_video_texture, transparent: true, side: THREE.DoubleSide, opacity: 1, alphaMap: p1_bicycle_video_texture });
-    var p1_human2_material = new THREE.MeshPhongMaterial({ map: p1_human2_video_texture, transparent: true, side: THREE.DoubleSide, opacity: 1, alphaMap: p1_human2_video_texture });
-    var p1_human3_material = new THREE.MeshPhongMaterial({ map: p1_human3_video_texture, transparent: true, side: THREE.DoubleSide, opacity: 1, alphaMap: p1_human3_video_texture });
-    var p1_human4_material = new THREE.MeshPhongMaterial({ map: p1_human4_video_texture, transparent: true, side: THREE.DoubleSide, opacity: 1, alphaMap: p1_human4_video_texture });
-    var p1_human5_material = new THREE.MeshPhongMaterial({ map: p1_human4_video_texture, transparent: true, side: THREE.DoubleSide, opacity: 1, alphaMap: p1_human5_video_texture });
-    var p1_human6_material = new THREE.MeshPhongMaterial({ map: p1_human4_video_texture, transparent: true, side: THREE.DoubleSide, opacity: 1, alphaMap: p1_human6_video_texture });
-    var p1_icon_material = new THREE.MeshPhongMaterial({ map: p1_human4_video_texture, transparent: true, side: THREE.DoubleSide, opacity: 1, alphaMap: p1_icon_video_texture });
+    // var p1_bicycle_material = new THREE.MeshPhongMaterial({ map: p1_bicycle_video_texture, transparent: true, side: THREE.DoubleSide, opacity: 1, alphaMap: p1_bicycle_video_texture });
+    // var p1_human2_material = new THREE.MeshPhongMaterial({ map: p1_human2_video_texture, transparent: true, side: THREE.DoubleSide, opacity: 1, alphaMap: p1_human2_video_texture });
+    // var p1_human3_material = new THREE.MeshPhongMaterial({ map: p1_human3_video_texture, transparent: true, side: THREE.DoubleSide, opacity: 1, alphaMap: p1_human3_video_texture });
+    // var p1_human4_material = new THREE.MeshPhongMaterial({ map: p1_human4_video_texture, transparent: true, side: THREE.DoubleSide, opacity: 1, alphaMap: p1_human4_video_texture });
+    // var p1_human5_material = new THREE.MeshPhongMaterial({ map: p1_human4_video_texture, transparent: true, side: THREE.DoubleSide, opacity: 1, alphaMap: p1_human5_video_texture });
+    // var p1_human6_material = new THREE.MeshPhongMaterial({ map: p1_human4_video_texture, transparent: true, side: THREE.DoubleSide, opacity: 1, alphaMap: p1_human6_video_texture });
+    // var p1_icon_material = new THREE.MeshPhongMaterial({ map: p1_human4_video_texture, transparent: true, side: THREE.DoubleSide, opacity: 1, alphaMap: p1_icon_video_texture });
 
     /* Load Model */
     var threeGLTFLoader1 = new THREE.GLTFLoader();
@@ -529,6 +439,7 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
         model1.position.z = 0;
 
         model1.scale.x = model1.scale.y = model1.scale.z = 0.5;
+        model1.rotation.x = adjust_angle * 0.0174532925;
 
         model1.visible = true;
 
@@ -646,6 +557,7 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
         model2.position.z = 0;
 
         model2.scale.x = model2.scale.y = model2.scale.z = 0.5;
+        model2.rotation.x = adjust_angle * 0.0174532925;
 
         model2.visible = false;
 
@@ -846,410 +758,399 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
         root.add(model2);
     });
 
-    // var threeGLTFLoader3 = new THREE.GLTFLoader();
-    // threeGLTFLoader3.load("Data/models/smartlamppost3.gltf", function (gltf) {
-    //     model3 = gltf.scene;
-
-    //     model3.position.x = 0;
-    //     model3.position.y = 0;
-    //     model3.position.z = 0;
-
-    //     model3.scale.x = model3.scale.y = model3.scale.z = 0.5;
-
-    //     model3.visible = false;
-
-    //     var tree3_1;
-    //     var tree3_2;
-    //     var bg3_1;
-    //     var floor3_1;
-    //     var lamppost3_1;
-    //     var lamppost3_2a;
-    //     var lamppost3_2b;
-    //     var human3_1;
-    //     var human3_2;
-    //     var human3_3;
-    //     var human3_4;
-    //     var human3_5;
-    //     var rain3_1;
-    //     var icon3_1;
-
-    //     console.log("model3");
-    //     console.log(model3);
-    //     for (count = 0; count < model3.children.length; count++) {
-    //         console.log(model3.children[count]);
-    //         if (model3.children[count].name == "Tree01") {
-    //             console.log("Tree01 LV1");
-    //             tree3_1 = model3.children[count];
-    //         }
-    //         if (model3.children[count].name == "Tree02") {
-    //             console.log("Tree02 LV1");
-    //             tree3_2 = model3.children[count];
-    //         }
-    //         if (model3.children[count].name == "BG") {
-    //             console.log("BG LV1");
-    //             bg3_1 = model3.children[count];
-    //         }
-    //         if (model3.children[count].name == "Lamppost01") {
-    //             console.log("Lamppost01 LV1");
-    //             lamppost3_1 = model3.children[count];
-    //         }
-    //         if (model3.children[count].name == "Lamppost02a") {
-    //             console.log("Lampost01a LV1");
-    //             lamppost3_2a = model3.children[count];
-    //         }
-    //         if (model3.children[count].name == "Lamppost02b") {
-    //             console.log("Lampost02b LV1");
-    //             lamppost3_2b = model3.children[count];
-    //         }
-    //         if (model3.children[count].name == "Cube") {
-    //             console.log("Cube LV1");
-    //             floor3_1 = model3.children[count];
-    //         }
-    //         if (model3.children[count].name == "Human01") {
-    //             console.log("Human01 LV1");
-    //             human3_1 = model3.children[count];
-    //         }
-    //         if (model3.children[count].name == "Human02") {
-    //             console.log("Human02 LV1");
-    //             human3_2 = model3.children[count];
-    //         }
-    //         if (model3.children[count].name == "Human03") {
-    //             console.log("Human03 LV1");
-    //             human3_3 = model3.children[count];
-    //         }
-    //         if (model3.children[count].name == "Human04") {
-    //             console.log("Human04 LV1");
-    //             human3_4 = model3.children[count];
-    //         }
-    //         if (model3.children[count].name == "Human05") {
-    //             console.log("Human05 LV1");
-    //             human3_5 = model3.children[count];
-    //         }
-    //         if (model3.children[count].name == "Rain") {
-    //             console.log("Rain LV1");
-    //             rain3_1 = model3.children[count];
-    //         }
-    //         if (model3.children[count].name == "Icon") {
-    //             console.log("Icon LV1");
-    //             icon3_1 = model3.children[count];
-    //         }
-    //     }
-
-    //     // tree 1.
-    //     if (tree3_1 != undefined) {
-    //         tree3_1.material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/tree01.png'), opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide });
-    //         tree3_1.material.needsUpdate = true;
-
-    //         tree3_1.rotation.y = 180 * 0.0174532925;
-    //         tree3_1.rotation.z = 180 * 0.0174532925;
-    //     }
-
-    //     // tree 2.
-    //     if (tree3_2 != undefined) {
-    //         tree3_2.material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/tree02.png'), opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide });
-    //         tree3_2.material.needsUpdate = true;
-
-    //         tree3_2.rotation.y = 180 * 0.0174532925;
-    //         tree3_2.rotation.z = 180 * 0.0174532925;
-    //     }
-
-    //     // BG.
-    //     if (bg3_1 != undefined) {
-    //         bg3_1.material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/bg.png'), opacity: 1, depthTest: false, transparent: false, side: THREE.DoubleSide });
-    //         bg3_1.material.needsUpdate = true;
-
-    //         bg3_1.rotation.y = 180 * 0.0174532925;
-    //         bg3_1.rotation.z = 180 * 0.0174532925;
-    //     }
-
-    //     // lamppost 1.
-    //     if (lamppost3_1 != undefined) {
-    //         lamppost3_1.material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/lamppost01_light.png'), opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide });
-    //         lamppost3_1.material.needsUpdate = true;
-
-    //         lamppost3_1.rotation.y = 180 * 0.0174532925;
-    //         lamppost3_1.rotation.z = 180 * 0.0174532925;
-    //     }
-
-    //     // lamppost 2a.
-    //     if (lamppost3_2a != undefined) {
-    //         lamppost3_2a.material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/lamppost02_light.png'), opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide });
-    //         lamppost3_2a.material.needsUpdate = true;
-
-    //         lamppost3_2a.rotation.y = 180 * 0.0174532925;
-    //         lamppost3_2a.rotation.z = 180 * 0.0174532925;
-    //     }
-
-    //     // lamppost 2b.
-    //     if (lamppost3_2b != undefined) {
-    //         lamppost3_2b.material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/lamppost02_light.png'), opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide });
-    //         lamppost3_2b.material.needsUpdate = true;
-
-    //         lamppost3_2b.rotation.y = 180 * 0.0174532925;
-    //         lamppost3_2b.rotation.z = 180 * 0.0174532925;
-    //     }
-
-    //     // floor.
-    //     if (floor3_1 != undefined) {
-    //         floor3_1.material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/floor.png'), opacity: 1, depthTest: true, transparent: false, side: THREE.DoubleSide });
-    //         floor3_1.material.needsUpdate = true;
-    //     }
-
-    //     // bicycle.
-    //     if (human3_1 != undefined) {
-    //         human3_1.material = p2_human1_material;
-    //         human3_1.material.needsUpdate = true;
-
-    //         human3_1.rotation.y = 180 * 0.0174532925;
-    //         human3_1.rotation.z = 180 * 0.0174532925;
-    //     }
-
-    //     if (human3_2 != undefined) {
-    //         human3_2.material = p2_human2_material;
-    //         human3_2.material.needsUpdate = true;
-
-    //         human3_2.rotation.y = 180 * 0.0174532925;
-    //         human3_2.rotation.z = 180 * 0.0174532925;
-    //     }
-
-    //     if (human3_3 != undefined) {
-    //         human3_3.material = p2_human3_material;
-    //         human3_3.material.needsUpdate = true;
-
-    //         human3_3.rotation.y = 180 * 0.0174532925;
-    //         human3_3.rotation.z = 180 * 0.0174532925;
-    //     }
-
-    //     if (human3_4 != undefined) {
-    //         human3_4.material = p2_human4_material;
-    //         human3_4.material.needsUpdate = true;
-
-    //         human3_4.rotation.y = 180 * 0.0174532925;
-    //         human3_4.rotation.z = 180 * 0.0174532925;
-    //     }
-
-    //     if (human3_5 != undefined) {
-    //         human3_5.material = p2_human5_material;
-    //         human3_5.material.needsUpdate = true;
-
-    //         human3_5.rotation.y = 180 * 0.0174532925;
-    //         human3_5.rotation.z = 180 * 0.0174532925;
-    //     }
-
-    //     if (rain3_1 != undefined) {
-    //         rain3_1.material = p2_rain_material;
-    //         rain3_1.material.needsUpdate = true;
-
-    //         rain3_1.rotation.y = 180 * 0.0174532925;
-    //         rain3_1.rotation.z = 180 * 0.0174532925;
-    //     }
-
-    //     if (icon3_1 != undefined) {
-    //         icon3_1.material = p2_icon_material;
-    //         icon3_1.material.needsUpdate = true;
-
-    //         icon3_1.rotation.y = 180 * 0.0174532925;
-    //         icon3_1.rotation.z = 180 * 0.0174532925;
-    //     }
-
-    //     root.add(model3);
-    // });
-
-    // var threeGLTFLoader4 = new THREE.GLTFLoader();
-    // threeGLTFLoader4.load("Data/models/smartlamppost4.gltf", function (gltf) {
-    //     model4 = gltf.scene;
-
-    //     model4.position.x = 0;
-    //     model4.position.y = 0;
-    //     model4.position.z = 0;
-
-    //     model4.scale.x = model4.scale.y = model4.scale.z = 0.5;
-
-    //     model4.visible = false;
-
-    //     var tree4_1;
-    //     var tree4_2;
-    //     var bg4_1;
-    //     var floor4_1;
-    //     var lamppost4_1;
-    //     var lamppost4_2a;
-    //     var lamppost4_2b;
-    //     var human4_1;
-    //     var human4_2;
-    //     var human4_3;
-    //     var human4_4;
-    //     var human4_5;
-    //     var icon4_1;
-
-    //     console.log("model4");
-    //     console.log(model4);
-    //     for (count = 0; count < model4.children.length; count++) {
-    //         console.log(model4.children[count]);
-    //         if (model4.children[count].name == "Tree01") {
-    //             console.log("Tree01 LV1");
-    //             tree4_1 = model4.children[count];
-    //         }
-    //         if (model4.children[count].name == "Tree02") {
-    //             console.log("Tree02 LV1");
-    //             tree4_2 = model4.children[count];
-    //         }
-    //         if (model4.children[count].name == "BG") {
-    //             console.log("BG LV1");
-    //             bg4_1 = model4.children[count];
-    //         }
-    //         if (model4.children[count].name == "Lamppost01") {
-    //             console.log("Lamppost01 LV1");
-    //             lamppost4_1 = model4.children[count];
-    //         }
-    //         if (model4.children[count].name == "Lamppost02a") {
-    //             console.log("Lampost01a LV1");
-    //             lamppost4_2a = model4.children[count];
-    //         }
-    //         if (model4.children[count].name == "Lamppost02b") {
-    //             console.log("Lampost02b LV1");
-    //             lamppost4_2b = model4.children[count];
-    //         }
-    //         if (model4.children[count].name == "Cube") {
-    //             console.log("Cube LV1");
-    //             floor4_1 = model4.children[count];
-    //         }
-    //         if (model4.children[count].name == "Human01") {
-    //             console.log("Human01 LV1");
-    //             human4_1 = model4.children[count];
-    //         }
-    //         if (model4.children[count].name == "Human02") {
-    //             console.log("Human02 LV1");
-    //             human4_2 = model4.children[count];
-    //         }
-    //         if (model4.children[count].name == "Human03") {
-    //             console.log("Human03 LV1");
-    //             human4_3 = model4.children[count];
-    //         }
-    //         if (model4.children[count].name == "Human04") {
-    //             console.log("Human04 LV1");
-    //             human4_4 = model4.children[count];
-    //         }
-    //         if (model4.children[count].name == "Human05") {
-    //             console.log("Human05 LV1");
-    //             human4_5 = model4.children[count];
-    //         }
-    //         if (model4.children[count].name == "Icon") {
-    //             console.log("Icon LV1");
-    //             icon4_1 = model4.children[count];
-    //         }
-    //     }
-
-    //     // tree 1.
-    //     if (tree4_1 != undefined) {
-    //         tree4_1.material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/tree01.png'), opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide });
-    //         tree4_1.material.needsUpdate = true;
-
-    //         tree4_1.rotation.y = 180 * 0.0174532925;
-    //         tree4_1.rotation.z = 180 * 0.0174532925;
-    //     }
-
-    //     // tree 2.
-    //     if (tree4_2 != undefined) {
-    //         tree4_2.material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/tree02.png'), opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide });
-    //         tree4_2.material.needsUpdate = true;
-
-    //         tree4_2.rotation.y = 180 * 0.0174532925;
-    //         tree4_2.rotation.z = 180 * 0.0174532925;
-    //     }
-
-    //     // BG.
-    //     if (bg4_1 != undefined) {
-    //         bg4_1.material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/bg.png'), opacity: 1, depthTest: false, transparent: false, side: THREE.DoubleSide });
-    //         bg4_1.material.needsUpdate = true;
-
-    //         bg4_1.rotation.y = 180 * 0.0174532925;
-    //         bg4_1.rotation.z = 180 * 0.0174532925;
-    //     }
-
-    //     // lamppost 1.
-    //     if (lamppost4_1 != undefined) {
-    //         lamppost4_1.material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/lamppost01_light.png'), opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide });
-    //         lamppost4_1.material.needsUpdate = true;
-
-    //         lamppost4_1.rotation.y = 180 * 0.0174532925;
-    //         lamppost4_1.rotation.z = 180 * 0.0174532925;
-    //     }
-
-    //     // lamppost 2a.
-    //     if (lamppost4_2a != undefined) {
-    //         lamppost4_2a.material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/lamppost02_light.png'), opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide });
-    //         lamppost4_2a.material.needsUpdate = true;
-
-    //         lamppost4_2a.rotation.y = 180 * 0.0174532925;
-    //         lamppost4_2a.rotation.z = 180 * 0.0174532925;
-    //     }
-
-    //     // lamppost 2b.
-    //     if (lamppost4_2b != undefined) {
-    //         lamppost4_2b.material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/lamppost02_light.png'), opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide });
-    //         lamppost4_2b.material.needsUpdate = true;
-
-    //         lamppost4_2b.rotation.y = 180 * 0.0174532925;
-    //         lamppost4_2b.rotation.z = 180 * 0.0174532925;
-    //     }
-
-    //     // floor.
-    //     if (floor4_1 != undefined) {
-    //         floor4_1.material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/floor.png'), opacity: 1, depthTest: true, transparent: false, side: THREE.DoubleSide });
-    //         floor4_1.material.needsUpdate = true;
-    //     }
-
-    //     // Human.
-    //     if (human4_1 != undefined) {
-    //         human4_1.material = p3_human1_material;
-    //         human4_1.material.needsUpdate = true;
-
-    //         human4_1.rotation.y = 180 * 0.0174532925;
-    //         human4_1.rotation.z = 180 * 0.0174532925;
-    //     }
-
-    //     if (human4_2 != undefined) {
-    //         human4_2.material = p3_human2_material;
-    //         human4_2.material.needsUpdate = true;
-
-    //         human4_2.rotation.y = 180 * 0.0174532925;
-    //         human4_2.rotation.z = 180 * 0.0174532925;
-    //     }
-
-    //     if (human4_3 != undefined) {
-    //         human4_3.material = p3_human4_material;
-    //         human4_3.material.needsUpdate = true;
-
-    //         human4_3.rotation.y = 180 * 0.0174532925;
-    //         human4_3.rotation.z = 180 * 0.0174532925;
-    //     }
-
-    //     if (human4_4 != undefined) {
-    //         human4_4.material = p3_human4_material;
-    //         human4_4.material.needsUpdate = true;
-
-    //         human4_4.rotation.y = 180 * 0.0174532925;
-    //         human4_4.rotation.z = 180 * 0.0174532925;
-    //     }
-
-    //     if (human4_5 != undefined) {
-    //         human4_5.material = p3_human5_material;
-    //         human4_5.material.needsUpdate = true;
-
-    //         human4_5.rotation.y = 180 * 0.0174532925;
-    //         human4_5.rotation.z = 180 * 0.0174532925;
-    //     }
-
-    //     if (icon4_1 != undefined) {
-    //         icon4_1.material = p3_icon_material;
-    //         icon4_1.material.needsUpdate = true;
-
-    //         icon4_1.rotation.y = 180 * 0.0174532925;
-    //         icon4_1.rotation.z = 180 * 0.0174532925;
-    //     }
-
-    //     root.add(model4);
-    // });
+    var threeGLTFLoader3 = new THREE.GLTFLoader();
+    threeGLTFLoader3.load("Data/models/smartlamppost3.gltf", function (gltf) {
+        model3 = gltf.scene;
+
+        model3.position.x = 0;
+        model3.position.y = 0;
+        model3.position.z = 0;
+
+        model3.scale.x = model3.scale.y = model3.scale.z = 0.5;
+        model3.rotation.x = adjust_angle * 0.0174532925;
+
+        model3.visible = false;
+
+        var tree3_1;
+        var tree3_2;
+        var bg3_1;
+        var floor3_1;
+        var lamppost3_1;
+        var lamppost3_2a;
+        var lamppost3_2b;
+        var human3_1;
+        var human3_2;
+        var human3_3;
+        var human3_4;
+        var human3_5;
+        var icon3_1;
+
+        console.log("model3");
+        console.log(model3);
+        for (count = 0; count < model3.children.length; count++) {
+            console.log(model3.children[count]);
+            if (model3.children[count].name == "Tree01") {
+                console.log("Tree01 LV1");
+                tree3_1 = model3.children[count];
+            }
+            if (model3.children[count].name == "Tree02") {
+                console.log("Tree02 LV1");
+                tree3_2 = model3.children[count];
+            }
+            if (model3.children[count].name == "BG") {
+                console.log("BG LV1");
+                bg3_1 = model3.children[count];
+            }
+            if (model3.children[count].name == "Lamppost01") {
+                console.log("Lamppost01 LV1");
+                lamppost3_1 = model3.children[count];
+            }
+            if (model3.children[count].name == "Lamppost02a") {
+                console.log("Lampost01a LV1");
+                lamppost3_2a = model3.children[count];
+            }
+            if (model3.children[count].name == "Lamppost02b") {
+                console.log("Lampost02b LV1");
+                lamppost3_2b = model3.children[count];
+            }
+            if (model3.children[count].name == "Cube") {
+                console.log("Cube LV1");
+                floor3_1 = model3.children[count];
+            }
+            if (model3.children[count].name == "Human01") {
+                console.log("Human01 LV1");
+                human3_1 = model3.children[count];
+            }
+            if (model3.children[count].name == "Human02") {
+                console.log("Human02 LV1");
+                human3_2 = model3.children[count];
+            }
+            if (model3.children[count].name == "Human03") {
+                console.log("Human03 LV1");
+                human3_3 = model3.children[count];
+            }
+            if (model3.children[count].name == "Human04") {
+                console.log("Human04 LV1");
+                human3_4 = model3.children[count];
+            }
+            if (model3.children[count].name == "Human05") {
+                console.log("Human05 LV1");
+                human3_5 = model3.children[count];
+            }
+            if (model3.children[count].name == "Icon") {
+                console.log("Icon LV1");
+                icon3_1 = model3.children[count];
+            }
+        }
+
+        // tree 1.
+        if (tree3_1 != undefined) {
+            tree3_1.material = tree1_material;
+            tree3_1.material.needsUpdate = true;
+
+            tree3_1.rotation.y = 180 * 0.0174532925;
+            tree3_1.rotation.z = 180 * 0.0174532925;
+        }
+
+        // tree 2.
+        if (tree3_2 != undefined) {
+            tree3_2.material = tree2_material;
+            tree3_2.material.needsUpdate = true;
+
+            tree3_2.rotation.y = 180 * 0.0174532925;
+            tree3_2.rotation.z = 180 * 0.0174532925;
+        }
+
+        // BG.
+        if (bg3_1 != undefined) {
+            bg3_1.material = bg_material;
+            bg3_1.material.needsUpdate = true;
+
+            bg3_1.rotation.y = 180 * 0.0174532925;
+            bg3_1.rotation.z = 180 * 0.0174532925;
+        }
+
+        // lamppost 1.
+        if (lamppost3_1 != undefined) {
+            lamppost3_1.material = lamppost1_light_material;
+            lamppost3_1.material.needsUpdate = true;
+
+            lamppost3_1.rotation.y = 180 * 0.0174532925;
+            lamppost3_1.rotation.z = 180 * 0.0174532925;
+        }
+
+        // lamppost 2a.
+        if (lamppost3_2a != undefined) {
+            lamppost3_2a.material = lamppost2_light_material;
+            lamppost3_2a.material.needsUpdate = true;
+
+            lamppost3_2a.rotation.y = 180 * 0.0174532925;
+            lamppost3_2a.rotation.z = 180 * 0.0174532925;
+        }
+
+        // lamppost 2b.
+        if (lamppost3_2b != undefined) {
+            lamppost3_2b.material = lamppost2_light_material;
+            lamppost3_2b.material.needsUpdate = true;
+
+            lamppost3_2b.rotation.y = 180 * 0.0174532925;
+            lamppost3_2b.rotation.z = 180 * 0.0174532925;
+        }
+
+        // floor.
+        if (floor3_1 != undefined) {
+            floor3_1.material = floor_material;
+            floor3_1.material.needsUpdate = true;
+        }
+
+        // bicycle.
+        if (human3_1 != undefined) {
+            human3_1.material = p2_human1_material;
+            human3_1.material.needsUpdate = true;
+
+            human3_1.rotation.y = 180 * 0.0174532925;
+            human3_1.rotation.z = 180 * 0.0174532925;
+        }
+
+        if (human3_2 != undefined) {
+            human3_2.material = p2_human2_material;
+            human3_2.material.needsUpdate = true;
+
+            human3_2.rotation.y = 180 * 0.0174532925;
+            human3_2.rotation.z = 180 * 0.0174532925;
+        }
+
+        if (human3_3 != undefined) {
+            human3_3.material = p2_human3_material;
+            human3_3.material.needsUpdate = true;
+
+            human3_3.rotation.y = 180 * 0.0174532925;
+            human3_3.rotation.z = 180 * 0.0174532925;
+        }
+
+        if (human3_4 != undefined) {
+            human3_4.material = p2_human4_material;
+            human3_4.material.needsUpdate = true;
+
+            human3_4.rotation.y = 180 * 0.0174532925;
+            human3_4.rotation.z = 180 * 0.0174532925;
+        }
+
+        if (human3_5 != undefined) {
+            human3_5.material = p2_human5_material;
+            human3_5.material.needsUpdate = true;
+
+            human3_5.rotation.y = 180 * 0.0174532925;
+            human3_5.rotation.z = 180 * 0.0174532925;
+        }
+
+        if (icon3_1 != undefined) {
+            icon3_1.material = p2_icon_material;
+            icon3_1.material.needsUpdate = true;
+
+            icon3_1.rotation.y = 180 * 0.0174532925;
+            icon3_1.rotation.z = 180 * 0.0174532925;
+        }
+
+        root.add(model3);
+    });
+
+    var threeGLTFLoader4 = new THREE.GLTFLoader();
+    threeGLTFLoader4.load("Data/models/smartlamppost4.gltf", function (gltf) {
+        model4 = gltf.scene;
+
+        model4.position.x = 0;
+        model4.position.y = 0;
+        model4.position.z = 0;
+
+        model4.scale.x = model4.scale.y = model4.scale.z = 0.5;
+        model4.rotation.x = adjust_angle * 0.0174532925;
+
+        model4.visible = false;
+
+        var tree4_1;
+        var tree4_2;
+        var bg4_1;
+        var floor4_1;
+        var lamppost4_1;
+        var lamppost4_2a;
+        var lamppost4_2b;
+        var human4_1;
+        var human4_2;
+        var human4_3;
+        var human4_4;
+        var human4_5;
+        var icon4_1;
+
+        console.log("model4");
+        console.log(model4);
+        for (count = 0; count < model4.children.length; count++) {
+            console.log(model4.children[count]);
+            if (model4.children[count].name == "Tree01") {
+                console.log("Tree01 LV1");
+                tree4_1 = model4.children[count];
+            }
+            if (model4.children[count].name == "Tree02") {
+                console.log("Tree02 LV1");
+                tree4_2 = model4.children[count];
+            }
+            if (model4.children[count].name == "BG") {
+                console.log("BG LV1");
+                bg4_1 = model4.children[count];
+            }
+            if (model4.children[count].name == "Lamppost01") {
+                console.log("Lamppost01 LV1");
+                lamppost4_1 = model4.children[count];
+            }
+            if (model4.children[count].name == "Lamppost02a") {
+                console.log("Lampost01a LV1");
+                lamppost4_2a = model4.children[count];
+            }
+            if (model4.children[count].name == "Lamppost02b") {
+                console.log("Lampost02b LV1");
+                lamppost4_2b = model4.children[count];
+            }
+            if (model4.children[count].name == "Cube") {
+                console.log("Cube LV1");
+                floor4_1 = model4.children[count];
+            }
+            if (model4.children[count].name == "Human01") {
+                console.log("Human01 LV1");
+                human4_1 = model4.children[count];
+            }
+            if (model4.children[count].name == "Human02") {
+                console.log("Human02 LV1");
+                human4_2 = model4.children[count];
+            }
+            if (model4.children[count].name == "Human03") {
+                console.log("Human03 LV1");
+                human4_3 = model4.children[count];
+            }
+            if (model4.children[count].name == "Human04") {
+                console.log("Human04 LV1");
+                human4_4 = model4.children[count];
+            }
+            if (model4.children[count].name == "Human05") {
+                console.log("Human05 LV1");
+                human4_5 = model4.children[count];
+            }
+            if (model4.children[count].name == "Icon") {
+                console.log("Icon LV1");
+                icon4_1 = model4.children[count];
+            }
+        }
+
+        // tree 1.
+        if (tree4_1 != undefined) {
+            tree4_1.material = tree1_material;
+            tree4_1.material.needsUpdate = true;
+
+            tree4_1.rotation.y = 180 * 0.0174532925;
+            tree4_1.rotation.z = 180 * 0.0174532925;
+        }
+
+        // tree 2.
+        if (tree4_2 != undefined) {
+            tree4_2.material = tree2_material;
+            tree4_2.material.needsUpdate = true;
+
+            tree4_2.rotation.y = 180 * 0.0174532925;
+            tree4_2.rotation.z = 180 * 0.0174532925;
+        }
+
+        // BG.
+        if (bg4_1 != undefined) {
+            bg4_1.material = bg_material;
+            bg4_1.material.needsUpdate = true;
+
+            bg4_1.rotation.y = 180 * 0.0174532925;
+            bg4_1.rotation.z = 180 * 0.0174532925;
+        }
+
+        // lamppost 1.
+        if (lamppost4_1 != undefined) {
+            lamppost4_1.material = lamppost1_light_material;
+            lamppost4_1.material.needsUpdate = true;
+
+            lamppost4_1.rotation.y = 180 * 0.0174532925;
+            lamppost4_1.rotation.z = 180 * 0.0174532925;
+        }
+
+        // lamppost 2a.
+        if (lamppost4_2a != undefined) {
+            lamppost4_2a.material = lamppost2_light_material;
+            lamppost4_2a.material.needsUpdate = true;
+
+            lamppost4_2a.rotation.y = 180 * 0.0174532925;
+            lamppost4_2a.rotation.z = 180 * 0.0174532925;
+        }
+
+        // lamppost 2b.
+        if (lamppost4_2b != undefined) {
+            lamppost4_2b.material = lamppost2_light_material;
+            lamppost4_2b.material.needsUpdate = true;
+
+            lamppost4_2b.rotation.y = 180 * 0.0174532925;
+            lamppost4_2b.rotation.z = 180 * 0.0174532925;
+        }
+
+        // floor.
+        if (floor4_1 != undefined) {
+            floor4_1.material = floor_material;
+            floor4_1.material.needsUpdate = true;
+        }
+
+        // Human.
+        if (human4_1 != undefined) {
+            human4_1.material = p3_human1_material;
+            human4_1.material.needsUpdate = true;
+
+            human4_1.rotation.y = 180 * 0.0174532925;
+            human4_1.rotation.z = 180 * 0.0174532925;
+        }
+
+        if (human4_2 != undefined) {
+            human4_2.material = p3_human2_material;
+            human4_2.material.needsUpdate = true;
+
+            human4_2.rotation.y = 180 * 0.0174532925;
+            human4_2.rotation.z = 180 * 0.0174532925;
+        }
+
+        if (human4_3 != undefined) {
+            human4_3.material = p3_human4_material;
+            human4_3.material.needsUpdate = true;
+
+            human4_3.rotation.y = 180 * 0.0174532925;
+            human4_3.rotation.z = 180 * 0.0174532925;
+        }
+
+        if (human4_4 != undefined) {
+            human4_4.material = p3_human4_material;
+            human4_4.material.needsUpdate = true;
+
+            human4_4.rotation.y = 180 * 0.0174532925;
+            human4_4.rotation.z = 180 * 0.0174532925;
+        }
+
+        if (human4_5 != undefined) {
+            human4_5.material = p3_human5_material;
+            human4_5.material.needsUpdate = true;
+
+            human4_5.rotation.y = 180 * 0.0174532925;
+            human4_5.rotation.z = 180 * 0.0174532925;
+        }
+
+        if (icon4_1 != undefined) {
+            icon4_1.material = p3_icon_material;
+            icon4_1.material.needsUpdate = true;
+
+            icon4_1.rotation.y = 180 * 0.0174532925;
+            icon4_1.rotation.z = 180 * 0.0174532925;
+        }
+
+        root.add(model4);
+    });
 
     var sphere = new THREE.Mesh(
         new THREE.SphereGeometry(0.5, 8, 8),
@@ -1288,13 +1189,13 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
         console.log("downscreen");
         isDragging = true;
 
-        p1_bicycle_video.play();
-        p1_human2_video.play();
-        p1_human3_video.play();
-        p1_human4_video.play();
-        p1_human5_video.play();
-        p1_human6_video.play();
-        p1_icon_video.play();
+        // p1_bicycle_video.play();
+        // p1_human2_video.play();
+        // p1_human3_video.play();
+        // p1_human4_video.play();
+        // p1_human5_video.play();
+        // p1_human6_video.play();
+        // p1_icon_video.play();
     }
 
     function moveScreen(e) {
@@ -1534,109 +1435,104 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
         //     // }
         // }
 
-        // // P1.
-        // p1_bicycle_material.map = p1_bicycle_textures[p1_bicycle_frame];
-        // p1_bicycle_frame++;
-        // if (p1_bicycle_frame >= 500) {
-        //     p1_bicycle_frame = 0;
-        // }
-        // p1_human2_material.map = p1_human2_textures[p1_human2_frame];
-        // p1_human2_frame++;
-        // if (p1_human2_frame >= 500) {
-        //     p1_human2_frame = 0;
-        // }
-        // p1_human3_material.map = p1_human3_textures[p1_human3_frame];
-        // p1_human3_frame++;
-        // if (p1_human3_frame >= 500) {
-        //     p1_human3_frame = 0;
-        // }
-        // p1_human4_material.map = p1_human4_textures[p1_human4_frame];
-        // p1_human4_frame++;
-        // if (p1_human4_frame >= 500) {
-        //     p1_human4_frame = 0;
-        // }
-        // p1_human5_material.map = p1_human5_textures[p1_human5_frame];
-        // p1_human5_frame++;
-        // if (p1_human5_frame >= 500) {
-        //     p1_human5_frame = 0;
-        // }
-        // p1_human6_material.map = p1_human6_textures[p1_human6_frame];
-        // p1_human6_frame++;
-        // if (p1_human6_frame >= 500) {
-        //     p1_human6_frame = 0;
-        // }
-        // p1_icon_material.map = p1_icon_textures[p1_icon_frame];
-        // p1_icon_frame++;
-        // if (p1_icon_frame >= 500) {
-        //     p1_icon_frame = 0;
-        // }
-        // // P2.
-        // p2_human1_material.map = p2_human1_textures[p2_human1_frame];
-        // p2_human1_frame++;
-        // if (p2_human1_frame >= 500) {
-        //     p2_human1_frame = 0;
-        // }
-        // p2_human2_material.map = p2_human2_textures[p2_human2_frame];
-        // p2_human2_frame++;
-        // if (p2_human2_frame >= 500) {
-        //     p2_human2_frame = 0;
-        // }
-        // p2_human3_material.map = p2_human3_textures[p2_human3_frame];
-        // p2_human3_frame++;
-        // if (p2_human3_frame >= 500) {
-        //     p2_human3_frame = 0;
-        // }
-        // p2_human4_material.map = p2_human4_textures[p2_human4_frame];
-        // p2_human4_frame++;
-        // if (p2_human4_frame >= 500) {
-        //     p2_human4_frame = 0;
-        // }
-        // p2_human5_material.map = p2_human5_textures[p2_human5_frame];
-        // p2_human5_frame++;
-        // if (p2_human5_frame >= 500) {
-        //     p2_human5_frame = 0;
-        // }
-        // p2_rain_material.map = p2_rain_textures[p2_rain_frame];
-        // p2_rain_frame++;
-        // if (p2_rain_frame >= 500) {
-        //     p2_rain_frame = 0;
-        // }
-        // p2_icon_material.map = p2_icon_textures[p2_icon_frame];
-        // p2_icon_frame++;
-        // if (p2_icon_frame >= 500) {
-        //     p2_icon_frame = 0;
-        // }
-        // // P3.
-        // p3_human1_material.map = p3_human1_textures[p3_human1_frame];
-        // p3_human1_frame++;
-        // if (p3_human1_frame >= 500) {
-        //     p3_human1_frame = 0;
-        // }
-        // p3_human2_material.map = p3_human2_textures[p3_human2_frame];
-        // p3_human2_frame++;
-        // if (p3_human2_frame >= 500) {
-        //     p3_human2_frame = 0;
-        // }
-        // p3_human3_material.map = p3_human3_textures[p3_human3_frame];
-        // p3_human3_frame++;
-        // if (p3_human3_frame >= 500) {
-        //     p3_human3_frame = 0;
-        // }
-        // p3_human4_material.map = p3_human4_textures[p3_human4_frame];
-        // p3_human4_frame++;
-        // if (p3_human4_frame >= 500) {
-        //     p3_human4_frame = 0;
-        // }
-        // p3_human5_material.map = p3_human5_textures[p3_human5_frame];
-        // p3_human5_frame++;
-        // if (p3_human5_frame >= 500) {
-        //     p3_human5_frame = 0;
-        // }
-        // p3_icon_material.map = p3_icon_textures[p3_icon_frame];
-        // p3_icon_frame++;
-        // if (p3_icon_frame >= 500) {
-        //     p3_icon_frame = 0;
-        // }
+        // P1.
+        p1_bicycle_material.map = p1_bicycle_textures[p1_bicycle_frame];
+        p1_bicycle_frame++;
+        if (p1_bicycle_frame >= p1_bicycle_textures.length) {
+            p1_bicycle_frame = 0;
+        }
+        p1_human2_material.map = p1_human2_textures[p1_human2_frame];
+        p1_human2_frame++;
+        if (p1_human2_frame >= p1_human2_textures.length) {
+            p1_human2_frame = 0;
+        }
+        p1_human3_material.map = p1_human3_textures[p1_human3_frame];
+        p1_human3_frame++;
+        if (p1_human3_frame >= p1_human3_textures.length) {
+            p1_human3_frame = 0;
+        }
+        p1_human4_material.map = p1_human4_textures[p1_human4_frame];
+        p1_human4_frame++;
+        if (p1_human4_frame >= p1_human4_textures.length) {
+            p1_human4_frame = 0;
+        }
+        p1_human5_material.map = p1_human5_textures[p1_human5_frame];
+        p1_human5_frame++;
+        if (p1_human5_frame >= p1_human5_textures.length) {
+            p1_human5_frame = 0;
+        }
+        p1_human6_material.map = p1_human6_textures[p1_human6_frame];
+        p1_human6_frame++;
+        if (p1_human6_frame >= p1_human6_textures.length) {
+            p1_human6_frame = 0;
+        }
+        p1_icon_material.map = p1_icon_textures[p1_icon_frame];
+        p1_icon_frame++;
+        if (p1_icon_frame >= p1_icon_textures.length) {
+            p1_icon_frame = 0;
+        }
+        // P2.
+        p2_human1_material.map = p2_human1_textures[p2_human1_frame];
+        p2_human1_frame++;
+        if (p2_human1_frame >= p2_human1_textures.length) {
+            p2_human1_frame = 0;
+        }
+        p2_human2_material.map = p2_human2_textures[p2_human2_frame];
+        p2_human2_frame++;
+        if (p2_human2_frame >= p2_human2_textures.length) {
+            p2_human2_frame = 0;
+        }
+        p2_human3_material.map = p2_human3_textures[p2_human3_frame];
+        p2_human3_frame++;
+        if (p2_human3_frame >= p2_human3_textures.length) {
+            p2_human3_frame = 0;
+        }
+        p2_human4_material.map = p2_human4_textures[p2_human4_frame];
+        p2_human4_frame++;
+        if (p2_human4_frame >= p2_human4_textures.length) {
+            p2_human4_frame = 0;
+        }
+        p2_human5_material.map = p2_human5_textures[p2_human5_frame];
+        p2_human5_frame++;
+        if (p2_human5_frame >= p2_human5_textures.length) {
+            p2_human5_frame = 0;
+        }
+        p2_icon_material.map = p2_icon_textures[p2_icon_frame];
+        p2_icon_frame++;
+        if (p2_icon_frame >= p3_icon_textures.length) {
+            p2_icon_frame = 0;
+        }
+        // P3.
+        p3_human1_material.map = p2_human1_textures[p3_human1_frame];
+        p3_human1_frame++;
+        if (p3_human1_frame >= p2_human1_textures.length) {
+            p3_human1_frame = 0;
+        }
+        p3_human2_material.map = p2_human2_textures[p3_human2_frame];
+        p3_human2_frame++;
+        if (p3_human2_frame >= p2_human2_textures.length) {
+            p3_human2_frame = 0;
+        }
+        p3_human3_material.map = p2_human3_textures[p3_human3_frame];
+        p3_human3_frame++;
+        if (p3_human3_frame >= p2_human3_textures.length) {
+            p3_human3_frame = 0;
+        }
+        p3_human4_material.map = p2_human4_textures[p3_human4_frame];
+        p3_human4_frame++;
+        if (p3_human4_frame >= p2_human4_textures.length) {
+            p3_human4_frame = 0;
+        }
+        p3_human5_material.map = p2_human5_textures[p3_human5_frame];
+        p3_human5_frame++;
+        if (p3_human5_frame >= p2_human5_textures.length) {
+            p3_human5_frame = 0;
+        }
+        p3_icon_material.map = p3_icon_textures[p3_icon_frame];
+        p3_icon_frame++;
+        if (p3_icon_frame >= p3_icon_textures.length) {
+            p3_icon_frame = 0;
+        }
     };
 
     function process() {
@@ -1678,45 +1574,44 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
 }
 
 function choice1_worker() {
-    // p1_bicycle_frame = 0;
-    // p1_human2_frame = 0;
-    // p1_human3_frame = 0;
-    // p1_human4_frame = 0;
-    // p1_human5_frame = 0;
-    // p1_human6_frame = 0;
-    // p1_icon_frame = 0;
+    p1_bicycle_frame = 0;
+    p1_human2_frame = 0;
+    p1_human3_frame = 0;
+    p1_human4_frame = 0;
+    p1_human5_frame = 0;
+    p1_human6_frame = 0;
+    p1_icon_frame = 0;
 
     model1.visible = false;
     model2.visible = true;
-    // model3.visible = false;
-    // model4.visible = false;
+    model3.visible = false;
+    model4.visible = false;
 }
 
-// function choice2_worker() {
-//     p2_human1_frame = 0;
-//     p2_human2_frame = 0;
-//     p2_human3_frame = 0;
-//     p2_human4_frame = 0;
-//     p2_human5_frame = 0;
-//     p2_rain_frame = 0;
-//     p2_icon_frame = 0;
+function choice2_worker() {
+    p2_human1_frame = 0;
+    p2_human2_frame = 0;
+    p2_human3_frame = 0;
+    p2_human4_frame = 0;
+    p2_human5_frame = 0;
+    p2_icon_frame = 0;
 
-//     model1.visible = false;
-//     model2.visible = false;
-//     model3.visible = true;
-//     model4.visible = false;
-// }
+    model1.visible = false;
+    model2.visible = false;
+    model3.visible = true;
+    model4.visible = false;
+}
 
-// function choice3_worker() {
-//     p2_human1_frame = 0;
-//     p2_human2_frame = 0;
-//     p2_human3_frame = 0;
-//     p2_human4_frame = 0;
-//     p2_human5_frame = 0;
-//     p2_icon_frame = 0;
+function choice3_worker() {
+    p2_human1_frame = 0;
+    p2_human2_frame = 0;
+    p2_human3_frame = 0;
+    p2_human4_frame = 0;
+    p2_human5_frame = 0;
+    p2_icon_frame = 0;
 
-//     model1.visible = false;
-//     model2.visible = false;
-//     model3.visible = false;
-//     model4.visible = true;
-// }
+    model1.visible = false;
+    model2.visible = false;
+    model3.visible = false;
+    model4.visible = true;
+}
