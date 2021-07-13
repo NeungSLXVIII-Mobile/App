@@ -1700,7 +1700,7 @@ function choice1_worker() {
         p1_icon_textures = [];
 
         var path;
-        for (count = 0; count < 250; count++) {
+        for (count = 0; count < 500; count++) {
             if (count < 10) {
                 path = 'assets/sprites/4/Test/03_Human_0000' + count + '.png';
             }
@@ -1858,7 +1858,7 @@ function choice2_worker() {
         p2_icon_textures = [];
 
         var path;
-        for (count = 0; count < 250; count++) {
+        for (count = 0; count < 500; count++) {
             if (count < 10) {
                 path = 'assets/sprites/4/Test/03_Human_0000' + count + '.png';
             }
@@ -1995,7 +1995,7 @@ function choice3_worker() {
         p3_icon_textures = [];
 
         var path;
-        for (count = 0; count < 250; count++) {
+        for (count = 0; count < 500; count++) {
             if (count < 10) {
                 path = 'assets/sprites/4/Test/03_Human_0000' + count + '.png';
             }
