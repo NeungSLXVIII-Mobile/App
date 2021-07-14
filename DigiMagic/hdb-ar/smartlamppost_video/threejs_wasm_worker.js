@@ -57,6 +57,7 @@ var adjust_py = 0;
 var adjust_angle = 25;
 //, side: THREE.DoubleSide
 
+// P1.
 var p1_bicycle_video;
 var p1_human2_video;
 var p1_human3_video;
@@ -74,6 +75,41 @@ var p1_human6_video_texture;
 var p1_icon_video_texture;
 
 var p1_bicycle_video_texture_alpha;
+var p1_human2_video_texture_alpha;
+var p1_human3_video_texture_alpha;
+var p1_human4_video_texture_alpha;
+var p1_human5_video_texture_alpha;
+var p1_human6_video_texture_alpha;
+var p1_icon_video_texture_alpha;
+
+// P2.
+var p2_human1_video;
+var p2_human2_video;
+var p2_human3_video;
+var p2_human4_video;
+var p2_human5_video;
+var p2_icon_video;
+
+var p2_human1_video_texture;
+var p2_human2_video_texture;
+var p2_human3_video_texture;
+var p2_human4_video_texture;
+var p2_human5_video_texture;
+var p2_icon_video_texture;
+
+var p2_human1_video_texture_alpha;
+var p2_human2_video_texture_alpha;
+var p2_human3_video_texture_alpha;
+var p2_human4_video_texture_alpha;
+var p2_human5_video_texture_alpha;
+var p2_icon_video_texture_alpha;
+
+// P3.
+var p3_icon_video;
+
+var p3_icon_video_texture;
+
+var p3_icon_video_texture_alpha;
 
 var tree1_material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/tree01.png'), opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide });
 var tree2_material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/tree02.png'), opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide });
@@ -137,22 +173,22 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
     p1_bicycle_video = document.getElementById('p1_bicycle_video');
     p1_bicycle_video_alpha = document.getElementById('p1_bicycle_video_alpha');
     p1_human2_video = document.getElementById('p1_human2_video');
+    p1_human2_video_alpha = document.getElementById('p1_human2_video_alpha');
     p1_human3_video = document.getElementById('p1_human3_video');
+    p1_human3_video_alpha = document.getElementById('p1_human3_video_alpha');
     p1_human4_video = document.getElementById('p1_human4_video');
+    p1_human4_video_alpha = document.getElementById('p1_human4_video_alpha');
     p1_human5_video = document.getElementById('p1_human5_video');
+    p1_human5_video_alpha = document.getElementById('p1_human5_video_alpha');
     p1_human6_video = document.getElementById('p1_human6_video');
+    p1_human6_video_alpha = document.getElementById('p1_human6_video_alpha');
     p1_icon_video = document.getElementById('p1_icon_video');
+    p1_icon_video_alpha = document.getElementById('p1_icon_video_alpha');
 
     p1_bicycle_video_texture = new THREE.VideoTexture(p1_bicycle_video);
     p1_bicycle_video_texture.minFilter = THREE.LinearFilter;
     p1_bicycle_video_texture.magFilter = THREE.LinearFilter;
     p1_bicycle_video_texture.format = THREE.RGBAFormat;
-
-    // p1_bicycle_video_texture_alpha = new THREE.TextureLoader().load('Data/textures/alpha.png');
-    // p1_bicycle_video_texture_alpha.minFilter = THREE.RepeatFilter;
-    // p1_bicycle_video_texture_alpha.magFilter = THREE.RepeatFilter;
-    // p1_bicycle_video_texture_alpha.format = THREE.RGBAFormat;
-    // //p1_bicycle_video_texture_alpha.repeat.set(1 / 2, 1);
 
     p1_bicycle_video_texture_alpha = new THREE.VideoTexture(p1_bicycle_video_alpha);
     p1_bicycle_video_texture_alpha.minFilter = THREE.LinearFilter;
@@ -164,11 +200,21 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
     p1_human2_video_texture.magFilter = THREE.LinearFilter;
     p1_human2_video_texture.format = THREE.RGBAFormat;
 
+    p1_human2_video_texture_alpha = new THREE.VideoTexture(p1_human2_video_alpha);
+    p1_human2_video_texture_alpha.minFilter = THREE.LinearFilter;
+    p1_human2_video_texture_alpha.magFilter = THREE.LinearFilter;
+    p1_human2_video_texture_alpha.format = THREE.RGBAFormat;
+
     p1_human3_video_texture = new THREE.VideoTexture(p1_human3_video);
     p1_human3_video_texture.minFilter = THREE.LinearFilter;
     p1_human3_video_texture.magFilter = THREE.LinearFilter;
     p1_human3_video_texture.format = THREE.RGBAFormat;
     p1_human3_video_texture.needsUpdate = true;
+
+    p1_human3_video_texture_alpha = new THREE.VideoTexture(p1_human3_video_alpha);
+    p1_human3_video_texture_alpha.minFilter = THREE.LinearFilter;
+    p1_human3_video_texture_alpha.magFilter = THREE.LinearFilter;
+    p1_human3_video_texture_alpha.format = THREE.RGBAFormat;
 
     p1_human4_video_texture = new THREE.VideoTexture(p1_human4_video);
     p1_human4_video_texture.minFilter = THREE.LinearFilter;
@@ -176,11 +222,21 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
     p1_human4_video_texture.format = THREE.RGBAFormat;
     p1_human4_video_texture.needsUpdate = true;
 
+    p1_human4_video_texture_alpha = new THREE.VideoTexture(p1_human4_video_alpha);
+    p1_human4_video_texture_alpha.minFilter = THREE.LinearFilter;
+    p1_human4_video_texture_alpha.magFilter = THREE.LinearFilter;
+    p1_human4_video_texture_alpha.format = THREE.RGBAFormat;
+
     p1_human5_video_texture = new THREE.VideoTexture(p1_human5_video);
     p1_human5_video_texture.minFilter = THREE.LinearFilter;
     p1_human5_video_texture.magFilter = THREE.LinearFilter;
     p1_human5_video_texture.format = THREE.RGBAFormat;
     p1_human5_video_texture.needsUpdate = true;
+
+    p1_human5_video_texture_alpha = new THREE.VideoTexture(p1_human5_video_alpha);
+    p1_human5_video_texture_alpha.minFilter = THREE.LinearFilter;
+    p1_human5_video_texture_alpha.magFilter = THREE.LinearFilter;
+    p1_human5_video_texture_alpha.format = THREE.RGBAFormat;
 
     p1_human6_video_texture = new THREE.VideoTexture(p1_human6_video);
     p1_human6_video_texture.minFilter = THREE.LinearFilter;
@@ -188,37 +244,63 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
     p1_human6_video_texture.format = THREE.RGBAFormat;
     p1_human6_video_texture.needsUpdate = true;
 
+    p1_human6_video_texture_alpha = new THREE.VideoTexture(p1_human6_video_alpha);
+    p1_human6_video_texture_alpha.minFilter = THREE.LinearFilter;
+    p1_human6_video_texture_alpha.magFilter = THREE.LinearFilter;
+    p1_human6_video_texture_alpha.format = THREE.RGBAFormat;
+
     p1_icon_video_texture = new THREE.VideoTexture(p1_icon_video);
     p1_icon_video_texture.minFilter = THREE.LinearFilter;
     p1_icon_video_texture.magFilter = THREE.LinearFilter;
     p1_icon_video_texture.format = THREE.RGBAFormat;
     p1_icon_video_texture.needsUpdate = true;
 
+    p1_icon_video_texture_alpha = new THREE.VideoTexture(p1_icon_video_alpha);
+    p1_icon_video_texture_alpha.minFilter = THREE.LinearFilter;
+    p1_icon_video_texture_alpha.magFilter = THREE.LinearFilter;
+    p1_icon_video_texture_alpha.format = THREE.RGBAFormat;
+
     var p1_bicycle_material = new THREE.MeshBasicMaterial({ map: p1_bicycle_video_texture, transparent: true, side: THREE.DoubleSide, opacity: 1, alphaMap: p1_bicycle_video_texture_alpha });
-    var p1_human2_material = new THREE.MeshPhongMaterial({ map: p1_human2_video_texture, transparent: true, side: THREE.DoubleSide, opacity: 1, alphaMap: p1_human2_video_texture });
-    var p1_human3_material = new THREE.MeshPhongMaterial({ map: p1_human3_video_texture, transparent: true, side: THREE.DoubleSide, opacity: 1, alphaMap: p1_human3_video_texture });
-    var p1_human4_material = new THREE.MeshPhongMaterial({ map: p1_human4_video_texture, transparent: true, side: THREE.DoubleSide, opacity: 1, alphaMap: p1_human4_video_texture });
-    var p1_human5_material = new THREE.MeshPhongMaterial({ map: p1_human4_video_texture, transparent: true, side: THREE.DoubleSide, opacity: 1, alphaMap: p1_human5_video_texture });
-    var p1_human6_material = new THREE.MeshPhongMaterial({ map: p1_human4_video_texture, transparent: true, side: THREE.DoubleSide, opacity: 1, alphaMap: p1_human6_video_texture });
-    var p1_icon_material = new THREE.MeshPhongMaterial({ map: p1_human4_video_texture, transparent: true, side: THREE.DoubleSide, opacity: 1, alphaMap: p1_icon_video_texture });
+    var p1_human2_material = new THREE.MeshBasicMaterial({ map: p1_human2_video_texture, transparent: true, side: THREE.DoubleSide, opacity: 1, alphaMap: p1_human2_video_texture_alpha });
+    var p1_human3_material = new THREE.MeshBasicMaterial({ map: p1_human3_video_texture, transparent: true, side: THREE.DoubleSide, opacity: 1, alphaMap: p1_human3_video_texture_alpha });
+    var p1_human4_material = new THREE.MeshBasicMaterial({ map: p1_human4_video_texture, transparent: true, side: THREE.DoubleSide, opacity: 1, alphaMap: p1_human4_video_texture_alpha });
+    var p1_human5_material = new THREE.MeshBasicMaterial({ map: p1_human5_video_texture, transparent: true, side: THREE.DoubleSide, opacity: 1, alphaMap: p1_human5_video_texture_alpha });
+    var p1_human6_material = new THREE.MeshBasicMaterial({ map: p1_human6_video_texture, transparent: true, side: THREE.DoubleSide, opacity: 1, alphaMap: p1_human6_video_texture_alpha });
+    var p1_icon_material = new THREE.MeshBasicMaterial({ map: p1_icon_video_texture, transparent: true, side: THREE.DoubleSide, opacity: 1, alphaMap: p1_icon_video_texture_alpha });
 
     // P2.
-    p2_human1_video = document.getElementById('p2_bicycle_video');
+    p2_human1_video = document.getElementById('p2_human1_video');
+    p2_human1_video_alpha = document.getElementById('p2_human1_video_alpha');
     p2_human2_video = document.getElementById('p2_human2_video');
+    p2_human2_video_alpha = document.getElementById('p2_human2_video_alpha');
     p2_human3_video = document.getElementById('p2_human3_video');
+    p2_human3_video_alpha = document.getElementById('p2_human3_video_alpha');
     p2_human4_video = document.getElementById('p2_human4_video');
+    p2_human4_video_alpha = document.getElementById('p2_human4_video_alpha');
     p2_human5_video = document.getElementById('p2_human5_video');
+    p2_human5_video_alpha = document.getElementById('p2_human5_video_alpha');
     p2_icon_video = document.getElementById('p2_icon_video');
+    p2_icon_video_alpha = document.getElementById('p2_icon_video_alpha');
 
     p2_human1_video_texture = new THREE.VideoTexture(p2_human1_video);
     p2_human1_video_texture.minFilter = THREE.LinearFilter;
     p2_human1_video_texture.magFilter = THREE.LinearFilter;
     p2_human1_video_texture.format = THREE.RGBAFormat;
 
+    p2_human1_video_texture_alpha = new THREE.VideoTexture(p2_human1_video_alpha);
+    p2_human1_video_texture_alpha.minFilter = THREE.LinearFilter;
+    p2_human1_video_texture_alpha.magFilter = THREE.LinearFilter;
+    p2_human1_video_texture_alpha.format = THREE.RGBAFormat;
+
     p2_human2_video_texture = new THREE.VideoTexture(p2_human2_video);
     p2_human2_video_texture.minFilter = THREE.LinearFilter;
     p2_human2_video_texture.magFilter = THREE.LinearFilter;
     p2_human2_video_texture.format = THREE.RGBAFormat;
+
+    p2_human2_video_texture_alpha = new THREE.VideoTexture(p2_human2_video_alpha);
+    p2_human2_video_texture_alpha.minFilter = THREE.LinearFilter;
+    p2_human2_video_texture_alpha.magFilter = THREE.LinearFilter;
+    p2_human2_video_texture_alpha.format = THREE.RGBAFormat;
 
     p2_human3_video_texture = new THREE.VideoTexture(p2_human3_video);
     p2_human3_video_texture.minFilter = THREE.LinearFilter;
@@ -226,11 +308,21 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
     p2_human3_video_texture.format = THREE.RGBAFormat;
     p2_human3_video_texture.needsUpdate = true;
 
+    p2_human3_video_texture_alpha = new THREE.VideoTexture(p2_human3_video_alpha);
+    p2_human3_video_texture_alpha.minFilter = THREE.LinearFilter;
+    p2_human3_video_texture_alpha.magFilter = THREE.LinearFilter;
+    p2_human3_video_texture_alpha.format = THREE.RGBAFormat;
+
     p2_human4_video_texture = new THREE.VideoTexture(p2_human4_video);
     p2_human4_video_texture.minFilter = THREE.LinearFilter;
     p2_human4_video_texture.magFilter = THREE.LinearFilter;
     p2_human4_video_texture.format = THREE.RGBAFormat;
     p2_human4_video_texture.needsUpdate = true;
+
+    p2_human4_video_texture_alpha = new THREE.VideoTexture(p2_human4_video_alpha);
+    p2_human4_video_texture_alpha.minFilter = THREE.LinearFilter;
+    p2_human4_video_texture_alpha.magFilter = THREE.LinearFilter;
+    p2_human4_video_texture_alpha.format = THREE.RGBAFormat;
 
     p2_human5_video_texture = new THREE.VideoTexture(p2_human5_video);
     p2_human5_video_texture.minFilter = THREE.LinearFilter;
@@ -238,21 +330,32 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
     p2_human5_video_texture.format = THREE.RGBAFormat;
     p2_human5_video_texture.needsUpdate = true;
 
+    p2_human5_video_texture_alpha = new THREE.VideoTexture(p2_human5_video_alpha);
+    p2_human5_video_texture_alpha.minFilter = THREE.LinearFilter;
+    p2_human5_video_texture_alpha.magFilter = THREE.LinearFilter;
+    p2_human5_video_texture_alpha.format = THREE.RGBAFormat;
+
     p2_icon_video_texture = new THREE.VideoTexture(p2_icon_video);
     p2_icon_video_texture.minFilter = THREE.LinearFilter;
     p2_icon_video_texture.magFilter = THREE.LinearFilter;
     p2_icon_video_texture.format = THREE.RGBAFormat;
     p2_icon_video_texture.needsUpdate = true;
 
-    var p2_human1_material = new THREE.MeshPhongMaterial({ map: p2_human1_video_texture, transparent: true, side: THREE.DoubleSide, opacity: 1, alphaMap: p2_human1_video_texture });
-    var p2_human2_material = new THREE.MeshPhongMaterial({ map: p2_human2_video_texture, transparent: true, side: THREE.DoubleSide, opacity: 1, alphaMap: p2_human2_video_texture });
-    var p2_human3_material = new THREE.MeshPhongMaterial({ map: p2_human3_video_texture, transparent: true, side: THREE.DoubleSide, opacity: 1, alphaMap: p2_human3_video_texture });
-    var p2_human4_material = new THREE.MeshPhongMaterial({ map: p2_human4_video_texture, transparent: true, side: THREE.DoubleSide, opacity: 1, alphaMap: p2_human4_video_texture });
-    var p2_human5_material = new THREE.MeshPhongMaterial({ map: p2_human4_video_texture, transparent: true, side: THREE.DoubleSide, opacity: 1, alphaMap: p2_human5_video_texture });
-    var p2_icon_material = new THREE.MeshPhongMaterial({ map: p2_icon_video_texture, transparent: true, side: THREE.DoubleSide, opacity: 1, alphaMap: p2_icon_video_texture });
+    p2_icon_video_texture_alpha = new THREE.VideoTexture(p2_icon_video_alpha);
+    p2_icon_video_texture_alpha.minFilter = THREE.LinearFilter;
+    p2_icon_video_texture_alpha.magFilter = THREE.LinearFilter;
+    p2_icon_video_texture_alpha.format = THREE.RGBAFormat;
+
+    var p2_human1_material = new THREE.MeshBasicMaterial({ map: p2_human1_video_texture, transparent: true, side: THREE.DoubleSide, opacity: 1, alphaMap: p2_human1_video_texture_alpha });
+    var p2_human2_material = new THREE.MeshBasicMaterial({ map: p2_human2_video_texture, transparent: true, side: THREE.DoubleSide, opacity: 1, alphaMap: p2_human2_video_texture_alpha });
+    var p2_human3_material = new THREE.MeshBasicMaterial({ map: p2_human3_video_texture, transparent: true, side: THREE.DoubleSide, opacity: 1, alphaMap: p2_human3_video_texture_alpha });
+    var p2_human4_material = new THREE.MeshBasicMaterial({ map: p2_human4_video_texture, transparent: true, side: THREE.DoubleSide, opacity: 1, alphaMap: p2_human4_video_texture_alpha });
+    var p2_human5_material = new THREE.MeshBasicMaterial({ map: p2_human4_video_texture, transparent: true, side: THREE.DoubleSide, opacity: 1, alphaMap: p2_human5_video_texture_alpha });
+    var p2_icon_material = new THREE.MeshBasicMaterial({ map: p2_icon_video_texture, transparent: true, side: THREE.DoubleSide, opacity: 1, alphaMap: p2_icon_video_texture_alpha });
 
     // P3.
     p3_icon_video = document.getElementById('p2_icon_video');
+    p3_icon_video_alpha = document.getElementById('p2_icon_video_alpha');
 
     p3_icon_video_texture = new THREE.VideoTexture(p3_icon_video);
     p3_icon_video_texture.minFilter = THREE.LinearFilter;
@@ -260,12 +363,17 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
     p3_icon_video_texture.format = THREE.RGBAFormat;
     p3_icon_video_texture.needsUpdate = true;
 
+    p3_icon_video_texture_alpha = new THREE.VideoTexture(p3_icon_video_alpha);
+    p3_icon_video_texture_alpha.minFilter = THREE.LinearFilter;
+    p3_icon_video_texture_alpha.magFilter = THREE.LinearFilter;
+    p3_icon_video_texture_alpha.format = THREE.RGBAFormat;
+
     var p3_human1_material = p2_human1_material;
     var p3_human2_material = p2_human2_material;
     var p3_human3_material = p2_human3_material;
     var p3_human4_material = p2_human4_material;
     var p3_human5_material = p2_human5_material;
-    var p3_icon_material = new THREE.MeshPhongMaterial({ map: p3_icon_video_texture, transparent: true, side: THREE.DoubleSide, opacity: 1, alphaMap: p3_icon_video_texture });
+    var p3_icon_material = new THREE.MeshBasicMaterial({ map: p3_icon_video_texture, transparent: true, side: THREE.DoubleSide, opacity: 1, alphaMap: p3_icon_video_texture_alpha });
 
     /* Load Model */
     var threeGLTFLoader1 = new THREE.GLTFLoader();
@@ -343,8 +451,7 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
 
         // BG.
         if (bg1_1 != undefined) {
-            //bg1_1.material = bg_material;
-            bg1_1.material = p1_bicycle_material;
+            bg1_1.material = bg_material;
             bg1_1.material.needsUpdate = true;
 
             bg1_1.rotation.y = 180 * 0.0174532925;
@@ -1027,15 +1134,6 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
     function downScreen(e) {
         console.log("downscreen");
         isDragging = true;
-
-        p1_bicycle_video.play();
-        p1_bicycle_video_alpha.play();
-        p1_human2_video.play();
-        p1_human3_video.play();
-        p1_human4_video.play();
-        p1_human5_video.play();
-        p1_human6_video.play();
-        p1_icon_video.play();
     }
 
     function moveScreen(e) {
@@ -1303,6 +1401,21 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
 }
 
 function choice1_worker() {
+    p1_bicycle_video.play();
+    p1_bicycle_video_alpha.play();
+    p1_human2_video.play();
+    p1_human2_video_alpha.play();
+    p1_human3_video.play();
+    p1_human3_video_alpha.play();
+    p1_human4_video.play();
+    p1_human4_video_alpha.play();
+    p1_human5_video.play();
+    p1_human5_video_alpha.play();
+    p1_human6_video.play();
+    p1_human6_video_alpha.play();
+    p1_icon_video.play();
+    p1_icon_video_alpha.play();
+
     model1.visible = false;
     model2.visible = true;
     model3.visible = false;
@@ -1310,6 +1423,19 @@ function choice1_worker() {
 }
 
 function choice2_worker() {
+    p2_human1_video.play();
+    p2_human1_video_alpha.play();
+    p2_human2_video.play();
+    p2_human2_video_alpha.play();
+    p2_human3_video.play();
+    p2_human3_video_alpha.play();
+    p2_human4_video.play();
+    p2_human4_video_alpha.play();
+    p2_human5_video.play();
+    p2_human5_video_alpha.play();
+    p2_icon_video.play();
+    p2_icon_video_alpha.play();
+
     model1.visible = false;
     model2.visible = false;
     model3.visible = true;
@@ -1317,6 +1443,19 @@ function choice2_worker() {
 }
 
 function choice3_worker() {
+    p2_human1_video.play();
+    p2_human1_video_alpha.play();
+    p2_human2_video.play();
+    p2_human2_video_alpha.play();
+    p2_human3_video.play();
+    p2_human3_video_alpha.play();
+    p2_human4_video.play();
+    p2_human4_video_alpha.play();
+    p2_human5_video.play();
+    p2_human5_video_alpha.play();
+    p3_icon_video.play();
+    p3_icon_video_alpha.play();
+
     model1.visible = false;
     model2.visible = false;
     model3.visible = false;
