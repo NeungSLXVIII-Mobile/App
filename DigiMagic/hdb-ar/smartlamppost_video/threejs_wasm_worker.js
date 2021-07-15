@@ -1611,8 +1611,8 @@ function P1_VideoTexture() {
     var width = 0;
     var height = 0;
 
-    width = 480;
-    height = 270;
+    width = 600;
+    height = 600;
 
     var ctx;
     var ctx_alpha;
@@ -1825,8 +1825,8 @@ function P2_VideoTexture() {
     var width = 0;
     var height = 0;
 
-    width = 480;
-    height = 270;
+    width = 600;
+    height = 600;
 
     var ctx;
     var ctx_alpha;
@@ -2010,8 +2010,8 @@ function P3_VideoTexture() {
     var width = 0;
     var height = 0;
 
-    width = 480;
-    height = 270;
+    width = 600;
+    height = 600;
 
     var ctx;
     var ctx_alpha;
