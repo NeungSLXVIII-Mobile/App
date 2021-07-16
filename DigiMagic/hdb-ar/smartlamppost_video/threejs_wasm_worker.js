@@ -2280,11 +2280,17 @@ function P3_VideoTexture() {
     p2_human5_material.needsUpdate = true;
 
     // icon.
+    // icon.
     ctx = p3_icon_canvas.getContext("2d");
     ctx_alpha = p3_icon_canvas_alpha.getContext("2d");
 
-    ctx.drawImage(p3_icon_video, 0, 0, width, height, 0, 0, width, height);
-    ctx_alpha.drawImage(p3_icon_video, width, 0, width, height, 0, 0, width, height);
+    source_ctx.drawImage(p3_icon_video, 0, 0, source_width, source_height, 0, 0, source_width, source_height);
+
+    ctx.drawImage(source_canvas, 0, 0, width, height, 0, 0, width, height);
+    ctx_alpha.drawImage(source_canvas, width, 0, width, height, 0, 0, width, height);
+
+    // ctx.drawImage(p3_icon_video, 0, 0, width, height, 0, 0, width, height);
+    // ctx_alpha.drawImage(p3_icon_video, width, 0, width, height, 0, 0, width, height);
 
     if (p3_icon_video_texture != undefined) {
         p3_icon_video_texture.dispose();
