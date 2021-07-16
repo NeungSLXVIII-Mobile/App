@@ -129,7 +129,7 @@ var p2_human5_frame_count = 100;
 var p2_icon_frame_count = 100;
 var p3_icon_frame_count = 100;
 
-console.error("frame 100.");
+console.error("frame 100 1.");
 
 var p1_bicycle_frame = 0;
 var p1_bicycle_duration = 0;
