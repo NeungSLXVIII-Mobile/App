@@ -1265,7 +1265,10 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
                     'XYZ'
                 ));
 
-            model.quaternion.multiplyQuaternions(deltaRotationQuaternion, model.quaternion);
+            model1.quaternion.multiplyQuaternions(deltaRotationQuaternion, model1.quaternion);
+            model2.quaternion.multiplyQuaternions(deltaRotationQuaternion, model2.quaternion);
+            model3.quaternion.multiplyQuaternions(deltaRotationQuaternion, model3.quaternion);
+            model4.quaternion.multiplyQuaternions(deltaRotationQuaternion, model4.quaternion);
         }
         previousMousePosition = {
             x: e.offsetX,
@@ -1291,7 +1294,10 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
                     'XYZ'
                 ));
 
-            model.quaternion.multiplyQuaternions(deltaRotationQuaternion, model.quaternion);
+            model1.quaternion.multiplyQuaternions(deltaRotationQuaternion, model1.quaternion);
+            model2.quaternion.multiplyQuaternions(deltaRotationQuaternion, model2.quaternion);
+            model3.quaternion.multiplyQuaternions(deltaRotationQuaternion, model3.quaternion);
+            model4.quaternion.multiplyQuaternions(deltaRotationQuaternion, model4.quaternion);
         }
         previousMousePosition = {
             x: e.touches[0].offsetX,
