@@ -1350,37 +1350,37 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
             // P1.
             p1_bicycle_material.map = p1_bicycle_textures[p1_bicycle_frame];
             p1_bicycle_frame++;
-            if (p1_bicycle_frame >= p1_bicycle_textures.length) {
+            if (p1_bicycle_frame >= p1_bicycle_frame_count) {
                 p1_bicycle_frame = 0;
             }
             p1_human2_material.map = p1_human2_textures[p1_human2_frame];
             p1_human2_frame++;
-            if (p1_human2_frame >= p1_human2_textures.length) {
+            if (p1_human2_frame >= p1_human2_frame_count) {
                 p1_human2_frame = 0;
             }
             p1_human3_material.map = p1_human3_textures[p1_human3_frame];
             p1_human3_frame++;
-            if (p1_human3_frame >= p1_human3_textures.length) {
+            if (p1_human3_frame >= p1_human3_frame_count) {
                 p1_human3_frame = 0;
             }
             p1_human4_material.map = p1_human4_textures[p1_human4_frame];
             p1_human4_frame++;
-            if (p1_human4_frame >= p1_human4_textures.length) {
+            if (p1_human4_frame >= p1_human4_frame_count) {
                 p1_human4_frame = 0;
             }
             p1_human5_material.map = p1_human5_textures[p1_human5_frame];
             p1_human5_frame++;
-            if (p1_human5_frame >= p1_human5_textures.length) {
+            if (p1_human5_frame >= p1_human5_frame_count) {
                 p1_human5_frame = 0;
             }
             p1_human6_material.map = p1_human6_textures[p1_human6_frame];
             p1_human6_frame++;
-            if (p1_human6_frame >= p1_human6_textures.length) {
+            if (p1_human6_frame >= p1_human6_frame_count) {
                 p1_human6_frame = 0;
             }
             p1_icon_material.map = p1_icon_textures[p1_icon_frame];
             p1_icon_frame++;
-            if (p1_icon_frame >= p1_icon_textures.length) {
+            if (p1_icon_frame >= p1_icon_frame_count) {
                 p1_icon_frame = 0;
             }
         }
@@ -1388,32 +1388,32 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
             // P2.
             p2_human1_material.map = p2_human1_textures[p2_human1_frame];
             p2_human1_frame++;
-            if (p2_human1_frame >= p2_human1_textures.length) {
+            if (p2_human1_frame >= p2_human1_frame_count) {
                 p2_human1_frame = 0;
             }
             p2_human2_material.map = p2_human2_textures[p2_human2_frame];
             p2_human2_frame++;
-            if (p2_human2_frame >= p2_human2_textures.length) {
+            if (p2_human2_frame >= p2_human2_frame_count) {
                 p2_human2_frame = 0;
             }
             p2_human3_material.map = p2_human3_textures[p2_human3_frame];
             p2_human3_frame++;
-            if (p2_human3_frame >= p2_human3_textures.length) {
+            if (p2_human3_frame >= p2_human3_frame_count) {
                 p2_human3_frame = 0;
             }
             p2_human4_material.map = p2_human4_textures[p2_human4_frame];
             p2_human4_frame++;
-            if (p2_human4_frame >= p2_human4_textures.length) {
+            if (p2_human4_frame >= p2_human4_frame_count) {
                 p2_human4_frame = 0;
             }
             p2_human5_material.map = p2_human5_textures[p2_human5_frame];
             p2_human5_frame++;
-            if (p2_human5_frame >= p2_human5_textures.length) {
+            if (p2_human5_frame >= p2_human5_frame_count) {
                 p2_human5_frame = 0;
             }
             p2_icon_material.map = p2_icon_textures[p2_icon_frame];
             p2_icon_frame++;
-            if (p2_icon_frame >= p2_icon_textures.length) {
+            if (p2_icon_frame >= p2_icon_frame_count) {
                 p2_icon_frame = 0;
             }
         }
@@ -1421,32 +1421,32 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
             // P3.
             p3_human1_material.map = p2_human1_textures[p3_human1_frame];
             p3_human1_frame++;
-            if (p3_human1_frame >= p2_human1_textures.length) {
+            if (p3_human1_frame >= p2_human1_frame_count) {
                 p3_human1_frame = 0;
             }
             p3_human2_material.map = p2_human2_textures[p3_human2_frame];
             p3_human2_frame++;
-            if (p3_human2_frame >= p2_human2_textures.length) {
+            if (p3_human2_frame >= p2_human2_frame_count) {
                 p3_human2_frame = 0;
             }
             p3_human3_material.map = p2_human3_textures[p3_human3_frame];
             p3_human3_frame++;
-            if (p3_human3_frame >= p2_human3_textures.length) {
+            if (p3_human3_frame >= p2_human3_frame_count) {
                 p3_human3_frame = 0;
             }
             p3_human4_material.map = p2_human4_textures[p3_human4_frame];
             p3_human4_frame++;
-            if (p3_human4_frame >= p2_human4_textures.length) {
+            if (p3_human4_frame >= p2_human4_frame_count) {
                 p3_human4_frame = 0;
             }
             p3_human5_material.map = p2_human5_textures[p3_human5_frame];
             p3_human5_frame++;
-            if (p3_human5_frame >= p2_human5_textures.length) {
+            if (p3_human5_frame >= p2_human5_frame_count) {
                 p3_human5_frame = 0;
             }
             p3_icon_material.map = p3_icon_textures[p3_icon_frame];
             p3_icon_frame++;
-            if (p3_icon_frame >= p3_icon_textures.length) {
+            if (p3_icon_frame >= p3_icon_frame_count) {
                 p3_icon_frame = 0;
             }
         }
