@@ -69,38 +69,65 @@ var p3_show = false;
 // var p1_human5_path = 'assets/sprites/1/05_Human/05_Human';
 // var p1_human6_path = 'assets/sprites/1/06_Human/06_Human';
 // var p1_icon_path = 'assets/sprites/1/Part01_Icon/Part01_Icon';
-var p1_bicycle_path = 'assets/sprites/1/Bicycle_15fps/Bicycle_15fps';
-var p1_human2_path = 'assets/sprites/1/Human01_15fps/Human01_15fps';
-var p1_human3_path = 'assets/sprites/1/Human02_15fps/Human02_15fps';
-var p1_human4_path = 'assets/sprites/1/Human03_15fps/Human03_15fps';
+// var p1_bicycle_path = 'assets/sprites/1/Bicycle_15fps/Bicycle_15fps';
+// var p1_human2_path = 'assets/sprites/1/Human01_15fps/Human01_15fps';
+// var p1_human3_path = 'assets/sprites/1/Human02_15fps/Human02_15fps';
+// var p1_human4_path = 'assets/sprites/1/Human03_15fps/Human03_15fps';
+// var p1_human5_path = 'assets/sprites/1/Human04_15fps/Human04_15fps';
+// var p1_human6_path = 'assets/sprites/1/Human05_15fps/Human05_15fps';
+//var p1_icon_path = 'assets/sprites/1/Part01_Icon/Part01_Icon';
+var p1_bicycle_path = 'assets/sprites/1/Human04_15fps/Human04_15fps';
+var p1_human2_path = 'assets/sprites/1/Human04_15fps/Human04_15fps';
+var p1_human3_path = 'assets/sprites/1/Human04_15fps/Human04_15fps';
+var p1_human4_path = 'assets/sprites/1/Human04_15fps/Human04_15fps';
 var p1_human5_path = 'assets/sprites/1/Human04_15fps/Human04_15fps';
-var p1_human6_path = 'assets/sprites/1/Human05_15fps/Human05_15fps';
-var p1_icon_path = 'assets/sprites/1/Part01_Icon/Part01_Icon';
+var p1_human6_path = 'assets/sprites/1/Human04_15fps/Human04_15fps';
+var p1_icon_path = 'assets/sprites/1/Human04_15fps/Human04_15fps';
 //P2.
-var p2_human1_path = 'assets/sprites/2/Human01_v2/Human01_v2';
-var p2_human2_path = 'assets/sprites/2/Human02_v2/Human02_v2';
-var p2_human3_path = 'assets/sprites/2/Human03_v2/Human03_v2';
-var p2_human4_path = 'assets/sprites/2/Human04_v2/Human04_v2';
-var p2_human5_path = 'assets/sprites/2/Human05_v2/Human05_v2';
-var p2_icon_path = 'assets/sprites/2/PART02_Icon/PART02_Icon';
+// var p2_human1_path = 'assets/sprites/2/Human01_v2/Human01_v2';
+// var p2_human2_path = 'assets/sprites/2/Human02_v2/Human02_v2';
+// var p2_human3_path = 'assets/sprites/2/Human03_v2/Human03_v2';
+// var p2_human4_path = 'assets/sprites/2/Human04_v2/Human04_v2';
+// var p2_human5_path = 'assets/sprites/2/Human05_v2/Human05_v2';
+var p2_human1_path = 'assets/sprites/1/Human04_15fps/Human04_15fps';
+var p2_human2_path = 'assets/sprites/1/Human04_15fps/Human04_15fps';
+var p2_human3_path = 'assets/sprites/1/Human04_15fps/Human04_15fps';
+var p2_human4_path = 'assets/sprites/1/Human04_15fps/Human04_15fps';
+var p2_human5_path = 'assets/sprites/1/Human04_15fps/Human04_15fps';
+var p2_icon_path = 'assets/sprites/1/Human04_15fps/Human04_15fps';
 // P3.
-var p3_icon_path = 'assets/sprites/3/PART03_Icon/PART03_Icon';
+//var p3_icon_path = 'assets/sprites/3/PART03_Icon/PART03_Icon';
+var p3_icon_path = 'assets/sprites/1/Human04_15fps/Human04_15fps';
 
 // P1.
-var p1_bicycle_frame_count = 67;
-var p1_human2_frame_count = 131;
-var p1_human3_frame_count = 151;
-var p1_human4_frame_count = 163;
+// var p1_bicycle_frame_count = 67;
+// var p1_human2_frame_count = 131;
+// var p1_human3_frame_count = 151;
+// var p1_human4_frame_count = 163;
+// var p1_human5_frame_count = 179;
+// var p1_human6_frame_count = 138;
+// var p1_icon_frame_count = 77;
+// var p2_human1_frame_count = 223;
+// var p2_human2_frame_count = 251;
+// var p2_human3_frame_count = 271;
+// var p2_human4_frame_count = 298;
+// var p2_human5_frame_count = 229;
+// var p2_icon_frame_count = 77;
+// var p3_icon_frame_count = 77;
+var p1_bicycle_frame_count = 179;
+var p1_human2_frame_count = 179;
+var p1_human3_frame_count = 179;
+var p1_human4_frame_count = 179;
 var p1_human5_frame_count = 179;
-var p1_human6_frame_count = 138;
-var p1_icon_frame_count = 77;
-var p2_human1_frame_count = 223;
-var p2_human2_frame_count = 251;
-var p2_human3_frame_count = 271;
-var p2_human4_frame_count = 298;
-var p2_human5_frame_count = 229;
-var p2_icon_frame_count = 77;
-var p3_icon_frame_count = 77;
+var p1_human6_frame_count = 179;
+var p1_icon_frame_count = 179;
+var p2_human1_frame_count = 179;
+var p2_human2_frame_count = 179;
+var p2_human3_frame_count = 179;
+var p2_human4_frame_count = 179;
+var p2_human5_frame_count = 179;
+var p2_icon_frame_count = 179;
+var p3_icon_frame_count = 179;
 
 var p1_bicycle_frame = 0;
 var p1_bicycle_duration = 0;
@@ -124,13 +151,13 @@ var p1_icon_frame = 0;
 var p1_icon_duration = 0;
 var p1_icon_textures = [];
 
-var p1_bicycle_texture_d = new THREE.TextureLoader().load('assets/sprites/1/01_Bicycle/01_Bicycle_00000.png');
-var p1_human2_texture_d = new THREE.TextureLoader().load('assets/sprites/1/02_Human/02_Human_1.png');
-var p1_human3_texture_d = new THREE.TextureLoader().load('assets/sprites/1/03_Human/03_Human_00000.png');
-var p1_human4_texture_d = new THREE.TextureLoader().load('assets/sprites/1/04_Human/04_Human_00000.png');
-var p1_human5_texture_d = new THREE.TextureLoader().load('assets/sprites/1/05_Human/05_Human_00000.png');
-var p1_human6_texture_d = new THREE.TextureLoader().load('assets/sprites/1/06_Human/06_Human_00000.png');
-var p1_icon_texture_d = new THREE.TextureLoader().load('assets/sprites/1/Part01_Icon/Part01_Icon_0.png');
+var p1_bicycle_texture_d = new THREE.TextureLoader().load('assets/sprites/dummy.png');
+var p1_human2_texture_d = new THREE.TextureLoader().load('assets/sprites/dummy.png');
+var p1_human3_texture_d = new THREE.TextureLoader().load('assets/sprites/dummy.png');
+var p1_human4_texture_d = new THREE.TextureLoader().load('assets/sprites/dummy.png');
+var p1_human5_texture_d = new THREE.TextureLoader().load('assets/sprites/dummy.png');
+var p1_human6_texture_d = new THREE.TextureLoader().load('assets/sprites/dummy.png');
+var p1_icon_texture_d = new THREE.TextureLoader().load('assets/sprites/dummy.png');
 
 var p1_bicycle_material = new THREE.MeshBasicMaterial({ map: p1_bicycle_texture_d, depthTest: false, transparent: true, side: THREE.DoubleSide });
 var p1_human2_material = new THREE.MeshBasicMaterial({ map: p1_human2_texture_d, depthTest: false, transparent: true, side: THREE.DoubleSide });
@@ -160,12 +187,12 @@ var p2_icon_frame = 0;
 var p2_icon_duration = 0;
 var p2_icon_textures = [];
 
-var p2_human1_texture_d = new THREE.TextureLoader().load('assets/sprites/2/Human01_v2/Human01_v2_00000.png');
-var p2_human2_texture_d = new THREE.TextureLoader().load('assets/sprites/2/Human02_v2/Human02_v2_00000.png');
-var p2_human3_texture_d = new THREE.TextureLoader().load('assets/sprites/2/Human03_v2/Human03_v2_00000.png');
-var p2_human4_texture_d = new THREE.TextureLoader().load('assets/sprites/2/Human04_v2/Human04_v2_00000.png');
-var p2_human5_texture_d = new THREE.TextureLoader().load('assets/sprites/2/Human05_v2/Human05_v2_00000.png');
-var p2_icon_texture_d = new THREE.TextureLoader().load('assets/sprites/2/PART02_Icon/PART02_Icon_0.png');
+var p2_human1_texture_d = new THREE.TextureLoader().load('assets/sprites/dummy.png');
+var p2_human2_texture_d = new THREE.TextureLoader().load('assets/sprites/dummy.png');
+var p2_human3_texture_d = new THREE.TextureLoader().load('assets/sprites/dummy.png');
+var p2_human4_texture_d = new THREE.TextureLoader().load('assets/sprites/dummy.png');
+var p2_human5_texture_d = new THREE.TextureLoader().load('assets/sprites/dummy.png');
+var p2_icon_texture_d = new THREE.TextureLoader().load('assets/sprites/dummy.png');
 
 var p2_human1_material = new THREE.MeshBasicMaterial({ map: p2_human1_texture_d, depthTest: false, transparent: true, side: THREE.DoubleSide });
 var p2_human2_material = new THREE.MeshBasicMaterial({ map: p2_human2_texture_d, depthTest: false, transparent: true, side: THREE.DoubleSide });
@@ -189,7 +216,7 @@ var p3_icon_frame = 0;
 var p3_icon_duration = 0;
 var p3_icon_textures = [];
 
-var p3_icon_texture_d = new THREE.TextureLoader().load('assets/sprites/3/Part03_Icon/Part03_Icon_0.png');
+var p3_icon_texture_d = new THREE.TextureLoader().load('assets/sprites/dummy.png');
 
 var p3_human1_material = p2_human1_material;
 var p3_human2_material = p2_human2_material;
@@ -200,14 +227,80 @@ var p3_icon_material = new THREE.MeshBasicMaterial({ map: p3_icon_texture_d, dep
 
 loadAllTexture();
 
-var tree1_material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/tree01.png'), opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide });
-var tree2_material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/tree02.png'), opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide });
-var bg_material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/bg.png'), opacity: 1, depthTest: false, transparent: false, side: THREE.DoubleSide });
-var floor_material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/floor.png'), opacity: 1, depthTest: true, transparent: false, side: THREE.DoubleSide });
-var lamppost1_material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/lamppost01.png'), opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide });
-var lamppost2_material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/lamppost02.png'), opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide });
-var lamppost1_light_material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/lamppost01_light.png'), opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide });
-var lamppost2_light_material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/lamppost02_light.png'), opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide });
+// var tree1_material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/tree01.png'), opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide });
+// var tree2_material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/tree02.png'), opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide });
+// var bg_material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/bg.png'), opacity: 1, depthTest: false, transparent: false, side: THREE.DoubleSide });
+// var floor_material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/floor.png'), opacity: 1, depthTest: true, transparent: false, side: THREE.DoubleSide });
+// var lamppost1_material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/lamppost01.png'), opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide });
+// var lamppost2_material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/lamppost02.png'), opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide });
+// var lamppost1_light_material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/lamppost01_light.png'), opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide });
+// var lamppost2_light_material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/lamppost02_light.png'), opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide });
+
+var tree1_material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/dummy.png'), opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide });
+var tree2_material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/dummy.png'), opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide });
+var bg_material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/dummy.png'), opacity: 1, depthTest: false, transparent: false, side: THREE.DoubleSide });
+var floor_material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/dummy.png'), opacity: 1, depthTest: true, transparent: false, side: THREE.DoubleSide });
+var lamppost1_material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/dummy.png'), opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide });
+var lamppost2_material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/dummy.png'), opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide });
+var lamppost1_light_material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/dummy.png'), opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide });
+var lamppost2_light_material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/dummy.png'), opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide });
+
+var tree1_texture = new THREE.TextureLoader().load('Data/textures/tree01.png',
+    function (texture) {
+        tree1_material.map = texture;
+    },
+    undefined,
+    function (error) {
+        console.error("error load texture.");
+    });
+var tree2_texture = new THREE.TextureLoader().load('Data/textures/tree02.png',
+    function (texture) {
+        tree2_material.map = texture;
+    },
+    undefined,
+    function (error) {
+        console.error("error load texture.");
+    });
+var bg_texture = new THREE.TextureLoader().load('Data/textures/bg.png',
+    function (texture) {
+        bg_material.map = texture;
+    },
+    undefined,
+    function (error) {
+        console.error("error load texture.");
+    });
+var lamppost1_texture = new THREE.TextureLoader().load('Data/textures/lamppost01.png',
+    function (texture) {
+        lamppost1_material.map = texture;
+    },
+    undefined,
+    function (error) {
+        console.error("error load texture.");
+    });
+var lamppost2_texture = new THREE.TextureLoader().load('Data/textures/lamppost02.png',
+    function (texture) {
+        lamppost2_material.map = texture;
+    },
+    undefined,
+    function (error) {
+        console.error("error load texture.");
+    });
+var lamppost1_light_texture = new THREE.TextureLoader().load('Data/textures/lamppost01_light.png',
+    function (texture) {
+        lamppost1_light_material.map = texture;
+    },
+    undefined,
+    function (error) {
+        console.error("error load texture.");
+    });
+var lamppost2_light_texture = new THREE.TextureLoader().load('Data/textures/lamppost02_light.png',
+    function (texture) {
+        lamppost2_light_material.map = texture;
+    },
+    undefined,
+    function (error) {
+        console.error("error load texture.");
+    });
 
 //var worker;
 function start(container, marker, video, input_width, input_height, canvas_draw, render_update, track_update) {
@@ -1843,8 +1936,8 @@ function loadAllTexture() {
         }
         p1_icon_textures = [];
         for (count = 0; count < p1_icon_frame_count; count++) {
-            //p1_icon_textures[count] = new THREE.TextureLoader().load(p1_icon_path + zero_path(count) + count + '.png');
-            p1_icon_textures[count] = new THREE.TextureLoader().load(p1_icon_path + '_' + count + '.png');
+            p1_icon_textures[count] = new THREE.TextureLoader().load(p1_icon_path + zero_path(count) + count + '.png');
+            //p1_icon_textures[count] = new THREE.TextureLoader().load(p1_icon_path + '_' + count + '.png');
         }
 
         // P2.
@@ -1870,15 +1963,15 @@ function loadAllTexture() {
         }
         p2_icon_textures = [];
         for (count = 0; count < p2_icon_frame_count; count++) {
-            //p2_icon_textures[count] = new THREE.TextureLoader().load(p2_icon_path + zero_path(count) + count + '.png');
-            p2_icon_textures[count] = new THREE.TextureLoader().load(p2_icon_path + '_' + count + '.png');
+            p2_icon_textures[count] = new THREE.TextureLoader().load(p2_icon_path + zero_path(count) + count + '.png');
+            //p2_icon_textures[count] = new THREE.TextureLoader().load(p2_icon_path + '_' + count + '.png');
         }
 
         // P3.
         p3_icon_textures = [];
         for (count = 0; count < p3_icon_frame_count; count++) {
-            //p3_icon_textures[count] = new THREE.TextureLoader().load(p3_icon_path + zero_path(count) + count + '.png');
-            p3_icon_textures[count] = new THREE.TextureLoader().load(p3_icon_path + '_' + count + '.png');
+            p3_icon_textures[count] = new THREE.TextureLoader().load(p3_icon_path + zero_path(count) + count + '.png');
+            //p3_icon_textures[count] = new THREE.TextureLoader().load(p3_icon_path + '_' + count + '.png');
         }
     }
 }
