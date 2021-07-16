@@ -114,20 +114,20 @@ var p3_icon_path = 'assets/sprites/1/Human04_15fps/Human04_15fps';
 // var p2_human5_frame_count = 229;
 // var p2_icon_frame_count = 77;
 // var p3_icon_frame_count = 77;
-var p1_bicycle_frame_count = 179;
-var p1_human2_frame_count = 179;
-var p1_human3_frame_count = 179;
-var p1_human4_frame_count = 179;
-var p1_human5_frame_count = 179;
-var p1_human6_frame_count = 179;
-var p1_icon_frame_count = 179;
-var p2_human1_frame_count = 179;
-var p2_human2_frame_count = 179;
-var p2_human3_frame_count = 179;
-var p2_human4_frame_count = 179;
-var p2_human5_frame_count = 179;
-var p2_icon_frame_count = 179;
-var p3_icon_frame_count = 179;
+var p1_bicycle_frame_count = 150;
+var p1_human2_frame_count = 150;
+var p1_human3_frame_count = 150;
+var p1_human4_frame_count = 150;
+var p1_human5_frame_count = 150;
+var p1_human6_frame_count = 150;
+var p1_icon_frame_count = 150;
+var p2_human1_frame_count = 150;
+var p2_human2_frame_count = 150;
+var p2_human3_frame_count = 150;
+var p2_human4_frame_count = 150;
+var p2_human5_frame_count = 150;
+var p2_icon_frame_count = 150;
+var p3_icon_frame_count = 150;
 
 var p1_bicycle_frame = 0;
 var p1_bicycle_duration = 0;
@@ -1129,7 +1129,10 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
                     'XYZ'
                 ));
 
-            model.quaternion.multiplyQuaternions(deltaRotationQuaternion, model.quaternion);
+            model1.quaternion.multiplyQuaternions(deltaRotationQuaternion, model1.quaternion);
+            model2.quaternion.multiplyQuaternions(deltaRotationQuaternion, model2.quaternion);
+            model3.quaternion.multiplyQuaternions(deltaRotationQuaternion, model3.quaternion);
+            model4.quaternion.multiplyQuaternions(deltaRotationQuaternion, model4.quaternion);
         }
         previousMousePosition = {
             x: e.offsetX,
@@ -1155,7 +1158,10 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
                     'XYZ'
                 ));
 
-            model.quaternion.multiplyQuaternions(deltaRotationQuaternion, model.quaternion);
+            model1.quaternion.multiplyQuaternions(deltaRotationQuaternion, model1.quaternion);
+            model2.quaternion.multiplyQuaternions(deltaRotationQuaternion, model2.quaternion);
+            model3.quaternion.multiplyQuaternions(deltaRotationQuaternion, model3.quaternion);
+            model4.quaternion.multiplyQuaternions(deltaRotationQuaternion, model4.quaternion);
         }
         previousMousePosition = {
             x: e.touches[0].offsetX,
