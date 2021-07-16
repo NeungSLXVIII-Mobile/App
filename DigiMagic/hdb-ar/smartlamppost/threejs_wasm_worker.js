@@ -129,6 +129,8 @@ var p2_human5_frame_count = 150;
 var p2_icon_frame_count = 150;
 var p3_icon_frame_count = 150;
 
+console.error("frame 150.");
+
 var p1_bicycle_frame = 0;
 var p1_bicycle_duration = 0;
 var p1_bicycle_textures = [];
@@ -264,6 +266,14 @@ var tree2_texture = new THREE.TextureLoader().load('Data/textures/tree02.png',
 var bg_texture = new THREE.TextureLoader().load('Data/textures/bg.png',
     function (texture) {
         bg_material.map = texture;
+    },
+    undefined,
+    function (error) {
+        console.error("error load texture.");
+    });
+var floor_texture = new THREE.TextureLoader().load('Data/textures/floor.png',
+    function (texture) {
+        floor_material.map = texture;
     },
     undefined,
     function (error) {
