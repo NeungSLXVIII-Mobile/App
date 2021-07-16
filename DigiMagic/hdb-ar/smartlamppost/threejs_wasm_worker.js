@@ -43,8 +43,6 @@ var setMatrix = function (matrix, value) {
     }
 };
 
-var test_mode = false;
-
 var model1;//gltf
 var model2;
 var model3;
@@ -129,7 +127,7 @@ var p2_human5_frame_count = 100;
 var p2_icon_frame_count = 100;
 var p3_icon_frame_count = 100;
 
-console.error("frame 100 1.");
+console.error("frame 100 3.");
 
 var p1_bicycle_frame = 0;
 var p1_bicycle_duration = 0;
@@ -153,21 +151,29 @@ var p1_icon_frame = 0;
 var p1_icon_duration = 0;
 var p1_icon_textures = [];
 
-var p1_bicycle_texture_d = new THREE.TextureLoader().load('assets/sprites/dummy.png');
-var p1_human2_texture_d = new THREE.TextureLoader().load('assets/sprites/dummy.png');
-var p1_human3_texture_d = new THREE.TextureLoader().load('assets/sprites/dummy.png');
-var p1_human4_texture_d = new THREE.TextureLoader().load('assets/sprites/dummy.png');
-var p1_human5_texture_d = new THREE.TextureLoader().load('assets/sprites/dummy.png');
-var p1_human6_texture_d = new THREE.TextureLoader().load('assets/sprites/dummy.png');
-var p1_icon_texture_d = new THREE.TextureLoader().load('assets/sprites/dummy.png');
+// var p1_bicycle_texture_d = new THREE.TextureLoader().load('assets/sprites/dummy.png');
+// var p1_human2_texture_d = new THREE.TextureLoader().load('assets/sprites/dummy.png');
+// var p1_human3_texture_d = new THREE.TextureLoader().load('assets/sprites/dummy.png');
+// var p1_human4_texture_d = new THREE.TextureLoader().load('assets/sprites/dummy.png');
+// var p1_human5_texture_d = new THREE.TextureLoader().load('assets/sprites/dummy.png');
+// var p1_human6_texture_d = new THREE.TextureLoader().load('assets/sprites/dummy.png');
+// var p1_icon_texture_d = new THREE.TextureLoader().load('assets/sprites/dummy.png');
 
-var p1_bicycle_material = new THREE.MeshBasicMaterial({ map: p1_bicycle_texture_d, depthTest: false, transparent: true, side: THREE.DoubleSide });
-var p1_human2_material = new THREE.MeshBasicMaterial({ map: p1_human2_texture_d, depthTest: false, transparent: true, side: THREE.DoubleSide });
-var p1_human3_material = new THREE.MeshBasicMaterial({ map: p1_human3_texture_d, depthTest: false, transparent: true, side: THREE.DoubleSide });
-var p1_human4_material = new THREE.MeshBasicMaterial({ map: p1_human4_texture_d, depthTest: false, transparent: true, side: THREE.DoubleSide });
-var p1_human5_material = new THREE.MeshBasicMaterial({ map: p1_human5_texture_d, depthTest: false, transparent: true, side: THREE.DoubleSide });
-var p1_human6_material = new THREE.MeshBasicMaterial({ map: p1_human6_texture_d, depthTest: false, transparent: true, side: THREE.DoubleSide });
-var p1_icon_material = new THREE.MeshBasicMaterial({ map: p1_icon_texture_d, depthTest: false, transparent: true, side: THREE.DoubleSide });
+// var p1_bicycle_material = new THREE.MeshBasicMaterial({ map: p1_bicycle_texture_d, depthTest: false, transparent: true, side: THREE.DoubleSide });
+// var p1_human2_material = new THREE.MeshBasicMaterial({ map: p1_human2_texture_d, depthTest: false, transparent: true, side: THREE.DoubleSide });
+// var p1_human3_material = new THREE.MeshBasicMaterial({ map: p1_human3_texture_d, depthTest: false, transparent: true, side: THREE.DoubleSide });
+// var p1_human4_material = new THREE.MeshBasicMaterial({ map: p1_human4_texture_d, depthTest: false, transparent: true, side: THREE.DoubleSide });
+// var p1_human5_material = new THREE.MeshBasicMaterial({ map: p1_human5_texture_d, depthTest: false, transparent: true, side: THREE.DoubleSide });
+// var p1_human6_material = new THREE.MeshBasicMaterial({ map: p1_human6_texture_d, depthTest: false, transparent: true, side: THREE.DoubleSide });
+// var p1_icon_material = new THREE.MeshBasicMaterial({ map: p1_icon_texture_d, depthTest: false, transparent: true, side: THREE.DoubleSide });
+
+var p1_bicycle_materials = [];
+var p1_human2_materials = [];
+var p1_human3_materials = [];
+var p1_human4_materials = [];
+var p1_human5_materials = [];
+var p1_human6_materials = [];
+var p1_icon_materials = [];
 
 // P2.
 var p2_human1_frame = 0;
@@ -189,19 +195,26 @@ var p2_icon_frame = 0;
 var p2_icon_duration = 0;
 var p2_icon_textures = [];
 
-var p2_human1_texture_d = new THREE.TextureLoader().load('assets/sprites/dummy.png');
-var p2_human2_texture_d = new THREE.TextureLoader().load('assets/sprites/dummy.png');
-var p2_human3_texture_d = new THREE.TextureLoader().load('assets/sprites/dummy.png');
-var p2_human4_texture_d = new THREE.TextureLoader().load('assets/sprites/dummy.png');
-var p2_human5_texture_d = new THREE.TextureLoader().load('assets/sprites/dummy.png');
-var p2_icon_texture_d = new THREE.TextureLoader().load('assets/sprites/dummy.png');
+// var p2_human1_texture_d = new THREE.TextureLoader().load('assets/sprites/dummy.png');
+// var p2_human2_texture_d = new THREE.TextureLoader().load('assets/sprites/dummy.png');
+// var p2_human3_texture_d = new THREE.TextureLoader().load('assets/sprites/dummy.png');
+// var p2_human4_texture_d = new THREE.TextureLoader().load('assets/sprites/dummy.png');
+// var p2_human5_texture_d = new THREE.TextureLoader().load('assets/sprites/dummy.png');
+// var p2_icon_texture_d = new THREE.TextureLoader().load('assets/sprites/dummy.png');
 
-var p2_human1_material = new THREE.MeshBasicMaterial({ map: p2_human1_texture_d, depthTest: false, transparent: true, side: THREE.DoubleSide });
-var p2_human2_material = new THREE.MeshBasicMaterial({ map: p2_human2_texture_d, depthTest: false, transparent: true, side: THREE.DoubleSide });
-var p2_human3_material = new THREE.MeshBasicMaterial({ map: p2_human3_texture_d, depthTest: false, transparent: true, side: THREE.DoubleSide });
-var p2_human4_material = new THREE.MeshBasicMaterial({ map: p2_human4_texture_d, depthTest: false, transparent: true, side: THREE.DoubleSide });
-var p2_human5_material = new THREE.MeshBasicMaterial({ map: p2_human5_texture_d, depthTest: false, transparent: true, side: THREE.DoubleSide });
-var p2_icon_material = new THREE.MeshBasicMaterial({ map: p2_icon_texture_d, depthTest: false, transparent: true, side: THREE.DoubleSide });
+// var p2_human1_material = new THREE.MeshBasicMaterial({ map: p2_human1_texture_d, depthTest: false, transparent: true, side: THREE.DoubleSide });
+// var p2_human2_material = new THREE.MeshBasicMaterial({ map: p2_human2_texture_d, depthTest: false, transparent: true, side: THREE.DoubleSide });
+// var p2_human3_material = new THREE.MeshBasicMaterial({ map: p2_human3_texture_d, depthTest: false, transparent: true, side: THREE.DoubleSide });
+// var p2_human4_material = new THREE.MeshBasicMaterial({ map: p2_human4_texture_d, depthTest: false, transparent: true, side: THREE.DoubleSide });
+// var p2_human5_material = new THREE.MeshBasicMaterial({ map: p2_human5_texture_d, depthTest: false, transparent: true, side: THREE.DoubleSide });
+// var p2_icon_material = new THREE.MeshBasicMaterial({ map: p2_icon_texture_d, depthTest: false, transparent: true, side: THREE.DoubleSide });
+
+var p2_human1_materials = [];
+var p2_human2_materials = [];
+var p2_human3_materials = [];
+var p2_human4_materials = [];
+var p2_human5_materials = [];
+var p2_icon_materials = [];
 
 // P3.
 var p3_human1_frame = 0;
@@ -218,14 +231,16 @@ var p3_icon_frame = 0;
 var p3_icon_duration = 0;
 var p3_icon_textures = [];
 
-var p3_icon_texture_d = new THREE.TextureLoader().load('assets/sprites/dummy.png');
+// var p3_icon_texture_d = new THREE.TextureLoader().load('assets/sprites/dummy.png');
 
-var p3_human1_material = p2_human1_material;
-var p3_human2_material = p2_human2_material;
-var p3_human3_material = p2_human3_material;
-var p3_human4_material = p2_human4_material;
-var p3_human5_material = p2_human5_material;
-var p3_icon_material = new THREE.MeshBasicMaterial({ map: p3_icon_texture_d, depthTest: false, transparent: true, side: THREE.DoubleSide });
+// var p3_human1_material = p2_human1_material;
+// var p3_human2_material = p2_human2_material;
+// var p3_human3_material = p2_human3_material;
+// var p3_human4_material = p2_human4_material;
+// var p3_human5_material = p2_human5_material;
+// var p3_icon_material = new THREE.MeshBasicMaterial({ map: p3_icon_texture_d, depthTest: false, transparent: true, side: THREE.DoubleSide });
+
+var p3_icon_materials = [];
 
 loadAllTexture();
 
@@ -358,6 +373,29 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
     var root = new THREE.Object3D();
     scene.add(root);
     root.visible = false;
+
+    // P1.
+    var p1_bicycle_plane;
+    var p1_human2_plane;
+    var p1_human3_plane;
+    var p1_human4_plane;
+    var p1_human5_plane;
+    var p1_human6_plane;
+    var p1_icon_plane;
+    // P2.
+    var p2_human1_plane;
+    var p2_human2_plane;
+    var p2_human3_plane;
+    var p2_human4_plane;
+    var p2_human5_plane;
+    var p2_icon_plane;
+    // P3.
+    var p3_human1_plane;
+    var p3_human2_plane;
+    var p3_human3_plane;
+    var p3_human4_plane;
+    var p3_human5_plane;
+    var p3_icon_plane;
 
     /* Load Model */
     var threeGLTFLoader1 = new THREE.GLTFLoader();
@@ -498,13 +536,6 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
         var lamppost2_1;
         var lamppost2_2a;
         var lamppost2_2b;
-        var bicycle2_1;
-        var human2_2;
-        var human2_3;
-        var human2_4;
-        var human2_5;
-        var human2_6;
-        var icon2_1;
 
         console.log("model2");
         console.log(model2);
@@ -540,31 +571,31 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
             }
             if (model2.children[count].name == "Bicycle") {
                 console.log("Bicycle LV1");
-                bicycle2_1 = model2.children[count];
+                p1_bicycle_plane = model2.children[count];
             }
             if (model2.children[count].name == "Human02") {
                 console.log("Human02 LV1");
-                human2_2 = model2.children[count];
+                p1_human2_plane = model2.children[count];
             }
             if (model2.children[count].name == "Human03") {
                 console.log("Human03 LV1");
-                human2_3 = model2.children[count];
+                p1_human3_plane = model2.children[count];
             }
             if (model2.children[count].name == "Human04") {
                 console.log("Human04 LV1");
-                human2_4 = model2.children[count];
+                p1_human4_plane = model2.children[count];
             }
             if (model2.children[count].name == "Human05") {
                 console.log("Human05 LV1");
-                human2_5 = model2.children[count];
+                p1_human5_plane = model2.children[count];
             }
             if (model2.children[count].name == "Human06") {
                 console.log("Human06 LV1");
-                human2_6 = model2.children[count];
+                p1_human6_plane = model2.children[count];
             }
             if (model2.children[count].name == "Icon") {
                 console.log("Icon LV1");
-                icon2_1 = model2.children[count];
+                p1_icon_plane = model2.children[count];
             }
         }
 
@@ -628,61 +659,118 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
             floor2_1.material.needsUpdate = true;
         }
 
-        // bicycle.
-        if (bicycle2_1 != undefined) {
-            bicycle2_1.material = p1_bicycle_material;
-            bicycle2_1.material.needsUpdate = true;
+        // // P1.
+        // if (p1_bicycle_plane != undefined) {
+        //     p1_bicycle_plane.material = p1_bicycle_material;
+        //     p1_bicycle_plane.material.needsUpdate = true;
 
-            bicycle2_1.rotation.y = 180 * 0.0174532925;
-            bicycle2_1.rotation.z = 180 * 0.0174532925;
+        //     p1_bicycle_plane.rotation.y = 180 * 0.0174532925;
+        //     p1_bicycle_plane.rotation.z = 180 * 0.0174532925;
+        // }
+
+        // if (p1_human2_plane != undefined) {
+        //     p1_human2_plane.material = p1_human2_material;
+        //     p1_human2_plane.material.needsUpdate = true;
+
+        //     p1_human2_plane.rotation.y = 180 * 0.0174532925;
+        //     p1_human2_plane.rotation.z = 180 * 0.0174532925;
+        // }
+
+        // if (p1_human3_plane != undefined) {
+        //     p1_human3_plane.material = p1_human3_material;
+        //     p1_human3_plane.material.needsUpdate = true;
+
+        //     p1_human3_plane.rotation.y = 180 * 0.0174532925;
+        //     p1_human3_plane.rotation.z = 180 * 0.0174532925;
+        // }
+
+        // if (p1_human4_plane != undefined) {
+        //     p1_human4_plane.material = p1_human4_material;
+        //     p1_human4_plane.material.needsUpdate = true;
+
+        //     p1_human4_plane.rotation.y = 180 * 0.0174532925;
+        //     p1_human4_plane.rotation.z = 180 * 0.0174532925;
+        // }
+
+        // if (p1_human5_plane != undefined) {
+        //     p1_human5_plane.material = p1_human5_material;
+        //     p1_human5_plane.material.needsUpdate = true;
+
+        //     p1_human5_plane.rotation.y = 180 * 0.0174532925;
+        //     p1_human5_plane.rotation.z = 180 * 0.0174532925;
+        // }
+
+        // if (p1_human6_plane != undefined) {
+        //     p1_human6_plane.material = p1_human6_material;
+        //     p1_human6_plane.material.needsUpdate = true;
+
+        //     p1_human6_plane.rotation.y = 180 * 0.0174532925;
+        //     p1_human6_plane.rotation.z = 180 * 0.0174532925;
+        // }
+
+        // if (p1_icon_plane != undefined) {
+        //     p1_icon_plane.material = p1_icon_material;
+        //     p1_icon_plane.material.needsUpdate = true;
+
+        //     p1_icon_plane.rotation.y = 180 * 0.0174532925;
+        //     p1_icon_plane.rotation.z = 180 * 0.0174532925;
+        // }
+
+        // P1.
+        if (p1_bicycle_plane != undefined) {
+            p1_bicycle_plane.material = p1_bicycle_materials[0];
+            p1_bicycle_plane.material.needsUpdate = true;
+
+            p1_bicycle_plane.rotation.y = 180 * 0.0174532925;
+            p1_bicycle_plane.rotation.z = 180 * 0.0174532925;
         }
 
-        if (human2_2 != undefined) {
-            human2_2.material = p1_human2_material;
-            human2_2.material.needsUpdate = true;
+        if (p1_human2_plane != undefined) {
+            p1_human2_plane.material = p1_human2_materials[0];
+            p1_human2_plane.material.needsUpdate = true;
 
-            human2_2.rotation.y = 180 * 0.0174532925;
-            human2_2.rotation.z = 180 * 0.0174532925;
+            p1_human2_plane.rotation.y = 180 * 0.0174532925;
+            p1_human2_plane.rotation.z = 180 * 0.0174532925;
         }
 
-        if (human2_3 != undefined) {
-            human2_3.material = p1_human3_material;
-            human2_3.material.needsUpdate = true;
+        if (p1_human3_plane != undefined) {
+            p1_human3_plane.material = p1_human3_materials[0];
+            p1_human3_plane.material.needsUpdate = true;
 
-            human2_3.rotation.y = 180 * 0.0174532925;
-            human2_3.rotation.z = 180 * 0.0174532925;
+            p1_human3_plane.rotation.y = 180 * 0.0174532925;
+            p1_human3_plane.rotation.z = 180 * 0.0174532925;
         }
 
-        if (human2_4 != undefined) {
-            human2_4.material = p1_human4_material;
-            human2_4.material.needsUpdate = true;
+        if (p1_human4_plane != undefined) {
+            p1_human4_plane.material = p1_human4_materials[0];
+            p1_human4_plane.material.needsUpdate = true;
 
-            human2_4.rotation.y = 180 * 0.0174532925;
-            human2_4.rotation.z = 180 * 0.0174532925;
+            p1_human4_plane.rotation.y = 180 * 0.0174532925;
+            p1_human4_plane.rotation.z = 180 * 0.0174532925;
         }
 
-        if (human2_5 != undefined) {
-            human2_5.material = p1_human5_material;
-            human2_5.material.needsUpdate = true;
+        if (p1_human5_plane != undefined) {
+            p1_human5_plane.material = p1_human5_materials[0];
+            p1_human5_plane.material.needsUpdate = true;
 
-            human2_5.rotation.y = 180 * 0.0174532925;
-            human2_5.rotation.z = 180 * 0.0174532925;
+            p1_human5_plane.rotation.y = 180 * 0.0174532925;
+            p1_human5_plane.rotation.z = 180 * 0.0174532925;
         }
 
-        if (human2_6 != undefined) {
-            human2_6.material = p1_human6_material;
-            human2_6.material.needsUpdate = true;
+        if (p1_human6_plane != undefined) {
+            p1_human6_plane.material = p1_human6_materials[0];
+            p1_human6_plane.material.needsUpdate = true;
 
-            human2_6.rotation.y = 180 * 0.0174532925;
-            human2_6.rotation.z = 180 * 0.0174532925;
+            p1_human6_plane.rotation.y = 180 * 0.0174532925;
+            p1_human6_plane.rotation.z = 180 * 0.0174532925;
         }
 
-        if (icon2_1 != undefined) {
-            icon2_1.material = p1_icon_material;
-            icon2_1.material.needsUpdate = true;
+        if (p1_icon_plane != undefined) {
+            p1_icon_plane.material = p1_icon_materials[0];
+            p1_icon_plane.material.needsUpdate = true;
 
-            icon2_1.rotation.y = 180 * 0.0174532925;
-            icon2_1.rotation.z = 180 * 0.0174532925;
+            p1_icon_plane.rotation.y = 180 * 0.0174532925;
+            p1_icon_plane.rotation.z = 180 * 0.0174532925;
         }
 
         root.add(model2);
@@ -708,12 +796,6 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
         var lamppost3_1;
         var lamppost3_2a;
         var lamppost3_2b;
-        var human3_1;
-        var human3_2;
-        var human3_3;
-        var human3_4;
-        var human3_5;
-        var icon3_1;
 
         console.log("model3");
         console.log(model3);
@@ -749,27 +831,27 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
             }
             if (model3.children[count].name == "Human01") {
                 console.log("Human01 LV1");
-                human3_1 = model3.children[count];
+                p2_human1_plane = model3.children[count];
             }
             if (model3.children[count].name == "Human02") {
                 console.log("Human02 LV1");
-                human3_2 = model3.children[count];
+                p2_human2_plane = model3.children[count];
             }
             if (model3.children[count].name == "Human03") {
                 console.log("Human03 LV1");
-                human3_3 = model3.children[count];
+                p2_human3_plane = model3.children[count];
             }
             if (model3.children[count].name == "Human04") {
                 console.log("Human04 LV1");
-                human3_4 = model3.children[count];
+                p2_human4_plane = model3.children[count];
             }
             if (model3.children[count].name == "Human05") {
                 console.log("Human05 LV1");
-                human3_5 = model3.children[count];
+                p2_human5_plane = model3.children[count];
             }
             if (model3.children[count].name == "Icon") {
                 console.log("Icon LV1");
-                icon3_1 = model3.children[count];
+                p2_icon_plane = model3.children[count];
             }
         }
 
@@ -833,53 +915,102 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
             floor3_1.material.needsUpdate = true;
         }
 
-        // bicycle.
-        if (human3_1 != undefined) {
-            human3_1.material = p2_human1_material;
-            human3_1.material.needsUpdate = true;
+        // // P2.
+        // if (p2_human1_plane != undefined) {
+        //     p2_human1_plane.material = p2_human1_material;
+        //     p2_human1_plane.material.needsUpdate = true;
 
-            human3_1.rotation.y = 180 * 0.0174532925;
-            human3_1.rotation.z = 180 * 0.0174532925;
+        //     p2_human1_plane.rotation.y = 180 * 0.0174532925;
+        //     p2_human1_plane.rotation.z = 180 * 0.0174532925;
+        // }
+
+        // if (p2_human2_plane != undefined) {
+        //     p2_human2_plane.material = p2_human2_material;
+        //     p2_human2_plane.material.needsUpdate = true;
+
+        //     p2_human2_plane.rotation.y = 180 * 0.0174532925;
+        //     p2_human2_plane.rotation.z = 180 * 0.0174532925;
+        // }
+
+        // if (p2_human3_plane != undefined) {
+        //     p2_human3_plane.material = p2_human3_material;
+        //     p2_human3_plane.material.needsUpdate = true;
+
+        //     p2_human3_plane.rotation.y = 180 * 0.0174532925;
+        //     p2_human3_plane.rotation.z = 180 * 0.0174532925;
+        // }
+
+        // if (p2_human4_plane != undefined) {
+        //     p2_human4_plane.material = p2_human4_material;
+        //     p2_human4_plane.material.needsUpdate = true;
+
+        //     p2_human4_plane.rotation.y = 180 * 0.0174532925;
+        //     p2_human4_plane.rotation.z = 180 * 0.0174532925;
+        // }
+
+        // if (p2_human5_plane != undefined) {
+        //     p2_human5_plane.material = p2_human5_material;
+        //     p2_human5_plane.material.needsUpdate = true;
+
+        //     p2_human5_plane.rotation.y = 180 * 0.0174532925;
+        //     p2_human5_plane.rotation.z = 180 * 0.0174532925;
+        // }
+
+        // if (p2_icon_plane != undefined) {
+        //     p2_icon_plane.material = p2_icon_material;
+        //     p2_icon_plane.material.needsUpdate = true;
+
+        //     p2_icon_plane.rotation.y = 180 * 0.0174532925;
+        //     p2_icon_plane.rotation.z = 180 * 0.0174532925;
+        // }
+
+        // P2.
+        if (p2_human1_plane != undefined) {
+            p2_human1_plane.material = p2_human1_materials[0];
+            p2_human1_plane.material.needsUpdate = true;
+
+            p2_human1_plane.rotation.y = 180 * 0.0174532925;
+            p2_human1_plane.rotation.z = 180 * 0.0174532925;
         }
 
-        if (human3_2 != undefined) {
-            human3_2.material = p2_human2_material;
-            human3_2.material.needsUpdate = true;
+        if (p2_human2_plane != undefined) {
+            p2_human2_plane.material = p2_human2_materials[0];
+            p2_human2_plane.material.needsUpdate = true;
 
-            human3_2.rotation.y = 180 * 0.0174532925;
-            human3_2.rotation.z = 180 * 0.0174532925;
+            p2_human2_plane.rotation.y = 180 * 0.0174532925;
+            p2_human2_plane.rotation.z = 180 * 0.0174532925;
         }
 
-        if (human3_3 != undefined) {
-            human3_3.material = p2_human3_material;
-            human3_3.material.needsUpdate = true;
+        if (p2_human3_plane != undefined) {
+            p2_human3_plane.material = p2_human3_materials[0];
+            p2_human3_plane.material.needsUpdate = true;
 
-            human3_3.rotation.y = 180 * 0.0174532925;
-            human3_3.rotation.z = 180 * 0.0174532925;
+            p2_human3_plane.rotation.y = 180 * 0.0174532925;
+            p2_human3_plane.rotation.z = 180 * 0.0174532925;
         }
 
-        if (human3_4 != undefined) {
-            human3_4.material = p2_human4_material;
-            human3_4.material.needsUpdate = true;
+        if (p2_human4_plane != undefined) {
+            p2_human4_plane.material = p2_human4_materials[0];
+            p2_human4_plane.material.needsUpdate = true;
 
-            human3_4.rotation.y = 180 * 0.0174532925;
-            human3_4.rotation.z = 180 * 0.0174532925;
+            p2_human4_plane.rotation.y = 180 * 0.0174532925;
+            p2_human4_plane.rotation.z = 180 * 0.0174532925;
         }
 
-        if (human3_5 != undefined) {
-            human3_5.material = p2_human5_material;
-            human3_5.material.needsUpdate = true;
+        if (p2_human5_plane != undefined) {
+            p2_human5_plane.material = p2_human5_materials[0];
+            p2_human5_plane.material.needsUpdate = true;
 
-            human3_5.rotation.y = 180 * 0.0174532925;
-            human3_5.rotation.z = 180 * 0.0174532925;
+            p2_human5_plane.rotation.y = 180 * 0.0174532925;
+            p2_human5_plane.rotation.z = 180 * 0.0174532925;
         }
 
-        if (icon3_1 != undefined) {
-            icon3_1.material = p2_icon_material;
-            icon3_1.material.needsUpdate = true;
+        if (p2_icon_plane != undefined) {
+            p2_icon_plane.material = p2_icon_materials[0];
+            p2_icon_plane.material.needsUpdate = true;
 
-            icon3_1.rotation.y = 180 * 0.0174532925;
-            icon3_1.rotation.z = 180 * 0.0174532925;
+            p2_icon_plane.rotation.y = 180 * 0.0174532925;
+            p2_icon_plane.rotation.z = 180 * 0.0174532925;
         }
 
         root.add(model3);
@@ -905,12 +1036,6 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
         var lamppost4_1;
         var lamppost4_2a;
         var lamppost4_2b;
-        var human4_1;
-        var human4_2;
-        var human4_3;
-        var human4_4;
-        var human4_5;
-        var icon4_1;
 
         console.log("model4");
         console.log(model4);
@@ -946,27 +1071,27 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
             }
             if (model4.children[count].name == "Human01") {
                 console.log("Human01 LV1");
-                human4_1 = model4.children[count];
+                p3_human1_plane = model4.children[count];
             }
             if (model4.children[count].name == "Human02") {
                 console.log("Human02 LV1");
-                human4_2 = model4.children[count];
+                p3_human2_plane = model4.children[count];
             }
             if (model4.children[count].name == "Human03") {
                 console.log("Human03 LV1");
-                human4_3 = model4.children[count];
+                p3_human3_plane = model4.children[count];
             }
             if (model4.children[count].name == "Human04") {
                 console.log("Human04 LV1");
-                human4_4 = model4.children[count];
+                p3_human4_plane = model4.children[count];
             }
             if (model4.children[count].name == "Human05") {
                 console.log("Human05 LV1");
-                human4_5 = model4.children[count];
+                p3_human5_plane = model4.children[count];
             }
             if (model4.children[count].name == "Icon") {
                 console.log("Icon LV1");
-                icon4_1 = model4.children[count];
+                p3_icon_plane = model4.children[count];
             }
         }
 
@@ -1030,53 +1155,102 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
             floor4_1.material.needsUpdate = true;
         }
 
-        // Human.
-        if (human4_1 != undefined) {
-            human4_1.material = p3_human1_material;
-            human4_1.material.needsUpdate = true;
+        // // P3.
+        // if (p3_human1_plane != undefined) {
+        //     p3_human1_plane.material = p3_human1_material;
+        //     p3_human1_plane.material.needsUpdate = true;
 
-            human4_1.rotation.y = 180 * 0.0174532925;
-            human4_1.rotation.z = 180 * 0.0174532925;
+        //     p3_human1_plane.rotation.y = 180 * 0.0174532925;
+        //     p3_human1_plane.rotation.z = 180 * 0.0174532925;
+        // }
+
+        // if (p3_human2_plane != undefined) {
+        //     p3_human2_plane.material = p3_human2_material;
+        //     p3_human2_plane.material.needsUpdate = true;
+
+        //     p3_human2_plane.rotation.y = 180 * 0.0174532925;
+        //     p3_human2_plane.rotation.z = 180 * 0.0174532925;
+        // }
+
+        // if (p3_human3_plane != undefined) {
+        //     p3_human3_plane.material = p3_human3_material;
+        //     p3_human3_plane.material.needsUpdate = true;
+
+        //     p3_human3_plane.rotation.y = 180 * 0.0174532925;
+        //     p3_human3_plane.rotation.z = 180 * 0.0174532925;
+        // }
+
+        // if (p3_human4_plane != undefined) {
+        //     p3_human4_plane.material = p3_human4_material;
+        //     p3_human4_plane.material.needsUpdate = true;
+
+        //     p3_human4_plane.rotation.y = 180 * 0.0174532925;
+        //     p3_human4_plane.rotation.z = 180 * 0.0174532925;
+        // }
+
+        // if (p3_human5_plane != undefined) {
+        //     p3_human5_plane.material = p3_human5_material;
+        //     p3_human5_plane.material.needsUpdate = true;
+
+        //     p3_human5_plane.rotation.y = 180 * 0.0174532925;
+        //     p3_human5_plane.rotation.z = 180 * 0.0174532925;
+        // }
+
+        // if (p3_icon_plane != undefined) {
+        //     p3_icon_plane.material = p3_icon_material;
+        //     p3_icon_plane.material.needsUpdate = true;
+
+        //     p3_icon_plane.rotation.y = 180 * 0.0174532925;
+        //     p3_icon_plane.rotation.z = 180 * 0.0174532925;
+        // }
+
+        // P3.
+        if (p3_human1_plane != undefined) {
+            p3_human1_plane.material = p2_human1_materials[0];
+            p3_human1_plane.material.needsUpdate = true;
+
+            p3_human1_plane.rotation.y = 180 * 0.0174532925;
+            p3_human1_plane.rotation.z = 180 * 0.0174532925;
         }
 
-        if (human4_2 != undefined) {
-            human4_2.material = p3_human2_material;
-            human4_2.material.needsUpdate = true;
+        if (p3_human2_plane != undefined) {
+            p3_human2_plane.material = p2_human2_materials[0];
+            p3_human2_plane.material.needsUpdate = true;
 
-            human4_2.rotation.y = 180 * 0.0174532925;
-            human4_2.rotation.z = 180 * 0.0174532925;
+            p3_human2_plane.rotation.y = 180 * 0.0174532925;
+            p3_human2_plane.rotation.z = 180 * 0.0174532925;
         }
 
-        if (human4_3 != undefined) {
-            human4_3.material = p3_human3_material;
-            human4_3.material.needsUpdate = true;
+        if (p3_human3_plane != undefined) {
+            p3_human3_plane.material = p2_human3_materials[0];
+            p3_human3_plane.material.needsUpdate = true;
 
-            human4_3.rotation.y = 180 * 0.0174532925;
-            human4_3.rotation.z = 180 * 0.0174532925;
+            p3_human3_plane.rotation.y = 180 * 0.0174532925;
+            p3_human3_plane.rotation.z = 180 * 0.0174532925;
         }
 
-        if (human4_4 != undefined) {
-            human4_4.material = p3_human4_material;
-            human4_4.material.needsUpdate = true;
+        if (p3_human4_plane != undefined) {
+            p3_human4_plane.material = p2_human4_materials[0];
+            p3_human4_plane.material.needsUpdate = true;
 
-            human4_4.rotation.y = 180 * 0.0174532925;
-            human4_4.rotation.z = 180 * 0.0174532925;
+            p3_human4_plane.rotation.y = 180 * 0.0174532925;
+            p3_human4_plane.rotation.z = 180 * 0.0174532925;
         }
 
-        if (human4_5 != undefined) {
-            human4_5.material = p3_human5_material;
-            human4_5.material.needsUpdate = true;
+        if (p3_human5_plane != undefined) {
+            p3_human5_plane.material = p2_human5_materials[0];
+            p3_human5_plane.material.needsUpdate = true;
 
-            human4_5.rotation.y = 180 * 0.0174532925;
-            human4_5.rotation.z = 180 * 0.0174532925;
+            p3_human5_plane.rotation.y = 180 * 0.0174532925;
+            p3_human5_plane.rotation.z = 180 * 0.0174532925;
         }
 
-        if (icon4_1 != undefined) {
-            icon4_1.material = p3_icon_material;
-            icon4_1.material.needsUpdate = true;
+        if (p3_icon_plane != undefined) {
+            p3_icon_plane.material = p3_icon_materials[0];
+            p3_icon_plane.material.needsUpdate = true;
 
-            icon4_1.rotation.y = 180 * 0.0174532925;
-            icon4_1.rotation.z = 180 * 0.0174532925;
+            p3_icon_plane.rotation.y = 180 * 0.0174532925;
+            p3_icon_plane.rotation.z = 180 * 0.0174532925;
         }
 
         root.add(model4);
@@ -1347,38 +1521,75 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
         SpriteAnimator.update(clock.getDelta());
 
         if (p1_show) {
+            // // P1.
+            // p1_bicycle_material.map = p1_bicycle_textures[p1_bicycle_frame];
+            // p1_bicycle_frame++;
+            // if (p1_bicycle_frame >= p1_bicycle_frame_count) {
+            //     p1_bicycle_frame = 0;
+            // }
+            // p1_human2_material.map = p1_human2_textures[p1_human2_frame];
+            // p1_human2_frame++;
+            // if (p1_human2_frame >= p1_human2_frame_count) {
+            //     p1_human2_frame = 0;
+            // }
+            // p1_human3_material.map = p1_human3_textures[p1_human3_frame];
+            // p1_human3_frame++;
+            // if (p1_human3_frame >= p1_human3_frame_count) {
+            //     p1_human3_frame = 0;
+            // }
+            // p1_human4_material.map = p1_human4_textures[p1_human4_frame];
+            // p1_human4_frame++;
+            // if (p1_human4_frame >= p1_human4_frame_count) {
+            //     p1_human4_frame = 0;
+            // }
+            // p1_human5_material.map = p1_human5_textures[p1_human5_frame];
+            // p1_human5_frame++;
+            // if (p1_human5_frame >= p1_human5_frame_count) {
+            //     p1_human5_frame = 0;
+            // }
+            // p1_human6_material.map = p1_human6_textures[p1_human6_frame];
+            // p1_human6_frame++;
+            // if (p1_human6_frame >= p1_human6_frame_count) {
+            //     p1_human6_frame = 0;
+            // }
+            // p1_icon_material.map = p1_icon_textures[p1_icon_frame];
+            // p1_icon_frame++;
+            // if (p1_icon_frame >= p1_icon_frame_count) {
+            //     p1_icon_frame = 0;
+            // }
+
             // P1.
-            p1_bicycle_material.map = p1_bicycle_textures[p1_bicycle_frame];
+            p1_bicycle_plane.material = p1_bicycle_materials[p1_bicycle_frame];
             p1_bicycle_frame++;
             if (p1_bicycle_frame >= p1_bicycle_frame_count) {
                 p1_bicycle_frame = 0;
             }
-            p1_human2_material.map = p1_human2_textures[p1_human2_frame];
+            p1_human2_plane.material = p1_human2_materials[p1_human2_frame];
             p1_human2_frame++;
             if (p1_human2_frame >= p1_human2_frame_count) {
                 p1_human2_frame = 0;
             }
-            p1_human3_material.map = p1_human3_textures[p1_human3_frame];
+            p1_human3_plane.material = p1_human3_materials[p1_human3_frame];
             p1_human3_frame++;
             if (p1_human3_frame >= p1_human3_frame_count) {
                 p1_human3_frame = 0;
             }
-            p1_human4_material.map = p1_human4_textures[p1_human4_frame];
+            p1_human4_plane.material = p1_human4_materials[p1_human4_frame];
             p1_human4_frame++;
             if (p1_human4_frame >= p1_human4_frame_count) {
                 p1_human4_frame = 0;
             }
-            p1_human5_material.map = p1_human5_textures[p1_human5_frame];
+            p1_human5_plane.material = p1_human5_materials[p1_human5_frame];
             p1_human5_frame++;
             if (p1_human5_frame >= p1_human5_frame_count) {
                 p1_human5_frame = 0;
             }
-            p1_human6_material.map = p1_human6_textures[p1_human6_frame];
+            p1_human6_plane.material = p1_human6_materials[p1_human6_frame];
             p1_human6_frame++;
             if (p1_human6_frame >= p1_human6_frame_count) {
                 p1_human6_frame = 0;
             }
-            p1_icon_material.map = p1_icon_textures[p1_icon_frame];
+            p1_icon_plane.material = p1_icon_materials[p1_icon_frame];
             p1_icon_frame++;
             if (p1_icon_frame >= p1_icon_frame_count) {
                 p1_icon_frame = 0;
@@ -1386,32 +1597,32 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
         }
         if (p2_show) {
             // P2.
-            p2_human1_material.map = p2_human1_textures[p2_human1_frame];
+            p2_human1_plane.material = p2_human1_materials[p2_human1_frame];
             p2_human1_frame++;
             if (p2_human1_frame >= p2_human1_frame_count) {
                 p2_human1_frame = 0;
             }
-            p2_human2_material.map = p2_human2_textures[p2_human2_frame];
+            p2_human2_plane.material = p2_human2_materials[p2_human2_frame];
             p2_human2_frame++;
             if (p2_human2_frame >= p2_human2_frame_count) {
                 p2_human2_frame = 0;
             }
-            p2_human3_material.map = p2_human3_textures[p2_human3_frame];
+            p2_human3_plane.material = p2_human3_materials[p2_human3_frame];
             p2_human3_frame++;
             if (p2_human3_frame >= p2_human3_frame_count) {
                 p2_human3_frame = 0;
             }
-            p2_human4_material.map = p2_human4_textures[p2_human4_frame];
+            p2_human4_plane.material = p2_human4_materials[p2_human4_frame];
             p2_human4_frame++;
             if (p2_human4_frame >= p2_human4_frame_count) {
                 p2_human4_frame = 0;
             }
-            p2_human5_material.map = p2_human5_textures[p2_human5_frame];
+            p2_human5_plane.material = p2_human5_materials[p2_human5_frame];
             p2_human5_frame++;
             if (p2_human5_frame >= p2_human5_frame_count) {
                 p2_human5_frame = 0;
             }
-            p2_icon_material.map = p2_icon_textures[p2_icon_frame];
+            p2_icon_plane.material = p2_icon_materials[p2_icon_frame];
             p2_icon_frame++;
             if (p2_icon_frame >= p2_icon_frame_count) {
                 p2_icon_frame = 0;
@@ -1419,34 +1630,34 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
         }
         if (p3_show) {
             // P3.
-            p3_human1_material.map = p2_human1_textures[p3_human1_frame];
+            p3_human1_plane.material = p2_human1_materials[p3_human1_frame];
             p3_human1_frame++;
             if (p3_human1_frame >= p2_human1_frame_count) {
                 p3_human1_frame = 0;
             }
-            p3_human2_material.map = p2_human2_textures[p3_human2_frame];
+            p3_human2_plane.material = p2_human2_materials[p3_human2_frame];
             p3_human2_frame++;
             if (p3_human2_frame >= p2_human2_frame_count) {
                 p3_human2_frame = 0;
             }
-            p3_human3_material.map = p2_human3_textures[p3_human3_frame];
+            p3_human3_plane.material = p2_human3_materials[p3_human3_frame];
             p3_human3_frame++;
             if (p3_human3_frame >= p2_human3_frame_count) {
                 p3_human3_frame = 0;
             }
-            p3_human4_material.map = p2_human4_textures[p3_human4_frame];
+            p3_human4_plane.material = p2_human4_materials[p3_human4_frame];
             p3_human4_frame++;
             if (p3_human4_frame >= p2_human4_frame_count) {
                 p3_human4_frame = 0;
             }
-            p3_human5_material.map = p2_human5_textures[p3_human5_frame];
+            p3_human5_plane.material = p2_human5_materials[p3_human5_frame];
             p3_human5_frame++;
             if (p3_human5_frame >= p2_human5_frame_count) {
                 p3_human5_frame = 0;
             }
-            p3_icon_material.map = p3_icon_textures[p3_icon_frame];
+            p3_icon_plane.material = p3_icon_materials[p3_icon_frame];
             p3_icon_frame++;
-            if (p3_icon_frame >= p3_icon_frame_count) {
+            if (p3_icon_frame >= p2_icon_frame_count) {
                 p3_icon_frame = 0;
             }
         }
@@ -1893,101 +2104,82 @@ function clearAllTexture() {
 }
 
 function loadAllTexture() {
-    if (test_mode) {
-        // P1.
-        p1_bicycle_textures = [];
-        p1_human2_textures = [];
-        p1_human3_textures = [];
-        p1_human4_textures = [];
-        p1_human5_textures = [];
-        p1_human6_textures = [];
-        p1_icon_textures = [];
-
-        var path;
-        for (count = 0; count < 500; count++) {
-            if (count < 10) {
-                path = 'assets/sprites/4/Test/03_Human_0000' + count + '.png';
-            }
-            else if (count >= 10 && count < 100) {
-                path = 'assets/sprites/4/Test/03_Human_000' + count + '.png';
-            }
-            else {
-                path = 'assets/sprites/4/Test/03_Human_00' + count + '.png';
-            }
-
-            p1_bicycle_textures[count] = new THREE.TextureLoader().load(path);
-            p1_human2_textures[count] = new THREE.TextureLoader().load(path);
-            p1_human3_textures[count] = new THREE.TextureLoader().load(path);
-            p1_human4_textures[count] = new THREE.TextureLoader().load(path);
-            p1_human5_textures[count] = new THREE.TextureLoader().load(path);
-            p1_human6_textures[count] = new THREE.TextureLoader().load(path);
-            p1_icon_textures[count] = new THREE.TextureLoader().load(path);
-        }
+    // P1.
+    p1_bicycle_textures = [];
+    for (count = 0; count < p1_bicycle_frame_count; count++) {
+        p1_bicycle_textures[count] = new THREE.TextureLoader().load(p1_bicycle_path + zero_path(count) + count + '.png');
+        p1_bicycle_materials[count] = new THREE.MeshBasicMaterial({ map: p1_bicycle_textures[count], depthTest: false, transparent: true, side: THREE.DoubleSide });
     }
-    else {
-        // P1.
-        p1_bicycle_textures = [];
-        for (count = 0; count < p1_bicycle_frame_count; count++) {
-            p1_bicycle_textures[count] = new THREE.TextureLoader().load(p1_bicycle_path + zero_path(count) + count + '.png');
-        }
-        p1_human2_textures = [];
-        for (count = 0; count < p1_human2_frame_count; count++) {
-            p1_human2_textures[count] = new THREE.TextureLoader().load(p1_human2_path + zero_path(count) + count + '.png');
-        }
-        p1_human3_textures = [];
-        for (count = 0; count < p1_human3_frame_count; count++) {
-            p1_human3_textures[count] = new THREE.TextureLoader().load(p1_human3_path + zero_path(count) + count + '.png');
-        }
-        p1_human4_textures = [];
-        for (count = 0; count < p1_human4_frame_count; count++) {
-            p1_human4_textures[count] = new THREE.TextureLoader().load(p1_human4_path + zero_path(count) + count + '.png');
-        }
-        p1_human5_textures = [];
-        for (count = 0; count < p1_human5_frame_count; count++) {
-            p1_human5_textures[count] = new THREE.TextureLoader().load(p1_human5_path + zero_path(count) + count + '.png');
-        }
-        p1_human6_textures = [];
-        for (count = 0; count < p1_human6_frame_count; count++) {
-            p1_human6_textures[count] = new THREE.TextureLoader().load(p1_human6_path + zero_path(count) + count + '.png');
-        }
-        p1_icon_textures = [];
-        for (count = 0; count < p1_icon_frame_count; count++) {
-            p1_icon_textures[count] = new THREE.TextureLoader().load(p1_icon_path + zero_path(count) + count + '.png');
-            //p1_icon_textures[count] = new THREE.TextureLoader().load(p1_icon_path + '_' + count + '.png');
-        }
+    p1_human2_textures = [];
+    for (count = 0; count < p1_human2_frame_count; count++) {
+        p1_human2_textures[count] = new THREE.TextureLoader().load(p1_human2_path + zero_path(count) + count + '.png');
+        p1_human2_materials[count] = new THREE.MeshBasicMaterial({ map: p1_human2_textures[count], depthTest: false, transparent: true, side: THREE.DoubleSide });
+    }
+    p1_human3_textures = [];
+    for (count = 0; count < p1_human3_frame_count; count++) {
+        p1_human3_textures[count] = new THREE.TextureLoader().load(p1_human3_path + zero_path(count) + count + '.png');
+        p1_human3_materials[count] = new THREE.MeshBasicMaterial({ map: p1_human3_textures[count], depthTest: false, transparent: true, side: THREE.DoubleSide });
+    }
+    p1_human4_textures = [];
+    for (count = 0; count < p1_human4_frame_count; count++) {
+        p1_human4_textures[count] = new THREE.TextureLoader().load(p1_human4_path + zero_path(count) + count + '.png');
+        p1_human4_materials[count] = new THREE.MeshBasicMaterial({ map: p1_human4_textures[count], depthTest: false, transparent: true, side: THREE.DoubleSide });
+    }
+    p1_human5_textures = [];
+    for (count = 0; count < p1_human5_frame_count; count++) {
+        p1_human5_textures[count] = new THREE.TextureLoader().load(p1_human5_path + zero_path(count) + count + '.png');
+        p1_human5_materials[count] = new THREE.MeshBasicMaterial({ map: p1_human5_textures[count], depthTest: false, transparent: true, side: THREE.DoubleSide });
+    }
+    p1_human6_textures = [];
+    for (count = 0; count < p1_human6_frame_count; count++) {
+        p1_human6_textures[count] = new THREE.TextureLoader().load(p1_human6_path + zero_path(count) + count + '.png');
+        p1_human6_materials[count] = new THREE.MeshBasicMaterial({ map: p1_human6_textures[count], depthTest: false, transparent: true, side: THREE.DoubleSide });
+    }
+    p1_icon_textures = [];
+    for (count = 0; count < p1_icon_frame_count; count++) {
+        p1_icon_textures[count] = new THREE.TextureLoader().load(p1_icon_path + zero_path(count) + count + '.png');
+        //p1_icon_textures[count] = new THREE.TextureLoader().load(p1_icon_path + '_' + count + '.png');
+        p1_icon_materials[count] = new THREE.MeshBasicMaterial({ map: p1_icon_textures[count], depthTest: false, transparent: true, side: THREE.DoubleSide });
+    }
 
-        // P2.
-        p2_human1_textures = [];
-        for (count = 0; count < p2_human1_frame_count; count++) {
-            p2_human1_textures[count] = new THREE.TextureLoader().load(p2_human1_path + zero_path(count) + count + '.png');
-        }
-        p2_human2_textures = [];
-        for (count = 0; count < p2_human2_frame_count; count++) {
-            p2_human2_textures[count] = new THREE.TextureLoader().load(p2_human2_path + zero_path(count) + count + '.png');
-        }
-        p2_human3_textures = [];
-        for (count = 0; count < p2_human3_frame_count; count++) {
-            p2_human3_textures[count] = new THREE.TextureLoader().load(p2_human3_path + zero_path(count) + count + '.png');
-        }
-        p2_human4_textures = [];
-        for (count = 0; count < p2_human4_frame_count; count++) {
-            p2_human4_textures[count] = new THREE.TextureLoader().load(p2_human4_path + zero_path(count) + count + '.png');
-        }
-        p2_human5_textures = [];
-        for (count = 0; count < p2_human5_frame_count; count++) {
-            p2_human5_textures[count] = new THREE.TextureLoader().load(p2_human5_path + zero_path(count) + count + '.png');
-        }
-        p2_icon_textures = [];
-        for (count = 0; count < p2_icon_frame_count; count++) {
-            p2_icon_textures[count] = new THREE.TextureLoader().load(p2_icon_path + zero_path(count) + count + '.png');
-            //p2_icon_textures[count] = new THREE.TextureLoader().load(p2_icon_path + '_' + count + '.png');
-        }
+    // P2.
+    p2_human1_textures = [];
+    for (count = 0; count < p2_human1_frame_count; count++) {
+        p2_human1_textures[count] = new THREE.TextureLoader().load(p2_human1_path + zero_path(count) + count + '.png');
+        p2_human1_materials[count] = new THREE.MeshBasicMaterial({ map: p2_human1_textures[count], depthTest: false, transparent: true, side: THREE.DoubleSide });
+    }
+    p2_human2_textures = [];
+    for (count = 0; count < p2_human2_frame_count; count++) {
+        p2_human2_textures[count] = new THREE.TextureLoader().load(p2_human2_path + zero_path(count) + count + '.png');
+        p2_human2_materials[count] = new THREE.MeshBasicMaterial({ map: p2_human2_textures[count], depthTest: false, transparent: true, side: THREE.DoubleSide });
+    }
+    p2_human3_textures = [];
+    for (count = 0; count < p2_human3_frame_count; count++) {
+        p2_human3_textures[count] = new THREE.TextureLoader().load(p2_human3_path + zero_path(count) + count + '.png');
+        p2_human3_materials[count] = new THREE.MeshBasicMaterial({ map: p2_human3_textures[count], depthTest: false, transparent: true, side: THREE.DoubleSide });
+    }
+    p2_human4_textures = [];
+    for (count = 0; count < p2_human4_frame_count; count++) {
+        p2_human4_textures[count] = new THREE.TextureLoader().load(p2_human4_path + zero_path(count) + count + '.png');
+        p2_human4_materials[count] = new THREE.MeshBasicMaterial({ map: p2_human4_textures[count], depthTest: false, transparent: true, side: THREE.DoubleSide });
+    }
+    p2_human5_textures = [];
+    for (count = 0; count < p2_human5_frame_count; count++) {
+        p2_human5_textures[count] = new THREE.TextureLoader().load(p2_human5_path + zero_path(count) + count + '.png');
+        p2_human5_materials[count] = new THREE.MeshBasicMaterial({ map: p2_human5_textures[count], depthTest: false, transparent: true, side: THREE.DoubleSide });
+    }
+    p2_icon_textures = [];
+    for (count = 0; count < p2_icon_frame_count; count++) {
+        p2_icon_textures[count] = new THREE.TextureLoader().load(p2_icon_path + zero_path(count) + count + '.png');
+        //p2_icon_textures[count] = new THREE.TextureLoader().load(p2_icon_path + '_' + count + '.png');
+        p2_icon_materials[count] = new THREE.MeshBasicMaterial({ map: p2_icon_textures[count], depthTest: false, transparent: true, side: THREE.DoubleSide });
+    }
 
-        // P3.
-        p3_icon_textures = [];
-        for (count = 0; count < p3_icon_frame_count; count++) {
-            p3_icon_textures[count] = new THREE.TextureLoader().load(p3_icon_path + zero_path(count) + count + '.png');
-            //p3_icon_textures[count] = new THREE.TextureLoader().load(p3_icon_path + '_' + count + '.png');
-        }
+    // P3.
+    p3_icon_textures = [];
+    for (count = 0; count < p3_icon_frame_count; count++) {
+        p3_icon_textures[count] = new THREE.TextureLoader().load(p3_icon_path + zero_path(count) + count + '.png');
+        //p3_icon_textures[count] = new THREE.TextureLoader().load(p3_icon_path + '_' + count + '.png');
+        p3_icon_materials[count] = new THREE.MeshBasicMaterial({ map: p3_icon_textures[count], depthTest: false, transparent: true, side: THREE.DoubleSide });
     }
 }
