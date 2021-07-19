@@ -70,21 +70,80 @@ var adjust_angle = 25;
 // SpriteAnimator.add({ texture: p1_human6_texture, tilesHorizontal: 12, tilesVertical: 12, fps: 24, numberOfTiles: 138 });
 // var p1_icon_texture = THREE.ImageUtils.loadTexture('assets/sprites/p1_icon_sprite_sheet.png');
 // SpriteAnimator.add({ texture: p1_icon_texture, tilesHorizontal: 9, tilesVertical: 9, fps: 24, numberOfTiles: 77 });
-var p1_bicycle_texture = THREE.ImageUtils.loadTexture('assets/sprites/p1_bicycle_sprite_sheet.png');
-SpriteAnimator.add({ texture: p1_bicycle_texture, tilesHorizontal: 9, tilesVertical: 9, fps: 24, numberOfTiles: 67 });
-var p1_human2_texture = THREE.ImageUtils.loadTexture('assets/sprites/p1_human4_sprite_sheet.png');
-SpriteAnimator.add({ texture: p1_human2_texture, tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
-var p1_human3_texture = THREE.ImageUtils.loadTexture('assets/sprites/p1_human4_sprite_sheet.png');
-SpriteAnimator.add({ texture: p1_human3_texture, tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
-var p1_human4_texture = THREE.ImageUtils.loadTexture('assets/sprites/p1_human4_sprite_sheet.png');
-SpriteAnimator.add({ texture: p1_human4_texture, tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
-var p1_human5_texture = THREE.ImageUtils.loadTexture('assets/sprites/p1_human4_sprite_sheet.png');
-SpriteAnimator.add({ texture: p1_human5_texture, tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
-var p1_human6_texture = THREE.ImageUtils.loadTexture('assets/sprites/p1_human4_sprite_sheet.png');
-SpriteAnimator.add({ texture: p1_human6_texture, tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
-var p1_icon_texture = THREE.ImageUtils.loadTexture('assets/sprites/p1_icon_sprite_sheet.png');
-SpriteAnimator.add({ texture: p1_icon_texture, tilesHorizontal: 9, tilesVertical: 9, fps: 24, numberOfTiles: 77 });
+// var p1_bicycle_texture = THREE.ImageUtils.loadTexture('assets/sprites/p1_bicycle_sprite_sheet.png');
+// var p1_bicycle_animation = SpriteAnimator.add({ texture: p1_bicycle_texture, tilesHorizontal: 9, tilesVertical: 9, fps: 24, numberOfTiles: 67 });
+// var p1_human2_texture = THREE.ImageUtils.loadTexture('assets/sprites/p1_human4_sprite_sheet.png');
+// SpriteAnimator.add({ texture: p1_human2_texture, tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
+// var p1_human3_texture = THREE.ImageUtils.loadTexture('assets/sprites/p1_human4_sprite_sheet.png');
+// SpriteAnimator.add({ texture: p1_human3_texture, tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
+// var p1_human4_texture = THREE.ImageUtils.loadTexture('assets/sprites/p1_human4_sprite_sheet.png');
+// SpriteAnimator.add({ texture: p1_human4_texture, tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
+// var p1_human5_texture = THREE.ImageUtils.loadTexture('assets/sprites/p1_human4_sprite_sheet.png');
+// SpriteAnimator.add({ texture: p1_human5_texture, tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
+// var p1_human6_texture = THREE.ImageUtils.loadTexture('assets/sprites/p1_human4_sprite_sheet.png');
+// SpriteAnimator.add({ texture: p1_human6_texture, tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
+// var p1_icon_texture = THREE.ImageUtils.loadTexture('assets/sprites/p1_icon_sprite_sheet.png');
+// SpriteAnimator.add({ texture: p1_icon_texture, tilesHorizontal: 9, tilesVertical: 9, fps: 24, numberOfTiles: 77 });
 
+// var p1_bicycle_material = new THREE.MeshBasicMaterial({ map: p1_bicycle_texture, opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide });
+// var p1_human2_material = new THREE.MeshBasicMaterial({ map: p1_human2_texture, opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide });
+// var p1_human3_material = new THREE.MeshBasicMaterial({ map: p1_human3_texture, opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide });
+// var p1_human4_material = new THREE.MeshBasicMaterial({ map: p1_human4_texture, opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide });
+// var p1_human5_material = new THREE.MeshBasicMaterial({ map: p1_human5_texture, opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide });
+// var p1_human6_material = new THREE.MeshBasicMaterial({ map: p1_human6_texture, opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide });
+// var p1_icon_material = new THREE.MeshBasicMaterial({ map: p1_icon_texture, opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide });
+
+// // P1.
+// var p2_human1_texture = THREE.ImageUtils.loadTexture('assets/sprites/p1_human4_sprite_sheet.png');
+// SpriteAnimator.add({ texture: p2_human1_texture, tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
+// var p2_human2_texture = THREE.ImageUtils.loadTexture('assets/sprites/p1_human4_sprite_sheet.png');
+// SpriteAnimator.add({ texture: p2_human2_texture, tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
+// var p2_human3_texture = THREE.ImageUtils.loadTexture('assets/sprites/p1_human4_sprite_sheet.png');
+// SpriteAnimator.add({ texture: p2_human3_texture, tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
+// var p2_human4_texture = THREE.ImageUtils.loadTexture('assets/sprites/p1_human4_sprite_sheet.png');
+// SpriteAnimator.add({ texture: p2_human4_texture, tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
+// var p2_human5_texture = THREE.ImageUtils.loadTexture('assets/sprites/p1_human4_sprite_sheet.png');
+// SpriteAnimator.add({ texture: p2_human5_texture, tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
+// var p2_icon_texture = THREE.ImageUtils.loadTexture('assets/sprites/p1_human4_sprite_sheet.png');
+// SpriteAnimator.add({ texture: p2_icon_texture, tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
+
+// var p2_human1_material = new THREE.MeshBasicMaterial({ map: p2_human1_texture, opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide });
+// var p2_human2_material = new THREE.MeshBasicMaterial({ map: p2_human2_texture, opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide });
+// var p2_human3_material = new THREE.MeshBasicMaterial({ map: p2_human3_texture, opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide });
+// var p2_human4_material = new THREE.MeshBasicMaterial({ map: p2_human4_texture, opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide });
+// var p2_human5_material = new THREE.MeshBasicMaterial({ map: p2_human5_texture, opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide });
+// var p2_icon_material = new THREE.MeshBasicMaterial({ map: p2_icon_texture, opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide });
+
+// // P3.
+// var p3_icon_texture = THREE.ImageUtils.loadTexture('assets/sprites/p1_human4_sprite_sheet.png');
+// SpriteAnimator.add({ texture: p3_icon_texture, tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
+
+// var p3_human1_material = p2_human1_material;
+// var p3_human2_material = p2_human2_material;
+// var p3_human3_material = p2_human3_material;
+// var p3_human4_material = p2_human4_material;
+// var p3_human5_material = p2_human5_material;
+// var p3_icon_material = new THREE.MeshBasicMaterial({ map: p3_icon_texture, opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide });
+
+// P1.
+var p1_bicycle_texture = THREE.ImageUtils.loadTexture('assets/sprites/p1_bicycle_sprite_sheet.png');
+var p1_human2_texture = THREE.ImageUtils.loadTexture('assets/sprites/p1_human4_sprite_sheet.png');
+var p1_human3_texture = THREE.ImageUtils.loadTexture('assets/sprites/p1_human4_sprite_sheet.png');
+var p1_human4_texture = THREE.ImageUtils.loadTexture('assets/sprites/p1_human4_sprite_sheet.png');
+var p1_human5_texture = THREE.ImageUtils.loadTexture('assets/sprites/p1_human4_sprite_sheet.png');
+var p1_human6_texture = THREE.ImageUtils.loadTexture('assets/sprites/p1_human4_sprite_sheet.png');
+var p1_icon_texture = THREE.ImageUtils.loadTexture('assets/sprites/p1_icon_sprite_sheet.png');
+// P2.
+var p2_human1_texture = THREE.ImageUtils.loadTexture('assets/sprites/p1_human4_sprite_sheet.png');
+var p2_human2_texture = THREE.ImageUtils.loadTexture('assets/sprites/p1_human4_sprite_sheet.png');
+var p2_human3_texture = THREE.ImageUtils.loadTexture('assets/sprites/p1_human4_sprite_sheet.png');
+var p2_human4_texture = THREE.ImageUtils.loadTexture('assets/sprites/p1_human4_sprite_sheet.png');
+var p2_human5_texture = THREE.ImageUtils.loadTexture('assets/sprites/p1_human4_sprite_sheet.png');
+var p2_icon_texture = THREE.ImageUtils.loadTexture('assets/sprites/p1_human4_sprite_sheet.png');
+// P3.
+var p3_icon_texture = THREE.ImageUtils.loadTexture('assets/sprites/p1_human4_sprite_sheet.png');
+
+// P1.
 var p1_bicycle_material = new THREE.MeshBasicMaterial({ map: p1_bicycle_texture, opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide });
 var p1_human2_material = new THREE.MeshBasicMaterial({ map: p1_human2_texture, opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide });
 var p1_human3_material = new THREE.MeshBasicMaterial({ map: p1_human3_texture, opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide });
@@ -92,38 +151,38 @@ var p1_human4_material = new THREE.MeshBasicMaterial({ map: p1_human4_texture, o
 var p1_human5_material = new THREE.MeshBasicMaterial({ map: p1_human5_texture, opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide });
 var p1_human6_material = new THREE.MeshBasicMaterial({ map: p1_human6_texture, opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide });
 var p1_icon_material = new THREE.MeshBasicMaterial({ map: p1_icon_texture, opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide });
-
-// P1.
-var p2_human1_texture = THREE.ImageUtils.loadTexture('assets/sprites/p1_human4_sprite_sheet.png');
-SpriteAnimator.add({ texture: p2_human1_texture, tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
-var p2_human2_texture = THREE.ImageUtils.loadTexture('assets/sprites/p1_human4_sprite_sheet.png');
-SpriteAnimator.add({ texture: p2_human2_texture, tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
-var p2_human3_texture = THREE.ImageUtils.loadTexture('assets/sprites/p1_human4_sprite_sheet.png');
-SpriteAnimator.add({ texture: p2_human3_texture, tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
-var p2_human4_texture = THREE.ImageUtils.loadTexture('assets/sprites/p1_human4_sprite_sheet.png');
-SpriteAnimator.add({ texture: p2_human4_texture, tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
-var p2_human5_texture = THREE.ImageUtils.loadTexture('assets/sprites/p1_human4_sprite_sheet.png');
-SpriteAnimator.add({ texture: p2_human5_texture, tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
-var p2_icon_texture = THREE.ImageUtils.loadTexture('assets/sprites/p1_human4_sprite_sheet.png');
-SpriteAnimator.add({ texture: p2_icon_texture, tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
-
+// P2.
 var p2_human1_material = new THREE.MeshBasicMaterial({ map: p2_human1_texture, opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide });
 var p2_human2_material = new THREE.MeshBasicMaterial({ map: p2_human2_texture, opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide });
 var p2_human3_material = new THREE.MeshBasicMaterial({ map: p2_human3_texture, opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide });
 var p2_human4_material = new THREE.MeshBasicMaterial({ map: p2_human4_texture, opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide });
 var p2_human5_material = new THREE.MeshBasicMaterial({ map: p2_human5_texture, opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide });
 var p2_icon_material = new THREE.MeshBasicMaterial({ map: p2_icon_texture, opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide });
-
 // P3.
-var p3_icon_texture = THREE.ImageUtils.loadTexture('assets/sprites/p1_human4_sprite_sheet.png');
-SpriteAnimator.add({ texture: p3_icon_texture, tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
-
 var p3_human1_material = p2_human1_material;
 var p3_human2_material = p2_human2_material;
 var p3_human3_material = p2_human3_material;
 var p3_human4_material = p2_human4_material;
 var p3_human5_material = p2_human5_material;
 var p3_icon_material = new THREE.MeshBasicMaterial({ map: p3_icon_texture, opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide });
+
+// P1.
+var p1_bicycle_animation = SpriteAnimator.add({ texture: p1_bicycle_texture, tilesHorizontal: 9, tilesVertical: 9, fps: 24, numberOfTiles: 67 });
+SpriteAnimator.add({ texture: p1_human2_texture, tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
+SpriteAnimator.add({ texture: p1_human3_texture, tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
+SpriteAnimator.add({ texture: p1_human4_texture, tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
+SpriteAnimator.add({ texture: p1_human5_texture, tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
+SpriteAnimator.add({ texture: p1_human6_texture, tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
+SpriteAnimator.add({ texture: p1_icon_texture, tilesHorizontal: 9, tilesVertical: 9, fps: 24, numberOfTiles: 77 });
+// // P2.
+// SpriteAnimator.add({ texture: p2_human1_texture, tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
+// SpriteAnimator.add({ texture: p2_human2_texture, tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
+// SpriteAnimator.add({ texture: p2_human3_texture, tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
+// SpriteAnimator.add({ texture: p2_human4_texture, tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
+// SpriteAnimator.add({ texture: p2_human5_texture, tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
+// SpriteAnimator.add({ texture: p2_icon_texture, tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
+// // P3.
+// SpriteAnimator.add({ texture: p3_icon_texture, tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
 
 var tree1_material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/dummy.png'), opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide });
 var tree2_material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/dummy.png'), opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide });
@@ -1283,6 +1342,8 @@ function choice1_worker() {
     model2.visible = true;
     model3.visible = false;
     model4.visible = false;
+
+    SpriteAnimator.free(p1_bicycle_animation);
 }
 
 function choice2_worker() {
