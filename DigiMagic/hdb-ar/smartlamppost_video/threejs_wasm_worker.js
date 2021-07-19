@@ -181,6 +181,8 @@ var lamppost2_material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoa
 var lamppost1_light_material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/lamppost01_light.png'), opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide });
 var lamppost2_light_material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/lamppost02_light.png'), opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide });
 
+var green_screen_material;
+
 //var worker;
 function start(container, marker, video, input_width, input_height, canvas_draw, render_update, track_update) {
     worker = new Worker('wasm_worker/artoolkit.wasm_worker.js');
@@ -1553,6 +1555,9 @@ function choice1_worker() {
     p1_human6_video.play();
     p1_icon_video.play();
 
+    // console.log(test_video);
+    // test_video.play();
+
     // p1_bicycle_video.play();
     // p1_bicycle_video_alpha.play();
     // p1_human2_video.play();
@@ -1901,14 +1906,20 @@ function P2_VideoTexture() {
     var source_ctx;
     var source_width = 1200;
     var source_height = 600;
+    var target_width = 600;
+    var target_height = 300;
 
     source_ctx = source_canvas.getContext("2d");
 
     var width = 0;
     var height = 0;
+    var resize_width = 0;
+    var resize_height = 0;
 
-    width = 600;
-    height = 600;
+    width = 300;
+    height = 300;
+    resize_width = 600;
+    resize_height = 600;
 
     var ctx;
     var ctx_alpha;
@@ -2122,14 +2133,20 @@ function P3_VideoTexture() {
     var source_ctx;
     var source_width = 1200;
     var source_height = 600;
+    var target_width = 600;
+    var target_height = 300;
 
     source_ctx = source_canvas.getContext("2d");
 
     var width = 0;
     var height = 0;
+    var resize_width = 0;
+    var resize_height = 0;
 
-    width = 600;
-    height = 600;
+    width = 300;
+    height = 300;
+    resize_width = 600;
+    resize_height = 600;
 
     var ctx;
     var ctx_alpha;
