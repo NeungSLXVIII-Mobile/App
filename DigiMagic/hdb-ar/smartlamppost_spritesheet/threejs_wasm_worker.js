@@ -1279,6 +1279,14 @@ function choice1_worker() {
     p1_human6_texture = THREE.ImageUtils.loadTexture('assets/sprites/p1_human4_sprite_sheet.png');
     p1_icon_texture = THREE.ImageUtils.loadTexture('assets/sprites/p1_icon_sprite_sheet.png');
 
+    p1_bicycle_material.map = p1_bicycle_texture;
+    p1_human2_material.map = p1_human2_texture;
+    p1_human3_material.map = p1_human3_texture;
+    p1_human4_material.map = p1_human4_texture;
+    p1_human5_material.map = p1_human5_texture;
+    p1_human6_material.map = p1_human6_texture;
+    p1_icon_material.map = p1_icon_texture;
+
     model1.visible = false;
     model2.visible = true;
     model3.visible = false;
@@ -1296,6 +1304,13 @@ function choice2_worker() {
     p2_human5_texture = THREE.ImageUtils.loadTexture('assets/sprites/p1_human4_sprite_sheet.png');
     p2_icon_texture = THREE.ImageUtils.loadTexture('assets/sprites/p1_human4_sprite_sheet.png');
 
+    p2_human1_material.map = p2_human1_texture;
+    p2_human2_material.map = p2_human2_texture;
+    p2_human3_material.map = p2_human3_texture;
+    p2_human4_material.map = p2_human4_texture;
+    p2_human5_material.map = p2_human5_texture;
+    p2_icon_material.map = p2_icon_texture;
+    
     model1.visible = false;
     model2.visible = false;
     model3.visible = true;
@@ -1314,6 +1329,13 @@ function choice3_worker() {
     //p2_icon_texture = THREE.ImageUtils.loadTexture('assets/sprites/p1_human4_sprite_sheet.png');
     // P3.
     p3_icon_texture = THREE.ImageUtils.loadTexture('assets/sprites/p1_human4_sprite_sheet.png');
+
+    p3_human1_material.map = p2_human1_texture;
+    p3_human2_material.map = p2_human2_texture;
+    p3_human3_material.map = p2_human3_texture;
+    p3_human4_material.map = p2_human4_texture;
+    p3_human5_material.map = p2_human5_texture;
+    p3_icon_material.map = p3_icon_texture;
 
     model1.visible = false;
     model2.visible = false;
