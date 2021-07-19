@@ -56,13 +56,13 @@ var adjust_angle = 25;
 //, side: THREE.DoubleSide
 
 // P1.
-var p1_bicycle_texture = THREE.ImageUtils.loadTexture('assets/sprites/p1_bicycle_sprite_sheet.png');
-var p1_human2_texture = THREE.ImageUtils.loadTexture('assets/sprites/p1_human4_sprite_sheet.png');
-var p1_human3_texture = THREE.ImageUtils.loadTexture('assets/sprites/p1_human4_sprite_sheet.png');
-var p1_human4_texture = THREE.ImageUtils.loadTexture('assets/sprites/p1_human4_sprite_sheet.png');
-var p1_human5_texture = THREE.ImageUtils.loadTexture('assets/sprites/p1_human4_sprite_sheet.png');
-var p1_human6_texture = THREE.ImageUtils.loadTexture('assets/sprites/p1_human4_sprite_sheet.png');
-var p1_icon_texture = THREE.ImageUtils.loadTexture('assets/sprites/p1_icon_sprite_sheet.png');
+var p1_bicycle_texture = THREE.ImageUtils.loadTexture('assets/sprites/dummy.png');
+var p1_human2_texture = THREE.ImageUtils.loadTexture('assets/sprites/dummy.png');
+var p1_human3_texture = THREE.ImageUtils.loadTexture('assets/sprites/dummy.png');
+var p1_human4_texture = THREE.ImageUtils.loadTexture('assets/sprites/dummy.png');
+var p1_human5_texture = THREE.ImageUtils.loadTexture('assets/sprites/dummy.png');
+var p1_human6_texture = THREE.ImageUtils.loadTexture('assets/sprites/dummy.png');
+var p1_icon_texture = THREE.ImageUtils.loadTexture('assets/sprites/dummy.png');
 // P2.
 var p2_human1_texture = THREE.ImageUtils.loadTexture('assets/sprites/dummy.png');
 var p2_human2_texture = THREE.ImageUtils.loadTexture('assets/sprites/dummy.png');
@@ -96,14 +96,14 @@ var p3_human4_material = p2_human4_material;
 var p3_human5_material = p2_human5_material;
 var p3_icon_material = new THREE.MeshBasicMaterial({ map: p3_icon_texture, opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide });
 
-// P1.
-var p1_bicycle_animation = SpriteAnimator.add({ texture: p1_bicycle_texture, tilesHorizontal: 9, tilesVertical: 9, fps: 24, numberOfTiles: 67 });
-SpriteAnimator.add({ texture: p1_human2_texture, tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
-SpriteAnimator.add({ texture: p1_human3_texture, tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
-SpriteAnimator.add({ texture: p1_human4_texture, tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
-SpriteAnimator.add({ texture: p1_human5_texture, tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
-SpriteAnimator.add({ texture: p1_human6_texture, tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
-SpriteAnimator.add({ texture: p1_icon_texture, tilesHorizontal: 9, tilesVertical: 9, fps: 24, numberOfTiles: 77 });
+// // P1.
+// var p1_bicycle_animation = SpriteAnimator.add({ texture: p1_bicycle_texture, tilesHorizontal: 9, tilesVertical: 9, fps: 24, numberOfTiles: 67 });
+// SpriteAnimator.add({ texture: p1_human2_texture, tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
+// SpriteAnimator.add({ texture: p1_human3_texture, tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
+// SpriteAnimator.add({ texture: p1_human4_texture, tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
+// SpriteAnimator.add({ texture: p1_human5_texture, tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
+// SpriteAnimator.add({ texture: p1_human6_texture, tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
+// SpriteAnimator.add({ texture: p1_icon_texture, tilesHorizontal: 9, tilesVertical: 9, fps: 24, numberOfTiles: 77 });
 // // P2.
 // SpriteAnimator.add({ texture: p2_human1_texture, tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
 // SpriteAnimator.add({ texture: p2_human2_texture, tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
@@ -1268,15 +1268,34 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
 }
 
 function choice1_worker() {
+    clearAllTexture();
+
+    // P1.
+    p1_bicycle_texture = THREE.ImageUtils.loadTexture('assets/sprites/p1_bicycle_sprite_sheet.png');
+    p1_human2_texture = THREE.ImageUtils.loadTexture('assets/sprites/p1_human4_sprite_sheet.png');
+    p1_human3_texture = THREE.ImageUtils.loadTexture('assets/sprites/p1_human4_sprite_sheet.png');
+    p1_human4_texture = THREE.ImageUtils.loadTexture('assets/sprites/p1_human4_sprite_sheet.png');
+    p1_human5_texture = THREE.ImageUtils.loadTexture('assets/sprites/p1_human4_sprite_sheet.png');
+    p1_human6_texture = THREE.ImageUtils.loadTexture('assets/sprites/p1_human4_sprite_sheet.png');
+    p1_icon_texture = THREE.ImageUtils.loadTexture('assets/sprites/p1_icon_sprite_sheet.png');
+
     model1.visible = false;
     model2.visible = true;
     model3.visible = false;
     model4.visible = false;
-
-    SpriteAnimator.free(p1_bicycle_animation);
 }
 
 function choice2_worker() {
+    clearAllTexture();
+
+    // P2.
+    p2_human1_texture = THREE.ImageUtils.loadTexture('assets/sprites/p1_human4_sprite_sheet.png');
+    p2_human2_texture = THREE.ImageUtils.loadTexture('assets/sprites/p1_human4_sprite_sheet.png');
+    p2_human3_texture = THREE.ImageUtils.loadTexture('assets/sprites/p1_human4_sprite_sheet.png');
+    p2_human4_texture = THREE.ImageUtils.loadTexture('assets/sprites/p1_human4_sprite_sheet.png');
+    p2_human5_texture = THREE.ImageUtils.loadTexture('assets/sprites/p1_human4_sprite_sheet.png');
+    p2_icon_texture = THREE.ImageUtils.loadTexture('assets/sprites/p1_human4_sprite_sheet.png');
+
     model1.visible = false;
     model2.visible = false;
     model3.visible = true;
@@ -1284,8 +1303,68 @@ function choice2_worker() {
 }
 
 function choice3_worker() {
+    clearAllTexture();
+
+    // P2.
+    p2_human1_texture = THREE.ImageUtils.loadTexture('assets/sprites/p1_human4_sprite_sheet.png');
+    p2_human2_texture = THREE.ImageUtils.loadTexture('assets/sprites/p1_human4_sprite_sheet.png');
+    p2_human3_texture = THREE.ImageUtils.loadTexture('assets/sprites/p1_human4_sprite_sheet.png');
+    p2_human4_texture = THREE.ImageUtils.loadTexture('assets/sprites/p1_human4_sprite_sheet.png');
+    p2_human5_texture = THREE.ImageUtils.loadTexture('assets/sprites/p1_human4_sprite_sheet.png');
+    //p2_icon_texture = THREE.ImageUtils.loadTexture('assets/sprites/p1_human4_sprite_sheet.png');
+    // P3.
+    p3_icon_texture = THREE.ImageUtils.loadTexture('assets/sprites/p1_human4_sprite_sheet.png');
+
     model1.visible = false;
     model2.visible = false;
     model3.visible = false;
     model4.visible = true;
+}
+
+function clearAllTexture() {
+    // P1.
+    if (p1_bicycle_texture != undefined) {
+        p1_bicycle_texture.dispose();
+    }
+    if (p1_human2_texture != undefined) {
+        p1_human2_texture.dispose();
+    }
+    if (p1_human3_texture != undefined) {
+        p1_human3_texture.dispose();
+    }
+    if (p1_human4_texture != undefined) {
+        p1_human4_texture.dispose();
+    }
+    if (p1_human5_texture != undefined) {
+        p1_human5_texture.dispose();
+    }
+    if (p1_human6_texture != undefined) {
+        p1_human6_texture.dispose();
+    }
+    if (p1_icon_texture != undefined) {
+        p1_icon_texture.dispose();
+    }
+    // P2.
+    if (p2_human1_texture != undefined) {
+        p2_human1_texture.dispose();
+    }
+    if (p2_human2_texture != undefined) {
+        p2_human2_texture.dispose();
+    }
+    if (p2_human3_texture != undefined) {
+        p2_human3_texture.dispose();
+    }
+    if (p2_human4_texture != undefined) {
+        p2_human4_texture.dispose();
+    }
+    if (p2_human5_texture != undefined) {
+        p2_human5_texture.dispose();
+    }
+    if (p2_icon_texture != undefined) {
+        p2_icon_texture.dispose();
+    }
+    // P3.
+    if (p3_icon_texture != undefined) {
+        p3_icon_texture = THREE.ImageUtils.loadTexture('assets/sprites/dummy.png');
+    }
 }
