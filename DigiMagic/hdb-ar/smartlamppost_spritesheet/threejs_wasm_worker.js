@@ -96,6 +96,24 @@ var p3_human4_material = p2_human4_material;
 var p3_human5_material = p2_human5_material;
 var p3_icon_material = new THREE.MeshBasicMaterial({ map: p3_icon_texture, opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide });
 
+// P1.
+var p1_bicycle_animation;
+var p1_human2_animation;
+var p1_human3_animation;
+var p1_human4_animation;
+var p1_human5_animation;
+var p1_human6_animation;
+var p1_icon_animation;
+// P2.
+var p2_human1_animation;
+var p2_human2_animation;
+var p2_human3_animation;
+var p2_human4_animation;
+var p2_human5_animation;
+var p2_icon_animation;
+// P3.
+var p3_icon_animation;
+
 // // P1.
 // var p1_bicycle_animation = SpriteAnimator.add({ texture: p1_bicycle_texture, tilesHorizontal: 9, tilesVertical: 9, fps: 24, numberOfTiles: 67 });
 // SpriteAnimator.add({ texture: p1_human2_texture, tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
@@ -1279,6 +1297,14 @@ function choice1_worker() {
     p1_human6_texture = THREE.ImageUtils.loadTexture('assets/sprites/p1_human4_sprite_sheet.png');
     p1_icon_texture = THREE.ImageUtils.loadTexture('assets/sprites/p1_icon_sprite_sheet.png');
 
+    p1_bicycle_animation = SpriteAnimator.add({ texture: p1_bicycle_texture, tilesHorizontal: 9, tilesVertical: 9, fps: 24, numberOfTiles: 67 });
+    p1_human2_animation = SpriteAnimator.add({ texture: p1_human2_texture, tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
+    p1_human3_animation = SpriteAnimator.add({ texture: p1_human3_texture, tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
+    p1_human4_animation = SpriteAnimator.add({ texture: p1_human4_texture, tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
+    p1_human5_animation = SpriteAnimator.add({ texture: p1_human5_texture, tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
+    p1_human6_animation = SpriteAnimator.add({ texture: p1_human6_texture, tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
+    p1_icon_animation = SpriteAnimator.add({ texture: p1_icon_texture, tilesHorizontal: 9, tilesVertical: 9, fps: 24, numberOfTiles: 77 });
+
     p1_bicycle_material.map = p1_bicycle_texture;
     p1_human2_material.map = p1_human2_texture;
     p1_human3_material.map = p1_human3_texture;
@@ -1304,13 +1330,20 @@ function choice2_worker() {
     p2_human5_texture = THREE.ImageUtils.loadTexture('assets/sprites/p1_human4_sprite_sheet.png');
     p2_icon_texture = THREE.ImageUtils.loadTexture('assets/sprites/p1_human4_sprite_sheet.png');
 
+    p2_human1_animation = SpriteAnimator.add({ texture: p2_human1_texture, tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
+    p2_human2_animation = SpriteAnimator.add({ texture: p2_human2_texture, tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
+    p2_human3_animation = SpriteAnimator.add({ texture: p2_human3_texture, tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
+    p2_human4_animation = SpriteAnimator.add({ texture: p2_human4_texture, tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
+    p2_human5_animation = SpriteAnimator.add({ texture: p2_human5_texture, tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
+    p2_icon_animation = SpriteAnimator.add({ texture: p2_icon_texture, tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
+
     p2_human1_material.map = p2_human1_texture;
     p2_human2_material.map = p2_human2_texture;
     p2_human3_material.map = p2_human3_texture;
     p2_human4_material.map = p2_human4_texture;
     p2_human5_material.map = p2_human5_texture;
     p2_icon_material.map = p2_icon_texture;
-    
+
     model1.visible = false;
     model2.visible = false;
     model3.visible = true;
@@ -1330,6 +1363,16 @@ function choice3_worker() {
     // P3.
     p3_icon_texture = THREE.ImageUtils.loadTexture('assets/sprites/p1_human4_sprite_sheet.png');
 
+    p2_human1_animation = SpriteAnimator.add({ texture: p2_human1_texture, tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
+    p2_human2_animation = SpriteAnimator.add({ texture: p2_human2_texture, tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
+    p2_human3_animation = SpriteAnimator.add({ texture: p2_human3_texture, tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
+    p2_human4_animation = SpriteAnimator.add({ texture: p2_human4_texture, tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
+    p2_human5_animation = SpriteAnimator.add({ texture: p2_human5_texture, tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
+    //p2_icon_animation = SpriteAnimator.add({ texture: p2_icon_texture, tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
+
+    p3_icon_animation = SpriteAnimator.add({ texture: p3_icon_texture, tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
+
+
     p3_human1_material.map = p2_human1_texture;
     p3_human2_material.map = p2_human2_texture;
     p3_human3_material.map = p2_human3_texture;
@@ -1345,48 +1388,122 @@ function choice3_worker() {
 
 function clearAllTexture() {
     // P1.
-    if (p1_bicycle_texture != undefined) {
+    if (p1_bicycle_texture != undefined && p1_bicycle_texture != null) {
         p1_bicycle_texture.dispose();
+        p1_bicycle_texture = null;
     }
-    if (p1_human2_texture != undefined) {
+    if (p1_human2_texture != undefined && p1_human2_texture != null) {
         p1_human2_texture.dispose();
+        p1_human2_texture = null;
     }
-    if (p1_human3_texture != undefined) {
+    if (p1_human3_texture != undefined && p1_human3_texture != null) {
         p1_human3_texture.dispose();
+        p1_human3_texture = null;
     }
-    if (p1_human4_texture != undefined) {
+    if (p1_human4_texture != undefined && p1_human4_texture != null) {
         p1_human4_texture.dispose();
+        p1_human4_texture = null;
     }
-    if (p1_human5_texture != undefined) {
+    if (p1_human5_texture != undefined && p1_human5_texture != null) {
         p1_human5_texture.dispose();
+        p1_human5_texture = null;
     }
-    if (p1_human6_texture != undefined) {
+    if (p1_human6_texture != undefined && p1_human6_texture != null) {
         p1_human6_texture.dispose();
+        p1_human6_texture = null;
     }
-    if (p1_icon_texture != undefined) {
+    if (p1_icon_texture != undefined && p1_icon_texture != null) {
         p1_icon_texture.dispose();
+        p1_icon_texture = null;
     }
     // P2.
-    if (p2_human1_texture != undefined) {
+    if (p2_human1_texture != undefined && p2_human1_texture != null) {
         p2_human1_texture.dispose();
+        p2_human1_texture = null;
     }
-    if (p2_human2_texture != undefined) {
+    if (p2_human2_texture != undefined && p2_human2_texture != null) {
         p2_human2_texture.dispose();
+        p2_human2_texture = null;
     }
-    if (p2_human3_texture != undefined) {
+    if (p2_human3_texture != undefined && p2_human3_texture != null) {
         p2_human3_texture.dispose();
+        p2_human3_texture = null;
     }
-    if (p2_human4_texture != undefined) {
+    if (p2_human4_texture != undefined && p2_human4_texture != null) {
         p2_human4_texture.dispose();
+        p2_human4_texture = null;
     }
-    if (p2_human5_texture != undefined) {
+    if (p2_human5_texture != undefined && p2_human5_texture != null) {
         p2_human5_texture.dispose();
+        p2_human5_texture = null;
     }
-    if (p2_icon_texture != undefined) {
+    if (p2_icon_texture != undefined && p2_icon_texture != null) {
         p2_icon_texture.dispose();
+        p2_icon_texture = null;
     }
     // P3.
-    if (p3_icon_texture != undefined) {
-        p3_icon_texture = THREE.ImageUtils.loadTexture('assets/sprites/dummy.png');
+    if (p3_icon_texture != undefined && p3_icon_texture != null) {
+        p3_icon_texture.dispose();
+        p3_icon_texture = null;
+    }
+    // Animation.
+    // P1.
+    if (p1_bicycle_animation != undefined && p1_bicycle_animation != null) {
+        SpriteAnimator.free(p1_bicycle_animation);
+        p1_bicycle_animation = null;
+    }
+    if (p1_human2_animation != undefined && p1_human2_animation != null) {
+        SpriteAnimator.free(p1_human2_animation);
+        p1_human2_animation = null;
+    }
+    if (p1_human3_animation != undefined && p1_human3_animation != null) {
+        SpriteAnimator.free(p1_human3_animation);
+        p1_human3_animation = null;
+    }
+    if (p1_human4_animation != undefined && p1_human4_animation != null) {
+        SpriteAnimator.free(p1_human4_animation);
+        p1_human4_animation = null;
+    }
+    if (p1_human5_animation != undefined && p1_human5_animation != null) {
+        SpriteAnimator.free(p1_human5_animation);
+        p1_human5_animation = null;
+    }
+    if (p1_human6_animation != undefined && p1_human6_animation != null) {
+        SpriteAnimator.free(p1_human6_animation);
+        p1_human6_animation = null;
+    }
+    if (p1_icon_animation != undefined && p1_icon_animation != null) {
+        SpriteAnimator.free(p1_icon_animation);
+        p1_icon_animation = null;
+    }
+    // P2.
+    if (p2_human1_animation != undefined && p2_human1_animation != null) {
+        SpriteAnimator.free(p2_human1_animation);
+        p2_human1_animation = null;
+    }
+    if (p2_human2_animation != undefined && p2_human2_animation != null) {
+        SpriteAnimator.free(p2_human2_animation);
+        p2_human2_animation = null;
+    }
+    if (p2_human3_animation != undefined && p2_human3_animation != null) {
+        SpriteAnimator.free(p2_human3_animation);
+        p2_human3_animation = null;
+    }
+    if (p2_human4_animation != undefined && p2_human4_animation != null) {
+        SpriteAnimator.free(p2_human4_animation);
+        p2_human4_animation = null;
+    }
+    if (p2_human5_animation != undefined && p2_human5_animation != null) {
+        SpriteAnimator.free(p2_human5_animation);
+        p2_human5_animation = null;
+    }
+    if (p2_icon_animation != undefined && p2_icon_animation != null) {
+        SpriteAnimator.free(p2_icon_animation);
+        p2_icon_animation = null;
+    }
+    // P3.
+    if (p3_icon_animation != undefined && p3_icon_animation != null) {
+        SpriteAnimator.free(p3_icon_animation);
+        p3_icon_animation = null;
     }
 }
