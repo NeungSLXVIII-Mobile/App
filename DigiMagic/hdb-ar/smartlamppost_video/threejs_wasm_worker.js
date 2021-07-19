@@ -166,6 +166,12 @@ var p3_icon_video_texture_alpha;
 
 var p3_icon_material;
 
+// // Test.
+// var test_canvas;
+// var test_video;
+// var test_video_texture;
+// var test_video_material;
+
 var tree1_material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/tree01.png'), opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide });
 var tree2_material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/tree02.png'), opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide });
 var bg_material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/bg.png'), opacity: 1, depthTest: false, transparent: false, side: THREE.DoubleSide });
@@ -198,7 +204,7 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
     var renderer = new THREE.WebGLRenderer({ canvas: canvas_draw, alpha: true, antialias: true, logarithmicDepthBuffer: true });
     renderer.setPixelRatio(window.devicePixelRatio);
 
-    //renderer.setClearColor(0x0000ff, 1);
+    renderer.setClearColor(0x0000ff, 1);
 
     var scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera();
@@ -208,7 +214,6 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
     scene.add(camera);
     //var camera = new THREE.Camera();
     //camera.matrixAutoUpdate = false;
-
 
     var light = new THREE.AmbientLight(0xffffff, 0.30);
     scene.add(light);
@@ -484,6 +489,12 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
     // var p3_human4_material = p2_human4_material;
     // var p3_human5_material = p2_human5_material;
     // var p3_icon_material = new THREE.MeshBasicMaterial({ map: p3_icon_video_texture, transparent: true, side: THREE.DoubleSide, opacity: 1, alphaMap: p3_icon_video_texture_alpha });
+
+    // // Test,
+    // test_canvas = document.getElementById('test_canvas');
+    // test_video = document.getElementById('test_video');
+
+    // test_material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/dummy.png'), depthTest: false, transparent: true, side: THREE.DoubleSide, opacity: 1 });
 
     /* Load Model */
     var threeGLTFLoader1 = new THREE.GLTFLoader();
@@ -1208,6 +1219,14 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
         root.add(model4);
     });
 
+    // var myGreenScreenMaterial = new THREEx.ChromaKeyMaterial("video/green_screen.mp4", 0xd432);
+    // var myGeometry = new THREE.PlaneBufferGeometry(100, 100);
+    // var myGreenScreenVideoObject = new THREE.Mesh(myGeometry, myGreenScreenMaterial);
+    // //var myGreenScreenVideoObject = new THREE.Mesh(myGeometry, bg_material);
+    // root.add(myGreenScreenVideoObject);
+    // myGreenScreenMaterial.startVideo();
+    // myGreenScreenMaterial.update();
+
     var sphere = new THREE.Mesh(
         new THREE.SphereGeometry(0.5, 8, 8),
         new THREE.MeshNormalMaterial()
@@ -1621,14 +1640,20 @@ function P1_VideoTexture() {
     var source_ctx;
     var source_width = 1200;
     var source_height = 600;
+    var target_width = 600;
+    var target_height = 300;
 
     source_ctx = source_canvas.getContext("2d");
 
     var width = 0;
     var height = 0;
+    var resize_width = 0;
+    var resize_height = 0;
 
-    width = 600;
-    height = 600;
+    width = 300;
+    height = 300;
+    resize_width = 600;
+    resize_height = 600;
 
     var ctx;
     var ctx_alpha;
@@ -1637,13 +1662,13 @@ function P1_VideoTexture() {
     ctx = p1_bicycle_canvas.getContext("2d");
     ctx_alpha = p1_bicycle_canvas_alpha.getContext("2d");
 
-    source_ctx.drawImage(p1_bicycle_video, 0, 0, source_width, source_height, 0, 0, source_width, source_height);
+    source_ctx.drawImage(p1_bicycle_video, 0, 0, source_width, source_height, 0, 0, target_width, target_height);
 
-    ctx.drawImage(source_canvas, 0, 0, width, height, 0, 0, width, height);
-    ctx_alpha.drawImage(source_canvas, width, 0, width, height, 0, 0, width, height);
+    ctx.drawImage(source_canvas, 0, 0, width, height, 0, 0, resize_width, resize_height);
+    ctx_alpha.drawImage(source_canvas, width, 0, width, height, 0, 0, resize_width, resize_height);
 
-    // ctx.drawImage(p1_bicycle_video, 0, 0, width, height, 0, 0, width, height);
-    // ctx_alpha.drawImage(p1_bicycle_video, width, 0, width, height, 0, 0, width, height);
+    // ctx.drawImage(p1_bicycle_video, 0, 0, width, height, 0, 0, resize_width, resize_height);
+    // ctx_alpha.drawImage(p1_bicycle_video, width, 0, width, height, 0, 0, resize_width, resize_height);
 
     if (p1_bicycle_video_texture != undefined) {
         p1_bicycle_video_texture.dispose();
@@ -1671,13 +1696,13 @@ function P1_VideoTexture() {
     ctx = p1_human2_canvas.getContext("2d");
     ctx_alpha = p1_human2_canvas_alpha.getContext("2d");
 
-    source_ctx.drawImage(p1_human2_video, 0, 0, source_width, source_height, 0, 0, source_width, source_height);
+    source_ctx.drawImage(p1_human2_video, 0, 0, source_width, source_height, 0, 0, target_width, target_height);
 
-    ctx.drawImage(source_canvas, 0, 0, width, height, 0, 0, width, height);
-    ctx_alpha.drawImage(source_canvas, width, 0, width, height, 0, 0, width, height);
+    ctx.drawImage(source_canvas, 0, 0, width, height, 0, 0, resize_width, resize_height);
+    ctx_alpha.drawImage(source_canvas, width, 0, width, height, 0, 0, resize_width, resize_height);
 
-    // ctx.drawImage(p1_human2_video, 0, 0, width, height, 0, 0, width, height);
-    // ctx_alpha.drawImage(p1_human2_video, width, 0, width, height, 0, 0, width, height);
+    // ctx.drawImage(p1_human2_video, 0, 0, width, height, 0, 0, resize_width, resize_height);
+    // ctx_alpha.drawImage(p1_human2_video, width, 0, width, height, 0, 0, resize_width, resize_height);
 
     if (p1_human2_video_texture != undefined) {
         p1_human2_video_texture.dispose();
@@ -1705,13 +1730,13 @@ function P1_VideoTexture() {
     ctx = p1_human3_canvas.getContext("2d");
     ctx_alpha = p1_human3_canvas_alpha.getContext("2d");
 
-    source_ctx.drawImage(p1_human3_video, 0, 0, source_width, source_height, 0, 0, source_width, source_height);
+    source_ctx.drawImage(p1_human3_video, 0, 0, source_width, source_height, 0, 0, target_width, target_height);
 
-    ctx.drawImage(source_canvas, 0, 0, width, height, 0, 0, width, height);
-    ctx_alpha.drawImage(source_canvas, width, 0, width, height, 0, 0, width, height);
+    ctx.drawImage(source_canvas, 0, 0, width, height, 0, 0, resize_width, resize_height);
+    ctx_alpha.drawImage(source_canvas, width, 0, width, height, 0, 0, resize_width, resize_height);
 
-    // ctx.drawImage(p1_human3_video, 0, 0, width, height, 0, 0, width, height);
-    // ctx_alpha.drawImage(p1_human3_video, width, 0, width, height, 0, 0, width, height);
+    // ctx.drawImage(p1_human3_video, 0, 0, width, height, 0, 0, resize_width, resize_height);
+    // ctx_alpha.drawImage(p1_human3_video, width, 0, width, height, 0, 0, resize_width, resize_height);
 
     if (p1_human3_video_texture != undefined) {
         p1_human3_video_texture.dispose();
@@ -1739,13 +1764,13 @@ function P1_VideoTexture() {
     ctx = p1_human4_canvas.getContext("2d");
     ctx_alpha = p1_human4_canvas_alpha.getContext("2d");
 
-    source_ctx.drawImage(p1_human4_video, 0, 0, source_width, source_height, 0, 0, source_width, source_height);
+    source_ctx.drawImage(p1_human4_video, 0, 0, source_width, source_height, 0, 0, target_width, target_height);
 
-    ctx.drawImage(source_canvas, 0, 0, width, height, 0, 0, width, height);
-    ctx_alpha.drawImage(source_canvas, width, 0, width, height, 0, 0, width, height);
+    ctx.drawImage(source_canvas, 0, 0, width, height, 0, 0, resize_width, resize_height);
+    ctx_alpha.drawImage(source_canvas, width, 0, width, height, 0, 0, resize_width, resize_height);
 
-    // ctx.drawImage(p1_human4_video, 0, 0, width, height, 0, 0, width, height);
-    // ctx_alpha.drawImage(p1_human4_video, width, 0, width, height, 0, 0, width, height);
+    // ctx.drawImage(p1_human4_video, 0, 0, width, height, 0, 0, resize_width, resize_height);
+    // ctx_alpha.drawImage(p1_human4_video, width, 0, width, height, 0, 0, resize_width, resize_height);
 
     if (p1_human4_video_texture != undefined) {
         p1_human4_video_texture.dispose();
@@ -1773,13 +1798,13 @@ function P1_VideoTexture() {
     ctx = p1_human5_canvas.getContext("2d");
     ctx_alpha = p1_human5_canvas_alpha.getContext("2d");
 
-    source_ctx.drawImage(p1_human5_video, 0, 0, source_width, source_height, 0, 0, source_width, source_height);
+    source_ctx.drawImage(p1_human5_video, 0, 0, source_width, source_height, 0, 0, target_width, target_height);
 
-    ctx.drawImage(source_canvas, 0, 0, width, height, 0, 0, width, height);
-    ctx_alpha.drawImage(source_canvas, width, 0, width, height, 0, 0, width, height);
+    ctx.drawImage(source_canvas, 0, 0, width, height, 0, 0, resize_width, resize_height);
+    ctx_alpha.drawImage(source_canvas, width, 0, width, height, 0, 0, resize_width, resize_height);
 
-    // ctx.drawImage(p1_human5_video, 0, 0, width, height, 0, 0, width, height);
-    // ctx_alpha.drawImage(p1_human5_video, width, 0, width, height, 0, 0, width, height);
+    // ctx.drawImage(p1_human5_video, 0, 0, width, height, 0, 0, resize_width, resize_height);
+    // ctx_alpha.drawImage(p1_human5_video, width, 0, width, height, 0, 0, resize_width, resize_height);
 
     if (p1_human5_video_texture != undefined) {
         p1_human5_video_texture.dispose();
@@ -1807,13 +1832,13 @@ function P1_VideoTexture() {
     ctx = p1_human6_canvas.getContext("2d");
     ctx_alpha = p1_human6_canvas_alpha.getContext("2d");
 
-    source_ctx.drawImage(p1_human6_video, 0, 0, source_width, source_height, 0, 0, source_width, source_height);
+    source_ctx.drawImage(p1_human6_video, 0, 0, source_width, source_height, 0, 0, target_width, target_height);
 
-    ctx.drawImage(source_canvas, 0, 0, width, height, 0, 0, width, height);
-    ctx_alpha.drawImage(source_canvas, width, 0, width, height, 0, 0, width, height);
+    ctx.drawImage(source_canvas, 0, 0, width, height, 0, 0, resize_width, resize_height);
+    ctx_alpha.drawImage(source_canvas, width, 0, width, height, 0, 0, resize_width, resize_height);
 
-    // ctx.drawImage(p1_human6_video, 0, 0, width, height, 0, 0, width, height);
-    // ctx_alpha.drawImage(p1_human6_video, width, 0, width, height, 0, 0, width, height);
+    // ctx.drawImage(p1_human6_video, 0, 0, width, height, 0, 0, resize_width, resize_height);
+    // ctx_alpha.drawImage(p1_human6_video, width, 0, width, height, 0, 0, resize_width, resize_height);
 
     if (p1_human6_video_texture != undefined) {
         p1_human6_video_texture.dispose();
@@ -1841,13 +1866,13 @@ function P1_VideoTexture() {
     ctx = p1_icon_canvas.getContext("2d");
     ctx_alpha = p1_icon_canvas_alpha.getContext("2d");
 
-    source_ctx.drawImage(p1_icon_video, 0, 0, source_width, source_height, 0, 0, source_width, source_height);
+    source_ctx.drawImage(p1_icon_video, 0, 0, source_width, source_height, 0, 0, target_width, target_height);
 
-    ctx.drawImage(source_canvas, 0, 0, width, height, 0, 0, width, height);
-    ctx_alpha.drawImage(source_canvas, width, 0, width, height, 0, 0, width, height);
+    ctx.drawImage(source_canvas, 0, 0, width, height, 0, 0, resize_width, resize_height);
+    ctx_alpha.drawImage(source_canvas, width, 0, width, height, 0, 0, resize_width, resize_height);
 
-    // ctx.drawImage(p1_icon_video, 0, 0, width, height, 0, 0, width, height);
-    // ctx_alpha.drawImage(p1_icon_video, width, 0, width, height, 0, 0, width, height);
+    // ctx.drawImage(p1_icon_video, 0, 0, width, height, 0, 0, resize_width, resize_height);
+    // ctx_alpha.drawImage(p1_icon_video, width, 0, width, height, 0, 0, resize_width, resize_height);
 
     if (p1_icon_video_texture != undefined) {
         p1_icon_video_texture.dispose();
@@ -1892,13 +1917,13 @@ function P2_VideoTexture() {
     ctx = p2_human1_canvas.getContext("2d");
     ctx_alpha = p2_human1_canvas_alpha.getContext("2d");
 
-    source_ctx.drawImage(p2_human1_video, 0, 0, source_width, source_height, 0, 0, source_width, source_height);
+    source_ctx.drawImage(p2_human1_video, 0, 0, source_width, source_height, 0, 0, target_width, target_height);
 
-    ctx.drawImage(source_canvas, 0, 0, width, height, 0, 0, width, height);
-    ctx_alpha.drawImage(source_canvas, width, 0, width, height, 0, 0, width, height);
+    ctx.drawImage(source_canvas, 0, 0, width, height, 0, 0, resize_width, resize_height);
+    ctx_alpha.drawImage(source_canvas, width, 0, width, height, 0, 0, resize_width, resize_height);
 
-    // ctx.drawImage(p2_human1_video, 0, 0, width, height, 0, 0, width, height);
-    // ctx_alpha.drawImage(p2_human1_video, width, 0, width, height, 0, 0, width, height);
+    // ctx.drawImage(p2_human1_video, 0, 0, width, height, 0, 0, resize_width, resize_height);
+    // ctx_alpha.drawImage(p2_human1_video, width, 0, width, height, 0, 0, resize_width, resize_height);
 
     if (p2_human1_video_texture != undefined) {
         p2_human1_video_texture.dispose();
@@ -1926,13 +1951,13 @@ function P2_VideoTexture() {
     ctx = p2_human2_canvas.getContext("2d");
     ctx_alpha = p2_human2_canvas_alpha.getContext("2d");
 
-    source_ctx.drawImage(p2_human2_video, 0, 0, source_width, source_height, 0, 0, source_width, source_height);
+    source_ctx.drawImage(p2_human2_video, 0, 0, source_width, source_height, 0, 0, target_width, target_height);
 
-    ctx.drawImage(source_canvas, 0, 0, width, height, 0, 0, width, height);
-    ctx_alpha.drawImage(source_canvas, width, 0, width, height, 0, 0, width, height);
+    ctx.drawImage(source_canvas, 0, 0, width, height, 0, 0, resize_width, resize_height);
+    ctx_alpha.drawImage(source_canvas, width, 0, width, height, 0, 0, resize_width, resize_height);
 
-    // ctx.drawImage(p2_human2_video, 0, 0, width, height, 0, 0, width, height);
-    // ctx_alpha.drawImage(p2_human2_video, width, 0, width, height, 0, 0, width, height);
+    // ctx.drawImage(p2_human2_video, 0, 0, width, height, 0, 0, resize_width, resize_height);
+    // ctx_alpha.drawImage(p2_human2_video, width, 0, width, height, 0, 0, resize_width, resize_height);
 
     if (p2_human2_video_texture != undefined) {
         p2_human2_video_texture.dispose();
@@ -1960,13 +1985,13 @@ function P2_VideoTexture() {
     ctx = p2_human3_canvas.getContext("2d");
     ctx_alpha = p2_human3_canvas_alpha.getContext("2d");
 
-    source_ctx.drawImage(p2_human3_video, 0, 0, source_width, source_height, 0, 0, source_width, source_height);
+    source_ctx.drawImage(p2_human3_video, 0, 0, source_width, source_height, 0, 0, target_width, target_height);
 
-    ctx.drawImage(source_canvas, 0, 0, width, height, 0, 0, width, height);
-    ctx_alpha.drawImage(source_canvas, width, 0, width, height, 0, 0, width, height);
+    ctx.drawImage(source_canvas, 0, 0, width, height, 0, 0, resize_width, resize_height);
+    ctx_alpha.drawImage(source_canvas, width, 0, width, height, 0, 0, resize_width, resize_height);
 
-    // ctx.drawImage(p2_human3_video, 0, 0, width, height, 0, 0, width, height);
-    // ctx_alpha.drawImage(p2_human3_video, width, 0, width, height, 0, 0, width, height);
+    // ctx.drawImage(p2_human3_video, 0, 0, width, height, 0, 0, resize_width, resize_height);
+    // ctx_alpha.drawImage(p2_human3_video, width, 0, width, height, 0, 0, resize_width, resize_height);
 
     if (p2_human3_video_texture != undefined) {
         p2_human3_video_texture.dispose();
@@ -1994,13 +2019,13 @@ function P2_VideoTexture() {
     ctx = p2_human4_canvas.getContext("2d");
     ctx_alpha = p2_human4_canvas_alpha.getContext("2d");
 
-    source_ctx.drawImage(p2_human4_video, 0, 0, source_width, source_height, 0, 0, source_width, source_height);
+    source_ctx.drawImage(p2_human4_video, 0, 0, source_width, source_height, 0, 0, target_width, target_height);
 
-    ctx.drawImage(source_canvas, 0, 0, width, height, 0, 0, width, height);
-    ctx_alpha.drawImage(source_canvas, width, 0, width, height, 0, 0, width, height);
+    ctx.drawImage(source_canvas, 0, 0, width, height, 0, 0, resize_width, resize_height);
+    ctx_alpha.drawImage(source_canvas, width, 0, width, height, 0, 0, resize_width, resize_height);
 
-    // ctx.drawImage(p2_human4_video, 0, 0, width, height, 0, 0, width, height);
-    // ctx_alpha.drawImage(p2_human4_video, width, 0, width, height, 0, 0, width, height);
+    // ctx.drawImage(p2_human4_video, 0, 0, width, height, 0, 0, resize_width, resize_height);
+    // ctx_alpha.drawImage(p2_human4_video, width, 0, width, height, 0, 0, resize_width, resize_height);
 
     if (p2_human4_video_texture != undefined) {
         p2_human4_video_texture.dispose();
@@ -2028,13 +2053,13 @@ function P2_VideoTexture() {
     ctx = p2_human5_canvas.getContext("2d");
     ctx_alpha = p2_human5_canvas_alpha.getContext("2d");
 
-    source_ctx.drawImage(p2_human5_video, 0, 0, source_width, source_height, 0, 0, source_width, source_height);
+    source_ctx.drawImage(p2_human5_video, 0, 0, source_width, source_height, 0, 0, target_width, target_height);
 
-    ctx.drawImage(source_canvas, 0, 0, width, height, 0, 0, width, height);
-    ctx_alpha.drawImage(source_canvas, width, 0, width, height, 0, 0, width, height);
+    ctx.drawImage(source_canvas, 0, 0, width, height, 0, 0, resize_width, resize_height);
+    ctx_alpha.drawImage(source_canvas, width, 0, width, height, 0, 0, resize_width, resize_height);
 
-    // ctx.drawImage(p2_human5_video, 0, 0, width, height, 0, 0, width, height);
-    // ctx_alpha.drawImage(p2_human5_video, width, 0, width, height, 0, 0, width, height);
+    // ctx.drawImage(p2_human5_video, 0, 0, width, height, 0, 0, resize_width, resize_height);
+    // ctx_alpha.drawImage(p2_human5_video, width, 0, width, height, 0, 0, resize_width, resize_height);
 
     if (p2_human5_video_texture != undefined) {
         p2_human5_video_texture.dispose();
@@ -2062,13 +2087,13 @@ function P2_VideoTexture() {
     ctx = p2_icon_canvas.getContext("2d");
     ctx_alpha = p2_icon_canvas_alpha.getContext("2d");
 
-    source_ctx.drawImage(p2_icon_video, 0, 0, source_width, source_height, 0, 0, source_width, source_height);
+    source_ctx.drawImage(p2_icon_video, 0, 0, source_width, source_height, 0, 0, target_width, target_height);
 
-    ctx.drawImage(source_canvas, 0, 0, width, height, 0, 0, width, height);
-    ctx_alpha.drawImage(source_canvas, width, 0, width, height, 0, 0, width, height);
+    ctx.drawImage(source_canvas, 0, 0, width, height, 0, 0, resize_width, resize_height);
+    ctx_alpha.drawImage(source_canvas, width, 0, width, height, 0, 0, resize_width, resize_height);
 
-    // ctx.drawImage(p2_icon_video, 0, 0, width, height, 0, 0, width, height);
-    // ctx_alpha.drawImage(p2_icon_video, width, 0, width, height, 0, 0, width, height);
+    // ctx.drawImage(p2_icon_video, 0, 0, width, height, 0, 0, resize_width, resize_height);
+    // ctx_alpha.drawImage(p2_icon_video, width, 0, width, height, 0, 0, resize_width, resize_height);
 
     if (p2_icon_video_texture != undefined) {
         p2_icon_video_texture.dispose();
@@ -2113,13 +2138,13 @@ function P3_VideoTexture() {
     ctx = p2_human1_canvas.getContext("2d");
     ctx_alpha = p2_human1_canvas_alpha.getContext("2d");
 
-    source_ctx.drawImage(p2_human1_video, 0, 0, source_width, source_height, 0, 0, source_width, source_height);
+    source_ctx.drawImage(p2_human1_video, 0, 0, source_width, source_height, 0, 0, target_width, target_height);
 
-    ctx.drawImage(source_canvas, 0, 0, width, height, 0, 0, width, height);
-    ctx_alpha.drawImage(source_canvas, width, 0, width, height, 0, 0, width, height);
+    ctx.drawImage(source_canvas, 0, 0, width, height, 0, 0, resize_width, resize_height);
+    ctx_alpha.drawImage(source_canvas, width, 0, width, height, 0, 0, resize_width, resize_height);
 
-    // ctx.drawImage(p2_human1_video, 0, 0, width, height, 0, 0, width, height);
-    // ctx_alpha.drawImage(p2_human1_video, width, 0, width, height, 0, 0, width, height);
+    // ctx.drawImage(p2_human1_video, 0, 0, width, height, 0, 0, resize_width, resize_height);
+    // ctx_alpha.drawImage(p2_human1_video, width, 0, width, height, 0, 0, resize_width, resize_height);
 
     if (p2_human1_video_texture != undefined) {
         p2_human1_video_texture.dispose();
@@ -2147,13 +2172,13 @@ function P3_VideoTexture() {
     ctx = p2_human2_canvas.getContext("2d");
     ctx_alpha = p2_human2_canvas_alpha.getContext("2d");
 
-    source_ctx.drawImage(p2_human2_video, 0, 0, source_width, source_height, 0, 0, source_width, source_height);
+    source_ctx.drawImage(p2_human2_video, 0, 0, source_width, source_height, 0, 0, target_width, target_height);
 
-    ctx.drawImage(source_canvas, 0, 0, width, height, 0, 0, width, height);
-    ctx_alpha.drawImage(source_canvas, width, 0, width, height, 0, 0, width, height);
+    ctx.drawImage(source_canvas, 0, 0, width, height, 0, 0, resize_width, resize_height);
+    ctx_alpha.drawImage(source_canvas, width, 0, width, height, 0, 0, resize_width, resize_height);
 
-    // ctx.drawImage(p2_human2_video, 0, 0, width, height, 0, 0, width, height);
-    // ctx_alpha.drawImage(p2_human2_video, width, 0, width, height, 0, 0, width, height);
+    // ctx.drawImage(p2_human2_video, 0, 0, width, height, 0, 0, resize_width, resize_height);
+    // ctx_alpha.drawImage(p2_human2_video, width, 0, width, height, 0, 0, resize_width, resize_height);
 
     if (p2_human2_video_texture != undefined) {
         p2_human2_video_texture.dispose();
@@ -2181,13 +2206,13 @@ function P3_VideoTexture() {
     ctx = p2_human3_canvas.getContext("2d");
     ctx_alpha = p2_human3_canvas_alpha.getContext("2d");
 
-    source_ctx.drawImage(p2_human3_video, 0, 0, source_width, source_height, 0, 0, source_width, source_height);
+    source_ctx.drawImage(p2_human3_video, 0, 0, source_width, source_height, 0, 0, target_width, target_height);
 
-    ctx.drawImage(source_canvas, 0, 0, width, height, 0, 0, width, height);
-    ctx_alpha.drawImage(source_canvas, width, 0, width, height, 0, 0, width, height);
+    ctx.drawImage(source_canvas, 0, 0, width, height, 0, 0, resize_width, resize_height);
+    ctx_alpha.drawImage(source_canvas, width, 0, width, height, 0, 0, resize_width, resize_height);
 
-    // ctx.drawImage(p2_human3_video, 0, 0, width, height, 0, 0, width, height);
-    // ctx_alpha.drawImage(p2_human3_video, width, 0, width, height, 0, 0, width, height);
+    // ctx.drawImage(p2_human3_video, 0, 0, width, height, 0, 0, resize_width, resize_height);
+    // ctx_alpha.drawImage(p2_human3_video, width, 0, width, height, 0, 0, resize_width, resize_height);
 
     if (p2_human3_video_texture != undefined) {
         p2_human3_video_texture.dispose();
@@ -2215,13 +2240,13 @@ function P3_VideoTexture() {
     ctx = p2_human4_canvas.getContext("2d");
     ctx_alpha = p2_human4_canvas_alpha.getContext("2d");
 
-    source_ctx.drawImage(p2_human4_video, 0, 0, source_width, source_height, 0, 0, source_width, source_height);
+    source_ctx.drawImage(p2_human4_video, 0, 0, source_width, source_height, 0, 0, target_width, target_height);
 
-    ctx.drawImage(source_canvas, 0, 0, width, height, 0, 0, width, height);
-    ctx_alpha.drawImage(source_canvas, width, 0, width, height, 0, 0, width, height);
+    ctx.drawImage(source_canvas, 0, 0, width, height, 0, 0, resize_width, resize_height);
+    ctx_alpha.drawImage(source_canvas, width, 0, width, height, 0, 0, resize_width, resize_height);
 
-    // ctx.drawImage(p2_human4_video, 0, 0, width, height, 0, 0, width, height);
-    // ctx_alpha.drawImage(p2_human4_video, width, 0, width, height, 0, 0, width, height);
+    // ctx.drawImage(p2_human4_video, 0, 0, width, height, 0, 0, resize_width, resize_height);
+    // ctx_alpha.drawImage(p2_human4_video, width, 0, width, height, 0, 0, resize_width, resize_height);
 
     if (p2_human4_video_texture != undefined) {
         p2_human4_video_texture.dispose();
@@ -2249,13 +2274,13 @@ function P3_VideoTexture() {
     ctx = p2_human5_canvas.getContext("2d");
     ctx_alpha = p2_human5_canvas_alpha.getContext("2d");
 
-    source_ctx.drawImage(p2_human5_video, 0, 0, source_width, source_height, 0, 0, source_width, source_height);
+    source_ctx.drawImage(p2_human5_video, 0, 0, source_width, source_height, 0, 0, target_width, target_height);
 
-    ctx.drawImage(source_canvas, 0, 0, width, height, 0, 0, width, height);
-    ctx_alpha.drawImage(source_canvas, width, 0, width, height, 0, 0, width, height);
+    ctx.drawImage(source_canvas, 0, 0, width, height, 0, 0, resize_width, resize_height);
+    ctx_alpha.drawImage(source_canvas, width, 0, width, height, 0, 0, resize_width, resize_height);
 
-    // ctx.drawImage(p2_human5_video, 0, 0, width, height, 0, 0, width, height);
-    // ctx_alpha.drawImage(p2_human5_video, width, 0, width, height, 0, 0, width, height);
+    // ctx.drawImage(p2_human5_video, 0, 0, width, height, 0, 0, resize_width, resize_height);
+    // ctx_alpha.drawImage(p2_human5_video, width, 0, width, height, 0, 0, resize_width, resize_height);
 
     if (p2_human5_video_texture != undefined) {
         p2_human5_video_texture.dispose();
@@ -2284,13 +2309,13 @@ function P3_VideoTexture() {
     ctx = p3_icon_canvas.getContext("2d");
     ctx_alpha = p3_icon_canvas_alpha.getContext("2d");
 
-    source_ctx.drawImage(p3_icon_video, 0, 0, source_width, source_height, 0, 0, source_width, source_height);
+    source_ctx.drawImage(p3_icon_video, 0, 0, source_width, source_height, 0, 0, target_width, target_height);
 
-    ctx.drawImage(source_canvas, 0, 0, width, height, 0, 0, width, height);
-    ctx_alpha.drawImage(source_canvas, width, 0, width, height, 0, 0, width, height);
+    ctx.drawImage(source_canvas, 0, 0, width, height, 0, 0, resize_width, resize_height);
+    ctx_alpha.drawImage(source_canvas, width, 0, width, height, 0, 0, resize_width, resize_height);
 
-    // ctx.drawImage(p3_icon_video, 0, 0, width, height, 0, 0, width, height);
-    // ctx_alpha.drawImage(p3_icon_video, width, 0, width, height, 0, 0, width, height);
+    // ctx.drawImage(p3_icon_video, 0, 0, width, height, 0, 0, resize_width, resize_height);
+    // ctx_alpha.drawImage(p3_icon_video, width, 0, width, height, 0, 0, resize_width, resize_height);
 
     if (p3_icon_video_texture != undefined) {
         p3_icon_video_texture.dispose();
