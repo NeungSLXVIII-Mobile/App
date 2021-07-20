@@ -186,13 +186,13 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
     p1_human6_video = document.getElementById('p1_human6_video');
     p1_icon_video = document.getElementById('p1_icon_video');
 
-    cacheVideo(p1_bicycle_video);
-    cacheVideo(p1_human2_video);
-    cacheVideo(p1_human3_video);
-    cacheVideo(p1_human4_video);
-    cacheVideo(p1_human5_video);
-    cacheVideo(p1_human6_video);
-    cacheVideo(p1_icon_video);
+    // cacheVideo(p1_bicycle_video);
+    // cacheVideo(p1_human2_video);
+    // cacheVideo(p1_human3_video);
+    // cacheVideo(p1_human4_video);
+    // cacheVideo(p1_human5_video);
+    // cacheVideo(p1_human6_video);
+    // cacheVideo(p1_icon_video);
 
     p1_bicycle_material = new THREEx.ChromaKeyMaterial(p1_bicycle_video, 0x8b6864);
     p1_human2_material = new THREEx.ChromaKeyMaterial(p1_human2_video, 0x8b6864);
@@ -210,12 +210,12 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
     p2_human5_video = document.getElementById('p2_human5_video');
     p2_icon_video = document.getElementById('p2_icon_video');
 
-    cacheVideo(p2_human1_video);
-    cacheVideo(p2_human2_video);
-    cacheVideo(p2_human3_video);
-    cacheVideo(p2_human4_video);
-    cacheVideo(p2_human5_video);
-    cacheVideo(p2_icon_video);
+    // cacheVideo(p2_human1_video);
+    // cacheVideo(p2_human2_video);
+    // cacheVideo(p2_human3_video);
+    // cacheVideo(p2_human4_video);
+    // cacheVideo(p2_human5_video);
+    // cacheVideo(p2_icon_video);
 
     p2_human1_material = new THREEx.ChromaKeyMaterial(p2_human1_video, 0x8b6864);
     p2_human2_material = new THREEx.ChromaKeyMaterial(p2_human2_video, 0x8b6864);
@@ -227,7 +227,7 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
     // P3.
     p3_icon_video = document.getElementById('p2_icon_video');
 
-    cacheVideo(p3_icon_video);
+    // cacheVideo(p3_icon_video);
 
     p3_human1_material = p2_human1_material;
     p3_human2_material = p2_human2_material;
