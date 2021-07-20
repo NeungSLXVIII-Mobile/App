@@ -1275,70 +1275,102 @@ function choice1_worker() {
     if (!p1_show) {
         clearAllTexture();
 
-        // P1.
-        p1_bicycle_texture = new THREE.TextureLoader().load('assets/sprites/p1_bicycle_sprite_sheet.png',
-            function (texture) {
-                p1_bicycle_animation = SpriteAnimator.add({ texture: texture, tilesHorizontal: 9, tilesVertical: 9, fps: 24, numberOfTiles: 67 });
-                p1_bicycle_material.map = texture;
-            },
-            undefined,
-            function (error) {
-                console.error("error load texture.");
-            });
-        p1_human2_texture = new THREE.TextureLoader().load('assets/sprites/p1_human4_sprite_sheet.png',
-            function (texture) {
-                p1_human2_animation = SpriteAnimator.add({ texture: texture, tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
-                p1_human2_material.map = texture;
-            },
-            undefined,
-            function (error) {
-                console.error("error load texture.");
-            });
-        p1_human3_texture = new THREE.TextureLoader().load('assets/sprites/p1_human4_sprite_sheet.png',
-            function (texture) {
-                p1_human3_animation = SpriteAnimator.add({ texture: texture, tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
-                p1_human3_material.map = texture;
-            },
-            undefined,
-            function (error) {
-                console.error("error load texture.");
-            });
-        p1_human4_texture = new THREE.TextureLoader().load('assets/sprites/p1_human4_sprite_sheet.png',
-            function (texture) {
-                p1_human4_animation = SpriteAnimator.add({ texture: texture, tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
-                p1_human4_material.map = texture;
-            },
-            undefined,
-            function (error) {
-                console.error("error load texture.");
-            });
-        p1_human5_texture = new THREE.TextureLoader().load('assets/sprites/p1_human4_sprite_sheet.png',
-            function (texture) {
-                p1_human5_animation = SpriteAnimator.add({ texture: texture, tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
-                p1_human5_material.map = texture;
-            },
-            undefined,
-            function (error) {
-                console.error("error load texture.");
-            });
-        p1_human6_texture = new THREE.TextureLoader().load('assets/sprites/p1_human4_sprite_sheet.png',
-            function (texture) {
-                p1_human6_animation = SpriteAnimator.add({ texture: texture, tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
-                p1_human6_material.map = texture;
-            },
-            undefined,
-            function (error) {
-                console.error("error load texture.");
-            });
-        p1_icon_texture = new THREE.TextureLoader().load('assets/sprites/p1_icon_sprite_sheet.png',
-            function (texture) {
-                p1_icon_animation = SpriteAnimator.add({ texture: texture, tilesHorizontal: 9, tilesVertical: 9, fps: 24, numberOfTiles: 77 });
-                p1_icon_material.map = texture;
-            },
-            undefined,
-            function (error) {
-                console.error("error load texture.");
-            });
+        var urls = [
+            "assets/sprites/p1_bicycle_sprite_sheet.png",
+            "assets/sprites/p1_human4_sprite_sheet.png",
+            "assets/sprites/p1_human4_sprite_sheet.png",
+            "assets/sprites/p1_human4_sprite_sheet.png",
+            "assets/sprites/p1_human4_sprite_sheet.png",
+            "assets/sprites/p1_human4_sprite_sheet.png",
+            "assets/sprites/p1_icon_sprite_sheet.png",
+        ];
+
+        loadTextures(urls, function (error, textures) {
+            if (error) {
+                console.log(error);
+                return;
+            }
+
+            p1_bicycle_animation = SpriteAnimator.add({ texture: textures[0], tilesHorizontal: 9, tilesVertical: 9, fps: 24, numberOfTiles: 67 });
+            p1_bicycle_material.map = textures[0];
+            p1_human2_animation = SpriteAnimator.add({ texture: textures[1], tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
+            p1_human2_material.map = textures[1];
+            p1_human3_animation = SpriteAnimator.add({ texture: textures[2], tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
+            p1_human3_material.map = textures[2];
+            p1_human4_animation = SpriteAnimator.add({ texture: textures[3], tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
+            p1_human4_material.map = textures[3];
+            p1_human5_animation = SpriteAnimator.add({ texture: textures[4], tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
+            p1_human5_material.map = textures[4];
+            p1_human6_animation = SpriteAnimator.add({ texture: textures[5], tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
+            p1_human6_material.map = textures[5];
+            p1_icon_animation = SpriteAnimator.add({ texture: textures[6], tilesHorizontal: 9, tilesVertical: 9, fps: 24, numberOfTiles: 77 });
+            p1_icon_material.map = textures[6];
+        });
+
+        // // P1.
+        // p1_bicycle_texture = new THREE.TextureLoader().load('assets/sprites/p1_bicycle_sprite_sheet.png',
+        //     function (texture) {
+        //         p1_bicycle_animation = SpriteAnimator.add({ texture: texture, tilesHorizontal: 9, tilesVertical: 9, fps: 24, numberOfTiles: 67 });
+        //         p1_bicycle_material.map = texture;
+        //     },
+        //     undefined,
+        //     function (error) {
+        //         console.error("error load texture.");
+        //     });
+        // p1_human2_texture = new THREE.TextureLoader().load('assets/sprites/p1_human4_sprite_sheet.png',
+        //     function (texture) {
+        //         p1_human2_animation = SpriteAnimator.add({ texture: texture, tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
+        //         p1_human2_material.map = texture;
+        //     },
+        //     undefined,
+        //     function (error) {
+        //         console.error("error load texture.");
+        //     });
+        // p1_human3_texture = new THREE.TextureLoader().load('assets/sprites/p1_human4_sprite_sheet.png',
+        //     function (texture) {
+        //         p1_human3_animation = SpriteAnimator.add({ texture: texture, tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
+        //         p1_human3_material.map = texture;
+        //     },
+        //     undefined,
+        //     function (error) {
+        //         console.error("error load texture.");
+        //     });
+        // p1_human4_texture = new THREE.TextureLoader().load('assets/sprites/p1_human4_sprite_sheet.png',
+        //     function (texture) {
+        //         p1_human4_animation = SpriteAnimator.add({ texture: texture, tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
+        //         p1_human4_material.map = texture;
+        //     },
+        //     undefined,
+        //     function (error) {
+        //         console.error("error load texture.");
+        //     });
+        // p1_human5_texture = new THREE.TextureLoader().load('assets/sprites/p1_human4_sprite_sheet.png',
+        //     function (texture) {
+        //         p1_human5_animation = SpriteAnimator.add({ texture: texture, tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
+        //         p1_human5_material.map = texture;
+        //     },
+        //     undefined,
+        //     function (error) {
+        //         console.error("error load texture.");
+        //     });
+        // p1_human6_texture = new THREE.TextureLoader().load('assets/sprites/p1_human4_sprite_sheet.png',
+        //     function (texture) {
+        //         p1_human6_animation = SpriteAnimator.add({ texture: texture, tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
+        //         p1_human6_material.map = texture;
+        //     },
+        //     undefined,
+        //     function (error) {
+        //         console.error("error load texture.");
+        //     });
+        // p1_icon_texture = new THREE.TextureLoader().load('assets/sprites/p1_icon_sprite_sheet.png',
+        //     function (texture) {
+        //         p1_icon_animation = SpriteAnimator.add({ texture: texture, tilesHorizontal: 9, tilesVertical: 9, fps: 24, numberOfTiles: 77 });
+        //         p1_icon_material.map = texture;
+        //     },
+        //     undefined,
+        //     function (error) {
+        //         console.error("error load texture.");
+        //     });
 
         model1.visible = false;
         model2.visible = true;
@@ -1355,61 +1387,90 @@ function choice2_worker() {
     if (!p2_show) {
         clearAllTexture();
 
-        // P2.
-        p2_human1_texture = new THREE.TextureLoader().load('assets/sprites/p1_human4_sprite_sheet.png',
-            function (texture) {
-                p2_human1_animation = SpriteAnimator.add({ texture: texture, tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
-                p2_human1_material.map = texture;
-            },
-            undefined,
-            function (error) {
-                console.error("error load texture.");
-            });
-        p2_human2_texture = new THREE.TextureLoader().load('assets/sprites/p1_human4_sprite_sheet.png',
-            function (texture) {
-                p2_human2_animation = SpriteAnimator.add({ texture: texture, tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
-                p2_human2_material.map = texture;
-            },
-            undefined,
-            function (error) {
-                console.error("error load texture.");
-            });
-        p2_human3_texture = new THREE.TextureLoader().load('assets/sprites/p1_human4_sprite_sheet.png',
-            function (texture) {
-                p2_human3_animation = SpriteAnimator.add({ texture: texture, tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
-                p2_human3_material.map = texture;
-            },
-            undefined,
-            function (error) {
-                console.error("error load texture.");
-            });
-        p2_human4_texture = new THREE.TextureLoader().load('assets/sprites/p1_human4_sprite_sheet.png',
-            function (texture) {
-                p2_human4_animation = SpriteAnimator.add({ texture: texture, tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
-                p2_human4_material.map = texture;
-            },
-            undefined,
-            function (error) {
-                console.error("error load texture.");
-            });
-        p2_human5_texture = new THREE.TextureLoader().load('assets/sprites/p1_human4_sprite_sheet.png',
-            function (texture) {
-                p2_human5_animation = SpriteAnimator.add({ texture: texture, tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
-                p2_human5_material.map = texture;
-            },
-            undefined,
-            function (error) {
-                console.error("error load texture.");
-            });
-        p2_icon_texture = new THREE.TextureLoader().load('assets/sprites/p1_human4_sprite_sheet.png',
-            function (texture) {
-                p2_icon_animation = SpriteAnimator.add({ texture: texture, tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
-                p2_icon_material.map = texture;
-            },
-            undefined,
-            function (error) {
-                console.error("error load texture.");
-            });
+        var urls = [
+            "assets/sprites/p1_human4_sprite_sheet.png",
+            "assets/sprites/p1_human4_sprite_sheet.png",
+            "assets/sprites/p1_human4_sprite_sheet.png",
+            "assets/sprites/p1_human4_sprite_sheet.png",
+            "assets/sprites/p1_human4_sprite_sheet.png",
+            "assets/sprites/p1_human4_sprite_sheet.png",
+        ];
+
+        loadTextures(urls, function (error, textures) {
+            if (error) {
+                console.log(error);
+                return;
+            }
+
+            p2_human1_animation = SpriteAnimator.add({ texture: textures[0], tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
+            p2_human1_material.map = textures[0];
+            p2_human2_animation = SpriteAnimator.add({ texture: textures[1], tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
+            p2_human2_material.map = textures[1];
+            p2_human3_animation = SpriteAnimator.add({ texture: textures[2], tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
+            p2_human3_material.map = textures[2];
+            p2_human4_animation = SpriteAnimator.add({ texture: textures[3], tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
+            p2_human4_material.map = textures[3];
+            p2_human5_animation = SpriteAnimator.add({ texture: textures[4], tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
+            p2_human5_material.map = textures[4];
+            p2_icon_animation = SpriteAnimator.add({ texture: textures[5], tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
+            p2_icon_material.map = textures[5];
+        });
+
+        // // P2.
+        // p2_human1_texture = new THREE.TextureLoader().load('assets/sprites/p1_human4_sprite_sheet.png',
+        //     function (texture) {
+        //         p2_human1_animation = SpriteAnimator.add({ texture: texture, tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
+        //         p2_human1_material.map = texture;
+        //     },
+        //     undefined,
+        //     function (error) {
+        //         console.error("error load texture.");
+        //     });
+        // p2_human2_texture = new THREE.TextureLoader().load('assets/sprites/p1_human4_sprite_sheet.png',
+        //     function (texture) {
+        //         p2_human2_animation = SpriteAnimator.add({ texture: texture, tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
+        //         p2_human2_material.map = texture;
+        //     },
+        //     undefined,
+        //     function (error) {
+        //         console.error("error load texture.");
+        //     });
+        // p2_human3_texture = new THREE.TextureLoader().load('assets/sprites/p1_human4_sprite_sheet.png',
+        //     function (texture) {
+        //         p2_human3_animation = SpriteAnimator.add({ texture: texture, tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
+        //         p2_human3_material.map = texture;
+        //     },
+        //     undefined,
+        //     function (error) {
+        //         console.error("error load texture.");
+        //     });
+        // p2_human4_texture = new THREE.TextureLoader().load('assets/sprites/p1_human4_sprite_sheet.png',
+        //     function (texture) {
+        //         p2_human4_animation = SpriteAnimator.add({ texture: texture, tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
+        //         p2_human4_material.map = texture;
+        //     },
+        //     undefined,
+        //     function (error) {
+        //         console.error("error load texture.");
+        //     });
+        // p2_human5_texture = new THREE.TextureLoader().load('assets/sprites/p1_human4_sprite_sheet.png',
+        //     function (texture) {
+        //         p2_human5_animation = SpriteAnimator.add({ texture: texture, tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
+        //         p2_human5_material.map = texture;
+        //     },
+        //     undefined,
+        //     function (error) {
+        //         console.error("error load texture.");
+        //     });
+        // p2_icon_texture = new THREE.TextureLoader().load('assets/sprites/p1_human4_sprite_sheet.png',
+        //     function (texture) {
+        //         p2_icon_animation = SpriteAnimator.add({ texture: texture, tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
+        //         p2_icon_material.map = texture;
+        //     },
+        //     undefined,
+        //     function (error) {
+        //         console.error("error load texture.");
+        //     });
 
         model1.visible = false;
         model2.visible = false;
@@ -1426,62 +1487,91 @@ function choice3_worker() {
     if (!p3_show) {
         clearAllTexture();
 
-        // P2.
-        p2_human1_texture = new THREE.TextureLoader().load('assets/sprites/p1_human4_sprite_sheet.png',
-            function (texture) {
-                p2_human1_animation = SpriteAnimator.add({ texture: texture, tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
-                p2_human1_material.map = texture;
-            },
-            undefined,
-            function (error) {
-                console.error("error load texture.");
-            });
-        p2_human2_texture = new THREE.TextureLoader().load('assets/sprites/p1_human4_sprite_sheet.png',
-            function (texture) {
-                p2_human2_animation = SpriteAnimator.add({ texture: texture, tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
-                p2_human2_material.map = texture;
-            },
-            undefined,
-            function (error) {
-                console.error("error load texture.");
-            });
-        p2_human3_texture = new THREE.TextureLoader().load('assets/sprites/p1_human4_sprite_sheet.png',
-            function (texture) {
-                p2_human3_animation = SpriteAnimator.add({ texture: texture, tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
-                p2_human3_material.map = texture;
-            },
-            undefined,
-            function (error) {
-                console.error("error load texture.");
-            });
-        p2_human4_texture = new THREE.TextureLoader().load('assets/sprites/p1_human4_sprite_sheet.png',
-            function (texture) {
-                p2_human4_animation = SpriteAnimator.add({ texture: texture, tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
-                p2_human4_material.map = texture;
-            },
-            undefined,
-            function (error) {
-                console.error("error load texture.");
-            });
-        p2_human5_texture = new THREE.TextureLoader().load('assets/sprites/p1_human4_sprite_sheet.png',
-            function (texture) {
-                p2_human5_animation = SpriteAnimator.add({ texture: texture, tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
-                p2_human5_material.map = texture;
-            },
-            undefined,
-            function (error) {
-                console.error("error load texture.");
-            });
-        // P3.
-        p3_icon_texture = new THREE.TextureLoader().load('assets/sprites/p1_human4_sprite_sheet.png',
-            function (texture) {
-                p3_icon_animation = SpriteAnimator.add({ texture: texture, tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
-                p3_icon_material.map = texture;
-            },
-            undefined,
-            function (error) {
-                console.error("error load texture.");
-            });
+        var urls = [
+            "assets/sprites/p1_human4_sprite_sheet.png",
+            "assets/sprites/p1_human4_sprite_sheet.png",
+            "assets/sprites/p1_human4_sprite_sheet.png",
+            "assets/sprites/p1_human4_sprite_sheet.png",
+            "assets/sprites/p1_human4_sprite_sheet.png",
+            "assets/sprites/p1_human4_sprite_sheet.png",
+        ];
+
+        loadTextures(urls, function (error, textures) {
+            if (error) {
+                console.log(error);
+                return;
+            }
+
+            p2_human1_animation = SpriteAnimator.add({ texture: textures[0], tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
+            p2_human1_material.map = textures[0];
+            p2_human2_animation = SpriteAnimator.add({ texture: textures[1], tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
+            p2_human2_material.map = textures[1];
+            p2_human3_animation = SpriteAnimator.add({ texture: textures[2], tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
+            p2_human3_material.map = textures[2];
+            p2_human4_animation = SpriteAnimator.add({ texture: textures[3], tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
+            p2_human4_material.map = textures[3];
+            p2_human5_animation = SpriteAnimator.add({ texture: textures[4], tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
+            p2_human5_material.map = textures[4];
+            p3_icon_animation = SpriteAnimator.add({ texture: textures[5], tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
+            p3_icon_material.map = textures[5];
+        });
+
+        // // P2.
+        // p2_human1_texture = new THREE.TextureLoader().load('assets/sprites/p1_human4_sprite_sheet.png',
+        //     function (texture) {
+        //         p2_human1_animation = SpriteAnimator.add({ texture: texture, tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
+        //         p2_human1_material.map = texture;
+        //     },
+        //     undefined,
+        //     function (error) {
+        //         console.error("error load texture.");
+        //     });
+        // p2_human2_texture = new THREE.TextureLoader().load('assets/sprites/p1_human4_sprite_sheet.png',
+        //     function (texture) {
+        //         p2_human2_animation = SpriteAnimator.add({ texture: texture, tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
+        //         p2_human2_material.map = texture;
+        //     },
+        //     undefined,
+        //     function (error) {
+        //         console.error("error load texture.");
+        //     });
+        // p2_human3_texture = new THREE.TextureLoader().load('assets/sprites/p1_human4_sprite_sheet.png',
+        //     function (texture) {
+        //         p2_human3_animation = SpriteAnimator.add({ texture: texture, tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
+        //         p2_human3_material.map = texture;
+        //     },
+        //     undefined,
+        //     function (error) {
+        //         console.error("error load texture.");
+        //     });
+        // p2_human4_texture = new THREE.TextureLoader().load('assets/sprites/p1_human4_sprite_sheet.png',
+        //     function (texture) {
+        //         p2_human4_animation = SpriteAnimator.add({ texture: texture, tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
+        //         p2_human4_material.map = texture;
+        //     },
+        //     undefined,
+        //     function (error) {
+        //         console.error("error load texture.");
+        //     });
+        // p2_human5_texture = new THREE.TextureLoader().load('assets/sprites/p1_human4_sprite_sheet.png',
+        //     function (texture) {
+        //         p2_human5_animation = SpriteAnimator.add({ texture: texture, tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
+        //         p2_human5_material.map = texture;
+        //     },
+        //     undefined,
+        //     function (error) {
+        //         console.error("error load texture.");
+        //     });
+        // // P3.
+        // p3_icon_texture = new THREE.TextureLoader().load('assets/sprites/p1_human4_sprite_sheet.png',
+        //     function (texture) {
+        //         p3_icon_animation = SpriteAnimator.add({ texture: texture, tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
+        //         p3_icon_material.map = texture;
+        //     },
+        //     undefined,
+        //     function (error) {
+        //         console.error("error load texture.");
+        //     });
 
         model1.visible = false;
         model2.visible = false;
@@ -1613,5 +1703,27 @@ function clearAllTexture() {
     if (p3_icon_animation != undefined && p3_icon_animation != null) {
         SpriteAnimator.free(p3_icon_animation);
         p3_icon_animation = null;
+    }
+}
+
+function loadTextures(urls, callback) {
+    var textures = [];
+
+    var onLoad = function () {
+        callback(null, textures);
+    };
+
+    var onProgress = function () { };
+
+    var onError = function (url) {
+        callback(new Error('Cannot load ' + url));
+    };
+
+    var manager = new THREE.LoadingManager(onLoad, onProgress, onError);
+
+    var loader = new THREE.TextureLoader(manager);
+
+    for (var i = 0; i < urls.length; i++) {
+        textures.push(loader.load(urls[i]));
     }
 }
