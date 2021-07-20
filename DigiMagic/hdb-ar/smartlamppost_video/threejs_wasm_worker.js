@@ -1049,12 +1049,12 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
         root.add(model4);
     });
 
-    // var myGreenScreenMaterial = new THREEx.ChromaKeyMaterial("video/green_screen.mp4", 0xd432);
-    // var myGeometry = new THREE.PlaneBufferGeometry(100, 100);
-    // var myGreenScreenVideoObject = new THREE.Mesh(myGeometry, myGreenScreenMaterial);
-    // //var myGreenScreenVideoObject = new THREE.Mesh(myGeometry, bg_material);
-    // root.add(myGreenScreenVideoObject);
-    // myGreenScreenMaterial.startVideo();
+    var myGreenScreenMaterial = new THREEx.ChromaKeyMaterial(p1_bicycle_video, 0x000000);
+    var myGeometry = new THREE.PlaneBufferGeometry(100, 100);
+    var myGreenScreenVideoObject = new THREE.Mesh(myGeometry, myGreenScreenMaterial);
+    //var myGreenScreenVideoObject = new THREE.Mesh(myGeometry, bg_material);
+    root.add(myGreenScreenVideoObject);
+    myGreenScreenMaterial.startVideo();
 
     var sphere = new THREE.Mesh(
         new THREE.SphereGeometry(0.5, 8, 8),
@@ -1330,7 +1330,7 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
             P3_VideoTexture();
         }
 
-        //myGreenScreenMaterial.update();
+        myGreenScreenMaterial.update();
     };
 
     function process() {
