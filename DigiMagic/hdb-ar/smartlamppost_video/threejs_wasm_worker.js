@@ -206,7 +206,7 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
     var renderer = new THREE.WebGLRenderer({ canvas: canvas_draw, alpha: true, antialias: true, logarithmicDepthBuffer: true });
     renderer.setPixelRatio(window.devicePixelRatio);
 
-    renderer.setClearColor(0x0000ff, 1);
+    //renderer.setClearColor(0x0000ff, 1);
 
     var scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera();
@@ -272,89 +272,6 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
     p1_human6_material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/dummy.png'), depthTest: false, transparent: true, side: THREE.DoubleSide, opacity: 1 });
     p1_icon_material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/dummy.png'), depthTest: false, transparent: true, side: THREE.DoubleSide, opacity: 1 });
 
-    // p1_bicycle_video_texture = new THREE.VideoTexture(p1_bicycle_video);
-    // p1_bicycle_video_texture.minFilter = THREE.LinearFilter;
-    // p1_bicycle_video_texture.magFilter = THREE.LinearFilter;
-    // p1_bicycle_video_texture.format = THREE.RGBAFormat;
-
-    // p1_bicycle_video_texture_alpha = new THREE.VideoTexture(p1_bicycle_video_alpha);
-    // p1_bicycle_video_texture_alpha.minFilter = THREE.LinearFilter;
-    // p1_bicycle_video_texture_alpha.magFilter = THREE.LinearFilter;
-    // p1_bicycle_video_texture_alpha.format = THREE.RGBAFormat;
-
-    // p1_human2_video_texture = new THREE.VideoTexture(p1_human2_video);
-    // p1_human2_video_texture.minFilter = THREE.LinearFilter;
-    // p1_human2_video_texture.magFilter = THREE.LinearFilter;
-    // p1_human2_video_texture.format = THREE.RGBAFormat;
-
-    // p1_human2_video_texture_alpha = new THREE.VideoTexture(p1_human2_video_alpha);
-    // p1_human2_video_texture_alpha.minFilter = THREE.LinearFilter;
-    // p1_human2_video_texture_alpha.magFilter = THREE.LinearFilter;
-    // p1_human2_video_texture_alpha.format = THREE.RGBAFormat;
-
-    // p1_human3_video_texture = new THREE.VideoTexture(p1_human3_video);
-    // p1_human3_video_texture.minFilter = THREE.LinearFilter;
-    // p1_human3_video_texture.magFilter = THREE.LinearFilter;
-    // p1_human3_video_texture.format = THREE.RGBAFormat;
-    // p1_human3_video_texture.needsUpdate = true;
-
-    // p1_human3_video_texture_alpha = new THREE.VideoTexture(p1_human3_video_alpha);
-    // p1_human3_video_texture_alpha.minFilter = THREE.LinearFilter;
-    // p1_human3_video_texture_alpha.magFilter = THREE.LinearFilter;
-    // p1_human3_video_texture_alpha.format = THREE.RGBAFormat;
-
-    // p1_human4_video_texture = new THREE.VideoTexture(p1_human4_video);
-    // p1_human4_video_texture.minFilter = THREE.LinearFilter;
-    // p1_human4_video_texture.magFilter = THREE.LinearFilter;
-    // p1_human4_video_texture.format = THREE.RGBAFormat;
-    // p1_human4_video_texture.needsUpdate = true;
-
-    // p1_human4_video_texture_alpha = new THREE.VideoTexture(p1_human4_video_alpha);
-    // p1_human4_video_texture_alpha.minFilter = THREE.LinearFilter;
-    // p1_human4_video_texture_alpha.magFilter = THREE.LinearFilter;
-    // p1_human4_video_texture_alpha.format = THREE.RGBAFormat;
-
-    // p1_human5_video_texture = new THREE.VideoTexture(p1_human5_video);
-    // p1_human5_video_texture.minFilter = THREE.LinearFilter;
-    // p1_human5_video_texture.magFilter = THREE.LinearFilter;
-    // p1_human5_video_texture.format = THREE.RGBAFormat;
-    // p1_human5_video_texture.needsUpdate = true;
-
-    // p1_human5_video_texture_alpha = new THREE.VideoTexture(p1_human5_video_alpha);
-    // p1_human5_video_texture_alpha.minFilter = THREE.LinearFilter;
-    // p1_human5_video_texture_alpha.magFilter = THREE.LinearFilter;
-    // p1_human5_video_texture_alpha.format = THREE.RGBAFormat;
-
-    // p1_human6_video_texture = new THREE.VideoTexture(p1_human6_video);
-    // p1_human6_video_texture.minFilter = THREE.LinearFilter;
-    // p1_human6_video_texture.magFilter = THREE.LinearFilter;
-    // p1_human6_video_texture.format = THREE.RGBAFormat;
-    // p1_human6_video_texture.needsUpdate = true;
-
-    // p1_human6_video_texture_alpha = new THREE.VideoTexture(p1_human6_video_alpha);
-    // p1_human6_video_texture_alpha.minFilter = THREE.LinearFilter;
-    // p1_human6_video_texture_alpha.magFilter = THREE.LinearFilter;
-    // p1_human6_video_texture_alpha.format = THREE.RGBAFormat;
-
-    // p1_icon_video_texture = new THREE.VideoTexture(p1_icon_video);
-    // p1_icon_video_texture.minFilter = THREE.LinearFilter;
-    // p1_icon_video_texture.magFilter = THREE.LinearFilter;
-    // p1_icon_video_texture.format = THREE.RGBAFormat;
-    // p1_icon_video_texture.needsUpdate = true;
-
-    // p1_icon_video_texture_alpha = new THREE.VideoTexture(p1_icon_video_alpha);
-    // p1_icon_video_texture_alpha.minFilter = THREE.LinearFilter;
-    // p1_icon_video_texture_alpha.magFilter = THREE.LinearFilter;
-    // p1_icon_video_texture_alpha.format = THREE.RGBAFormat;
-
-    // var p1_bicycle_material = new THREE.MeshBasicMaterial({ map: p1_bicycle_video_texture, transparent: true, side: THREE.DoubleSide, opacity: 1, alphaMap: p1_bicycle_video_texture_alpha });
-    // var p1_human2_material = new THREE.MeshBasicMaterial({ map: p1_human2_video_texture, transparent: true, side: THREE.DoubleSide, opacity: 1, alphaMap: p1_human2_video_texture_alpha });
-    // var p1_human3_material = new THREE.MeshBasicMaterial({ map: p1_human3_video_texture, transparent: true, side: THREE.DoubleSide, opacity: 1, alphaMap: p1_human3_video_texture_alpha });
-    // var p1_human4_material = new THREE.MeshBasicMaterial({ map: p1_human4_video_texture, transparent: true, side: THREE.DoubleSide, opacity: 1, alphaMap: p1_human4_video_texture_alpha });
-    // var p1_human5_material = new THREE.MeshBasicMaterial({ map: p1_human5_video_texture, transparent: true, side: THREE.DoubleSide, opacity: 1, alphaMap: p1_human5_video_texture_alpha });
-    // var p1_human6_material = new THREE.MeshBasicMaterial({ map: p1_human6_video_texture, transparent: true, side: THREE.DoubleSide, opacity: 1, alphaMap: p1_human6_video_texture_alpha });
-    // var p1_icon_material = new THREE.MeshBasicMaterial({ map: p1_icon_video_texture, transparent: true, side: THREE.DoubleSide, opacity: 1, alphaMap: p1_icon_video_texture_alpha });
-
     // P2.
     p2_human1_canvas = document.getElementById('p2_human1_canvas');
     p2_human1_canvas_alpha = document.getElementById('p2_human1_canvas_alpha');
@@ -389,77 +306,6 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
     p2_human5_material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/dummy.png'), depthTest: false, transparent: true, side: THREE.DoubleSide, opacity: 1 });
     p2_icon_material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/dummy.png'), depthTest: false, transparent: true, side: THREE.DoubleSide, opacity: 1 });
 
-    // p2_human1_video_texture = new THREE.VideoTexture(p2_human1_video);
-    // p2_human1_video_texture.minFilter = THREE.LinearFilter;
-    // p2_human1_video_texture.magFilter = THREE.LinearFilter;
-    // p2_human1_video_texture.format = THREE.RGBAFormat;
-
-    // p2_human1_video_texture_alpha = new THREE.VideoTexture(p2_human1_video_alpha);
-    // p2_human1_video_texture_alpha.minFilter = THREE.LinearFilter;
-    // p2_human1_video_texture_alpha.magFilter = THREE.LinearFilter;
-    // p2_human1_video_texture_alpha.format = THREE.RGBAFormat;
-
-    // p2_human2_video_texture = new THREE.VideoTexture(p2_human2_video);
-    // p2_human2_video_texture.minFilter = THREE.LinearFilter;
-    // p2_human2_video_texture.magFilter = THREE.LinearFilter;
-    // p2_human2_video_texture.format = THREE.RGBAFormat;
-
-    // p2_human2_video_texture_alpha = new THREE.VideoTexture(p2_human2_video_alpha);
-    // p2_human2_video_texture_alpha.minFilter = THREE.LinearFilter;
-    // p2_human2_video_texture_alpha.magFilter = THREE.LinearFilter;
-    // p2_human2_video_texture_alpha.format = THREE.RGBAFormat;
-
-    // p2_human3_video_texture = new THREE.VideoTexture(p2_human3_video);
-    // p2_human3_video_texture.minFilter = THREE.LinearFilter;
-    // p2_human3_video_texture.magFilter = THREE.LinearFilter;
-    // p2_human3_video_texture.format = THREE.RGBAFormat;
-    // p2_human3_video_texture.needsUpdate = true;
-
-    // p2_human3_video_texture_alpha = new THREE.VideoTexture(p2_human3_video_alpha);
-    // p2_human3_video_texture_alpha.minFilter = THREE.LinearFilter;
-    // p2_human3_video_texture_alpha.magFilter = THREE.LinearFilter;
-    // p2_human3_video_texture_alpha.format = THREE.RGBAFormat;
-
-    // p2_human4_video_texture = new THREE.VideoTexture(p2_human4_video);
-    // p2_human4_video_texture.minFilter = THREE.LinearFilter;
-    // p2_human4_video_texture.magFilter = THREE.LinearFilter;
-    // p2_human4_video_texture.format = THREE.RGBAFormat;
-    // p2_human4_video_texture.needsUpdate = true;
-
-    // p2_human4_video_texture_alpha = new THREE.VideoTexture(p2_human4_video_alpha);
-    // p2_human4_video_texture_alpha.minFilter = THREE.LinearFilter;
-    // p2_human4_video_texture_alpha.magFilter = THREE.LinearFilter;
-    // p2_human4_video_texture_alpha.format = THREE.RGBAFormat;
-
-    // p2_human5_video_texture = new THREE.VideoTexture(p2_human5_video);
-    // p2_human5_video_texture.minFilter = THREE.LinearFilter;
-    // p2_human5_video_texture.magFilter = THREE.LinearFilter;
-    // p2_human5_video_texture.format = THREE.RGBAFormat;
-    // p2_human5_video_texture.needsUpdate = true;
-
-    // p2_human5_video_texture_alpha = new THREE.VideoTexture(p2_human5_video_alpha);
-    // p2_human5_video_texture_alpha.minFilter = THREE.LinearFilter;
-    // p2_human5_video_texture_alpha.magFilter = THREE.LinearFilter;
-    // p2_human5_video_texture_alpha.format = THREE.RGBAFormat;
-
-    // p2_icon_video_texture = new THREE.VideoTexture(p2_icon_video);
-    // p2_icon_video_texture.minFilter = THREE.LinearFilter;
-    // p2_icon_video_texture.magFilter = THREE.LinearFilter;
-    // p2_icon_video_texture.format = THREE.RGBAFormat;
-    // p2_icon_video_texture.needsUpdate = true;
-
-    // p2_icon_video_texture_alpha = new THREE.VideoTexture(p2_icon_video_alpha);
-    // p2_icon_video_texture_alpha.minFilter = THREE.LinearFilter;
-    // p2_icon_video_texture_alpha.magFilter = THREE.LinearFilter;
-    // p2_icon_video_texture_alpha.format = THREE.RGBAFormat;
-
-    // var p2_human1_material = new THREE.MeshBasicMaterial({ map: p2_human1_video_texture, transparent: true, side: THREE.DoubleSide, opacity: 1, alphaMap: p2_human1_video_texture_alpha });
-    // var p2_human2_material = new THREE.MeshBasicMaterial({ map: p2_human2_video_texture, transparent: true, side: THREE.DoubleSide, opacity: 1, alphaMap: p2_human2_video_texture_alpha });
-    // var p2_human3_material = new THREE.MeshBasicMaterial({ map: p2_human3_video_texture, transparent: true, side: THREE.DoubleSide, opacity: 1, alphaMap: p2_human3_video_texture_alpha });
-    // var p2_human4_material = new THREE.MeshBasicMaterial({ map: p2_human4_video_texture, transparent: true, side: THREE.DoubleSide, opacity: 1, alphaMap: p2_human4_video_texture_alpha });
-    // var p2_human5_material = new THREE.MeshBasicMaterial({ map: p2_human4_video_texture, transparent: true, side: THREE.DoubleSide, opacity: 1, alphaMap: p2_human5_video_texture_alpha });
-    // var p2_icon_material = new THREE.MeshBasicMaterial({ map: p2_icon_video_texture, transparent: true, side: THREE.DoubleSide, opacity: 1, alphaMap: p2_icon_video_texture_alpha });
-
     // P3.
     p3_icon_canvas = document.getElementById('p2_icon_canvas');
     p3_icon_canvas_alpha = document.getElementById('p2_icon_canvas_alpha');
@@ -473,24 +319,6 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
     p3_human4_material = p2_human4_material;
     p3_human5_material = p2_human5_material;
     p3_icon_material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/dummy.png'), depthTest: false, transparent: true, side: THREE.DoubleSide, opacity: 1 });
-
-    // p3_icon_video_texture = new THREE.VideoTexture(p3_icon_video);
-    // p3_icon_video_texture.minFilter = THREE.LinearFilter;
-    // p3_icon_video_texture.magFilter = THREE.LinearFilter;
-    // p3_icon_video_texture.format = THREE.RGBAFormat;
-    // p3_icon_video_texture.needsUpdate = true;
-
-    // p3_icon_video_texture_alpha = new THREE.VideoTexture(p3_icon_video_alpha);
-    // p3_icon_video_texture_alpha.minFilter = THREE.LinearFilter;
-    // p3_icon_video_texture_alpha.magFilter = THREE.LinearFilter;
-    // p3_icon_video_texture_alpha.format = THREE.RGBAFormat;
-
-    // var p3_human1_material = p2_human1_material;
-    // var p3_human2_material = p2_human2_material;
-    // var p3_human3_material = p2_human3_material;
-    // var p3_human4_material = p2_human4_material;
-    // var p3_human5_material = p2_human5_material;
-    // var p3_icon_material = new THREE.MeshBasicMaterial({ map: p3_icon_video_texture, transparent: true, side: THREE.DoubleSide, opacity: 1, alphaMap: p3_icon_video_texture_alpha });
 
     // // Test,
     // test_canvas = document.getElementById('test_canvas');
@@ -1227,7 +1055,6 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
     // //var myGreenScreenVideoObject = new THREE.Mesh(myGeometry, bg_material);
     // root.add(myGreenScreenVideoObject);
     // myGreenScreenMaterial.startVideo();
-    // myGreenScreenMaterial.update();
 
     var sphere = new THREE.Mesh(
         new THREE.SphereGeometry(0.5, 8, 8),
@@ -1502,6 +1329,8 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
         if (p3_show) {
             P3_VideoTexture();
         }
+
+        //myGreenScreenMaterial.update();
     };
 
     function process() {
@@ -1547,6 +1376,22 @@ function choice1_worker() {
     p2_show = false;
     p3_show = false;
 
+    p1_bicycle_video.currentTime = 0;
+    p1_human2_video.currentTime = 0;
+    p1_human3_video.currentTime = 0;
+    p1_human4_video.currentTime = 0;
+    p1_human5_video.currentTime = 0;
+    p1_human6_video.currentTime = 0;
+    p1_icon_video.currentTime = 0;
+
+    p1_bicycle_video.playbackRate = 2.0;
+    p1_human2_video.playbackRate = 2.0;
+    p1_human3_video.playbackRate = 2.0;
+    p1_human4_video.playbackRate = 2.0;
+    p1_human5_video.playbackRate = 2.0;
+    p1_human6_video.playbackRate = 2.0;
+    p1_icon_video.playbackRate = 2.0;
+
     p1_bicycle_video.play();
     p1_human2_video.play();
     p1_human3_video.play();
@@ -1557,21 +1402,6 @@ function choice1_worker() {
 
     // console.log(test_video);
     // test_video.play();
-
-    // p1_bicycle_video.play();
-    // p1_bicycle_video_alpha.play();
-    // p1_human2_video.play();
-    // p1_human2_video_alpha.play();
-    // p1_human3_video.play();
-    // p1_human3_video_alpha.play();
-    // p1_human4_video.play();
-    // p1_human4_video_alpha.play();
-    // p1_human5_video.play();
-    // p1_human5_video_alpha.play();
-    // p1_human6_video.play();
-    // p1_human6_video_alpha.play();
-    // p1_icon_video.play();
-    // p1_icon_video_alpha.play();
 
     model1.visible = false;
     model2.visible = true;
@@ -1584,25 +1414,26 @@ function choice2_worker() {
     p2_show = true;
     p3_show = false;
 
+    p2_human1_video.currentTime = 0;
+    p2_human2_video.currentTime = 0;
+    p2_human3_video.currentTime = 0;
+    p2_human4_video.currentTime = 0;
+    p2_human5_video.currentTime = 0;
+    p2_icon_video.currentTime = 0;
+
+    p2_human1_video.playbackRate = 2.0;
+    p2_human2_video.playbackRate = 2.0;
+    p2_human3_video.playbackRate = 2.0;
+    p2_human4_video.playbackRate = 2.0;
+    p2_human5_video.playbackRate = 2.0;
+    p2_icon_video.playbackRate = 2.0;
+
     p2_human1_video.play();
     p2_human2_video.play();
     p2_human3_video.play();
     p2_human4_video.play();
     p2_human5_video.play();
     p2_icon_video.play();
-
-    // p2_human1_video.play();
-    // p2_human1_video_alpha.play();
-    // p2_human2_video.play();
-    // p2_human2_video_alpha.play();
-    // p2_human3_video.play();
-    // p2_human3_video_alpha.play();
-    // p2_human4_video.play();
-    // p2_human4_video_alpha.play();
-    // p2_human5_video.play();
-    // p2_human5_video_alpha.play();
-    // p2_icon_video.play();
-    // p2_icon_video_alpha.play();
 
     model1.visible = false;
     model2.visible = false;
@@ -1615,25 +1446,26 @@ function choice3_worker() {
     p2_show = false;
     p3_show = true;
 
+    p2_human1_video.currentTime = 0;
+    p2_human2_video.currentTime = 0;
+    p2_human3_video.currentTime = 0;
+    p2_human4_video.currentTime = 0;
+    p2_human5_video.currentTime = 0;
+    p2_icon_video.currentTime = 0;
+
+    p2_human1_video.playbackRate = 2.0;
+    p2_human2_video.playbackRate = 2.0;
+    p2_human3_video.playbackRate = 2.0;
+    p2_human4_video.playbackRate = 2.0;
+    p2_human5_video.playbackRate = 2.0;
+    p2_icon_video.playbackRate = 2.0;
+
     p2_human1_video.play();
     p2_human2_video.play();
     p2_human3_video.play();
     p2_human4_video.play();
     p2_human5_video.play();
     p3_icon_video.play();
-
-    // p2_human1_video.play();
-    // p2_human1_video_alpha.play();
-    // p2_human2_video.play();
-    // p2_human2_video_alpha.play();
-    // p2_human3_video.play();
-    // p2_human3_video_alpha.play();
-    // p2_human4_video.play();
-    // p2_human4_video_alpha.play();
-    // p2_human5_video.play();
-    // p2_human5_video_alpha.play();
-    // p3_icon_video.play();
-    // p3_icon_video_alpha.play();
 
     model1.visible = false;
     model2.visible = false;
@@ -1668,7 +1500,7 @@ function P1_VideoTexture() {
     ctx_alpha = p1_bicycle_canvas_alpha.getContext("2d");
 
     source_ctx.drawImage(p1_bicycle_video, 0, 0, source_width, source_height, 0, 0, target_width, target_height);
-
+    
     ctx.drawImage(source_canvas, 0, 0, width, height, 0, 0, resize_width, resize_height);
     ctx_alpha.drawImage(source_canvas, width, 0, width, height, 0, 0, resize_width, resize_height);
 
