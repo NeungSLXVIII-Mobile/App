@@ -59,17 +59,7 @@ var p1_show = false;
 var p2_show = false;
 var p3_show = false;
 
-var source_canvas;
-
 // P1.
-var p1_bicycle_canvas;
-var p1_human2_canvas;
-var p1_human3_canvas;
-var p1_human4_canvas;
-var p1_human5_canvas;
-var p1_human6_canvas;
-var p1_icon_canvas;
-
 var p1_bicycle_video;
 var p1_human2_video;
 var p1_human3_video;
@@ -95,13 +85,6 @@ var p1_human6_material;
 var p1_icon_material;
 
 // P2.
-var p2_human1_canvas;
-var p2_human2_canvas;
-var p2_human3_canvas;
-var p2_human4_canvas;
-var p2_human5_canvas;
-var p2_icon_canvas;
-
 var p2_human1_video;
 var p2_human2_video;
 var p2_human3_video;
@@ -124,8 +107,6 @@ var p2_human5_material;
 var p2_icon_material;
 
 // P3.
-var p3_icon_canvas;
-
 var p3_icon_video;
 
 var p3_icon_video_texture;
@@ -133,7 +114,6 @@ var p3_icon_video_texture;
 var p3_icon_material;
 
 // // Test.
-// var test_canvas;
 // var test_video;
 // var test_video_texture;
 // var test_video_material;
@@ -197,17 +177,7 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
     scene.add(root);
     root.visible = false;
 
-    source_canvas = document.getElementById('source_canvas');
-
     // P1.
-    p1_bicycle_canvas = document.getElementById('p1_bicycle_canvas');
-    p1_human2_canvas = document.getElementById('p1_human2_canvas');
-    p1_human3_canvas = document.getElementById('p1_human3_canvas');
-    p1_human4_canvas = document.getElementById('p1_human4_canvas');
-    p1_human5_canvas = document.getElementById('p1_human5_canvas');
-    p1_human6_canvas = document.getElementById('p1_human6_canvas');
-    p1_icon_canvas = document.getElementById('p1_icon_canvas');
-    
     p1_bicycle_video = document.getElementById('p1_bicycle_video');
     p1_human2_video = document.getElementById('p1_human2_video');
     p1_human3_video = document.getElementById('p1_human3_video');
@@ -215,6 +185,14 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
     p1_human5_video = document.getElementById('p1_human5_video');
     p1_human6_video = document.getElementById('p1_human6_video');
     p1_icon_video = document.getElementById('p1_icon_video');
+
+    cacheVideo(p1_bicycle_video);
+    cacheVideo(p1_human2_video);
+    cacheVideo(p1_human3_video);
+    cacheVideo(p1_human4_video);
+    cacheVideo(p1_human5_video);
+    cacheVideo(p1_human6_video);
+    cacheVideo(p1_icon_video);
 
     p1_bicycle_material = new THREEx.ChromaKeyMaterial(p1_bicycle_video, 0x8b6864);
     p1_human2_material = new THREEx.ChromaKeyMaterial(p1_human2_video, 0x8b6864);
@@ -225,19 +203,19 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
     p1_icon_material = new THREEx.ChromaKeyMaterial(p1_icon_video, 0x8b6864);
 
     // P2.
-    p2_human1_canvas = document.getElementById('p2_human1_canvas');
-    p2_human2_canvas = document.getElementById('p2_human2_canvas');
-    p2_human3_canvas = document.getElementById('p2_human3_canvas');
-    p2_human4_canvas = document.getElementById('p2_human4_canvas');
-    p2_human5_canvas = document.getElementById('p2_human5_canvas');
-    p2_icon_canvas = document.getElementById('p2_icon_canvas');
-
     p2_human1_video = document.getElementById('p2_human1_video');
     p2_human2_video = document.getElementById('p2_human2_video');
     p2_human3_video = document.getElementById('p2_human3_video');
     p2_human4_video = document.getElementById('p2_human4_video');
     p2_human5_video = document.getElementById('p2_human5_video');
     p2_icon_video = document.getElementById('p2_icon_video');
+
+    cacheVideo(p2_human1_video);
+    cacheVideo(p2_human2_video);
+    cacheVideo(p2_human3_video);
+    cacheVideo(p2_human4_video);
+    cacheVideo(p2_human5_video);
+    cacheVideo(p2_icon_video);
 
     p2_human1_material = new THREEx.ChromaKeyMaterial(p2_human1_video, 0x8b6864);
     p2_human2_material = new THREEx.ChromaKeyMaterial(p2_human2_video, 0x8b6864);
@@ -247,11 +225,9 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
     p2_icon_material = new THREEx.ChromaKeyMaterial(p2_icon_video, 0x8b6864);
 
     // P3.
-    p3_icon_canvas = document.getElementById('p2_icon_canvas');
-    p3_icon_canvas_alpha = document.getElementById('p2_icon_canvas_alpha');
-
     p3_icon_video = document.getElementById('p2_icon_video');
-    p3_icon_video_alpha = document.getElementById('p2_icon_video_alpha');
+
+    cacheVideo(p3_icon_video);
 
     p3_human1_material = p2_human1_material;
     p3_human2_material = p2_human2_material;
@@ -261,7 +237,6 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
     p3_icon_material = new THREEx.ChromaKeyMaterial(p3_icon_video, 0x8b6864);
 
     // // Test,
-    // test_canvas = document.getElementById('test_canvas');
     // test_video = document.getElementById('test_video');
 
     // test_material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/dummy.png'), depthTest: false, transparent: true, side: THREE.DoubleSide, opacity: 1 });
@@ -1261,8 +1236,6 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
         SpriteAnimator.update(clock.getDelta());
 
         if (p1_show) {
-            //P1_VideoTexture();
-
             p1_bicycle_material.update();
             p1_human2_material.update();
             p1_human3_material.update();
@@ -1272,8 +1245,6 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
             p1_icon_material.update();
         }
         if (p2_show) {
-            //P2_VideoTexture();
-
             p2_human1_material.update();
             p2_human2_material.update();
             p2_human3_material.update();
@@ -1282,8 +1253,6 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
             p2_icon_material.update();
         }
         if (p3_show) {
-            //P3_VideoTexture();
-
             p2_human1_material.update();
             p2_human2_material.update();
             p2_human3_material.update();
@@ -1433,725 +1402,42 @@ function choice3_worker() {
     model4.visible = true;
 }
 
-function P1_VideoTexture() {
-    var source_ctx;
-    var source_width = 1200;
-    var source_height = 600;
-    var target_width = 600;
-    var target_height = 300;
-
-    source_ctx = source_canvas.getContext("2d");
-
-    var width = 0;
-    var height = 0;
-    var resize_width = 0;
-    var resize_height = 0;
-
-    width = 300;
-    height = 300;
-    resize_width = 600;
-    resize_height = 600;
-
-    var ctx;
-    var ctx_alpha;
-
-    // 1.
-    ctx = p1_bicycle_canvas.getContext("2d");
-    ctx_alpha = p1_bicycle_canvas_alpha.getContext("2d");
-
-    source_ctx.drawImage(p1_bicycle_video, 0, 0, source_width, source_height, 0, 0, target_width, target_height);
-    
-    ctx.drawImage(source_canvas, 0, 0, width, height, 0, 0, resize_width, resize_height);
-    ctx_alpha.drawImage(source_canvas, width, 0, width, height, 0, 0, resize_width, resize_height);
-
-    // ctx.drawImage(p1_bicycle_video, 0, 0, width, height, 0, 0, resize_width, resize_height);
-    // ctx_alpha.drawImage(p1_bicycle_video, width, 0, width, height, 0, 0, resize_width, resize_height);
-
-    if (p1_bicycle_video_texture != undefined) {
-        p1_bicycle_video_texture.dispose();
-    }
-    if (p1_bicycle_video_texture_alpha != undefined) {
-        p1_bicycle_video_texture_alpha.dispose();
-    }
-
-    p1_bicycle_video_texture = new THREE.CanvasTexture(p1_bicycle_canvas);
-    p1_bicycle_video_texture.minFilter = THREE.LinearFilter;
-    p1_bicycle_video_texture.magFilter = THREE.LinearFilter;
-    p1_bicycle_video_texture.format = THREE.RGBAFormat;
-
-    p1_bicycle_video_texture_alpha = new THREE.CanvasTexture(p1_bicycle_canvas_alpha);
-    p1_bicycle_video_texture_alpha.minFilter = THREE.LinearFilter;
-    p1_bicycle_video_texture_alpha.magFilter = THREE.LinearFilter;
-    p1_bicycle_video_texture_alpha.format = THREE.RGBAFormat;
-
-    p1_bicycle_material.map = p1_bicycle_video_texture;
-    p1_bicycle_material.alphaMap = p1_bicycle_video_texture_alpha;
-    p1_bicycle_material.transparent = true;
-    p1_bicycle_material.needsUpdate = true;
-
-    // 2.
-    ctx = p1_human2_canvas.getContext("2d");
-    ctx_alpha = p1_human2_canvas_alpha.getContext("2d");
-
-    source_ctx.drawImage(p1_human2_video, 0, 0, source_width, source_height, 0, 0, target_width, target_height);
-
-    ctx.drawImage(source_canvas, 0, 0, width, height, 0, 0, resize_width, resize_height);
-    ctx_alpha.drawImage(source_canvas, width, 0, width, height, 0, 0, resize_width, resize_height);
-
-    // ctx.drawImage(p1_human2_video, 0, 0, width, height, 0, 0, resize_width, resize_height);
-    // ctx_alpha.drawImage(p1_human2_video, width, 0, width, height, 0, 0, resize_width, resize_height);
-
-    if (p1_human2_video_texture != undefined) {
-        p1_human2_video_texture.dispose();
-    }
-    if (p1_human2_video_texture_alpha != undefined) {
-        p1_human2_video_texture_alpha.dispose();
-    }
-
-    p1_human2_video_texture = new THREE.CanvasTexture(p1_human2_canvas);
-    p1_human2_video_texture.minFilter = THREE.LinearFilter;
-    p1_human2_video_texture.magFilter = THREE.LinearFilter;
-    p1_human2_video_texture.format = THREE.RGBAFormat;
-
-    p1_human2_video_texture_alpha = new THREE.CanvasTexture(p1_human2_canvas_alpha);
-    p1_human2_video_texture_alpha.minFilter = THREE.LinearFilter;
-    p1_human2_video_texture_alpha.magFilter = THREE.LinearFilter;
-    p1_human2_video_texture_alpha.format = THREE.RGBAFormat;
-
-    p1_human2_material.map = p1_human2_video_texture;
-    p1_human2_material.alphaMap = p1_human2_video_texture_alpha;
-    p1_human2_material.transparent = true;
-    p1_human2_material.needsUpdate = true;
-
-    // 3.
-    ctx = p1_human3_canvas.getContext("2d");
-    ctx_alpha = p1_human3_canvas_alpha.getContext("2d");
-
-    source_ctx.drawImage(p1_human3_video, 0, 0, source_width, source_height, 0, 0, target_width, target_height);
-
-    ctx.drawImage(source_canvas, 0, 0, width, height, 0, 0, resize_width, resize_height);
-    ctx_alpha.drawImage(source_canvas, width, 0, width, height, 0, 0, resize_width, resize_height);
-
-    // ctx.drawImage(p1_human3_video, 0, 0, width, height, 0, 0, resize_width, resize_height);
-    // ctx_alpha.drawImage(p1_human3_video, width, 0, width, height, 0, 0, resize_width, resize_height);
-
-    if (p1_human3_video_texture != undefined) {
-        p1_human3_video_texture.dispose();
-    }
-    if (p1_human3_video_texture_alpha != undefined) {
-        p1_human3_video_texture_alpha.dispose();
-    }
-
-    p1_human3_video_texture = new THREE.CanvasTexture(p1_human3_canvas);
-    p1_human3_video_texture.minFilter = THREE.LinearFilter;
-    p1_human3_video_texture.magFilter = THREE.LinearFilter;
-    p1_human3_video_texture.format = THREE.RGBAFormat;
-
-    p1_human3_video_texture_alpha = new THREE.CanvasTexture(p1_human3_canvas_alpha);
-    p1_human3_video_texture_alpha.minFilter = THREE.LinearFilter;
-    p1_human3_video_texture_alpha.magFilter = THREE.LinearFilter;
-    p1_human3_video_texture_alpha.format = THREE.RGBAFormat;
-
-    p1_human3_material.map = p1_human3_video_texture;
-    p1_human3_material.alphaMap = p1_human3_video_texture_alpha;
-    p1_human3_material.transparent = true;
-    p1_human3_material.needsUpdate = true;
-
-    // 4.
-    ctx = p1_human4_canvas.getContext("2d");
-    ctx_alpha = p1_human4_canvas_alpha.getContext("2d");
-
-    source_ctx.drawImage(p1_human4_video, 0, 0, source_width, source_height, 0, 0, target_width, target_height);
-
-    ctx.drawImage(source_canvas, 0, 0, width, height, 0, 0, resize_width, resize_height);
-    ctx_alpha.drawImage(source_canvas, width, 0, width, height, 0, 0, resize_width, resize_height);
-
-    // ctx.drawImage(p1_human4_video, 0, 0, width, height, 0, 0, resize_width, resize_height);
-    // ctx_alpha.drawImage(p1_human4_video, width, 0, width, height, 0, 0, resize_width, resize_height);
-
-    if (p1_human4_video_texture != undefined) {
-        p1_human4_video_texture.dispose();
-    }
-    if (p1_human4_video_texture_alpha != undefined) {
-        p1_human4_video_texture_alpha.dispose();
-    }
-
-    p1_human4_video_texture = new THREE.CanvasTexture(p1_human4_canvas);
-    p1_human4_video_texture.minFilter = THREE.LinearFilter;
-    p1_human4_video_texture.magFilter = THREE.LinearFilter;
-    p1_human4_video_texture.format = THREE.RGBAFormat;
-
-    p1_human4_video_texture_alpha = new THREE.CanvasTexture(p1_human4_canvas_alpha);
-    p1_human4_video_texture_alpha.minFilter = THREE.LinearFilter;
-    p1_human4_video_texture_alpha.magFilter = THREE.LinearFilter;
-    p1_human4_video_texture_alpha.format = THREE.RGBAFormat;
-
-    p1_human4_material.map = p1_human4_video_texture;
-    p1_human4_material.alphaMap = p1_human4_video_texture_alpha;
-    p1_human4_material.transparent = true;
-    p1_human4_material.needsUpdate = true;
-
-    // 5.
-    ctx = p1_human5_canvas.getContext("2d");
-    ctx_alpha = p1_human5_canvas_alpha.getContext("2d");
-
-    source_ctx.drawImage(p1_human5_video, 0, 0, source_width, source_height, 0, 0, target_width, target_height);
-
-    ctx.drawImage(source_canvas, 0, 0, width, height, 0, 0, resize_width, resize_height);
-    ctx_alpha.drawImage(source_canvas, width, 0, width, height, 0, 0, resize_width, resize_height);
-
-    // ctx.drawImage(p1_human5_video, 0, 0, width, height, 0, 0, resize_width, resize_height);
-    // ctx_alpha.drawImage(p1_human5_video, width, 0, width, height, 0, 0, resize_width, resize_height);
-
-    if (p1_human5_video_texture != undefined) {
-        p1_human5_video_texture.dispose();
-    }
-    if (p1_human5_video_texture_alpha != undefined) {
-        p1_human5_video_texture_alpha.dispose();
-    }
-
-    p1_human5_video_texture = new THREE.CanvasTexture(p1_human5_canvas);
-    p1_human5_video_texture.minFilter = THREE.LinearFilter;
-    p1_human5_video_texture.magFilter = THREE.LinearFilter;
-    p1_human5_video_texture.format = THREE.RGBAFormat;
-
-    p1_human5_video_texture_alpha = new THREE.CanvasTexture(p1_human5_canvas_alpha);
-    p1_human5_video_texture_alpha.minFilter = THREE.LinearFilter;
-    p1_human5_video_texture_alpha.magFilter = THREE.LinearFilter;
-    p1_human5_video_texture_alpha.format = THREE.RGBAFormat;
-
-    p1_human5_material.map = p1_human5_video_texture;
-    p1_human5_material.alphaMap = p1_human5_video_texture_alpha;
-    p1_human5_material.transparent = true;
-    p1_human5_material.needsUpdate = true;
-
-    // 6.
-    ctx = p1_human6_canvas.getContext("2d");
-    ctx_alpha = p1_human6_canvas_alpha.getContext("2d");
-
-    source_ctx.drawImage(p1_human6_video, 0, 0, source_width, source_height, 0, 0, target_width, target_height);
-
-    ctx.drawImage(source_canvas, 0, 0, width, height, 0, 0, resize_width, resize_height);
-    ctx_alpha.drawImage(source_canvas, width, 0, width, height, 0, 0, resize_width, resize_height);
-
-    // ctx.drawImage(p1_human6_video, 0, 0, width, height, 0, 0, resize_width, resize_height);
-    // ctx_alpha.drawImage(p1_human6_video, width, 0, width, height, 0, 0, resize_width, resize_height);
-
-    if (p1_human6_video_texture != undefined) {
-        p1_human6_video_texture.dispose();
-    }
-    if (p1_human6_video_texture_alpha != undefined) {
-        p1_human6_video_texture_alpha.dispose();
-    }
-
-    p1_human6_video_texture = new THREE.CanvasTexture(p1_human6_canvas);
-    p1_human6_video_texture.minFilter = THREE.LinearFilter;
-    p1_human6_video_texture.magFilter = THREE.LinearFilter;
-    p1_human6_video_texture.format = THREE.RGBAFormat;
-
-    p1_human6_video_texture_alpha = new THREE.CanvasTexture(p1_human6_canvas_alpha);
-    p1_human6_video_texture_alpha.minFilter = THREE.LinearFilter;
-    p1_human6_video_texture_alpha.magFilter = THREE.LinearFilter;
-    p1_human6_video_texture_alpha.format = THREE.RGBAFormat;
-
-    p1_human6_material.map = p1_human6_video_texture;
-    p1_human6_material.alphaMap = p1_human6_video_texture_alpha;
-    p1_human6_material.transparent = true;
-    p1_human6_material.needsUpdate = true;
-
-    // icon.
-    ctx = p1_icon_canvas.getContext("2d");
-    ctx_alpha = p1_icon_canvas_alpha.getContext("2d");
-
-    source_ctx.drawImage(p1_icon_video, 0, 0, source_width, source_height, 0, 0, target_width, target_height);
-
-    ctx.drawImage(source_canvas, 0, 0, width, height, 0, 0, resize_width, resize_height);
-    ctx_alpha.drawImage(source_canvas, width, 0, width, height, 0, 0, resize_width, resize_height);
-
-    // ctx.drawImage(p1_icon_video, 0, 0, width, height, 0, 0, resize_width, resize_height);
-    // ctx_alpha.drawImage(p1_icon_video, width, 0, width, height, 0, 0, resize_width, resize_height);
-
-    if (p1_icon_video_texture != undefined) {
-        p1_icon_video_texture.dispose();
-    }
-    if (p1_icon_video_texture_alpha != undefined) {
-        p1_icon_video_texture_alpha.dispose();
-    }
-
-    p1_icon_video_texture = new THREE.CanvasTexture(p1_icon_canvas);
-    p1_icon_video_texture.minFilter = THREE.LinearFilter;
-    p1_icon_video_texture.magFilter = THREE.LinearFilter;
-    p1_icon_video_texture.format = THREE.RGBAFormat;
-
-    p1_icon_video_texture_alpha = new THREE.CanvasTexture(p1_icon_canvas_alpha);
-    p1_icon_video_texture_alpha.minFilter = THREE.LinearFilter;
-    p1_icon_video_texture_alpha.magFilter = THREE.LinearFilter;
-    p1_icon_video_texture_alpha.format = THREE.RGBAFormat;
-
-    p1_icon_material.map = p1_icon_video_texture;
-    p1_icon_material.alphaMap = p1_icon_video_texture_alpha;
-    p1_icon_material.transparent = true;
-    p1_icon_material.needsUpdate = true;
-}
-
-function P2_VideoTexture() {
-    var source_ctx;
-    var source_width = 1200;
-    var source_height = 600;
-    var target_width = 600;
-    var target_height = 300;
-
-    source_ctx = source_canvas.getContext("2d");
-
-    var width = 0;
-    var height = 0;
-    var resize_width = 0;
-    var resize_height = 0;
-
-    width = 300;
-    height = 300;
-    resize_width = 600;
-    resize_height = 600;
-
-    var ctx;
-    var ctx_alpha;
-
-    // 1.
-    ctx = p2_human1_canvas.getContext("2d");
-    ctx_alpha = p2_human1_canvas_alpha.getContext("2d");
-
-    source_ctx.drawImage(p2_human1_video, 0, 0, source_width, source_height, 0, 0, target_width, target_height);
-
-    ctx.drawImage(source_canvas, 0, 0, width, height, 0, 0, resize_width, resize_height);
-    ctx_alpha.drawImage(source_canvas, width, 0, width, height, 0, 0, resize_width, resize_height);
-
-    // ctx.drawImage(p2_human1_video, 0, 0, width, height, 0, 0, resize_width, resize_height);
-    // ctx_alpha.drawImage(p2_human1_video, width, 0, width, height, 0, 0, resize_width, resize_height);
-
-    if (p2_human1_video_texture != undefined) {
-        p2_human1_video_texture.dispose();
-    }
-    if (p2_human1_video_texture_alpha != undefined) {
-        p2_human1_video_texture_alpha.dispose();
-    }
-
-    p2_human1_video_texture = new THREE.CanvasTexture(p2_human1_canvas);
-    p2_human1_video_texture.minFilter = THREE.LinearFilter;
-    p2_human1_video_texture.magFilter = THREE.LinearFilter;
-    p2_human1_video_texture.format = THREE.RGBAFormat;
-
-    p2_human1_video_texture_alpha = new THREE.CanvasTexture(p2_human1_canvas_alpha);
-    p2_human1_video_texture_alpha.minFilter = THREE.LinearFilter;
-    p2_human1_video_texture_alpha.magFilter = THREE.LinearFilter;
-    p2_human1_video_texture_alpha.format = THREE.RGBAFormat;
-
-    p2_human1_material.map = p2_human1_video_texture;
-    p2_human1_material.alphaMap = p2_human1_video_texture_alpha;
-    p2_human1_material.transparent = true;
-    p2_human1_material.needsUpdate = true;
-
-    // 2.
-    ctx = p2_human2_canvas.getContext("2d");
-    ctx_alpha = p2_human2_canvas_alpha.getContext("2d");
-
-    source_ctx.drawImage(p2_human2_video, 0, 0, source_width, source_height, 0, 0, target_width, target_height);
-
-    ctx.drawImage(source_canvas, 0, 0, width, height, 0, 0, resize_width, resize_height);
-    ctx_alpha.drawImage(source_canvas, width, 0, width, height, 0, 0, resize_width, resize_height);
-
-    // ctx.drawImage(p2_human2_video, 0, 0, width, height, 0, 0, resize_width, resize_height);
-    // ctx_alpha.drawImage(p2_human2_video, width, 0, width, height, 0, 0, resize_width, resize_height);
-
-    if (p2_human2_video_texture != undefined) {
-        p2_human2_video_texture.dispose();
-    }
-    if (p2_human2_video_texture_alpha != undefined) {
-        p2_human2_video_texture_alpha.dispose();
-    }
-
-    p2_human2_video_texture = new THREE.CanvasTexture(p2_human2_canvas);
-    p2_human2_video_texture.minFilter = THREE.LinearFilter;
-    p2_human2_video_texture.magFilter = THREE.LinearFilter;
-    p2_human2_video_texture.format = THREE.RGBAFormat;
-
-    p2_human2_video_texture_alpha = new THREE.CanvasTexture(p2_human2_canvas_alpha);
-    p2_human2_video_texture_alpha.minFilter = THREE.LinearFilter;
-    p2_human2_video_texture_alpha.magFilter = THREE.LinearFilter;
-    p2_human2_video_texture_alpha.format = THREE.RGBAFormat;
-
-    p2_human2_material.map = p2_human2_video_texture;
-    p2_human2_material.alphaMap = p2_human2_video_texture_alpha;
-    p2_human2_material.transparent = true;
-    p2_human2_material.needsUpdate = true;
-
-    // 3.
-    ctx = p2_human3_canvas.getContext("2d");
-    ctx_alpha = p2_human3_canvas_alpha.getContext("2d");
-
-    source_ctx.drawImage(p2_human3_video, 0, 0, source_width, source_height, 0, 0, target_width, target_height);
-
-    ctx.drawImage(source_canvas, 0, 0, width, height, 0, 0, resize_width, resize_height);
-    ctx_alpha.drawImage(source_canvas, width, 0, width, height, 0, 0, resize_width, resize_height);
-
-    // ctx.drawImage(p2_human3_video, 0, 0, width, height, 0, 0, resize_width, resize_height);
-    // ctx_alpha.drawImage(p2_human3_video, width, 0, width, height, 0, 0, resize_width, resize_height);
-
-    if (p2_human3_video_texture != undefined) {
-        p2_human3_video_texture.dispose();
-    }
-    if (p2_human3_video_texture_alpha != undefined) {
-        p2_human3_video_texture_alpha.dispose();
-    }
-
-    p2_human3_video_texture = new THREE.CanvasTexture(p2_human3_canvas);
-    p2_human3_video_texture.minFilter = THREE.LinearFilter;
-    p2_human3_video_texture.magFilter = THREE.LinearFilter;
-    p2_human3_video_texture.format = THREE.RGBAFormat;
-
-    p2_human3_video_texture_alpha = new THREE.CanvasTexture(p2_human3_canvas_alpha);
-    p2_human3_video_texture_alpha.minFilter = THREE.LinearFilter;
-    p2_human3_video_texture_alpha.magFilter = THREE.LinearFilter;
-    p2_human3_video_texture_alpha.format = THREE.RGBAFormat;
-
-    p2_human3_material.map = p2_human3_video_texture;
-    p2_human3_material.alphaMap = p2_human3_video_texture_alpha;
-    p2_human3_material.transparent = true;
-    p2_human3_material.needsUpdate = true;
-
-    // 4.
-    ctx = p2_human4_canvas.getContext("2d");
-    ctx_alpha = p2_human4_canvas_alpha.getContext("2d");
-
-    source_ctx.drawImage(p2_human4_video, 0, 0, source_width, source_height, 0, 0, target_width, target_height);
-
-    ctx.drawImage(source_canvas, 0, 0, width, height, 0, 0, resize_width, resize_height);
-    ctx_alpha.drawImage(source_canvas, width, 0, width, height, 0, 0, resize_width, resize_height);
-
-    // ctx.drawImage(p2_human4_video, 0, 0, width, height, 0, 0, resize_width, resize_height);
-    // ctx_alpha.drawImage(p2_human4_video, width, 0, width, height, 0, 0, resize_width, resize_height);
-
-    if (p2_human4_video_texture != undefined) {
-        p2_human4_video_texture.dispose();
-    }
-    if (p2_human4_video_texture_alpha != undefined) {
-        p2_human4_video_texture_alpha.dispose();
-    }
-
-    p2_human4_video_texture = new THREE.CanvasTexture(p2_human4_canvas);
-    p2_human4_video_texture.minFilter = THREE.LinearFilter;
-    p2_human4_video_texture.magFilter = THREE.LinearFilter;
-    p2_human4_video_texture.format = THREE.RGBAFormat;
-
-    p2_human4_video_texture_alpha = new THREE.CanvasTexture(p2_human4_canvas_alpha);
-    p2_human4_video_texture_alpha.minFilter = THREE.LinearFilter;
-    p2_human4_video_texture_alpha.magFilter = THREE.LinearFilter;
-    p2_human4_video_texture_alpha.format = THREE.RGBAFormat;
-
-    p2_human4_material.map = p2_human4_video_texture;
-    p2_human4_material.alphaMap = p2_human4_video_texture_alpha;
-    p2_human4_material.transparent = true;
-    p2_human4_material.needsUpdate = true;
-
-    // 5.
-    ctx = p2_human5_canvas.getContext("2d");
-    ctx_alpha = p2_human5_canvas_alpha.getContext("2d");
-
-    source_ctx.drawImage(p2_human5_video, 0, 0, source_width, source_height, 0, 0, target_width, target_height);
-
-    ctx.drawImage(source_canvas, 0, 0, width, height, 0, 0, resize_width, resize_height);
-    ctx_alpha.drawImage(source_canvas, width, 0, width, height, 0, 0, resize_width, resize_height);
-
-    // ctx.drawImage(p2_human5_video, 0, 0, width, height, 0, 0, resize_width, resize_height);
-    // ctx_alpha.drawImage(p2_human5_video, width, 0, width, height, 0, 0, resize_width, resize_height);
-
-    if (p2_human5_video_texture != undefined) {
-        p2_human5_video_texture.dispose();
-    }
-    if (p2_human5_video_texture_alpha != undefined) {
-        p2_human5_video_texture_alpha.dispose();
-    }
-
-    p2_human5_video_texture = new THREE.CanvasTexture(p2_human5_canvas);
-    p2_human5_video_texture.minFilter = THREE.LinearFilter;
-    p2_human5_video_texture.magFilter = THREE.LinearFilter;
-    p2_human5_video_texture.format = THREE.RGBAFormat;
-
-    p2_human5_video_texture_alpha = new THREE.CanvasTexture(p2_human5_canvas_alpha);
-    p2_human5_video_texture_alpha.minFilter = THREE.LinearFilter;
-    p2_human5_video_texture_alpha.magFilter = THREE.LinearFilter;
-    p2_human5_video_texture_alpha.format = THREE.RGBAFormat;
-
-    p2_human5_material.map = p2_human5_video_texture;
-    p2_human5_material.alphaMap = p2_human5_video_texture_alpha;
-    p2_human5_material.transparent = true;
-    p2_human5_material.needsUpdate = true;
-
-    // icon.
-    ctx = p2_icon_canvas.getContext("2d");
-    ctx_alpha = p2_icon_canvas_alpha.getContext("2d");
-
-    source_ctx.drawImage(p2_icon_video, 0, 0, source_width, source_height, 0, 0, target_width, target_height);
-
-    ctx.drawImage(source_canvas, 0, 0, width, height, 0, 0, resize_width, resize_height);
-    ctx_alpha.drawImage(source_canvas, width, 0, width, height, 0, 0, resize_width, resize_height);
-
-    // ctx.drawImage(p2_icon_video, 0, 0, width, height, 0, 0, resize_width, resize_height);
-    // ctx_alpha.drawImage(p2_icon_video, width, 0, width, height, 0, 0, resize_width, resize_height);
-
-    if (p2_icon_video_texture != undefined) {
-        p2_icon_video_texture.dispose();
-    }
-    if (p2_icon_video_texture_alpha != undefined) {
-        p2_icon_video_texture_alpha.dispose();
-    }
-
-    p2_icon_video_texture = new THREE.CanvasTexture(p2_icon_canvas);
-    p2_icon_video_texture.minFilter = THREE.LinearFilter;
-    p2_icon_video_texture.magFilter = THREE.LinearFilter;
-    p2_icon_video_texture.format = THREE.RGBAFormat;
-
-    p2_icon_video_texture_alpha = new THREE.CanvasTexture(p2_icon_canvas_alpha);
-    p2_icon_video_texture_alpha.minFilter = THREE.LinearFilter;
-    p2_icon_video_texture_alpha.magFilter = THREE.LinearFilter;
-    p2_icon_video_texture_alpha.format = THREE.RGBAFormat;
-
-    p2_icon_material.map = p2_icon_video_texture;
-    p2_icon_material.alphaMap = p2_icon_video_texture_alpha;
-    p2_icon_material.transparent = true;
-    p2_icon_material.needsUpdate = true;
-}
-
-function P3_VideoTexture() {
-    var source_ctx;
-    var source_width = 1200;
-    var source_height = 600;
-    var target_width = 600;
-    var target_height = 300;
-
-    source_ctx = source_canvas.getContext("2d");
-
-    var width = 0;
-    var height = 0;
-    var resize_width = 0;
-    var resize_height = 0;
-
-    width = 300;
-    height = 300;
-    resize_width = 600;
-    resize_height = 600;
-
-    var ctx;
-    var ctx_alpha;
-
-    // 1.
-    ctx = p2_human1_canvas.getContext("2d");
-    ctx_alpha = p2_human1_canvas_alpha.getContext("2d");
-
-    source_ctx.drawImage(p2_human1_video, 0, 0, source_width, source_height, 0, 0, target_width, target_height);
-
-    ctx.drawImage(source_canvas, 0, 0, width, height, 0, 0, resize_width, resize_height);
-    ctx_alpha.drawImage(source_canvas, width, 0, width, height, 0, 0, resize_width, resize_height);
-
-    // ctx.drawImage(p2_human1_video, 0, 0, width, height, 0, 0, resize_width, resize_height);
-    // ctx_alpha.drawImage(p2_human1_video, width, 0, width, height, 0, 0, resize_width, resize_height);
-
-    if (p2_human1_video_texture != undefined) {
-        p2_human1_video_texture.dispose();
-    }
-    if (p2_human1_video_texture_alpha != undefined) {
-        p2_human1_video_texture_alpha.dispose();
-    }
-
-    p2_human1_video_texture = new THREE.CanvasTexture(p2_human1_canvas);
-    p2_human1_video_texture.minFilter = THREE.LinearFilter;
-    p2_human1_video_texture.magFilter = THREE.LinearFilter;
-    p2_human1_video_texture.format = THREE.RGBAFormat;
-
-    p2_human1_video_texture_alpha = new THREE.CanvasTexture(p2_human1_canvas_alpha);
-    p2_human1_video_texture_alpha.minFilter = THREE.LinearFilter;
-    p2_human1_video_texture_alpha.magFilter = THREE.LinearFilter;
-    p2_human1_video_texture_alpha.format = THREE.RGBAFormat;
-
-    p2_human1_material.map = p2_human1_video_texture;
-    p2_human1_material.alphaMap = p2_human1_video_texture_alpha;
-    p2_human1_material.transparent = true;
-    p2_human1_material.needsUpdate = true;
-
-    // 2.
-    ctx = p2_human2_canvas.getContext("2d");
-    ctx_alpha = p2_human2_canvas_alpha.getContext("2d");
-
-    source_ctx.drawImage(p2_human2_video, 0, 0, source_width, source_height, 0, 0, target_width, target_height);
-
-    ctx.drawImage(source_canvas, 0, 0, width, height, 0, 0, resize_width, resize_height);
-    ctx_alpha.drawImage(source_canvas, width, 0, width, height, 0, 0, resize_width, resize_height);
-
-    // ctx.drawImage(p2_human2_video, 0, 0, width, height, 0, 0, resize_width, resize_height);
-    // ctx_alpha.drawImage(p2_human2_video, width, 0, width, height, 0, 0, resize_width, resize_height);
-
-    if (p2_human2_video_texture != undefined) {
-        p2_human2_video_texture.dispose();
-    }
-    if (p2_human2_video_texture_alpha != undefined) {
-        p2_human2_video_texture_alpha.dispose();
-    }
-
-    p2_human2_video_texture = new THREE.CanvasTexture(p2_human2_canvas);
-    p2_human2_video_texture.minFilter = THREE.LinearFilter;
-    p2_human2_video_texture.magFilter = THREE.LinearFilter;
-    p2_human2_video_texture.format = THREE.RGBAFormat;
-
-    p2_human2_video_texture_alpha = new THREE.CanvasTexture(p2_human2_canvas_alpha);
-    p2_human2_video_texture_alpha.minFilter = THREE.LinearFilter;
-    p2_human2_video_texture_alpha.magFilter = THREE.LinearFilter;
-    p2_human2_video_texture_alpha.format = THREE.RGBAFormat;
-
-    p2_human2_material.map = p2_human2_video_texture;
-    p2_human2_material.alphaMap = p2_human2_video_texture_alpha;
-    p2_human2_material.transparent = true;
-    p2_human2_material.needsUpdate = true;
-
-    // 3.
-    ctx = p2_human3_canvas.getContext("2d");
-    ctx_alpha = p2_human3_canvas_alpha.getContext("2d");
-
-    source_ctx.drawImage(p2_human3_video, 0, 0, source_width, source_height, 0, 0, target_width, target_height);
-
-    ctx.drawImage(source_canvas, 0, 0, width, height, 0, 0, resize_width, resize_height);
-    ctx_alpha.drawImage(source_canvas, width, 0, width, height, 0, 0, resize_width, resize_height);
-
-    // ctx.drawImage(p2_human3_video, 0, 0, width, height, 0, 0, resize_width, resize_height);
-    // ctx_alpha.drawImage(p2_human3_video, width, 0, width, height, 0, 0, resize_width, resize_height);
-
-    if (p2_human3_video_texture != undefined) {
-        p2_human3_video_texture.dispose();
-    }
-    if (p2_human3_video_texture_alpha != undefined) {
-        p2_human3_video_texture_alpha.dispose();
-    }
-
-    p2_human3_video_texture = new THREE.CanvasTexture(p2_human3_canvas);
-    p2_human3_video_texture.minFilter = THREE.LinearFilter;
-    p2_human3_video_texture.magFilter = THREE.LinearFilter;
-    p2_human3_video_texture.format = THREE.RGBAFormat;
-
-    p2_human3_video_texture_alpha = new THREE.CanvasTexture(p2_human3_canvas_alpha);
-    p2_human3_video_texture_alpha.minFilter = THREE.LinearFilter;
-    p2_human3_video_texture_alpha.magFilter = THREE.LinearFilter;
-    p2_human3_video_texture_alpha.format = THREE.RGBAFormat;
-
-    p2_human3_material.map = p2_human3_video_texture;
-    p2_human3_material.alphaMap = p2_human3_video_texture_alpha;
-    p2_human3_material.transparent = true;
-    p2_human3_material.needsUpdate = true;
-
-    // 4.
-    ctx = p2_human4_canvas.getContext("2d");
-    ctx_alpha = p2_human4_canvas_alpha.getContext("2d");
-
-    source_ctx.drawImage(p2_human4_video, 0, 0, source_width, source_height, 0, 0, target_width, target_height);
-
-    ctx.drawImage(source_canvas, 0, 0, width, height, 0, 0, resize_width, resize_height);
-    ctx_alpha.drawImage(source_canvas, width, 0, width, height, 0, 0, resize_width, resize_height);
-
-    // ctx.drawImage(p2_human4_video, 0, 0, width, height, 0, 0, resize_width, resize_height);
-    // ctx_alpha.drawImage(p2_human4_video, width, 0, width, height, 0, 0, resize_width, resize_height);
-
-    if (p2_human4_video_texture != undefined) {
-        p2_human4_video_texture.dispose();
-    }
-    if (p2_human4_video_texture_alpha != undefined) {
-        p2_human4_video_texture_alpha.dispose();
-    }
-
-    p2_human4_video_texture = new THREE.CanvasTexture(p2_human4_canvas);
-    p2_human4_video_texture.minFilter = THREE.LinearFilter;
-    p2_human4_video_texture.magFilter = THREE.LinearFilter;
-    p2_human4_video_texture.format = THREE.RGBAFormat;
-
-    p2_human4_video_texture_alpha = new THREE.CanvasTexture(p2_human4_canvas_alpha);
-    p2_human4_video_texture_alpha.minFilter = THREE.LinearFilter;
-    p2_human4_video_texture_alpha.magFilter = THREE.LinearFilter;
-    p2_human4_video_texture_alpha.format = THREE.RGBAFormat;
-
-    p2_human4_material.map = p2_human4_video_texture;
-    p2_human4_material.alphaMap = p2_human4_video_texture_alpha;
-    p2_human4_material.transparent = true;
-    p2_human4_material.needsUpdate = true;
-
-    // 5.
-    ctx = p2_human5_canvas.getContext("2d");
-    ctx_alpha = p2_human5_canvas_alpha.getContext("2d");
-
-    source_ctx.drawImage(p2_human5_video, 0, 0, source_width, source_height, 0, 0, target_width, target_height);
-
-    ctx.drawImage(source_canvas, 0, 0, width, height, 0, 0, resize_width, resize_height);
-    ctx_alpha.drawImage(source_canvas, width, 0, width, height, 0, 0, resize_width, resize_height);
-
-    // ctx.drawImage(p2_human5_video, 0, 0, width, height, 0, 0, resize_width, resize_height);
-    // ctx_alpha.drawImage(p2_human5_video, width, 0, width, height, 0, 0, resize_width, resize_height);
-
-    if (p2_human5_video_texture != undefined) {
-        p2_human5_video_texture.dispose();
-    }
-    if (p2_human5_video_texture_alpha != undefined) {
-        p2_human5_video_texture_alpha.dispose();
-    }
-
-    p2_human5_video_texture = new THREE.CanvasTexture(p2_human5_canvas);
-    p2_human5_video_texture.minFilter = THREE.LinearFilter;
-    p2_human5_video_texture.magFilter = THREE.LinearFilter;
-    p2_human5_video_texture.format = THREE.RGBAFormat;
-
-    p2_human5_video_texture_alpha = new THREE.CanvasTexture(p2_human5_canvas_alpha);
-    p2_human5_video_texture_alpha.minFilter = THREE.LinearFilter;
-    p2_human5_video_texture_alpha.magFilter = THREE.LinearFilter;
-    p2_human5_video_texture_alpha.format = THREE.RGBAFormat;
-
-    p2_human5_material.map = p2_human5_video_texture;
-    p2_human5_material.alphaMap = p2_human5_video_texture_alpha;
-    p2_human5_material.transparent = true;
-    p2_human5_material.needsUpdate = true;
-
-    // icon.
-    // icon.
-    ctx = p3_icon_canvas.getContext("2d");
-    ctx_alpha = p3_icon_canvas_alpha.getContext("2d");
-
-    source_ctx.drawImage(p3_icon_video, 0, 0, source_width, source_height, 0, 0, target_width, target_height);
-
-    ctx.drawImage(source_canvas, 0, 0, width, height, 0, 0, resize_width, resize_height);
-    ctx_alpha.drawImage(source_canvas, width, 0, width, height, 0, 0, resize_width, resize_height);
-
-    // ctx.drawImage(p3_icon_video, 0, 0, width, height, 0, 0, resize_width, resize_height);
-    // ctx_alpha.drawImage(p3_icon_video, width, 0, width, height, 0, 0, resize_width, resize_height);
-
-    if (p3_icon_video_texture != undefined) {
-        p3_icon_video_texture.dispose();
-    }
-    if (p3_icon_video_texture_alpha != undefined) {
-        p3_icon_video_texture_alpha.dispose();
-    }
-
-    p3_icon_video_texture = new THREE.CanvasTexture(p3_icon_canvas);
-    p3_icon_video_texture.minFilter = THREE.LinearFilter;
-    p3_icon_video_texture.magFilter = THREE.LinearFilter;
-    p3_icon_video_texture.format = THREE.RGBAFormat;
-
-    p3_icon_video_texture_alpha = new THREE.CanvasTexture(p3_icon_canvas_alpha);
-    p3_icon_video_texture_alpha.minFilter = THREE.LinearFilter;
-    p3_icon_video_texture_alpha.magFilter = THREE.LinearFilter;
-    p3_icon_video_texture_alpha.format = THREE.RGBAFormat;
-
-    p3_icon_material.map = p3_icon_video_texture;
-    p3_icon_material.alphaMap = p3_icon_video_texture_alpha;
-    p3_icon_material.transparent = true;
-    p3_icon_material.needsUpdate = true;
-
-    // Material.
-    p3_human1_material = p2_human1_material;
-    p3_human2_material = p2_human1_material;
-    p3_human3_material = p2_human1_material;
-    p3_human4_material = p2_human1_material;
-    p3_human5_material = p2_human1_material;
+function cacheVideo(video) {
+    var original_src = video.src;
+
+    setTimeout(function () {
+
+        // Method 1 : Reload video with same src
+        // With safari, asset is downloaded again from server instead of being pulling from cache
+        console.log('Method 1 : just reload video url');
+        console.log('Safari is not pulling data from cache !');
+        video.src = "";
+        video.src = original_src;
+
+        // Method 2 : use fetch API to query asset, then inject in video tag
+        // !! WARNING !! seems NOT to work when PRIVATE MODE
+        setTimeout(function () {
+
+            console.log('Method 2 : use fetch API then inject blob');
+            video.src = "";
+            const videoRequest = fetch(original_src)
+                .then(response => response.blob());
+            videoRequest.then(blob => {
+                console.log('first fetch : Safari is downloading video', 'video size : ', blob.size);
+                video.src = window.URL.createObjectURL(blob);
+
+                setTimeout(function () {
+                    video.src = "";
+                    const videoRequest2 = fetch(original_src)
+                        .then(response => response.blob());
+                    videoRequest2.then(blob => {
+                        console.log('second fetch : Safari is now pulling data from disk !', 'video size : ', blob.size);
+                        video.src = window.URL.createObjectURL(blob);
+                    });
+
+                });
+            });
+        }, 3000);
+
+    }, 3000);
 }
