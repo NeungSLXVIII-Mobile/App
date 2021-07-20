@@ -118,6 +118,8 @@ var p3_icon_material;
 // var test_video_texture;
 // var test_video_material;
 
+var video_current_time = 0;
+
 var tree1_material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/tree01.png'), opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide });
 var tree2_material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/tree02.png'), opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide });
 var bg_material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/bg.png'), opacity: 1, depthTest: false, transparent: false, side: THREE.DoubleSide });
@@ -194,13 +196,13 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
     // cacheVideo(p1_human6_video);
     // cacheVideo(p1_icon_video);
 
-    p1_bicycle_material = new THREEx.ChromaKeyMaterial(p1_bicycle_video, 0x8b6864);
-    p1_human2_material = new THREEx.ChromaKeyMaterial(p1_human2_video, 0x8b6864);
-    p1_human3_material = new THREEx.ChromaKeyMaterial(p1_human3_video, 0x8b6864);
-    p1_human4_material = new THREEx.ChromaKeyMaterial(p1_human4_video, 0x8b6864);
-    p1_human5_material = new THREEx.ChromaKeyMaterial(p1_human5_video, 0x8b6864);
-    p1_human6_material = new THREEx.ChromaKeyMaterial(p1_human6_video, 0x8b6864);
-    p1_icon_material = new THREEx.ChromaKeyMaterial(p1_icon_video, 0x8b6864);
+    p1_bicycle_material = new THREEx.ChromaKeyMaterial(p1_bicycle_video, 0x000000);
+    p1_human2_material = new THREEx.ChromaKeyMaterial(p1_human2_video, 0x000000);
+    p1_human3_material = new THREEx.ChromaKeyMaterial(p1_human3_video, 0x000000);
+    p1_human4_material = new THREEx.ChromaKeyMaterial(p1_human4_video, 0x000000);
+    p1_human5_material = new THREEx.ChromaKeyMaterial(p1_human5_video, 0x000000);
+    p1_human6_material = new THREEx.ChromaKeyMaterial(p1_human6_video, 0x000000);
+    p1_icon_material = new THREEx.ChromaKeyMaterial(p1_icon_video, 0x000000);
 
     // P2.
     p2_human1_video = document.getElementById('p2_human1_video');
@@ -217,12 +219,12 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
     // cacheVideo(p2_human5_video);
     // cacheVideo(p2_icon_video);
 
-    p2_human1_material = new THREEx.ChromaKeyMaterial(p2_human1_video, 0x8b6864);
-    p2_human2_material = new THREEx.ChromaKeyMaterial(p2_human2_video, 0x8b6864);
-    p2_human3_material = new THREEx.ChromaKeyMaterial(p2_human3_video, 0x8b6864);
-    p2_human4_material = new THREEx.ChromaKeyMaterial(p2_human4_video, 0x8b6864);
-    p2_human5_material = new THREEx.ChromaKeyMaterial(p2_human5_video, 0x8b6864);
-    p2_icon_material = new THREEx.ChromaKeyMaterial(p2_icon_video, 0x8b6864);
+    p2_human1_material = new THREEx.ChromaKeyMaterial(p2_human1_video, 0x000000);
+    p2_human2_material = new THREEx.ChromaKeyMaterial(p2_human2_video, 0x000000);
+    p2_human3_material = new THREEx.ChromaKeyMaterial(p2_human3_video, 0x000000);
+    p2_human4_material = new THREEx.ChromaKeyMaterial(p2_human4_video, 0x000000);
+    p2_human5_material = new THREEx.ChromaKeyMaterial(p2_human5_video, 0x000000);
+    p2_icon_material = new THREEx.ChromaKeyMaterial(p2_icon_video, 0x000000);
 
     // P3.
     p3_icon_video = document.getElementById('p2_icon_video');
@@ -234,7 +236,7 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
     p3_human3_material = p2_human3_material;
     p3_human4_material = p2_human4_material;
     p3_human5_material = p2_human5_material;
-    p3_icon_material = new THREEx.ChromaKeyMaterial(p3_icon_video, 0x8b6864);
+    p3_icon_material = new THREEx.ChromaKeyMaterial(p3_icon_video, 0x000000);
 
     // // Test,
     // test_video = document.getElementById('test_video');
@@ -964,7 +966,7 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
         root.add(model4);
     });
 
-    // var myGreenScreenMaterial = new THREEx.ChromaKeyMaterial(p1_bicycle_video, 0x8b6864);
+    // var myGreenScreenMaterial = new THREEx.ChromaKeyMaterial(p1_bicycle_video, 0x000000);
     // var myGeometry = new THREE.PlaneBufferGeometry(100, 100);
     // var myGreenScreenVideoObject = new THREE.Mesh(myGeometry, myGreenScreenMaterial);
     // //var myGreenScreenVideoObject = new THREE.Mesh(myGeometry, bg_material);
@@ -1232,10 +1234,22 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
 
         root.visible = true;
 
+        var delta = clock.getDelta();
+
         renderer.render(scene, camera);
-        SpriteAnimator.update(clock.getDelta());
+        SpriteAnimator.update(delta);
+
+        video_current_time += delta;
 
         if (p1_show) {
+            // console.log(p1_bicycle_video.duration + " " + video_current_time + " " + delta);
+            // if (p1_bicycle_video.duration > video_current_time) {
+            //     p1_bicycle_video.currentTime = video_current_time;
+            // }
+            // else {
+            //     p1_bicycle_video.currentTime = video_current_time % p1_bicycle_video.duration;
+            // }
+
             p1_bicycle_material.update();
             p1_human2_material.update();
             p1_human3_material.update();
