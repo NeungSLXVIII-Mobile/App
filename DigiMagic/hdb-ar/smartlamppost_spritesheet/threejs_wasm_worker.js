@@ -1277,8 +1277,8 @@ function choice1_worker() {
 
         var urls = [
             "assets/sprites/p1_bicycle_sprite_sheet.png",
-            "assets/sprites/p1_human4_sprite_sheet.png",
-            "assets/sprites/p1_human4_sprite_sheet.png",
+            "assets/sprites/p1_human2_sprite_sheet.png",
+            "assets/sprites/p1_human3_sprite_sheet.png",
             "assets/sprites/p1_human4_sprite_sheet.png",
             "assets/sprites/p1_human4_sprite_sheet.png",
             "assets/sprites/p1_human4_sprite_sheet.png",
@@ -1293,9 +1293,9 @@ function choice1_worker() {
 
             p1_bicycle_animation = SpriteAnimator.add({ texture: textures[0], tilesHorizontal: 9, tilesVertical: 9, fps: 24, numberOfTiles: 67 });
             p1_bicycle_material.map = textures[0];
-            p1_human2_animation = SpriteAnimator.add({ texture: textures[1], tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
+            p1_human2_animation = SpriteAnimator.add({ texture: textures[1], tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 151 });
             p1_human2_material.map = textures[1];
-            p1_human3_animation = SpriteAnimator.add({ texture: textures[2], tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
+            p1_human3_animation = SpriteAnimator.add({ texture: textures[2], tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 170 });
             p1_human3_material.map = textures[2];
             p1_human4_animation = SpriteAnimator.add({ texture: textures[3], tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
             p1_human4_material.map = textures[3];

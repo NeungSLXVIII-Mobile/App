@@ -1242,13 +1242,13 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
         video_current_time += delta;
 
         if (p1_show) {
-            // console.log(p1_bicycle_video.duration + " " + video_current_time + " " + delta);
-            // if (p1_bicycle_video.duration > video_current_time) {
-            //     p1_bicycle_video.currentTime = video_current_time;
-            // }
-            // else {
-            //     p1_bicycle_video.currentTime = video_current_time % p1_bicycle_video.duration;
-            // }
+            console.log(p1_bicycle_video.duration + " " + video_current_time + " " + delta);
+            if (p1_bicycle_video.duration > video_current_time) {
+                p1_bicycle_video.currentTime = video_current_time;
+            }
+            else {
+                p1_bicycle_video.currentTime = video_current_time % p1_bicycle_video.duration;
+            }
 
             p1_bicycle_material.update();
             p1_human2_material.update();
