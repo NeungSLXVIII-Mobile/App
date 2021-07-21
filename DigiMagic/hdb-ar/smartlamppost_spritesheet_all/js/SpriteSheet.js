@@ -42,8 +42,8 @@ var p3_icon_path = 'assets/sprites/1/Human04_15fps/Human04_15fps';
 
 // P1.
 var p1_bicycle_frame_count = 67;
-var p1_human2_frame_count = 131;
-var p1_human3_frame_count = 151;
+var p1_human2_frame_count = 151;
+var p1_human3_frame_count = 169;
 var p1_human4_frame_count = 163;
 var p1_human5_frame_count = 179;
 var p1_human6_frame_count = 138;
