@@ -257,7 +257,7 @@ loadTextures(urls, function (error, textures) {
     p2_human3_move = new THREE.Mesh(new THREE.PlaneGeometry(25, 25), p2_human3_material);
     p2_human4_move = new THREE.Mesh(new THREE.PlaneGeometry(25, 25), p2_human4_material);
     p2_human5_move = new THREE.Mesh(new THREE.PlaneGeometry(25, 25), p2_human5_material);
-    p2_icon_move = new THREE.Mesh(new THREE.PlaneGeometry(50, 50), p2_icon_material);
+    p2_icon_move = new THREE.Mesh(new THREE.PlaneGeometry(100, 100), p2_icon_material);
 });
 
 // P3.
@@ -294,7 +294,7 @@ loadTextures(urls, function (error, textures) {
     p3_human3_move = new THREE.Mesh(new THREE.PlaneGeometry(25, 25), p3_human3_material);
     p3_human4_move = new THREE.Mesh(new THREE.PlaneGeometry(25, 25), p3_human4_material);
     p3_human5_move = new THREE.Mesh(new THREE.PlaneGeometry(25, 25), p3_human5_material);
-    p3_icon_move = new THREE.Mesh(new THREE.PlaneGeometry(50, 50), p3_icon_material);
+    p3_icon_move = new THREE.Mesh(new THREE.PlaneGeometry(100, 100), p3_icon_material);
 });
 
 var tree1_material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/dummy.png'), opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide });
@@ -1072,9 +1072,9 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
 
             p2_icon_plane.visible = false;
 
-            p2_icon_move.position.x = -100;
-            p2_icon_move.position.y = 12.5 + 20;
-            p2_icon_move.position.z = p2_icon_plane.position.z;
+            p2_icon_move.position.x = p2_icon_plane.position.x + 50;
+            p2_icon_move.position.y = p2_icon_plane.position.y - 25;
+            p2_icon_move.position.z = p2_icon_plane.position.z + 5;
 
             p2_icon_move.renderOrder = 1;
 
@@ -1323,9 +1323,9 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
 
             p3_icon_plane.visible = false;
 
-            p3_icon_move.position.x = -100;
-            p3_icon_move.position.y = 12.5 + 20;
-            p3_icon_move.position.z = p3_icon_plane.position.z;
+            p3_icon_move.position.x = p3_icon_plane.position.x + 50;
+            p3_icon_move.position.y = p3_icon_plane.position.y - 25;
+            p3_icon_move.position.z = p3_icon_plane.position.z + 5;
 
             p3_icon_move.renderOrder = 1;
 
@@ -1608,7 +1608,7 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
 
                 p1_bicycle_move.visible = true;
 
-                p1_bicycle_move.position.x += 20 * delta;
+                p1_bicycle_move.position.x += 40 * delta;
                 if (p1_bicycle_move.position.x > 100) {
                     p1_bicycle_move.position.x = -100;
                     p1_bicycle_move.visible = false;
@@ -1622,7 +1622,7 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
 
                 p1_human2_move.visible = true;
 
-                p1_human2_move.position.x += 10 * delta;
+                p1_human2_move.position.x += 20 * delta;
                 if (p1_human2_move.position.x > 100) {
                     p1_human2_move.position.x = -100;
                     p1_human2_move.visible = false;
@@ -1636,7 +1636,7 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
 
                 p1_human3_move.visible = true;
 
-                p1_human3_move.position.x += 10 * delta;
+                p1_human3_move.position.x += 20 * delta;
                 if (p1_human3_move.position.x > 100) {
                     p1_human3_move.position.x = -100;
                     p1_human3_move.visible = false;
@@ -1650,7 +1650,7 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
 
                 p1_human4_move.visible = true;
 
-                p1_human4_move.position.x += 10 * delta;
+                p1_human4_move.position.x += 20 * delta;
                 if (p1_human4_move.position.x > 100) {
                     p1_human4_move.position.x = -100;
                     p1_human4_move.visible = false;
@@ -1664,7 +1664,7 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
 
                 p1_human5_move.visible = true;
 
-                p1_human5_move.position.x += 10 * delta;
+                p1_human5_move.position.x += 20 * delta;
                 if (p1_human5_move.position.x > 100) {
                     p1_human5_move.position.x = -100;
                     p1_human5_move.visible = false;
@@ -1678,7 +1678,7 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
 
                 p1_human6_move.visible = true;
 
-                p1_human6_move.position.x += 10 * delta;
+                p1_human6_move.position.x += 20 * delta;
                 if (p1_human6_move.position.x > 100) {
                     p1_human6_move.position.x = -100;
                     p1_human6_move.visible = false;
@@ -1694,7 +1694,7 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
 
                 p2_human1_move.visible = true;
 
-                p2_human1_move.position.x += 10 * delta;
+                p2_human1_move.position.x += 20 * delta;
                 if (p2_human1_move.position.x > 100) {
                     p2_human1_move.position.x = -100;
                     p2_human1_move.visible = false;
@@ -1708,7 +1708,7 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
 
                 p2_human2_move.visible = true;
 
-                p2_human2_move.position.x += 10 * delta;
+                p2_human2_move.position.x += 20 * delta;
                 if (p2_human2_move.position.x > 100) {
                     p2_human2_move.position.x = -100;
                     p2_human2_move.visible = false;
@@ -1722,7 +1722,7 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
 
                 p2_human3_move.visible = true;
 
-                p2_human3_move.position.x += 10 * delta;
+                p2_human3_move.position.x += 20 * delta;
                 if (p2_human3_move.position.x > 100) {
                     p2_human3_move.position.x = -100;
                     p2_human3_move.visible = false;
@@ -1736,7 +1736,7 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
 
                 p2_human4_move.visible = true;
 
-                p2_human4_move.position.x += 10 * delta;
+                p2_human4_move.position.x += 20 * delta;
                 if (p2_human4_move.position.x > 100) {
                     p2_human4_move.position.x = -100;
                     p2_human4_move.visible = false;
@@ -1750,7 +1750,7 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
 
                 p2_human5_move.visible = true;
 
-                p2_human5_move.position.x += 10 * delta;
+                p2_human5_move.position.x += 20 * delta;
                 if (p2_human5_move.position.x > 100) {
                     p2_human5_move.position.x = -100;
                     p2_human5_move.visible = false;
@@ -1766,7 +1766,7 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
 
                 p3_human1_move.visible = true;
 
-                p3_human1_move.position.x += 10 * delta;
+                p3_human1_move.position.x += 20 * delta;
                 if (p3_human1_move.position.x > 100) {
                     p3_human1_move.position.x = -100;
                     p3_human1_move.visible = false;
@@ -1780,7 +1780,7 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
 
                 p3_human2_move.visible = true;
 
-                p3_human2_move.position.x += 10 * delta;
+                p3_human2_move.position.x += 20 * delta;
                 if (p3_human2_move.position.x > 100) {
                     p3_human2_move.position.x = -100;
                     p3_human2_move.visible = false;
@@ -1794,7 +1794,7 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
 
                 p3_human3_move.visible = true;
 
-                p3_human3_move.position.x += 10 * delta;
+                p3_human3_move.position.x += 20 * delta;
                 if (p3_human3_move.position.x > 100) {
                     p3_human3_move.position.x = -100;
                     p3_human3_move.visible = false;
@@ -1808,7 +1808,7 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
 
                 p3_human4_move.visible = true;
 
-                p3_human4_move.position.x += 10 * delta;
+                p3_human4_move.position.x += 20 * delta;
                 if (p3_human4_move.position.x > 100) {
                     p3_human4_move.position.x = -100;
                     p3_human4_move.visible = false;
@@ -1822,7 +1822,7 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
 
                 p3_human5_move.visible = true;
 
-                p3_human5_move.position.x += 10 * delta;
+                p3_human5_move.position.x += 20 * delta;
                 if (p3_human5_move.position.x > 100) {
                     p3_human5_move.position.x = -100;
                     p3_human5_move.visible = false;
