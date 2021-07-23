@@ -211,7 +211,7 @@ loadTextures(urls, function (error, textures) {
         return;
     }
 
-    p1_bicycle_animation = SpriteAnimator.add({ texture: textures[0], tilesHorizontal: 9, tilesVertical: 9, fps: 24, numberOfTiles: 67 });
+    p1_bicycle_animation = SpriteAnimator.add({ texture: textures[0], tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 67 });
     p1_bicycle_material.map = textures[0];
     p1_human2_animation = SpriteAnimator.add({ texture: textures[1], tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 151 });
     p1_human2_material.map = textures[1];

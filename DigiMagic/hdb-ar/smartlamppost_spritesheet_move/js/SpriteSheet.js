@@ -1,71 +1,36 @@
 // P1.
-// var p1_bicycle_path = 'assets/sprites/1/01_Bicycle/01_Bicycle';
-// var p1_human2_path = 'assets/sprites/1/02_Human/02_Human';
-// var p1_human3_path = 'assets/sprites/1/03_Human/03_Human';
-// var p1_human4_path = 'assets/sprites/1/04_Human/04_Human';
-// var p1_human5_path = 'assets/sprites/1/05_Human/05_Human';
-// var p1_human6_path = 'assets/sprites/1/06_Human/06_Human';
-// var p1_icon_path = 'assets/sprites/1/Part01_Icon/Part01_Icon';
-var p1_bicycle_path = 'assets/sprites/1/Bicycle_15fps/Bicycle_15fps';
-var p1_human2_path = 'assets/sprites/1/Human01_15fps/Human01_15fps';
-var p1_human3_path = 'assets/sprites/1/Human02_15fps/Human02_15fps';
-var p1_human4_path = 'assets/sprites/1/Human03_15fps/Human03_15fps';
-var p1_human5_path = 'assets/sprites/1/Human04_15fps/Human04_15fps';
-var p1_human6_path = 'assets/sprites/1/Human05_15fps/Human05_15fps';
-var p1_icon_path = 'assets/sprites/1/Part01_Icon/Part01_Icon';
-// Test.
-// var p1_bicycle_path = 'assets/sprites/1/Human04_15fps/Human04_15fps';
-// var p1_human2_path = 'assets/sprites/1/Human04_15fps/Human04_15fps';
-// var p1_human3_path = 'assets/sprites/1/Human04_15fps/Human04_15fps';
-// var p1_human4_path = 'assets/sprites/1/Human04_15fps/Human04_15fps';
-// var p1_human5_path = 'assets/sprites/1/Human04_15fps/Human04_15fps';
-// var p1_human6_path = 'assets/sprites/1/Human04_15fps/Human04_15fps';
-// var p1_icon_path = 'assets/sprites/1/Human04_15fps/Human04_15fps';
+var p1_bicycle_path = 'assets/sprites/move1/Bicycle/1';
+var p1_human2_path = 'assets/sprites/move1/Walk01/Walk01';
+var p1_human3_path = 'assets/sprites/move1/Walk01/Walk01';
+var p1_human4_path = 'assets/sprites/move1/Walk01/Walk01';
+var p1_human5_path = 'assets/sprites/move1/Walk01/Walk01';
+var p1_human6_path = 'assets/sprites/move1/Walk01/Walk01';
+var p1_icon_path = 'assets/sprites/move1/Bubble_01_300px15fps/01_300px15fps';
 //P2.
-// var p2_human1_path = 'assets/sprites/2/Human01_v2/Human01_v2';
-// var p2_human2_path = 'assets/sprites/2/Human02_v2/Human02_v2';
-// var p2_human3_path = 'assets/sprites/2/Human03_v2/Human03_v2';
-// var p2_human4_path = 'assets/sprites/2/Human04_v2/Human04_v2';
-// var p2_human5_path = 'assets/sprites/2/Human05_v2/Human05_v2';
-var p2_human1_path = 'assets/sprites/1/Human04_15fps/Human04_15fps';
-var p2_human2_path = 'assets/sprites/1/Human04_15fps/Human04_15fps';
-var p2_human3_path = 'assets/sprites/1/Human04_15fps/Human04_15fps';
-var p2_human4_path = 'assets/sprites/1/Human04_15fps/Human04_15fps';
-var p2_human5_path = 'assets/sprites/1/Human04_15fps/Human04_15fps';
-var p2_icon_path = 'assets/sprites/1/Human04_15fps/Human04_15fps';
+var p2_human1_path = 'assets/sprites/move1/Walk01/Walk01';
+var p2_human2_path = 'assets/sprites/move1/Walk01/Walk01';
+var p2_human3_path = 'assets/sprites/move1/Walk01/Walk01';
+var p2_human4_path = 'assets/sprites/move1/Walk01/Walk01';
+var p2_human5_path = 'assets/sprites/move1/Walk01/Walk01';
+var p2_icon_path = 'assets/sprites/move1/Bubble_01_300px15fps/01_300px15fps';
 // P3.
-//var p3_icon_path = 'assets/sprites/3/PART03_Icon/PART03_Icon';
-var p3_icon_path = 'assets/sprites/1/Human04_15fps/Human04_15fps';
+var p3_icon_path = 'assets/sprites/move1/Bubble_01_300px15fps/01_300px15fps';
 
 // P1.
-var p1_bicycle_frame_count = 67;
-var p1_human2_frame_count = 131;
-var p1_human3_frame_count = 151;
-var p1_human4_frame_count = 163;
-var p1_human5_frame_count = 179;
-var p1_human6_frame_count = 138;
-var p1_icon_frame_count = 77;
-// var p2_human1_frame_count = 223;
-// var p2_human2_frame_count = 251;
-// var p2_human3_frame_count = 271;
-// var p2_human4_frame_count = 298;
-// var p2_human5_frame_count = 229;
-// var p2_icon_frame_count = 77;
-// var p3_icon_frame_count = 77;
-// var p1_bicycle_frame_count = 179;
-// var p1_human2_frame_count = 179;
-// var p1_human3_frame_count = 179;
-// var p1_human4_frame_count = 179;
-// var p1_human5_frame_count = 179;
-// var p1_human6_frame_count = 179;
-// var p1_icon_frame_count = 179;
-var p2_human1_frame_count = 179;
-var p2_human2_frame_count = 179;
-var p2_human3_frame_count = 179;
-var p2_human4_frame_count = 179;
-var p2_human5_frame_count = 179;
-var p2_icon_frame_count = 179;
-var p3_icon_frame_count = 179;
+var p1_bicycle_frame_count = 70;
+var p1_human2_frame_count = 70;
+var p1_human3_frame_count = 70;
+var p1_human4_frame_count = 70;
+var p1_human5_frame_count = 70;
+var p1_human6_frame_count = 70;
+var p1_icon_frame_count = 46;
+var p2_human1_frame_count = 70;
+var p2_human2_frame_count = 70;
+var p2_human3_frame_count = 70;
+var p2_human4_frame_count = 70;
+var p2_human5_frame_count = 70;
+var p2_icon_frame_count = 46;
+var p3_icon_frame_count = 46;
 
 function zero_path(count) {
     if (count < 10) {
@@ -86,8 +51,8 @@ function drawSpriteSheet(sprite_path, sprite_frame_count, has_zero_path, sprite_
     canvas.width = sprite_column * sprite_width;
     canvas.height = sprite_row * sprite_height;
 
-    context.fillStyle = "#00FF00";
-    context.fillRect(0, 0, canvas.width, canvas.height);
+    // context.fillStyle = "#00FF00";
+    // context.fillRect(0, 0, canvas.width, canvas.height);
 
     var sprite_srcs = [];
     for (count = 0; count < sprite_frame_count; count++) {
@@ -97,6 +62,7 @@ function drawSpriteSheet(sprite_path, sprite_frame_count, has_zero_path, sprite_
         else {
             sprite_srcs[count] = sprite_path + '_' + count + '.png';
         }
+        console.log(sprite_srcs[count]);
     }
 
     function preloadImages(srcs) {

@@ -142,37 +142,54 @@ var p3_human5_move;
 var p3_icon_move;
 
 // P1.
-var p1_bicycle_move_position;
-var p1_human2_move_position;
-var p1_human3_move_position;
-var p1_human4_move_position;
-var p1_human5_move_position;
-var p1_human6_move_position;
-var p1_icon_move_position;
+var p1_bicycle_wait_time;
+var p1_human2_wait_time;
+var p1_human3_wait_time;
+var p1_human4_wait_time;
+var p1_human5_wait_time;
+var p1_human6_wait_time;
 // P2.
-var p2_human1_move_position;
-var p2_human2_move_position;
-var p2_human3_move_position;
-var p2_human4_move_position;
-var p2_human5_move_position;
-var p2_icon_move_position;
+var p2_human1_wait_time;
+var p2_human2_wait_time;
+var p2_human3_wait_time;
+var p2_human4_wait_time;
+var p2_human5_wait_time;
 // P3.
-var p3_human1_move_position;
-var p3_human2_move_position;
-var p3_human3_move_position;
-var p3_human4_move_position;
-var p3_human5_move_position;
-var p3_icon_move_position;
+var p3_human1_wait_time;
+var p3_human2_wait_time;
+var p3_human3_wait_time;
+var p3_human4_wait_time;
+var p3_human5_wait_time;
+
+// P1.
+var p1_bicycle_wait_time_value;
+var p1_human2_wait_time_value;
+var p1_human3_wait_time_value;
+var p1_human4_wait_time_value;
+var p1_human5_wait_time_value;
+var p1_human6_wait_time_value;
+// P2.
+var p2_human1_wait_time_value;
+var p2_human2_wait_time_value;
+var p2_human3_wait_time_value;
+var p2_human4_wait_time_value;
+var p2_human5_wait_time_value;
+// P3.
+var p3_human1_wait_time_value;
+var p3_human2_wait_time_value;
+var p3_human3_wait_time_value;
+var p3_human4_wait_time_value;
+var p3_human5_wait_time_value;
 
 // P1.
 var urls = [
-    "assets/sprites/sprite_sheet.png",
-    "assets/sprites/sprite_sheet.png",
-    "assets/sprites/sprite_sheet.png",
-    "assets/sprites/sprite_sheet.png",
-    "assets/sprites/sprite_sheet.png",
-    "assets/sprites/sprite_sheet.png",
-    "assets/sprites/sprite_sheet.png",
+    "assets/sprites/p1_bicycle_sprite_sheet.png",
+    "assets/sprites/p1_human2_sprite_sheet.png",
+    "assets/sprites/p1_human2_sprite_sheet.png",
+    "assets/sprites/p1_human2_sprite_sheet.png",
+    "assets/sprites/p1_human2_sprite_sheet.png",
+    "assets/sprites/p1_human2_sprite_sheet.png",
+    "assets/sprites/p1_icon_sprite_sheet.png",
 ];
 
 loadTextures(urls, function (error, textures) {
@@ -182,19 +199,19 @@ loadTextures(urls, function (error, textures) {
     }
 
     // P1.
-    p1_bicycle_animation = SpriteAnimator.add({ texture: textures[0], tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
+    p1_bicycle_animation = SpriteAnimator.add({ texture: textures[0], tilesHorizontal: 9, tilesVertical: 9, fps: 24, numberOfTiles: 70 });
     p1_bicycle_material.map = textures[0];
-    p1_human2_animation = SpriteAnimator.add({ texture: textures[1], tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
+    p1_human2_animation = SpriteAnimator.add({ texture: textures[1], tilesHorizontal: 9, tilesVertical: 9, fps: 24, numberOfTiles: 70 });
     p1_human2_material.map = textures[1];
-    p1_human3_animation = SpriteAnimator.add({ texture: textures[2], tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
+    p1_human3_animation = SpriteAnimator.add({ texture: textures[2], tilesHorizontal: 9, tilesVertical: 9, fps: 24, numberOfTiles: 70 });
     p1_human3_material.map = textures[2];
-    p1_human4_animation = SpriteAnimator.add({ texture: textures[3], tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
+    p1_human4_animation = SpriteAnimator.add({ texture: textures[3], tilesHorizontal: 9, tilesVertical: 9, fps: 24, numberOfTiles: 70 });
     p1_human4_material.map = textures[3];
-    p1_human5_animation = SpriteAnimator.add({ texture: textures[4], tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
+    p1_human5_animation = SpriteAnimator.add({ texture: textures[4], tilesHorizontal: 9, tilesVertical: 9, fps: 24, numberOfTiles: 70 });
     p1_human5_material.map = textures[4];
-    p1_human6_animation = SpriteAnimator.add({ texture: textures[5], tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
+    p1_human6_animation = SpriteAnimator.add({ texture: textures[5], tilesHorizontal: 9, tilesVertical: 9, fps: 24, numberOfTiles: 70 });
     p1_human6_material.map = textures[5];
-    p1_icon_animation = SpriteAnimator.add({ texture: textures[6], tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
+    p1_icon_animation = SpriteAnimator.add({ texture: textures[6], tilesHorizontal: 7, tilesVertical: 7, fps: 24, numberOfTiles: 46 });
     p1_icon_material.map = textures[6];
 
     p1_bicycle_move = new THREE.Mesh(new THREE.PlaneGeometry(25, 25), p1_bicycle_material);
@@ -203,17 +220,17 @@ loadTextures(urls, function (error, textures) {
     p1_human4_move = new THREE.Mesh(new THREE.PlaneGeometry(25, 25), p1_human4_material);
     p1_human5_move = new THREE.Mesh(new THREE.PlaneGeometry(25, 25), p1_human5_material);
     p1_human6_move = new THREE.Mesh(new THREE.PlaneGeometry(25, 25), p1_human6_material);
-    p1_icon_move = new THREE.Mesh(new THREE.PlaneGeometry(25, 25), p1_icon_material);
+    p1_icon_move = new THREE.Mesh(new THREE.PlaneGeometry(100, 100), p1_icon_material);
 });
 
 // P2.
 var urls = [
-    "assets/sprites/sprite_sheet.png",
-    "assets/sprites/sprite_sheet.png",
-    "assets/sprites/sprite_sheet.png",
-    "assets/sprites/sprite_sheet.png",
-    "assets/sprites/sprite_sheet.png",
-    "assets/sprites/sprite_sheet.png",
+    "assets/sprites/p1_human2_sprite_sheet.png",
+    "assets/sprites/p1_human2_sprite_sheet.png",
+    "assets/sprites/p1_human2_sprite_sheet.png",
+    "assets/sprites/p1_human2_sprite_sheet.png",
+    "assets/sprites/p1_human2_sprite_sheet.png",
+    "assets/sprites/p1_icon_sprite_sheet.png",
 ];
 
 loadTextures(urls, function (error, textures) {
@@ -222,17 +239,17 @@ loadTextures(urls, function (error, textures) {
         return;
     }
 
-    p2_human1_animation = SpriteAnimator.add({ texture: textures[0], tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
+    p2_human1_animation = SpriteAnimator.add({ texture: textures[0], tilesHorizontal: 9, tilesVertical: 9, fps: 24, numberOfTiles: 70 });
     p2_human1_material.map = textures[0];
-    p2_human2_animation = SpriteAnimator.add({ texture: textures[1], tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
+    p2_human2_animation = SpriteAnimator.add({ texture: textures[1], tilesHorizontal: 9, tilesVertical: 9, fps: 24, numberOfTiles: 70 });
     p2_human2_material.map = textures[1];
-    p2_human3_animation = SpriteAnimator.add({ texture: textures[2], tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
+    p2_human3_animation = SpriteAnimator.add({ texture: textures[2], tilesHorizontal: 9, tilesVertical: 9, fps: 24, numberOfTiles: 70 });
     p2_human3_material.map = textures[2];
-    p2_human4_animation = SpriteAnimator.add({ texture: textures[3], tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
+    p2_human4_animation = SpriteAnimator.add({ texture: textures[3], tilesHorizontal: 9, tilesVertical: 9, fps: 24, numberOfTiles: 70 });
     p2_human4_material.map = textures[3];
-    p2_human5_animation = SpriteAnimator.add({ texture: textures[4], tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
+    p2_human5_animation = SpriteAnimator.add({ texture: textures[4], tilesHorizontal: 9, tilesVertical: 9, fps: 24, numberOfTiles: 70 });
     p2_human5_material.map = textures[4];
-    p2_icon_animation = SpriteAnimator.add({ texture: textures[5], tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
+    p2_icon_animation = SpriteAnimator.add({ texture: textures[5], tilesHorizontal: 7, tilesVertical: 7, fps: 24, numberOfTiles: 46 });
     p2_icon_material.map = textures[5];
 
     p2_human1_move = new THREE.Mesh(new THREE.PlaneGeometry(25, 25), p2_human1_material);
@@ -240,17 +257,17 @@ loadTextures(urls, function (error, textures) {
     p2_human3_move = new THREE.Mesh(new THREE.PlaneGeometry(25, 25), p2_human3_material);
     p2_human4_move = new THREE.Mesh(new THREE.PlaneGeometry(25, 25), p2_human4_material);
     p2_human5_move = new THREE.Mesh(new THREE.PlaneGeometry(25, 25), p2_human5_material);
-    p2_icon_move = new THREE.Mesh(new THREE.PlaneGeometry(25, 25), p2_icon_material);
+    p2_icon_move = new THREE.Mesh(new THREE.PlaneGeometry(50, 50), p2_icon_material);
 });
 
 // P3.
 var urls = [
-    "assets/sprites/sprite_sheet.png",
-    "assets/sprites/sprite_sheet.png",
-    "assets/sprites/sprite_sheet.png",
-    "assets/sprites/sprite_sheet.png",
-    "assets/sprites/sprite_sheet.png",
-    "assets/sprites/sprite_sheet.png",
+    "assets/sprites/p1_human2_sprite_sheet.png",
+    "assets/sprites/p1_human2_sprite_sheet.png",
+    "assets/sprites/p1_human2_sprite_sheet.png",
+    "assets/sprites/p1_human2_sprite_sheet.png",
+    "assets/sprites/p1_human2_sprite_sheet.png",
+    "assets/sprites/p1_icon_sprite_sheet.png",
 ];
 
 loadTextures(urls, function (error, textures) {
@@ -259,17 +276,17 @@ loadTextures(urls, function (error, textures) {
         return;
     }
 
-    p2_human1_animation = SpriteAnimator.add({ texture: textures[0], tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
+    p2_human1_animation = SpriteAnimator.add({ texture: textures[0], tilesHorizontal: 9, tilesVertical: 9, fps: 24, numberOfTiles: 70 });
     p2_human1_material.map = textures[0];
-    p2_human2_animation = SpriteAnimator.add({ texture: textures[1], tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
+    p2_human2_animation = SpriteAnimator.add({ texture: textures[1], tilesHorizontal: 9, tilesVertical: 9, fps: 24, numberOfTiles: 70 });
     p2_human2_material.map = textures[1];
-    p2_human3_animation = SpriteAnimator.add({ texture: textures[2], tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
+    p2_human3_animation = SpriteAnimator.add({ texture: textures[2], tilesHorizontal: 9, tilesVertical: 9, fps: 24, numberOfTiles: 70 });
     p2_human3_material.map = textures[2];
-    p2_human4_animation = SpriteAnimator.add({ texture: textures[3], tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
+    p2_human4_animation = SpriteAnimator.add({ texture: textures[3], tilesHorizontal: 9, tilesVertical: 9, fps: 24, numberOfTiles: 70 });
     p2_human4_material.map = textures[3];
-    p2_human5_animation = SpriteAnimator.add({ texture: textures[4], tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
+    p2_human5_animation = SpriteAnimator.add({ texture: textures[4], tilesHorizontal: 9, tilesVertical: 9, fps: 24, numberOfTiles: 70 });
     p2_human5_material.map = textures[4];
-    p3_icon_animation = SpriteAnimator.add({ texture: textures[5], tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 163 });
+    p3_icon_animation = SpriteAnimator.add({ texture: textures[5], tilesHorizontal: 7, tilesVertical: 7, fps: 24, numberOfTiles: 46 });
     p3_icon_material.map = textures[5];
 
     p3_human1_move = new THREE.Mesh(new THREE.PlaneGeometry(25, 25), p3_human1_material);
@@ -277,7 +294,7 @@ loadTextures(urls, function (error, textures) {
     p3_human3_move = new THREE.Mesh(new THREE.PlaneGeometry(25, 25), p3_human3_material);
     p3_human4_move = new THREE.Mesh(new THREE.PlaneGeometry(25, 25), p3_human4_material);
     p3_human5_move = new THREE.Mesh(new THREE.PlaneGeometry(25, 25), p3_human5_material);
-    p3_icon_move = new THREE.Mesh(new THREE.PlaneGeometry(25, 25), p3_icon_material);
+    p3_icon_move = new THREE.Mesh(new THREE.PlaneGeometry(50, 50), p3_icon_material);
 });
 
 var tree1_material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/dummy.png'), opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide });
@@ -697,8 +714,10 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
             p1_bicycle_plane.visible = false;
 
             p1_bicycle_move.position.x = -100;
-            p1_bicycle_move.position.y = 12.5 + 10;
+            p1_bicycle_move.position.y = 12.5 + 20;
             p1_bicycle_move.position.z = p1_bicycle_plane.position.z;
+
+            p1_bicycle_move.renderOrder = 1;
 
             model2.add(p1_bicycle_move);
         }
@@ -713,8 +732,10 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
             p1_human2_plane.visible = false;
 
             p1_human2_move.position.x = -100;
-            p1_human2_move.position.y = 12.5 + 10;
+            p1_human2_move.position.y = 12.5 + 20;
             p1_human2_move.position.z = p1_human2_plane.position.z;
+
+            p1_human2_move.renderOrder = 1;
 
             model2.add(p1_human2_move);
         }
@@ -729,8 +750,10 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
             p1_human3_plane.visible = false;
 
             p1_human3_move.position.x = -100;
-            p1_human3_move.position.y = 12.5 + 10;
+            p1_human3_move.position.y = 12.5 + 20;
             p1_human3_move.position.z = p1_human3_plane.position.z;
+
+            p1_human3_move.renderOrder = 1;
 
             model2.add(p1_human3_move);
         }
@@ -745,8 +768,10 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
             p1_human4_plane.visible = false;
 
             p1_human4_move.position.x = -100;
-            p1_human4_move.position.y = 12.5 + 10;
+            p1_human4_move.position.y = 12.5 + 20;
             p1_human4_move.position.z = p1_human4_plane.position.z;
+
+            p1_human4_move.renderOrder = 1;
 
             model2.add(p1_human4_move);
         }
@@ -761,8 +786,10 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
             p1_human5_plane.visible = false;
 
             p1_human5_move.position.x = -100;
-            p1_human5_move.position.y = 12.5 + 10;
+            p1_human5_move.position.y = 12.5 + 20;
             p1_human5_move.position.z = p1_human5_plane.position.z;
+
+            p1_human5_move.renderOrder = 1;
 
             model2.add(p1_human5_move);
         }
@@ -777,8 +804,10 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
             p1_human6_plane.visible = false;
 
             p1_human6_move.position.x = -100;
-            p1_human6_move.position.y = 12.5 + 10;
+            p1_human6_move.position.y = 12.5 + 20;
             p1_human6_move.position.z = p1_human6_plane.position.z;
+
+            p1_human6_move.renderOrder = 1;
 
             model2.add(p1_human6_move);
         }
@@ -792,9 +821,11 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
 
             p1_icon_plane.visible = false;
 
-            p1_icon_move.position.x = -100;
-            p1_icon_move.position.y = 12.5 + 10;
-            p1_icon_move.position.z = p1_icon_plane.position.z;
+            p1_icon_move.position.x = p1_icon_plane.position.x + 50;
+            p1_icon_move.position.y = p1_icon_plane.position.y - 25;
+            p1_icon_move.position.z = p1_icon_plane.position.z + 5;
+
+            p1_icon_move.renderOrder = 1;
 
             model2.add(p1_icon_move);
         }
@@ -952,8 +983,10 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
             p2_human1_plane.visible = false;
 
             p2_human1_move.position.x = -100;
-            p2_human1_move.position.y = 12.5 + 10;
+            p2_human1_move.position.y = 12.5 + 20;
             p2_human1_move.position.z = p2_human1_plane.position.z;
+
+            p2_human1_move.renderOrder = 1;
 
             model3.add(p2_human1_move);
         }
@@ -968,8 +1001,10 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
             p2_human2_plane.visible = false;
 
             p2_human2_move.position.x = -100;
-            p2_human2_move.position.y = 12.5 + 10;
+            p2_human2_move.position.y = 12.5 + 20;
             p2_human2_move.position.z = p2_human2_plane.position.z;
+
+            p2_human2_move.renderOrder = 1;
 
             model3.add(p2_human2_move);
         }
@@ -984,8 +1019,10 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
             p2_human3_plane.visible = false;
 
             p2_human3_move.position.x = -100;
-            p2_human3_move.position.y = 12.5 + 10;
+            p2_human3_move.position.y = 12.5 + 20;
             p2_human3_move.position.z = p2_human3_plane.position.z;
+
+            p2_human3_move.renderOrder = 1;
 
             model3.add(p2_human3_move);
         }
@@ -1000,8 +1037,10 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
             p2_human4_plane.visible = false;
 
             p2_human4_move.position.x = -100;
-            p2_human4_move.position.y = 12.5 + 10;
+            p2_human4_move.position.y = 12.5 + 20;
             p2_human4_move.position.z = p2_human4_plane.position.z;
+
+            p2_human4_move.renderOrder = 1;
 
             model3.add(p2_human4_move);
         }
@@ -1016,8 +1055,10 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
             p2_human5_plane.visible = false;
 
             p2_human5_move.position.x = -100;
-            p2_human5_move.position.y = 12.5 + 10;
+            p2_human5_move.position.y = 12.5 + 20;
             p2_human5_move.position.z = p2_human5_plane.position.z;
+
+            p2_human5_move.renderOrder = 1;
 
             model3.add(p2_human5_move);
         }
@@ -1032,8 +1073,10 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
             p2_icon_plane.visible = false;
 
             p2_icon_move.position.x = -100;
-            p2_icon_move.position.y = 12.5 + 10;
+            p2_icon_move.position.y = 12.5 + 20;
             p2_icon_move.position.z = p2_icon_plane.position.z;
+
+            p2_icon_move.renderOrder = 1;
 
             model3.add(p2_icon_move);
         }
@@ -1191,8 +1234,10 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
             p3_human1_plane.visible = false;
 
             p3_human1_move.position.x = -100;
-            p3_human1_move.position.y = 12.5 + 10;
+            p3_human1_move.position.y = 12.5 + 20;
             p3_human1_move.position.z = p3_human1_plane.position.z;
+
+            p3_human1_move.renderOrder = 1;
 
             model4.add(p3_human1_move);
         }
@@ -1207,8 +1252,10 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
             p3_human2_plane.visible = false;
 
             p3_human2_move.position.x = -100;
-            p3_human2_move.position.y = 12.5 + 10;
+            p3_human2_move.position.y = 12.5 + 20;
             p3_human2_move.position.z = p3_human2_plane.position.z;
+
+            p3_human2_move.renderOrder = 1;
 
             model4.add(p3_human2_move);
         }
@@ -1223,8 +1270,10 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
             p3_human3_plane.visible = false;
 
             p3_human3_move.position.x = -100;
-            p3_human3_move.position.y = 12.5 + 10;
+            p3_human3_move.position.y = 12.5 + 20;
             p3_human3_move.position.z = p3_human3_plane.position.z;
+
+            p3_human3_move.renderOrder = 1;
 
             model4.add(p3_human3_move);
         }
@@ -1239,8 +1288,10 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
             p3_human4_plane.visible = false;
 
             p3_human4_move.position.x = -100;
-            p3_human4_move.position.y = 12.5 + 10;
+            p3_human4_move.position.y = 12.5 + 20;
             p3_human4_move.position.z = p3_human4_plane.position.z;
+
+            p3_human4_move.renderOrder = 1;
 
             model4.add(p3_human4_move);
         }
@@ -1255,8 +1306,10 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
             p3_human5_plane.visible = false;
 
             p3_human5_move.position.x = -100;
-            p3_human5_move.position.y = 12.5 + 10;
+            p3_human5_move.position.y = 12.5 + 20;
             p3_human5_move.position.z = p3_human5_plane.position.z;
+
+            p3_human5_move.renderOrder = 1;
 
             model4.add(p3_human5_move);
         }
@@ -1271,8 +1324,10 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
             p3_icon_plane.visible = false;
 
             p3_icon_move.position.x = -100;
-            p3_icon_move.position.y = 12.5 + 10;
+            p3_icon_move.position.y = 12.5 + 20;
             p3_icon_move.position.z = p3_icon_plane.position.z;
+
+            p3_icon_move.renderOrder = 1;
 
             model4.add(p3_icon_move);
         }
@@ -1547,85 +1602,233 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
         SpriteAnimator.update(delta);
 
         if (p1_show) {
-            p1_bicycle_move.position.x += 10 * delta;
-            if (p1_bicycle_move.position.x > 100) {
-                p1_bicycle_move.position.x = -100;
+            p1_bicycle_wait_time -= delta;
+            if (p1_bicycle_wait_time <= 0) {
+                p1_bicycle_wait_time = 0;
+
+                p1_bicycle_move.visible = true;
+
+                p1_bicycle_move.position.x += 20 * delta;
+                if (p1_bicycle_move.position.x > 100) {
+                    p1_bicycle_move.position.x = -100;
+                    p1_bicycle_move.visible = false;
+
+                    p1_bicycle_wait_time = p1_bicycle_wait_time_value;
+                }
             }
-            p1_human2_move.position.x += 10 * delta;
-            if (p1_human2_move.position.x > 100) {
-                p1_human2_move.position.x = -100;
+            p1_human2_wait_time -= delta;
+            if (p1_human2_wait_time <= 0) {
+                p1_human2_wait_time = 0;
+
+                p1_human2_move.visible = true;
+
+                p1_human2_move.position.x += 10 * delta;
+                if (p1_human2_move.position.x > 100) {
+                    p1_human2_move.position.x = -100;
+                    p1_human2_move.visible = false;
+
+                    p1_human2_wait_time = p1_human2_wait_time_value;
+                }
             }
-            p1_human3_move.position.x += 10 * delta;
-            if (p1_human3_move.position.x > 100) {
-                p1_human3_move.position.x = -100;
+            p1_human3_wait_time -= delta;
+            if (p1_human3_wait_time <= 0) {
+                p1_human3_wait_time = 0;
+
+                p1_human3_move.visible = true;
+
+                p1_human3_move.position.x += 10 * delta;
+                if (p1_human3_move.position.x > 100) {
+                    p1_human3_move.position.x = -100;
+                    p1_human3_move.visible = false;
+
+                    p1_human3_wait_time = p1_human3_wait_time_value;
+                }
             }
-            p1_human4_move.position.x += 10 * delta;
-            if (p1_human4_move.position.x > 100) {
-                p1_human4_move.position.x = -100;
+            p1_human4_wait_time -= delta;
+            if (p1_human4_wait_time <= 0) {
+                p1_human4_wait_time = 0;
+
+                p1_human4_move.visible = true;
+
+                p1_human4_move.position.x += 10 * delta;
+                if (p1_human4_move.position.x > 100) {
+                    p1_human4_move.position.x = -100;
+                    p1_human4_move.visible = false;
+
+                    p1_human4_wait_time = p1_human4_wait_time_value;
+                }
             }
-            p1_human5_move.position.x += 10 * delta;
-            if (p1_human5_move.position.x > 100) {
-                p1_human5_move.position.x = -100;
+            p1_human5_wait_time -= delta;
+            if (p1_human5_wait_time <= 0) {
+                p1_human5_wait_time = 0;
+
+                p1_human5_move.visible = true;
+
+                p1_human5_move.position.x += 10 * delta;
+                if (p1_human5_move.position.x > 100) {
+                    p1_human5_move.position.x = -100;
+                    p1_human5_move.visible = false;
+
+                    p1_human5_wait_time = p1_human5_wait_time_value;
+                }
             }
-            p1_human6_move.position.x += 10 * delta;
-            if (p1_human6_move.position.x > 100) {
-                p1_human6_move.position.x = -100;
-            }
-            p1_icon_move.position.x += 10 * delta;
-            if (p1_icon_move.position.x > 100) {
-                p1_icon_move.position.x = -100;
+            p1_human6_wait_time -= delta;
+            if (p1_human6_wait_time <= 0) {
+                p1_human6_wait_time = 0;
+
+                p1_human6_move.visible = true;
+
+                p1_human6_move.position.x += 10 * delta;
+                if (p1_human6_move.position.x > 100) {
+                    p1_human6_move.position.x = -100;
+                    p1_human6_move.visible = false;
+
+                    p1_human6_wait_time = p1_human6_wait_time_value;
+                }
             }
         }
         if (p2_show) {
-            p2_human1_move.position.x += 10 * delta;
-            if (p2_human1_move.position.x > 100) {
-                p2_human1_move.position.x = -100;
+            p2_human1_wait_time -= delta;
+            if (p2_human1_wait_time <= 0) {
+                p2_human1_wait_time = 0;
+
+                p2_human1_move.visible = true;
+
+                p2_human1_move.position.x += 10 * delta;
+                if (p2_human1_move.position.x > 100) {
+                    p2_human1_move.position.x = -100;
+                    p2_human1_move.visible = false;
+
+                    p2_human1_wait_time = p2_human1_wait_time_value;
+                }
             }
-            p2_human2_move.position.x += 10 * delta;
-            if (p2_human2_move.position.x > 100) {
-                p2_human2_move.position.x = -100;
+            p2_human2_wait_time -= delta;
+            if (p2_human2_wait_time <= 0) {
+                p2_human2_wait_time = 0;
+
+                p2_human2_move.visible = true;
+
+                p2_human2_move.position.x += 10 * delta;
+                if (p2_human2_move.position.x > 100) {
+                    p2_human2_move.position.x = -100;
+                    p2_human2_move.visible = false;
+
+                    p2_human2_wait_time = p2_human2_wait_time_value;
+                }
             }
-            p2_human3_move.position.x += 10 * delta;
-            if (p2_human3_move.position.x > 100) {
-                p2_human3_move.position.x = -100;
+            p2_human3_wait_time -= delta;
+            if (p2_human3_wait_time <= 0) {
+                p2_human3_wait_time = 0;
+
+                p2_human3_move.visible = true;
+
+                p2_human3_move.position.x += 10 * delta;
+                if (p2_human3_move.position.x > 100) {
+                    p2_human3_move.position.x = -100;
+                    p2_human3_move.visible = false;
+
+                    p2_human3_wait_time = p2_human3_wait_time_value;
+                }
             }
-            p2_human4_move.position.x += 10 * delta;
-            if (p2_human4_move.position.x > 100) {
-                p2_human4_move.position.x = -100;
+            p2_human4_wait_time -= delta;
+            if (p2_human4_wait_time <= 0) {
+                p2_human4_wait_time = 0;
+
+                p2_human4_move.visible = true;
+
+                p2_human4_move.position.x += 10 * delta;
+                if (p2_human4_move.position.x > 100) {
+                    p2_human4_move.position.x = -100;
+                    p2_human4_move.visible = false;
+
+                    p2_human4_wait_time = p2_human4_wait_time_value;
+                }
             }
-            p2_human5_move.position.x += 10 * delta;
-            if (p2_human5_move.position.x > 100) {
-                p2_human5_move.position.x = -100;
-            }
-            p2_icon_move.position.x += 10 * delta;
-            if (p2_icon_move.position.x > 100) {
-                p2_icon_move.position.x = -100;
+            p2_human5_wait_time -= delta;
+            if (p2_human5_wait_time <= 0) {
+                p2_human5_wait_time = 0;
+
+                p2_human5_move.visible = true;
+
+                p2_human5_move.position.x += 10 * delta;
+                if (p2_human5_move.position.x > 100) {
+                    p2_human5_move.position.x = -100;
+                    p2_human5_move.visible = false;
+
+                    p2_human5_wait_time = p2_human5_wait_time_value;
+                }
             }
         }
         if (p3_show) {
-            p3_human1_move.position.x += 10 * delta;
-            if (p3_human1_move.position.x > 100) {
-                p3_human1_move.position.x = -100;
+            p2_human1_wait_time -= delta;
+            if (p3_human1_wait_time <= 0) {
+                p3_human1_wait_time = 0;
+
+                p3_human1_move.visible = true;
+
+                p3_human1_move.position.x += 10 * delta;
+                if (p3_human1_move.position.x > 100) {
+                    p3_human1_move.position.x = -100;
+                    p3_human1_move.visible = false;
+
+                    p3_human1_wait_time = p3_human1_wait_time_value;
+                }
             }
-            p3_human2_move.position.x += 10 * delta;
-            if (p3_human2_move.position.x > 100) {
-                p3_human2_move.position.x = -100;
+            p3_human2_wait_time -= delta;
+            if (p3_human2_wait_time <= 0) {
+                p3_human2_wait_time = 0;
+
+                p3_human2_move.visible = true;
+
+                p3_human2_move.position.x += 10 * delta;
+                if (p3_human2_move.position.x > 100) {
+                    p3_human2_move.position.x = -100;
+                    p3_human2_move.visible = false;
+
+                    p3_human2_wait_time = p3_human2_wait_time_value;
+                }
             }
-            p3_human3_move.position.x += 10 * delta;
-            if (p3_human3_move.position.x > 100) {
-                p3_human3_move.position.x = -100;
+            p3_human3_wait_time -= delta;
+            if (p3_human3_wait_time <= 0) {
+                p3_human3_wait_time = 0;
+
+                p3_human3_move.visible = true;
+
+                p3_human3_move.position.x += 10 * delta;
+                if (p3_human3_move.position.x > 100) {
+                    p3_human3_move.position.x = -100;
+                    p3_human3_move.visible = false;
+
+                    p3_human3_wait_time = p3_human3_wait_time_value;
+                }
             }
-            p3_human4_move.position.x += 10 * delta;
-            if (p3_human4_move.position.x > 100) {
-                p3_human4_move.position.x = -100;
+            p3_human4_wait_time -= delta;
+            if (p3_human4_wait_time <= 0) {
+                p3_human4_wait_time = 0;
+
+                p3_human4_move.visible = true;
+
+                p3_human4_move.position.x += 10 * delta;
+                if (p3_human4_move.position.x > 100) {
+                    p3_human4_move.position.x = -100;
+                    p3_human4_move.visible = false;
+
+                    p3_human4_wait_time = p3_human4_wait_time_value;
+                }
             }
-            p3_human5_move.position.x += 10 * delta;
-            if (p3_human5_move.position.x > 100) {
-                p3_human5_move.position.x = -100;
-            }
-            p3_icon_move.position.x += 10 * delta;
-            if (p3_icon_move.position.x > 100) {
-                p3_icon_move.position.x = -100;
+            p3_human5_wait_time -= delta;
+            if (p3_human5_wait_time <= 0) {
+                p3_human5_wait_time = 0;
+
+                p3_human5_move.visible = true;
+
+                p3_human5_move.position.x += 10 * delta;
+                if (p3_human5_move.position.x > 100) {
+                    p3_human5_move.position.x = -100;
+                    p3_human5_move.visible = false;
+
+                    p3_human5_wait_time = p3_human5_wait_time_value;
+                }
             }
         }
     };
@@ -1682,16 +1885,27 @@ function choice1_worker() {
         p1_human4_move.position.x = -100;
         p1_human5_move.position.x = -100;
         p1_human6_move.position.x = -100;
-        p1_icon_move.position.x = -100;
 
-        // P1.
-        p1_bicycle_move_position = 100;
-        p1_human2_move_position = 100;
-        p1_human3_move_position = 100;
-        p1_human4_move_position = 100;
-        p1_human5_move_position = 100;
-        p1_human6_move_position = 100;
-        p1_icon_move_position = 100;
+        p1_bicycle_move.visible = false;
+        p1_human2_move.visible = false;
+        p1_human3_move.visible = false;
+        p1_human4_move.visible = false;
+        p1_human5_move.visible = false;
+        p1_human6_move.visible = false;
+
+        p1_bicycle_wait_time_value = 1;
+        p1_human2_wait_time_value = 2;
+        p1_human3_wait_time_value = 3;
+        p1_human4_wait_time_value = 4;
+        p1_human5_wait_time_value = 5;
+        p1_human6_wait_time_value = 6;
+
+        p1_bicycle_wait_time = p1_bicycle_wait_time_value;
+        p1_human2_wait_time = p1_human2_wait_time_value;
+        p1_human3_wait_time = p1_human3_wait_time_value;
+        p1_human4_wait_time = p1_human4_wait_time_value;
+        p1_human5_wait_time = p1_human5_wait_time_value;
+        p1_human6_wait_time = p1_human6_wait_time_value;
 
         p1_show = true;
         p2_show = false;
@@ -1712,15 +1926,24 @@ function choice2_worker() {
         p2_human3_move.position.x = -100;
         p2_human4_move.position.x = -100;
         p2_human5_move.position.x = -100;
-        p2_icon_move.position.x = -100;
 
-        // P2.
-        p2_human1_move_position = 100;
-        p2_human2_move_position = 100;
-        p2_human3_move_position = 100;
-        p2_human4_move_position = 100;
-        p2_human5_move_position = 100;
-        p2_icon_move_position = 100;
+        p2_human1_move.visible = false;
+        p2_human2_move.visible = false;
+        p2_human3_move.visible = false;
+        p2_human4_move.visible = false;
+        p2_human5_move.visible = false;
+
+        p2_human1_wait_time_value = 1;
+        p2_human2_wait_time_value = 2;
+        p2_human3_wait_time_value = 3;
+        p2_human4_wait_time_value = 4;
+        p2_human5_wait_time_value = 5;
+
+        p2_human1_wait_time = p2_human1_wait_time_value;
+        p2_human2_wait_time = p2_human2_wait_time_value;
+        p2_human3_wait_time = p2_human3_wait_time_value;
+        p2_human4_wait_time = p2_human4_wait_time_value;
+        p2_human5_wait_time = p2_human5_wait_time_value;
 
         p1_show = false;
         p2_show = true;
@@ -1741,15 +1964,24 @@ function choice3_worker() {
         p3_human3_move.position.x = -100;
         p3_human4_move.position.x = -100;
         p3_human5_move.position.x = -100;
-        p3_icon_move.position.x = -100;
 
-        // P3.
-        p3_human1_move_position = 100;
-        p3_human2_move_position = 100;
-        p3_human3_move_position = 100;
-        p3_human4_move_position = 100;
-        p3_human5_move_position = 100;
-        p3_icon_move_position = 100;
+        p3_human1_move.visible = false;
+        p3_human2_move.visible = false;
+        p3_human3_move.visible = false;
+        p3_human4_move.visible = false;
+        p3_human5_move.visible = false;
+
+        p3_human1_wait_time_value = 1;
+        p3_human2_wait_time_value = 2;
+        p3_human3_wait_time_value = 3;
+        p3_human4_wait_time_value = 4;
+        p3_human5_wait_time_value = 5;
+
+        p3_human1_wait_time = p3_human1_wait_time_value;
+        p3_human2_wait_time = p3_human2_wait_time_value;
+        p3_human3_wait_time = p3_human3_wait_time_value;
+        p3_human4_wait_time = p3_human4_wait_time_value;
+        p3_human5_wait_time = p3_human5_wait_time_value;
 
         p1_show = false;
         p2_show = false;
