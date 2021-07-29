@@ -57,15 +57,19 @@ var adjust_angle = 25;
 //, side: THREE.DoubleSide
 
 var sun_shade_texture = THREE.ImageUtils.loadTexture('assets/sprites/sun_shade.png');
-SpriteAnimator.add({ texture: sun_shade_texture, tilesHorizontal: 16, tilesVertical: 16, fps: 24, numberOfTiles: 251 });
+SpriteAnimator.add({ texture: sun_shade_texture, tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 151 });
 var sun_shade_animate = new THREE.Mesh(new THREE.PlaneGeometry(100, 100), new THREE.MeshBasicMaterial({ transparent: true, depthTest: true, map: sun_shade_texture, side: THREE.DoubleSide }));
+
+var sun_shade_time_texture = THREE.ImageUtils.loadTexture('assets/sprites/sun_shade_time.png');
+SpriteAnimator.add({ texture: sun_shade_time_texture, tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 151 });
+var sun_shade_time_animate = new THREE.Mesh(new THREE.PlaneGeometry(100, 100), new THREE.MeshBasicMaterial({ transparent: true, depthTest: true, map: sun_shade_time_texture, side: THREE.DoubleSide }));
 
 var solar_irradiance_texture = THREE.ImageUtils.loadTexture('assets/sprites/solar_irradiance.png');
 SpriteAnimator.add({ texture: solar_irradiance_texture, tilesHorizontal: 16, tilesVertical: 16, fps: 24, numberOfTiles: 251 });
 var solar_irradiance_animate = new THREE.Mesh(new THREE.PlaneGeometry(100, 100), new THREE.MeshBasicMaterial({ transparent: true, depthTest: true, map: solar_irradiance_texture, side: THREE.DoubleSide }));
 
 var wind_flow_texture = THREE.ImageUtils.loadTexture('assets/sprites/wind_flow.png');
-SpriteAnimator.add({ texture: wind_flow_texture, tilesHorizontal: 12, tilesVertical: 11, fps: 24, numberOfTiles: 126 });
+SpriteAnimator.add({ texture: wind_flow_texture, tilesHorizontal: 12, tilesVertical: 12, fps: 24, numberOfTiles: 126 });
 var wind_flow_animate = new THREE.Mesh(new THREE.PlaneGeometry(100, 100), new THREE.MeshBasicMaterial({ transparent: true, depthTest: true, map: wind_flow_texture, side: THREE.DoubleSide }));
 
 //var worker;
@@ -265,6 +269,20 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
             building_plane1.material = new THREE.MeshBasicMaterial({ transparent: true, depthTest: true, map: sun_shade_texture, side: THREE.DoubleSide });
             building_plane1.material.needsUpdate = true;
             building_plane1.rotation.x = -180 * 0.0174532925;
+
+            sun_shade_time_animate.position.x = 450;
+            sun_shade_time_animate.position.y = 450;
+            sun_shade_time_animate.position.z = 450;
+
+            sun_shade_time_animate.scale.x = 5;
+            sun_shade_time_animate.scale.y = 5;
+            sun_shade_time_animate.scale.z = 5;
+
+            sun_shade_time_animate.rotation.x = -90 * 0.0174532925;
+
+            sun_shade_time_animate.visible = true;
+
+            model1.add(sun_shade_time_animate);
         }
 
         root.add(model1);
@@ -487,7 +505,10 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
                     'XYZ'
                 ));
 
-            model.quaternion.multiplyQuaternions(deltaRotationQuaternion, model.quaternion);
+            model0.quaternion.multiplyQuaternions(deltaRotationQuaternion, model0.quaternion);
+            model1.quaternion.multiplyQuaternions(deltaRotationQuaternion, model1.quaternion);
+            model2.quaternion.multiplyQuaternions(deltaRotationQuaternion, model2.quaternion);
+            model3.quaternion.multiplyQuaternions(deltaRotationQuaternion, model3.quaternion);
         }
         previousMousePosition = {
             x: e.offsetX,
@@ -513,7 +534,10 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
                     'XYZ'
                 ));
 
-            model.quaternion.multiplyQuaternions(deltaRotationQuaternion, model.quaternion);
+            model0.quaternion.multiplyQuaternions(deltaRotationQuaternion, model0.quaternion);
+            model1.quaternion.multiplyQuaternions(deltaRotationQuaternion, model1.quaternion);
+            model2.quaternion.multiplyQuaternions(deltaRotationQuaternion, model2.quaternion);
+            model3.quaternion.multiplyQuaternions(deltaRotationQuaternion, model3.quaternion);
         }
         previousMousePosition = {
             x: e.touches[0].offsetX,
