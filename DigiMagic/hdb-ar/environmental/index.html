@@ -14,10 +14,10 @@
 	<script src="js/third_party/three.js/OrbitControls.js"></script>
 
 	<style>
-		.cycling-header {
+		.environmental-header {
 			position: absolute;
 			width: auto;
-			height: 8%;
+			height: 7%;
 			top: 10%;
 			left: 50%;
 			transform: translate(-50%, -50%);
@@ -41,7 +41,7 @@
 			display: none;
 		}
 
-		.cycling-description {
+		.environmental-description {
 			position: absolute;
 			width: auto;
 			height: 35%;
@@ -71,13 +71,23 @@
 			display: none;
 		}
 
+		.text-tap {
+			position: absolute;
+			width: 50%;
+			height: auto;
+			top: 65%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			display: none;
+		}
+
 		.choice1-btn {
 			position: absolute;
 			width: auto;
 			height: 8%;
-			top: 90%;
+			top: 70%;
 			left: 50%;
-			transform: translate(-150%, -50%);
+			transform: translate(-200%, -50%);
 			z-index: 2;
 			display: none;
 		}
@@ -86,7 +96,7 @@
 			position: absolute;
 			width: auto;
 			height: 8%;
-			top: 90%;
+			top: 70%;
 			left: 50%;
 			transform: translate(-50%, -50%);
 			z-index: 2;
@@ -97,10 +107,51 @@
 			position: absolute;
 			width: auto;
 			height: 8%;
+			top: 70%;
+			left: 50%;
+			transform: translate(100%, -50%);
+			z-index: 2;
+			display: none;
+		}
+
+		.choice4-btn {
+			position: absolute;
+			width: 50%;
+			height: auto;
+			top: 80%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			z-index: 2;
+			display: none;
+		}
+
+		.text-1 {
+			position: absolute;
+			width: 80%;
+			height: auto;
 			top: 90%;
 			left: 50%;
-			transform: translate(50%, -50%);
-			z-index: 2;
+			transform: translate(-50%, -50%);
+			display: none;
+		}
+
+		.text-2 {
+			position: absolute;
+			width: 80%;
+			height: auto;
+			top: 90%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			display: none;
+		}
+
+		.text-3 {
+			position: absolute;
+			width: 80%;
+			height: auto;
+			top: 90%;
+			left: 50%;
+			transform: translate(-50%, -50%);
 			display: none;
 		}
 
@@ -121,6 +172,26 @@
 			left: 50%;
 			transform: translate(-50%, -50%);
 			z-index: 2;
+		}
+
+		.popup-page {
+			position: absolute;
+			width: auto;
+			height: 90%;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			z-index: 3;
+		}
+
+		.close-btn {
+			position: absolute;
+			width: auto;
+			height: 5%;
+			top: 82%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			z-index: 4;
 		}
 
 		.tools {
@@ -185,12 +256,12 @@
 	 -->
 
 	<div id="firstPage" style="display: block;">
-		<img class="cycling-description" id="cycling-description" src="assets/images/description_1.png">
+		<img class="environmental-description" id="environmental-description" src="assets/images/description_1.png">
 		<img class="start-btn" id="start-btn" src="assets/images/start_btn.png" onclick="clickStartBtn()" />
 	</div>
 
 	<div id="instructPage" style="display: none;">
-		<img src="assets/images/uwsh_instruction_page.png" class="instruct-page" id="instruct-page">
+		<img src="assets/images/env_instruction_page.png" class="instruct-page" id="instruct-page">
 		<img src="assets/images/proceed_btn.png" class="proceed-btn" id="proceed-btn" onclick="clickProceedBtn()">
 	</div>
 
@@ -198,12 +269,23 @@
 
 	<img class="finger360-icon" id="finger360-icon" src="assets/images/finger360_icon.png">
 
-	<img class="cycling-header" id="cycling-header" src="assets/images/recycling_header.png">
+	<img class="environmental-header" id="environmental-header" src="assets/images/environmental_header.png">
 	<!--<img class="next-btn" id="next-btn" src="assets/images/next_btn.png" onclick="clickNextBtn()">-->
 
-	<img class="choice1-btn" id="choice1-btn" src="assets/images/finger360_icon.png" onclick="choice1_worker()">
-	<img class="choice2-btn" id="choice2-btn" src="assets/images/finger360_icon.png" onclick="choice2_worker()">
-	<img class="choice3-btn" id="choice3-btn" src="assets/images/finger360_icon.png" onclick="choice3_worker()">
+	<img class="text-tap" id="text-tap" src="assets/images/text_tap.png">
+	<img class="choice1-btn" id="choice1-btn" src="assets/images/button_1.png" onclick="choice1_worker()">
+	<img class="choice2-btn" id="choice2-btn" src="assets/images/button_2.png" onclick="choice2_worker()">
+	<img class="choice3-btn" id="choice3-btn" src="assets/images/button_3.png" onclick="choice3_worker()">
+	<img class="choice4-btn" id="choice4-btn" src="assets/images/button_summary.png" onclick="clickSummaryBtn()">
+
+	<img class="text-1" id="text-1" src="assets/images/text_1.png">
+	<img class="text-2" id="text-2" src="assets/images/text_2.png">
+	<img class="text-3" id="text-3" src="assets/images/text_3.png">
+
+	<div id="popupPage" style="display: none;">
+		<img src="assets/images/popup.png" class="popup-page" id="popup-page">
+		<img src="assets/images/close_btn.png" class="close-btn" id="close-btn" onclick="clickCloseBtn()">
+	</div>
 
 	<!--for debug-->
 	<div class="tools">
@@ -298,14 +380,24 @@
 		function clickProceedBtn() {
 			console.log("click proceed btn...");
 			document.getElementById("instructPage").style.display = "none";
-			//document.getElementById("next-btn").style.display = "block";
+			document.getElementById("text-tap").style.display = "block";
 			document.getElementById("choice1-btn").style.display = "block";
 			document.getElementById("choice2-btn").style.display = "block";
 			document.getElementById("choice3-btn").style.display = "block";
+			document.getElementById("choice4-btn").style.display = "block";
 			document.getElementById("finger360-icon").style.display = "block";
 			openCamera();
 		}
 
+		function clickSummaryBtn() {
+			console.log("click summary btn...");
+			document.getElementById("popupPage").style.display = "block";
+		}
+
+		function clickCloseBtn() {
+			console.log("click close btn...");
+			document.getElementById("popupPage").style.display = "none";
+		}
 
 		var step = 1;
 

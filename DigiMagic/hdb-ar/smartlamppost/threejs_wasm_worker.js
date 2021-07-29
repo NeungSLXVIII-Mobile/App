@@ -60,159 +60,242 @@ var p2_show = false;
 var p3_show = false;
 
 // P1.
-// var p1_bicycle_path = 'assets/sprites/1/01_Bicycle/01_Bicycle';
-// var p1_human2_path = 'assets/sprites/1/02_Human/02_Human';
-// var p1_human3_path = 'assets/sprites/1/03_Human/03_Human';
-// var p1_human4_path = 'assets/sprites/1/04_Human/04_Human';
-// var p1_human5_path = 'assets/sprites/1/05_Human/05_Human';
-// var p1_human6_path = 'assets/sprites/1/06_Human/06_Human';
-// var p1_icon_path = 'assets/sprites/1/Part01_Icon/Part01_Icon';
-// var p1_bicycle_path = 'assets/sprites/1/Bicycle_15fps/Bicycle_15fps';
-// var p1_human2_path = 'assets/sprites/1/Human01_15fps/Human01_15fps';
-// var p1_human3_path = 'assets/sprites/1/Human02_15fps/Human02_15fps';
-// var p1_human4_path = 'assets/sprites/1/Human03_15fps/Human03_15fps';
-// var p1_human5_path = 'assets/sprites/1/Human04_15fps/Human04_15fps';
-// var p1_human6_path = 'assets/sprites/1/Human05_15fps/Human05_15fps';
-//var p1_icon_path = 'assets/sprites/1/Part01_Icon/Part01_Icon';
-var p1_bicycle_path = 'assets/sprites/1/Human04_15fps/Human04_15fps';
-var p1_human2_path = 'assets/sprites/1/Human04_15fps/Human04_15fps';
-var p1_human3_path = 'assets/sprites/1/Human04_15fps/Human04_15fps';
-var p1_human4_path = 'assets/sprites/1/Human04_15fps/Human04_15fps';
-var p1_human5_path = 'assets/sprites/1/Human04_15fps/Human04_15fps';
-var p1_human6_path = 'assets/sprites/1/Human04_15fps/Human04_15fps';
-var p1_icon_path = 'assets/sprites/1/Human04_15fps/Human04_15fps';
-//P2.
-// var p2_human1_path = 'assets/sprites/2/Human01_v2/Human01_v2';
-// var p2_human2_path = 'assets/sprites/2/Human02_v2/Human02_v2';
-// var p2_human3_path = 'assets/sprites/2/Human03_v2/Human03_v2';
-// var p2_human4_path = 'assets/sprites/2/Human04_v2/Human04_v2';
-// var p2_human5_path = 'assets/sprites/2/Human05_v2/Human05_v2';
-var p2_human1_path = 'assets/sprites/1/Human04_15fps/Human04_15fps';
-var p2_human2_path = 'assets/sprites/1/Human04_15fps/Human04_15fps';
-var p2_human3_path = 'assets/sprites/1/Human04_15fps/Human04_15fps';
-var p2_human4_path = 'assets/sprites/1/Human04_15fps/Human04_15fps';
-var p2_human5_path = 'assets/sprites/1/Human04_15fps/Human04_15fps';
-var p2_icon_path = 'assets/sprites/1/Human04_15fps/Human04_15fps';
+var p1_bicycle_texture = new THREE.TextureLoader().load('assets/sprites/dummy.png');
+var p1_human2_texture = new THREE.TextureLoader().load('assets/sprites/dummy.png');
+var p1_human3_texture = new THREE.TextureLoader().load('assets/sprites/dummy.png');
+var p1_human4_texture = new THREE.TextureLoader().load('assets/sprites/dummy.png');
+var p1_human5_texture = new THREE.TextureLoader().load('assets/sprites/dummy.png');
+var p1_human6_texture = new THREE.TextureLoader().load('assets/sprites/dummy.png');
+var p1_icon_texture = new THREE.TextureLoader().load('assets/sprites/dummy.png');
+// P2.
+var p2_human1_texture = new THREE.TextureLoader().load('assets/sprites/dummy.png');
+var p2_human2_texture = new THREE.TextureLoader().load('assets/sprites/dummy.png');
+var p2_human3_texture = new THREE.TextureLoader().load('assets/sprites/dummy.png');
+var p2_human4_texture = new THREE.TextureLoader().load('assets/sprites/dummy.png');
+var p2_human5_texture = new THREE.TextureLoader().load('assets/sprites/dummy.png');
+var p2_icon_texture = new THREE.TextureLoader().load('assets/sprites/dummy.png');
 // P3.
-//var p3_icon_path = 'assets/sprites/3/PART03_Icon/PART03_Icon';
-var p3_icon_path = 'assets/sprites/1/Human04_15fps/Human04_15fps';
+var p3_icon_texture = new THREE.TextureLoader().load('assets/sprites/dummy.png');
 
 // P1.
-// var p1_bicycle_frame_count = 67;
-// var p1_human2_frame_count = 131;
-// var p1_human3_frame_count = 151;
-// var p1_human4_frame_count = 163;
-// var p1_human5_frame_count = 179;
-// var p1_human6_frame_count = 138;
-// var p1_icon_frame_count = 77;
-// var p2_human1_frame_count = 223;
-// var p2_human2_frame_count = 251;
-// var p2_human3_frame_count = 271;
-// var p2_human4_frame_count = 298;
-// var p2_human5_frame_count = 229;
-// var p2_icon_frame_count = 77;
-// var p3_icon_frame_count = 77;
-var p1_bicycle_frame_count = 100;
-var p1_human2_frame_count = 100;
-var p1_human3_frame_count = 100;
-var p1_human4_frame_count = 100;
-var p1_human5_frame_count = 100;
-var p1_human6_frame_count = 100;
-var p1_icon_frame_count = 100;
-var p2_human1_frame_count = 100;
-var p2_human2_frame_count = 100;
-var p2_human3_frame_count = 100;
-var p2_human4_frame_count = 100;
-var p2_human5_frame_count = 100;
-var p2_icon_frame_count = 100;
-var p3_icon_frame_count = 100;
+var p1_bicycle_material = new THREE.MeshBasicMaterial({ map: p1_bicycle_texture, opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide });
+var p1_human2_material = new THREE.MeshBasicMaterial({ map: p1_human2_texture, opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide });
+var p1_human3_material = new THREE.MeshBasicMaterial({ map: p1_human3_texture, opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide });
+var p1_human4_material = new THREE.MeshBasicMaterial({ map: p1_human4_texture, opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide });
+var p1_human5_material = new THREE.MeshBasicMaterial({ map: p1_human5_texture, opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide });
+var p1_human6_material = new THREE.MeshBasicMaterial({ map: p1_human6_texture, opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide });
+var p1_icon_material = new THREE.MeshBasicMaterial({ map: p1_icon_texture, opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide });
+// P2.
+var p2_human1_material = new THREE.MeshBasicMaterial({ map: p2_human1_texture, opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide });
+var p2_human2_material = new THREE.MeshBasicMaterial({ map: p2_human2_texture, opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide });
+var p2_human3_material = new THREE.MeshBasicMaterial({ map: p2_human3_texture, opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide });
+var p2_human4_material = new THREE.MeshBasicMaterial({ map: p2_human4_texture, opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide });
+var p2_human5_material = new THREE.MeshBasicMaterial({ map: p2_human5_texture, opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide });
+var p2_icon_material = new THREE.MeshBasicMaterial({ map: p2_icon_texture, opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide });
+// P3.
+var p3_human1_material = p2_human1_material;
+var p3_human2_material = p2_human2_material;
+var p3_human3_material = p2_human3_material;
+var p3_human4_material = p2_human4_material;
+var p3_human5_material = p2_human5_material;
+var p3_icon_material = new THREE.MeshBasicMaterial({ map: p3_icon_texture, opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide });
 
-console.error("frame 100 4.");
+// P1.
+var p1_bicycle_animation;
+var p1_human2_animation;
+var p1_human3_animation;
+var p1_human4_animation;
+var p1_human5_animation;
+var p1_human6_animation;
+var p1_icon_animation;
+// P2.
+var p2_human1_animation;
+var p2_human2_animation;
+var p2_human3_animation;
+var p2_human4_animation;
+var p2_human5_animation;
+var p2_icon_animation;
+// P3.
+var p3_icon_animation;
 
-var p1_bicycle_frame = 0;
-var p1_bicycle_duration = 0;
-var p1_bicycle_textures = [];
-var p1_human2_frame = 0;
-var p1_human2_duration = 0;
-var p1_human2_textures = [];
-var p1_human3_frame = 0;
-var p1_human3_duration = 0;
-var p1_human3_textures = [];
-var p1_human4_frame = 0;
-var p1_human4_duration = 0;
-var p1_human4_textures = [];
-var p1_human5_frame = 0;
-var p1_human5_duration = 0;
-var p1_human5_textures = [];
-var p1_human6_frame = 0;
-var p1_human6_duration = 0;
-var p1_human6_textures = [];
-var p1_icon_frame = 0;
-var p1_icon_duration = 0;
-var p1_icon_textures = [];
+// P1.
+var p1_bicycle_move;
+var p1_human2_move;
+var p1_human3_move;
+var p1_human4_move;
+var p1_human5_move;
+var p1_human6_move;
+var p1_icon_move;
+// P2.
+var p2_human1_move;
+var p2_human2_move;
+var p2_human3_move;
+var p2_human4_move;
+var p2_human5_move;
+var p2_icon_move;
+// P3.
+var p3_human1_move;
+var p3_human2_move;
+var p3_human3_move;
+var p3_human4_move;
+var p3_human5_move;
+var p3_icon_move;
 
-var p1_bicycle_materials = [];
-var p1_human2_materials = [];
-var p1_human3_materials = [];
-var p1_human4_materials = [];
-var p1_human5_materials = [];
-var p1_human6_materials = [];
-var p1_icon_materials = [];
+// P1.
+var p1_bicycle_wait_time;
+var p1_human2_wait_time;
+var p1_human3_wait_time;
+var p1_human4_wait_time;
+var p1_human5_wait_time;
+var p1_human6_wait_time;
+// P2.
+var p2_human1_wait_time;
+var p2_human2_wait_time;
+var p2_human3_wait_time;
+var p2_human4_wait_time;
+var p2_human5_wait_time;
+// P3.
+var p3_human1_wait_time;
+var p3_human2_wait_time;
+var p3_human3_wait_time;
+var p3_human4_wait_time;
+var p3_human5_wait_time;
+
+// P1.
+var p1_bicycle_wait_time_value;
+var p1_human2_wait_time_value;
+var p1_human3_wait_time_value;
+var p1_human4_wait_time_value;
+var p1_human5_wait_time_value;
+var p1_human6_wait_time_value;
+// P2.
+var p2_human1_wait_time_value;
+var p2_human2_wait_time_value;
+var p2_human3_wait_time_value;
+var p2_human4_wait_time_value;
+var p2_human5_wait_time_value;
+// P3.
+var p3_human1_wait_time_value;
+var p3_human2_wait_time_value;
+var p3_human3_wait_time_value;
+var p3_human4_wait_time_value;
+var p3_human5_wait_time_value;
+
+// P1.
+var urls = [
+    "assets/sprites/p1_bicycle_sprite_sheet.png",
+    "assets/sprites/p1_human2_sprite_sheet.png",
+    "assets/sprites/p1_human2_sprite_sheet.png",
+    "assets/sprites/p1_human2_sprite_sheet.png",
+    "assets/sprites/p1_human2_sprite_sheet.png",
+    "assets/sprites/p1_human2_sprite_sheet.png",
+    "assets/sprites/p1_icon_sprite_sheet.png",
+];
+
+loadTextures(urls, function (error, textures) {
+    if (error) {
+        console.log(error);
+        return;
+    }
+
+    // P1.
+    p1_bicycle_animation = SpriteAnimator.add({ texture: textures[0], tilesHorizontal: 9, tilesVertical: 9, fps: 24, numberOfTiles: 70 });
+    p1_bicycle_material.map = textures[0];
+    p1_human2_animation = SpriteAnimator.add({ texture: textures[1], tilesHorizontal: 9, tilesVertical: 9, fps: 24, numberOfTiles: 70 });
+    p1_human2_material.map = textures[1];
+    p1_human3_animation = SpriteAnimator.add({ texture: textures[2], tilesHorizontal: 9, tilesVertical: 9, fps: 24, numberOfTiles: 70 });
+    p1_human3_material.map = textures[2];
+    p1_human4_animation = SpriteAnimator.add({ texture: textures[3], tilesHorizontal: 9, tilesVertical: 9, fps: 24, numberOfTiles: 70 });
+    p1_human4_material.map = textures[3];
+    p1_human5_animation = SpriteAnimator.add({ texture: textures[4], tilesHorizontal: 9, tilesVertical: 9, fps: 24, numberOfTiles: 70 });
+    p1_human5_material.map = textures[4];
+    p1_human6_animation = SpriteAnimator.add({ texture: textures[5], tilesHorizontal: 9, tilesVertical: 9, fps: 24, numberOfTiles: 70 });
+    p1_human6_material.map = textures[5];
+    p1_icon_animation = SpriteAnimator.add({ texture: textures[6], tilesHorizontal: 7, tilesVertical: 7, fps: 24, numberOfTiles: 46 });
+    p1_icon_material.map = textures[6];
+
+    p1_bicycle_move = new THREE.Mesh(new THREE.PlaneGeometry(25, 25), p1_bicycle_material);
+    p1_human2_move = new THREE.Mesh(new THREE.PlaneGeometry(25, 25), p1_human2_material);
+    p1_human3_move = new THREE.Mesh(new THREE.PlaneGeometry(25, 25), p1_human3_material);
+    p1_human4_move = new THREE.Mesh(new THREE.PlaneGeometry(25, 25), p1_human4_material);
+    p1_human5_move = new THREE.Mesh(new THREE.PlaneGeometry(25, 25), p1_human5_material);
+    p1_human6_move = new THREE.Mesh(new THREE.PlaneGeometry(25, 25), p1_human6_material);
+    p1_icon_move = new THREE.Mesh(new THREE.PlaneGeometry(100, 100), p1_icon_material);
+});
 
 // P2.
-var p2_human1_frame = 0;
-var p2_human1_duration = 0;
-var p2_human1_textures = [];
-var p2_human2_frame = 0;
-var p2_human2_duration = 0;
-var p2_human2_textures = [];
-var p2_human3_frame = 0;
-var p2_human3_duration = 0;
-var p2_human3_textures = [];
-var p2_human4_frame = 0;
-var p2_human4_duration = 0;
-var p2_human4_textures = [];
-var p2_human5_frame = 0;
-var p2_human5_duration = 0;
-var p2_human5_textures = [];
-var p2_icon_frame = 0;
-var p2_icon_duration = 0;
-var p2_icon_textures = [];
+var urls = [
+    "assets/sprites/p1_human2_sprite_sheet.png",
+    "assets/sprites/p1_human2_sprite_sheet.png",
+    "assets/sprites/p1_human2_sprite_sheet.png",
+    "assets/sprites/p1_human2_sprite_sheet.png",
+    "assets/sprites/p1_human2_sprite_sheet.png",
+    "assets/sprites/p1_icon_sprite_sheet.png",
+];
 
-var p2_human1_materials = [];
-var p2_human2_materials = [];
-var p2_human3_materials = [];
-var p2_human4_materials = [];
-var p2_human5_materials = [];
-var p2_icon_materials = [];
+loadTextures(urls, function (error, textures) {
+    if (error) {
+        console.log(error);
+        return;
+    }
+
+    p2_human1_animation = SpriteAnimator.add({ texture: textures[0], tilesHorizontal: 9, tilesVertical: 9, fps: 24, numberOfTiles: 70 });
+    p2_human1_material.map = textures[0];
+    p2_human2_animation = SpriteAnimator.add({ texture: textures[1], tilesHorizontal: 9, tilesVertical: 9, fps: 24, numberOfTiles: 70 });
+    p2_human2_material.map = textures[1];
+    p2_human3_animation = SpriteAnimator.add({ texture: textures[2], tilesHorizontal: 9, tilesVertical: 9, fps: 24, numberOfTiles: 70 });
+    p2_human3_material.map = textures[2];
+    p2_human4_animation = SpriteAnimator.add({ texture: textures[3], tilesHorizontal: 9, tilesVertical: 9, fps: 24, numberOfTiles: 70 });
+    p2_human4_material.map = textures[3];
+    p2_human5_animation = SpriteAnimator.add({ texture: textures[4], tilesHorizontal: 9, tilesVertical: 9, fps: 24, numberOfTiles: 70 });
+    p2_human5_material.map = textures[4];
+    p2_icon_animation = SpriteAnimator.add({ texture: textures[5], tilesHorizontal: 7, tilesVertical: 7, fps: 24, numberOfTiles: 46 });
+    p2_icon_material.map = textures[5];
+
+    p2_human1_move = new THREE.Mesh(new THREE.PlaneGeometry(25, 25), p2_human1_material);
+    p2_human2_move = new THREE.Mesh(new THREE.PlaneGeometry(25, 25), p2_human2_material);
+    p2_human3_move = new THREE.Mesh(new THREE.PlaneGeometry(25, 25), p2_human3_material);
+    p2_human4_move = new THREE.Mesh(new THREE.PlaneGeometry(25, 25), p2_human4_material);
+    p2_human5_move = new THREE.Mesh(new THREE.PlaneGeometry(25, 25), p2_human5_material);
+    p2_icon_move = new THREE.Mesh(new THREE.PlaneGeometry(100, 100), p2_icon_material);
+});
 
 // P3.
-var p3_human1_frame = 0;
-var p3_human1_duration = 0;
-var p3_human2_frame = 0;
-var p3_human2_duration = 0;
-var p3_human3_frame = 0;
-var p3_human3_duration = 0;
-var p3_human4_frame = 0;
-var p3_human4_duration = 0;
-var p3_human5_frame = 0;
-var p3_human5_duration = 0;
-var p3_icon_frame = 0;
-var p3_icon_duration = 0;
-var p3_icon_textures = [];
+var urls = [
+    "assets/sprites/p1_human2_sprite_sheet.png",
+    "assets/sprites/p1_human2_sprite_sheet.png",
+    "assets/sprites/p1_human2_sprite_sheet.png",
+    "assets/sprites/p1_human2_sprite_sheet.png",
+    "assets/sprites/p1_human2_sprite_sheet.png",
+    "assets/sprites/p1_icon_sprite_sheet.png",
+];
 
-var p3_icon_materials = [];
+loadTextures(urls, function (error, textures) {
+    if (error) {
+        console.log(error);
+        return;
+    }
 
-loadAllTexture();
+    p2_human1_animation = SpriteAnimator.add({ texture: textures[0], tilesHorizontal: 9, tilesVertical: 9, fps: 24, numberOfTiles: 70 });
+    p2_human1_material.map = textures[0];
+    p2_human2_animation = SpriteAnimator.add({ texture: textures[1], tilesHorizontal: 9, tilesVertical: 9, fps: 24, numberOfTiles: 70 });
+    p2_human2_material.map = textures[1];
+    p2_human3_animation = SpriteAnimator.add({ texture: textures[2], tilesHorizontal: 9, tilesVertical: 9, fps: 24, numberOfTiles: 70 });
+    p2_human3_material.map = textures[2];
+    p2_human4_animation = SpriteAnimator.add({ texture: textures[3], tilesHorizontal: 9, tilesVertical: 9, fps: 24, numberOfTiles: 70 });
+    p2_human4_material.map = textures[3];
+    p2_human5_animation = SpriteAnimator.add({ texture: textures[4], tilesHorizontal: 9, tilesVertical: 9, fps: 24, numberOfTiles: 70 });
+    p2_human5_material.map = textures[4];
+    p3_icon_animation = SpriteAnimator.add({ texture: textures[5], tilesHorizontal: 7, tilesVertical: 7, fps: 24, numberOfTiles: 46 });
+    p3_icon_material.map = textures[5];
 
-// var tree1_material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/tree01.png'), opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide });
-// var tree2_material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/tree02.png'), opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide });
-// var bg_material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/bg.png'), opacity: 1, depthTest: false, transparent: false, side: THREE.DoubleSide });
-// var floor_material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/floor.png'), opacity: 1, depthTest: true, transparent: false, side: THREE.DoubleSide });
-// var lamppost1_material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/lamppost01.png'), opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide });
-// var lamppost2_material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/lamppost02.png'), opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide });
-// var lamppost1_light_material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/lamppost01_light.png'), opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide });
-// var lamppost2_light_material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/lamppost02_light.png'), opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide });
+    p3_human1_move = new THREE.Mesh(new THREE.PlaneGeometry(25, 25), p3_human1_material);
+    p3_human2_move = new THREE.Mesh(new THREE.PlaneGeometry(25, 25), p3_human2_material);
+    p3_human3_move = new THREE.Mesh(new THREE.PlaneGeometry(25, 25), p3_human3_material);
+    p3_human4_move = new THREE.Mesh(new THREE.PlaneGeometry(25, 25), p3_human4_material);
+    p3_human5_move = new THREE.Mesh(new THREE.PlaneGeometry(25, 25), p3_human5_material);
+    p3_icon_move = new THREE.Mesh(new THREE.PlaneGeometry(100, 100), p3_icon_material);
+});
 
 var tree1_material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/dummy.png'), opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide });
 var tree2_material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/dummy.png'), opacity: 1, depthTest: false, transparent: true, side: THREE.DoubleSide });
@@ -622,59 +705,129 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
 
         // P1.
         if (p1_bicycle_plane != undefined) {
-            p1_bicycle_plane.material = p1_bicycle_materials[0];
-            p1_bicycle_plane.material.needsUpdate = true;
+            // p1_bicycle_plane.material = p1_bicycle_material;
+            // p1_bicycle_plane.material.needsUpdate = true;
 
-            p1_bicycle_plane.rotation.y = 180 * 0.0174532925;
-            p1_bicycle_plane.rotation.z = 180 * 0.0174532925;
+            // p1_bicycle_plane.rotation.y = 180 * 0.0174532925;
+            // p1_bicycle_plane.rotation.z = 180 * 0.0174532925;
+
+            p1_bicycle_plane.visible = false;
+
+            p1_bicycle_move.position.x = -100;
+            p1_bicycle_move.position.y = 12.5 + 20;
+            p1_bicycle_move.position.z = p1_bicycle_plane.position.z;
+
+            p1_bicycle_move.renderOrder = 1;
+
+            model2.add(p1_bicycle_move);
         }
 
         if (p1_human2_plane != undefined) {
-            p1_human2_plane.material = p1_human2_materials[0];
-            p1_human2_plane.material.needsUpdate = true;
+            // p1_human2_plane.material = p1_human2_material;
+            // p1_human2_plane.material.needsUpdate = true;
 
-            p1_human2_plane.rotation.y = 180 * 0.0174532925;
-            p1_human2_plane.rotation.z = 180 * 0.0174532925;
+            // p1_human2_plane.rotation.y = 180 * 0.0174532925;
+            // p1_human2_plane.rotation.z = 180 * 0.0174532925;
+
+            p1_human2_plane.visible = false;
+
+            p1_human2_move.position.x = -100;
+            p1_human2_move.position.y = 12.5 + 20;
+            p1_human2_move.position.z = p1_human2_plane.position.z;
+
+            p1_human2_move.renderOrder = 1;
+
+            model2.add(p1_human2_move);
         }
 
         if (p1_human3_plane != undefined) {
-            p1_human3_plane.material = p1_human3_materials[0];
-            p1_human3_plane.material.needsUpdate = true;
+            // p1_human3_plane.material = p1_human3_material;
+            // p1_human3_plane.material.needsUpdate = true;
 
-            p1_human3_plane.rotation.y = 180 * 0.0174532925;
-            p1_human3_plane.rotation.z = 180 * 0.0174532925;
+            // p1_human3_plane.rotation.y = 180 * 0.0174532925;
+            // p1_human3_plane.rotation.z = 180 * 0.0174532925;
+
+            p1_human3_plane.visible = false;
+
+            p1_human3_move.position.x = -100;
+            p1_human3_move.position.y = 12.5 + 20;
+            p1_human3_move.position.z = p1_human3_plane.position.z;
+
+            p1_human3_move.renderOrder = 1;
+
+            model2.add(p1_human3_move);
         }
 
         if (p1_human4_plane != undefined) {
-            p1_human4_plane.material = p1_human4_materials[0];
-            p1_human4_plane.material.needsUpdate = true;
+            // p1_human4_plane.material = p1_human4_material;
+            // p1_human4_plane.material.needsUpdate = true;
 
-            p1_human4_plane.rotation.y = 180 * 0.0174532925;
-            p1_human4_plane.rotation.z = 180 * 0.0174532925;
+            // p1_human4_plane.rotation.y = 180 * 0.0174532925;
+            // p1_human4_plane.rotation.z = 180 * 0.0174532925;
+
+            p1_human4_plane.visible = false;
+
+            p1_human4_move.position.x = -100;
+            p1_human4_move.position.y = 12.5 + 20;
+            p1_human4_move.position.z = p1_human4_plane.position.z;
+
+            p1_human4_move.renderOrder = 1;
+
+            model2.add(p1_human4_move);
         }
 
         if (p1_human5_plane != undefined) {
-            p1_human5_plane.material = p1_human5_materials[0];
-            p1_human5_plane.material.needsUpdate = true;
+            // p1_human5_plane.material = p1_human5_material;
+            // p1_human5_plane.material.needsUpdate = true;
 
-            p1_human5_plane.rotation.y = 180 * 0.0174532925;
-            p1_human5_plane.rotation.z = 180 * 0.0174532925;
+            // p1_human5_plane.rotation.y = 180 * 0.0174532925;
+            // p1_human5_plane.rotation.z = 180 * 0.0174532925;
+
+            p1_human5_plane.visible = false;
+
+            p1_human5_move.position.x = -100;
+            p1_human5_move.position.y = 12.5 + 20;
+            p1_human5_move.position.z = p1_human5_plane.position.z;
+
+            p1_human5_move.renderOrder = 1;
+
+            model2.add(p1_human5_move);
         }
 
         if (p1_human6_plane != undefined) {
-            p1_human6_plane.material = p1_human6_materials[0];
-            p1_human6_plane.material.needsUpdate = true;
+            // p1_human6_plane.material = p1_human6_material;
+            // p1_human6_plane.material.needsUpdate = true;
 
-            p1_human6_plane.rotation.y = 180 * 0.0174532925;
-            p1_human6_plane.rotation.z = 180 * 0.0174532925;
+            // p1_human6_plane.rotation.y = 180 * 0.0174532925;
+            // p1_human6_plane.rotation.z = 180 * 0.0174532925;
+
+            p1_human6_plane.visible = false;
+
+            p1_human6_move.position.x = -100;
+            p1_human6_move.position.y = 12.5 + 20;
+            p1_human6_move.position.z = p1_human6_plane.position.z;
+
+            p1_human6_move.renderOrder = 1;
+
+            model2.add(p1_human6_move);
         }
 
         if (p1_icon_plane != undefined) {
-            p1_icon_plane.material = p1_icon_materials[0];
-            p1_icon_plane.material.needsUpdate = true;
+            // p1_icon_plane.material = p1_icon_material;
+            // p1_icon_plane.material.needsUpdate = true;
 
-            p1_icon_plane.rotation.y = 180 * 0.0174532925;
-            p1_icon_plane.rotation.z = 180 * 0.0174532925;
+            // p1_icon_plane.rotation.y = 180 * 0.0174532925;
+            // p1_icon_plane.rotation.z = 180 * 0.0174532925;
+
+            p1_icon_plane.visible = false;
+
+            p1_icon_move.position.x = p1_icon_plane.position.x + 50;
+            p1_icon_move.position.y = p1_icon_plane.position.y - 25;
+            p1_icon_move.position.z = p1_icon_plane.position.z + 5;
+
+            p1_icon_move.renderOrder = 1;
+
+            model2.add(p1_icon_move);
         }
 
         root.add(model2);
@@ -821,51 +974,111 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
 
         // P2.
         if (p2_human1_plane != undefined) {
-            p2_human1_plane.material = p2_human1_materials[0];
-            p2_human1_plane.material.needsUpdate = true;
+            // p2_human1_plane.material = p2_human1_material;
+            // p2_human1_plane.material.needsUpdate = true;
 
-            p2_human1_plane.rotation.y = 180 * 0.0174532925;
-            p2_human1_plane.rotation.z = 180 * 0.0174532925;
+            // p2_human1_plane.rotation.y = 180 * 0.0174532925;
+            // p2_human1_plane.rotation.z = 180 * 0.0174532925;
+
+            p2_human1_plane.visible = false;
+
+            p2_human1_move.position.x = -100;
+            p2_human1_move.position.y = 12.5 + 20;
+            p2_human1_move.position.z = p2_human1_plane.position.z;
+
+            p2_human1_move.renderOrder = 1;
+
+            model3.add(p2_human1_move);
         }
 
         if (p2_human2_plane != undefined) {
-            p2_human2_plane.material = p2_human2_materials[0];
-            p2_human2_plane.material.needsUpdate = true;
+            // p2_human2_plane.material = p2_human2_material;
+            // p2_human2_plane.material.needsUpdate = true;
 
-            p2_human2_plane.rotation.y = 180 * 0.0174532925;
-            p2_human2_plane.rotation.z = 180 * 0.0174532925;
+            // p2_human2_plane.rotation.y = 180 * 0.0174532925;
+            // p2_human2_plane.rotation.z = 180 * 0.0174532925;
+
+            p2_human2_plane.visible = false;
+
+            p2_human2_move.position.x = -100;
+            p2_human2_move.position.y = 12.5 + 20;
+            p2_human2_move.position.z = p2_human2_plane.position.z;
+
+            p2_human2_move.renderOrder = 1;
+
+            model3.add(p2_human2_move);
         }
 
         if (p2_human3_plane != undefined) {
-            p2_human3_plane.material = p2_human3_materials[0];
-            p2_human3_plane.material.needsUpdate = true;
+            // p2_human3_plane.material = p2_human3_material;
+            // p2_human3_plane.material.needsUpdate = true;
 
-            p2_human3_plane.rotation.y = 180 * 0.0174532925;
-            p2_human3_plane.rotation.z = 180 * 0.0174532925;
+            // p2_human3_plane.rotation.y = 180 * 0.0174532925;
+            // p2_human3_plane.rotation.z = 180 * 0.0174532925;
+
+            p2_human3_plane.visible = false;
+
+            p2_human3_move.position.x = -100;
+            p2_human3_move.position.y = 12.5 + 20;
+            p2_human3_move.position.z = p2_human3_plane.position.z;
+
+            p2_human3_move.renderOrder = 1;
+
+            model3.add(p2_human3_move);
         }
 
         if (p2_human4_plane != undefined) {
-            p2_human4_plane.material = p2_human4_materials[0];
-            p2_human4_plane.material.needsUpdate = true;
+            // p2_human4_plane.material = p2_human4_material;
+            // p2_human4_plane.material.needsUpdate = true;
 
-            p2_human4_plane.rotation.y = 180 * 0.0174532925;
-            p2_human4_plane.rotation.z = 180 * 0.0174532925;
+            // p2_human4_plane.rotation.y = 180 * 0.0174532925;
+            // p2_human4_plane.rotation.z = 180 * 0.0174532925;
+
+            p2_human4_plane.visible = false;
+
+            p2_human4_move.position.x = -100;
+            p2_human4_move.position.y = 12.5 + 20;
+            p2_human4_move.position.z = p2_human4_plane.position.z;
+
+            p2_human4_move.renderOrder = 1;
+
+            model3.add(p2_human4_move);
         }
 
         if (p2_human5_plane != undefined) {
-            p2_human5_plane.material = p2_human5_materials[0];
-            p2_human5_plane.material.needsUpdate = true;
+            // p2_human5_plane.material = p2_human5_material;
+            // p2_human5_plane.material.needsUpdate = true;
 
-            p2_human5_plane.rotation.y = 180 * 0.0174532925;
-            p2_human5_plane.rotation.z = 180 * 0.0174532925;
+            // p2_human5_plane.rotation.y = 180 * 0.0174532925;
+            // p2_human5_plane.rotation.z = 180 * 0.0174532925;
+
+            p2_human5_plane.visible = false;
+
+            p2_human5_move.position.x = -100;
+            p2_human5_move.position.y = 12.5 + 20;
+            p2_human5_move.position.z = p2_human5_plane.position.z;
+
+            p2_human5_move.renderOrder = 1;
+
+            model3.add(p2_human5_move);
         }
 
         if (p2_icon_plane != undefined) {
-            p2_icon_plane.material = p2_icon_materials[0];
-            p2_icon_plane.material.needsUpdate = true;
+            // p2_icon_plane.material = p2_icon_material;
+            // p2_icon_plane.material.needsUpdate = true;
 
-            p2_icon_plane.rotation.y = 180 * 0.0174532925;
-            p2_icon_plane.rotation.z = 180 * 0.0174532925;
+            // p2_icon_plane.rotation.y = 180 * 0.0174532925;
+            // p2_icon_plane.rotation.z = 180 * 0.0174532925;
+
+            p2_icon_plane.visible = false;
+
+            p2_icon_move.position.x = p2_icon_plane.position.x + 50;
+            p2_icon_move.position.y = p2_icon_plane.position.y - 25;
+            p2_icon_move.position.z = p2_icon_plane.position.z + 5;
+
+            p2_icon_move.renderOrder = 1;
+
+            model3.add(p2_icon_move);
         }
 
         root.add(model3);
@@ -1012,51 +1225,111 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
 
         // P3.
         if (p3_human1_plane != undefined) {
-            p3_human1_plane.material = p2_human1_materials[0];
-            p3_human1_plane.material.needsUpdate = true;
+            // p3_human1_plane.material = p2_human1_material;
+            // p3_human1_plane.material.needsUpdate = true;
 
-            p3_human1_plane.rotation.y = 180 * 0.0174532925;
-            p3_human1_plane.rotation.z = 180 * 0.0174532925;
+            // p3_human1_plane.rotation.y = 180 * 0.0174532925;
+            // p3_human1_plane.rotation.z = 180 * 0.0174532925;
+
+            p3_human1_plane.visible = false;
+
+            p3_human1_move.position.x = -100;
+            p3_human1_move.position.y = 12.5 + 20;
+            p3_human1_move.position.z = p3_human1_plane.position.z;
+
+            p3_human1_move.renderOrder = 1;
+
+            model4.add(p3_human1_move);
         }
 
         if (p3_human2_plane != undefined) {
-            p3_human2_plane.material = p2_human2_materials[0];
-            p3_human2_plane.material.needsUpdate = true;
+            // p3_human2_plane.material = p2_human2_material;
+            // p3_human2_plane.material.needsUpdate = true;
 
-            p3_human2_plane.rotation.y = 180 * 0.0174532925;
-            p3_human2_plane.rotation.z = 180 * 0.0174532925;
+            // p3_human2_plane.rotation.y = 180 * 0.0174532925;
+            // p3_human2_plane.rotation.z = 180 * 0.0174532925;
+
+            p3_human2_plane.visible = false;
+
+            p3_human2_move.position.x = -100;
+            p3_human2_move.position.y = 12.5 + 20;
+            p3_human2_move.position.z = p3_human2_plane.position.z;
+
+            p3_human2_move.renderOrder = 1;
+
+            model4.add(p3_human2_move);
         }
 
         if (p3_human3_plane != undefined) {
-            p3_human3_plane.material = p2_human3_materials[0];
-            p3_human3_plane.material.needsUpdate = true;
+            // p3_human3_plane.material = p2_human3_material;
+            // p3_human3_plane.material.needsUpdate = true;
 
-            p3_human3_plane.rotation.y = 180 * 0.0174532925;
-            p3_human3_plane.rotation.z = 180 * 0.0174532925;
+            // p3_human3_plane.rotation.y = 180 * 0.0174532925;
+            // p3_human3_plane.rotation.z = 180 * 0.0174532925;
+
+            p3_human3_plane.visible = false;
+
+            p3_human3_move.position.x = -100;
+            p3_human3_move.position.y = 12.5 + 20;
+            p3_human3_move.position.z = p3_human3_plane.position.z;
+
+            p3_human3_move.renderOrder = 1;
+
+            model4.add(p3_human3_move);
         }
 
         if (p3_human4_plane != undefined) {
-            p3_human4_plane.material = p2_human4_materials[0];
-            p3_human4_plane.material.needsUpdate = true;
+            // p3_human4_plane.material = p2_human4_material;
+            // p3_human4_plane.material.needsUpdate = true;
 
-            p3_human4_plane.rotation.y = 180 * 0.0174532925;
-            p3_human4_plane.rotation.z = 180 * 0.0174532925;
+            // p3_human4_plane.rotation.y = 180 * 0.0174532925;
+            // p3_human4_plane.rotation.z = 180 * 0.0174532925;
+
+            p3_human4_plane.visible = false;
+
+            p3_human4_move.position.x = -100;
+            p3_human4_move.position.y = 12.5 + 20;
+            p3_human4_move.position.z = p3_human4_plane.position.z;
+
+            p3_human4_move.renderOrder = 1;
+
+            model4.add(p3_human4_move);
         }
 
         if (p3_human5_plane != undefined) {
-            p3_human5_plane.material = p2_human5_materials[0];
-            p3_human5_plane.material.needsUpdate = true;
+            // p3_human5_plane.material = p2_human5_material;
+            // p3_human5_plane.material.needsUpdate = true;
 
-            p3_human5_plane.rotation.y = 180 * 0.0174532925;
-            p3_human5_plane.rotation.z = 180 * 0.0174532925;
+            // p3_human5_plane.rotation.y = 180 * 0.0174532925;
+            // p3_human5_plane.rotation.z = 180 * 0.0174532925;
+
+            p3_human5_plane.visible = false;
+
+            p3_human5_move.position.x = -100;
+            p3_human5_move.position.y = 12.5 + 20;
+            p3_human5_move.position.z = p3_human5_plane.position.z;
+
+            p3_human5_move.renderOrder = 1;
+
+            model4.add(p3_human5_move);
         }
 
         if (p3_icon_plane != undefined) {
-            p3_icon_plane.material = p3_icon_materials[0];
-            p3_icon_plane.material.needsUpdate = true;
+            // p3_icon_plane.material = p3_icon_material;
+            // p3_icon_plane.material.needsUpdate = true;
 
-            p3_icon_plane.rotation.y = 180 * 0.0174532925;
-            p3_icon_plane.rotation.z = 180 * 0.0174532925;
+            // p3_icon_plane.rotation.y = 180 * 0.0174532925;
+            // p3_icon_plane.rotation.z = 180 * 0.0174532925;
+
+            p3_icon_plane.visible = false;
+
+            p3_icon_move.position.x = p3_icon_plane.position.x + 50;
+            p3_icon_move.position.y = p3_icon_plane.position.y - 25;
+            p3_icon_move.position.z = p3_icon_plane.position.z + 5;
+
+            p3_icon_move.renderOrder = 1;
+
+            model4.add(p3_icon_move);
         }
 
         root.add(model4);
@@ -1328,7 +1601,236 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
         renderer.render(scene, camera);
         SpriteAnimator.update(delta);
 
-        frameUpdate(delta);
+        if (p1_show) {
+            p1_bicycle_wait_time -= delta;
+            if (p1_bicycle_wait_time <= 0) {
+                p1_bicycle_wait_time = 0;
+
+                p1_bicycle_move.visible = true;
+
+                p1_bicycle_move.position.x += 40 * delta;
+                if (p1_bicycle_move.position.x > 100) {
+                    p1_bicycle_move.position.x = -100;
+                    p1_bicycle_move.visible = false;
+
+                    p1_bicycle_wait_time = p1_bicycle_wait_time_value;
+                }
+            }
+            p1_human2_wait_time -= delta;
+            if (p1_human2_wait_time <= 0) {
+                p1_human2_wait_time = 0;
+
+                p1_human2_move.visible = true;
+
+                p1_human2_move.position.x += 20 * delta;
+                if (p1_human2_move.position.x > 100) {
+                    p1_human2_move.position.x = -100;
+                    p1_human2_move.visible = false;
+
+                    p1_human2_wait_time = p1_human2_wait_time_value;
+                }
+            }
+            p1_human3_wait_time -= delta;
+            if (p1_human3_wait_time <= 0) {
+                p1_human3_wait_time = 0;
+
+                p1_human3_move.visible = true;
+
+                p1_human3_move.position.x += 20 * delta;
+                if (p1_human3_move.position.x > 100) {
+                    p1_human3_move.position.x = -100;
+                    p1_human3_move.visible = false;
+
+                    p1_human3_wait_time = p1_human3_wait_time_value;
+                }
+            }
+            p1_human4_wait_time -= delta;
+            if (p1_human4_wait_time <= 0) {
+                p1_human4_wait_time = 0;
+
+                p1_human4_move.visible = true;
+
+                p1_human4_move.position.x += 20 * delta;
+                if (p1_human4_move.position.x > 100) {
+                    p1_human4_move.position.x = -100;
+                    p1_human4_move.visible = false;
+
+                    p1_human4_wait_time = p1_human4_wait_time_value;
+                }
+            }
+            p1_human5_wait_time -= delta;
+            if (p1_human5_wait_time <= 0) {
+                p1_human5_wait_time = 0;
+
+                p1_human5_move.visible = true;
+
+                p1_human5_move.position.x += 20 * delta;
+                if (p1_human5_move.position.x > 100) {
+                    p1_human5_move.position.x = -100;
+                    p1_human5_move.visible = false;
+
+                    p1_human5_wait_time = p1_human5_wait_time_value;
+                }
+            }
+            p1_human6_wait_time -= delta;
+            if (p1_human6_wait_time <= 0) {
+                p1_human6_wait_time = 0;
+
+                p1_human6_move.visible = true;
+
+                p1_human6_move.position.x += 20 * delta;
+                if (p1_human6_move.position.x > 100) {
+                    p1_human6_move.position.x = -100;
+                    p1_human6_move.visible = false;
+
+                    p1_human6_wait_time = p1_human6_wait_time_value;
+                }
+            }
+        }
+        if (p2_show) {
+            p2_human1_wait_time -= delta;
+            if (p2_human1_wait_time <= 0) {
+                p2_human1_wait_time = 0;
+
+                p2_human1_move.visible = true;
+
+                p2_human1_move.position.x += 20 * delta;
+                if (p2_human1_move.position.x > 100) {
+                    p2_human1_move.position.x = -100;
+                    p2_human1_move.visible = false;
+
+                    p2_human1_wait_time = p2_human1_wait_time_value;
+                }
+            }
+            p2_human2_wait_time -= delta;
+            if (p2_human2_wait_time <= 0) {
+                p2_human2_wait_time = 0;
+
+                p2_human2_move.visible = true;
+
+                p2_human2_move.position.x += 20 * delta;
+                if (p2_human2_move.position.x > 100) {
+                    p2_human2_move.position.x = -100;
+                    p2_human2_move.visible = false;
+
+                    p2_human2_wait_time = p2_human2_wait_time_value;
+                }
+            }
+            p2_human3_wait_time -= delta;
+            if (p2_human3_wait_time <= 0) {
+                p2_human3_wait_time = 0;
+
+                p2_human3_move.visible = true;
+
+                p2_human3_move.position.x += 20 * delta;
+                if (p2_human3_move.position.x > 100) {
+                    p2_human3_move.position.x = -100;
+                    p2_human3_move.visible = false;
+
+                    p2_human3_wait_time = p2_human3_wait_time_value;
+                }
+            }
+            p2_human4_wait_time -= delta;
+            if (p2_human4_wait_time <= 0) {
+                p2_human4_wait_time = 0;
+
+                p2_human4_move.visible = true;
+
+                p2_human4_move.position.x += 20 * delta;
+                if (p2_human4_move.position.x > 100) {
+                    p2_human4_move.position.x = -100;
+                    p2_human4_move.visible = false;
+
+                    p2_human4_wait_time = p2_human4_wait_time_value;
+                }
+            }
+            p2_human5_wait_time -= delta;
+            if (p2_human5_wait_time <= 0) {
+                p2_human5_wait_time = 0;
+
+                p2_human5_move.visible = true;
+
+                p2_human5_move.position.x += 20 * delta;
+                if (p2_human5_move.position.x > 100) {
+                    p2_human5_move.position.x = -100;
+                    p2_human5_move.visible = false;
+
+                    p2_human5_wait_time = p2_human5_wait_time_value;
+                }
+            }
+        }
+        if (p3_show) {
+            p2_human1_wait_time -= delta;
+            if (p3_human1_wait_time <= 0) {
+                p3_human1_wait_time = 0;
+
+                p3_human1_move.visible = true;
+
+                p3_human1_move.position.x += 20 * delta;
+                if (p3_human1_move.position.x > 100) {
+                    p3_human1_move.position.x = -100;
+                    p3_human1_move.visible = false;
+
+                    p3_human1_wait_time = p3_human1_wait_time_value;
+                }
+            }
+            p3_human2_wait_time -= delta;
+            if (p3_human2_wait_time <= 0) {
+                p3_human2_wait_time = 0;
+
+                p3_human2_move.visible = true;
+
+                p3_human2_move.position.x += 20 * delta;
+                if (p3_human2_move.position.x > 100) {
+                    p3_human2_move.position.x = -100;
+                    p3_human2_move.visible = false;
+
+                    p3_human2_wait_time = p3_human2_wait_time_value;
+                }
+            }
+            p3_human3_wait_time -= delta;
+            if (p3_human3_wait_time <= 0) {
+                p3_human3_wait_time = 0;
+
+                p3_human3_move.visible = true;
+
+                p3_human3_move.position.x += 20 * delta;
+                if (p3_human3_move.position.x > 100) {
+                    p3_human3_move.position.x = -100;
+                    p3_human3_move.visible = false;
+
+                    p3_human3_wait_time = p3_human3_wait_time_value;
+                }
+            }
+            p3_human4_wait_time -= delta;
+            if (p3_human4_wait_time <= 0) {
+                p3_human4_wait_time = 0;
+
+                p3_human4_move.visible = true;
+
+                p3_human4_move.position.x += 20 * delta;
+                if (p3_human4_move.position.x > 100) {
+                    p3_human4_move.position.x = -100;
+                    p3_human4_move.visible = false;
+
+                    p3_human4_wait_time = p3_human4_wait_time_value;
+                }
+            }
+            p3_human5_wait_time -= delta;
+            if (p3_human5_wait_time <= 0) {
+                p3_human5_wait_time = 0;
+
+                p3_human5_move.visible = true;
+
+                p3_human5_move.position.x += 20 * delta;
+                if (p3_human5_move.position.x > 100) {
+                    p3_human5_move.position.x = -100;
+                    p3_human5_move.visible = false;
+
+                    p3_human5_wait_time = p3_human5_wait_time_value;
+                }
+            }
+        }
     };
 
     function process() {
@@ -1370,478 +1872,165 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
 }
 
 function choice1_worker() {
-    p1_bicycle_frame = 0;
-    p1_human2_frame = 0;
-    p1_human3_frame = 0;
-    p1_human4_frame = 0;
-    p1_human5_frame = 0;
-    p1_human6_frame = 0;
-    p1_icon_frame = 0;
+    document.getElementById("text-1").style.display = "block";
+    document.getElementById("text-2").style.display = "none";
+    document.getElementById("text-3").style.display = "none";
 
-    p1_bicycle_duration = 0;
-    p1_human2_duration = 0;
-    p1_human3_duration = 0;
-    p1_human4_duration = 0;
-    p1_human5_duration = 0;
-    p1_human6_duration = 0;
-    p1_icon_duration = 0;
+    document.getElementById("choice1-btn").src = "assets/images/button_1_red.png";
+    document.getElementById("choice2-btn").src = "assets/images/button_2.png";
+    document.getElementById("choice3-btn").src = "assets/images/button_3.png";
 
-    model1.visible = false;
-    model2.visible = true;
-    model3.visible = false;
-    model4.visible = false;
+    if (!p1_show) {
+        model1.visible = false;
+        model2.visible = true;
+        model3.visible = false;
+        model4.visible = false;
 
-    p1_show = true;
-    p2_show = false;
-    p3_show = false;
+        // P1.
+        p1_bicycle_move.position.x = -100;
+        p1_human2_move.position.x = -100;
+        p1_human3_move.position.x = -100;
+        p1_human4_move.position.x = -100;
+        p1_human5_move.position.x = -100;
+        p1_human6_move.position.x = -100;
+
+        p1_bicycle_move.visible = false;
+        p1_human2_move.visible = false;
+        p1_human3_move.visible = false;
+        p1_human4_move.visible = false;
+        p1_human5_move.visible = false;
+        p1_human6_move.visible = false;
+
+        p1_bicycle_wait_time_value = 1;
+        p1_human2_wait_time_value = 2;
+        p1_human3_wait_time_value = 3;
+        p1_human4_wait_time_value = 4;
+        p1_human5_wait_time_value = 5;
+        p1_human6_wait_time_value = 6;
+
+        p1_bicycle_wait_time = p1_bicycle_wait_time_value;
+        p1_human2_wait_time = p1_human2_wait_time_value;
+        p1_human3_wait_time = p1_human3_wait_time_value;
+        p1_human4_wait_time = p1_human4_wait_time_value;
+        p1_human5_wait_time = p1_human5_wait_time_value;
+        p1_human6_wait_time = p1_human6_wait_time_value;
+
+        p1_show = true;
+        p2_show = false;
+        p3_show = false;
+    }
 }
 
 function choice2_worker() {
-    p2_human1_frame = 0;
-    p2_human2_frame = 0;
-    p2_human3_frame = 0;
-    p2_human4_frame = 0;
-    p2_human5_frame = 0;
-    p2_icon_frame = 0;
+    document.getElementById("text-1").style.display = "none";
+    document.getElementById("text-2").style.display = "block";
+    document.getElementById("text-3").style.display = "none";
 
-    p2_human1_duration = 0;
-    p2_human2_duration = 0;
-    p2_human3_duration = 0;
-    p2_human4_duration = 0;
-    p2_human5_duration = 0;
-    p2_icon_duration = 0;
+    document.getElementById("choice1-btn").src = "assets/images/button_1.png";
+    document.getElementById("choice2-btn").src = "assets/images/button_2_red.png";
+    document.getElementById("choice3-btn").src = "assets/images/button_3.png";
 
-    model1.visible = false;
-    model2.visible = false;
-    model3.visible = true;
-    model4.visible = false;
+    if (!p2_show) {
+        model1.visible = false;
+        model2.visible = false;
+        model3.visible = true;
+        model4.visible = false;
 
-    p1_show = false;
-    p2_show = true;
-    p3_show = false;
+        // P2.
+        p2_human1_move.position.x = -100;
+        p2_human2_move.position.x = -100;
+        p2_human3_move.position.x = -100;
+        p2_human4_move.position.x = -100;
+        p2_human5_move.position.x = -100;
+
+        p2_human1_move.visible = false;
+        p2_human2_move.visible = false;
+        p2_human3_move.visible = false;
+        p2_human4_move.visible = false;
+        p2_human5_move.visible = false;
+
+        p2_human1_wait_time_value = 1;
+        p2_human2_wait_time_value = 2;
+        p2_human3_wait_time_value = 3;
+        p2_human4_wait_time_value = 4;
+        p2_human5_wait_time_value = 5;
+
+        p2_human1_wait_time = p2_human1_wait_time_value;
+        p2_human2_wait_time = p2_human2_wait_time_value;
+        p2_human3_wait_time = p2_human3_wait_time_value;
+        p2_human4_wait_time = p2_human4_wait_time_value;
+        p2_human5_wait_time = p2_human5_wait_time_value;
+
+        p1_show = false;
+        p2_show = true;
+        p3_show = false;
+    }
 }
 
 function choice3_worker() {
-    p2_human1_frame = 0;
-    p2_human2_frame = 0;
-    p2_human3_frame = 0;
-    p2_human4_frame = 0;
-    p2_human5_frame = 0;
-    p2_icon_frame = 0;
+    document.getElementById("text-1").style.display = "none";
+    document.getElementById("text-2").style.display = "none";
+    document.getElementById("text-3").style.display = "block";
 
-    p2_human1_duration = 0;
-    p2_human2_duration = 0;
-    p2_human3_duration = 0;
-    p2_human4_duration = 0;
-    p2_human5_duration = 0;
-    p2_icon_duration = 0;
+    document.getElementById("choice1-btn").src = "assets/images/button_1.png";
+    document.getElementById("choice2-btn").src = "assets/images/button_2.png";
+    document.getElementById("choice3-btn").src = "assets/images/button_3_red.png";
 
-    model1.visible = false;
-    model2.visible = false;
-    model3.visible = false;
-    model4.visible = true;
+    if (!p3_show) {
+        model1.visible = false;
+        model2.visible = false;
+        model3.visible = false;
+        model4.visible = true;
 
-    p1_show = false;
-    p2_show = false;
-    p3_show = true;
-}
-
-function zero_path(count) {
-    if (count < 10) {
-        return '_0000';
-    }
-    else if (count >= 10 && count < 100) {
-        return '_000';
-    }
-    else {
-        return '_00';
-    }
-}
-
-function clearAllTexture() {
-    // P1.
-    if (p1_bicycle_textures != undefined) {
-        for (count = 0; count < p1_bicycle_frame_count; count++) {
-            if (p1_bicycle_textures[count] != undefined) {
-                p1_bicycle_textures[count].dispose();
-            }
-        }
-    }
-    if (p1_human2_textures != undefined) {
-        for (count = 0; count < p1_human2_frame_count; count++) {
-            if (p1_human2_textures[count] != undefined) {
-                p1_human2_textures[count].dispose();
-            }
-        }
-    }
-    if (p1_human3_textures != undefined) {
-        for (count = 0; count < p1_human3_frame_count; count++) {
-            if (p1_human3_textures[count] != undefined) {
-                p1_human3_textures[count].dispose();
-            }
-        }
-    }
-    if (p1_human4_textures != undefined) {
-        for (count = 0; count < p1_human4_frame_count; count++) {
-            if (p1_human4_textures[count] != undefined) {
-                p1_human4_textures[count].dispose();
-            }
-        }
-    }
-    if (p1_human5_textures != undefined) {
-        for (count = 0; count < p1_human5_frame_count; count++) {
-            if (p1_human5_textures[count] != undefined) {
-                p1_human5_textures[count].dispose();
-            }
-        }
-    }
-    if (p1_human6_textures != undefined) {
-        for (count = 0; count < p1_human6_frame_count; count++) {
-            if (p1_human6_textures[count] != undefined) {
-                p1_human6_textures[count].dispose();
-            }
-        }
-    }
-    if (p1_icon_textures != undefined) {
-        for (count = 0; count < p1_icon_frame_count; count++) {
-            if (p1_icon_textures[count] != undefined) {
-                p1_icon_textures[count].dispose();
-            }
-        }
-    }
-    // P2.
-    if (p2_human1_textures != undefined) {
-        for (count = 0; count < p2_human1_frame_count; count++) {
-            if (p2_human1_textures[count] != undefined) {
-                p2_human1_textures[count].dispose();
-            }
-        }
-    }
-    if (p2_human2_textures != undefined) {
-        for (count = 0; count < p2_human2_frame_count; count++) {
-            if (p2_human2_textures[count] != undefined) {
-                p2_human2_textures[count].dispose();
-            }
-        }
-    }
-    if (p2_human3_textures != undefined) {
-        for (count = 0; count < p2_human3_frame_count; count++) {
-            if (p2_human3_textures[count] != undefined) {
-                p2_human3_textures[count].dispose();
-            }
-        }
-    }
-    if (p2_human4_textures != undefined) {
-        for (count = 0; count < p2_human4_frame_count; count++) {
-            if (p2_human4_textures[count] != undefined) {
-                p2_human4_textures[count].dispose();
-            }
-        }
-    }
-    if (p2_human5_textures != undefined) {
-        for (count = 0; count < p2_human5_frame_count; count++) {
-            if (p2_human5_textures[count] != undefined) {
-                p2_human5_textures[count].dispose();
-            }
-        }
-    }
-    if (p2_icon_textures != undefined) {
-        for (count = 0; count < p2_icon_frame_count; count++) {
-            if (p2_icon_textures[count] != undefined) {
-                p2_icon_textures[count].dispose();
-            }
-        }
-    }
-    if (p3_icon_textures != undefined) {
-        for (count = 0; count < p3_icon_frame_count; count++) {
-            if (p3_icon_textures[count] != undefined) {
-                p3_icon_textures[count].dispose();
-            }
-        }
-    }
-}
-
-function loadAllTexture() {
-    // P1.
-    p1_bicycle_textures = [];
-    for (count = 0; count < p1_bicycle_frame_count; count++) {
-        p1_bicycle_textures[count] = new THREE.TextureLoader().load(p1_bicycle_path + zero_path(count) + count + '.png');
-        p1_bicycle_materials[count] = new THREE.MeshBasicMaterial({ map: p1_bicycle_textures[count], depthTest: false, transparent: true, side: THREE.DoubleSide });
-    }
-    p1_human2_textures = [];
-    for (count = 0; count < p1_human2_frame_count; count++) {
-        p1_human2_textures[count] = new THREE.TextureLoader().load(p1_human2_path + zero_path(count) + count + '.png');
-        p1_human2_materials[count] = new THREE.MeshBasicMaterial({ map: p1_human2_textures[count], depthTest: false, transparent: true, side: THREE.DoubleSide });
-    }
-    p1_human3_textures = [];
-    for (count = 0; count < p1_human3_frame_count; count++) {
-        p1_human3_textures[count] = new THREE.TextureLoader().load(p1_human3_path + zero_path(count) + count + '.png');
-        p1_human3_materials[count] = new THREE.MeshBasicMaterial({ map: p1_human3_textures[count], depthTest: false, transparent: true, side: THREE.DoubleSide });
-    }
-    p1_human4_textures = [];
-    for (count = 0; count < p1_human4_frame_count; count++) {
-        p1_human4_textures[count] = new THREE.TextureLoader().load(p1_human4_path + zero_path(count) + count + '.png');
-        p1_human4_materials[count] = new THREE.MeshBasicMaterial({ map: p1_human4_textures[count], depthTest: false, transparent: true, side: THREE.DoubleSide });
-    }
-    p1_human5_textures = [];
-    for (count = 0; count < p1_human5_frame_count; count++) {
-        p1_human5_textures[count] = new THREE.TextureLoader().load(p1_human5_path + zero_path(count) + count + '.png');
-        p1_human5_materials[count] = new THREE.MeshBasicMaterial({ map: p1_human5_textures[count], depthTest: false, transparent: true, side: THREE.DoubleSide });
-    }
-    p1_human6_textures = [];
-    for (count = 0; count < p1_human6_frame_count; count++) {
-        p1_human6_textures[count] = new THREE.TextureLoader().load(p1_human6_path + zero_path(count) + count + '.png');
-        p1_human6_materials[count] = new THREE.MeshBasicMaterial({ map: p1_human6_textures[count], depthTest: false, transparent: true, side: THREE.DoubleSide });
-    }
-    p1_icon_textures = [];
-    for (count = 0; count < p1_icon_frame_count; count++) {
-        p1_icon_textures[count] = new THREE.TextureLoader().load(p1_icon_path + zero_path(count) + count + '.png');
-        //p1_icon_textures[count] = new THREE.TextureLoader().load(p1_icon_path + '_' + count + '.png');
-        p1_icon_materials[count] = new THREE.MeshBasicMaterial({ map: p1_icon_textures[count], depthTest: false, transparent: true, side: THREE.DoubleSide });
-    }
-
-    // P2.
-    p2_human1_textures = [];
-    for (count = 0; count < p2_human1_frame_count; count++) {
-        p2_human1_textures[count] = new THREE.TextureLoader().load(p2_human1_path + zero_path(count) + count + '.png');
-        p2_human1_materials[count] = new THREE.MeshBasicMaterial({ map: p2_human1_textures[count], depthTest: false, transparent: true, side: THREE.DoubleSide });
-    }
-    p2_human2_textures = [];
-    for (count = 0; count < p2_human2_frame_count; count++) {
-        p2_human2_textures[count] = new THREE.TextureLoader().load(p2_human2_path + zero_path(count) + count + '.png');
-        p2_human2_materials[count] = new THREE.MeshBasicMaterial({ map: p2_human2_textures[count], depthTest: false, transparent: true, side: THREE.DoubleSide });
-    }
-    p2_human3_textures = [];
-    for (count = 0; count < p2_human3_frame_count; count++) {
-        p2_human3_textures[count] = new THREE.TextureLoader().load(p2_human3_path + zero_path(count) + count + '.png');
-        p2_human3_materials[count] = new THREE.MeshBasicMaterial({ map: p2_human3_textures[count], depthTest: false, transparent: true, side: THREE.DoubleSide });
-    }
-    p2_human4_textures = [];
-    for (count = 0; count < p2_human4_frame_count; count++) {
-        p2_human4_textures[count] = new THREE.TextureLoader().load(p2_human4_path + zero_path(count) + count + '.png');
-        p2_human4_materials[count] = new THREE.MeshBasicMaterial({ map: p2_human4_textures[count], depthTest: false, transparent: true, side: THREE.DoubleSide });
-    }
-    p2_human5_textures = [];
-    for (count = 0; count < p2_human5_frame_count; count++) {
-        p2_human5_textures[count] = new THREE.TextureLoader().load(p2_human5_path + zero_path(count) + count + '.png');
-        p2_human5_materials[count] = new THREE.MeshBasicMaterial({ map: p2_human5_textures[count], depthTest: false, transparent: true, side: THREE.DoubleSide });
-    }
-    p2_icon_textures = [];
-    for (count = 0; count < p2_icon_frame_count; count++) {
-        p2_icon_textures[count] = new THREE.TextureLoader().load(p2_icon_path + zero_path(count) + count + '.png');
-        //p2_icon_textures[count] = new THREE.TextureLoader().load(p2_icon_path + '_' + count + '.png');
-        p2_icon_materials[count] = new THREE.MeshBasicMaterial({ map: p2_icon_textures[count], depthTest: false, transparent: true, side: THREE.DoubleSide });
-    }
-
-    // P3.
-    p3_icon_textures = [];
-    for (count = 0; count < p3_icon_frame_count; count++) {
-        p3_icon_textures[count] = new THREE.TextureLoader().load(p3_icon_path + zero_path(count) + count + '.png');
-        //p3_icon_textures[count] = new THREE.TextureLoader().load(p3_icon_path + '_' + count + '.png');
-        p3_icon_materials[count] = new THREE.MeshBasicMaterial({ map: p3_icon_textures[count], depthTest: false, transparent: true, side: THREE.DoubleSide });
-    }
-}
-
-function frameUpdate(delta) {
-    var fps = 24;
-
-    if (p1_show) {
-        // P1.
-        p1_bicycle_duration += delta;
-        if (p1_bicycle_duration > (1 / fps)) {
-            p1_bicycle_plane.material = p1_bicycle_materials[p1_bicycle_frame];
-            p1_bicycle_frame++;
-            if (p1_bicycle_frame >= p1_bicycle_frame_count) {
-                p1_bicycle_frame = 0;
-            }
-
-            p1_bicycle_duration = 0;
-        }
-        p1_human2_duration += delta;
-        if (p1_human2_duration > (1 / fps)) {
-            p1_human2_plane.material = p1_human2_materials[p1_human2_frame];
-            p1_human2_frame++;
-            if (p1_human2_frame >= p1_human2_frame_count) {
-                p1_human2_frame = 0;
-            }
-
-            p1_human2_duration = 0;
-        }
-        p1_human3_duration += delta;
-        if (p1_human3_duration > (1 / fps)) {
-            p1_human3_plane.material = p1_human3_materials[p1_human3_frame];
-            p1_human3_frame++;
-            if (p1_human3_frame >= p1_human3_frame_count) {
-                p1_human3_frame = 0;
-            }
-
-            p1_human3_duration = 0;
-        }
-        p1_human4_duration += delta;
-        if (p1_human4_duration > (1 / fps)) {
-            p1_human4_plane.material = p1_human4_materials[p1_human4_frame];
-            p1_human4_frame++;
-            if (p1_human4_frame >= p1_human4_frame_count) {
-                p1_human4_frame = 0;
-            }
-
-            p1_human4_duration = 0;
-        }
-        p1_human5_duration += delta;
-        if (p1_human5_duration > (1 / fps)) {
-            p1_human5_plane.material = p1_human5_materials[p1_human5_frame];
-            p1_human5_frame++;
-            if (p1_human5_frame >= p1_human5_frame_count) {
-                p1_human5_frame = 0;
-            }
-
-            p1_human5_duration = 0;
-        }
-        p1_human6_duration += delta;
-        if (p1_human6_duration > (1 / fps)) {
-            p1_human6_plane.material = p1_human6_materials[p1_human6_frame];
-            p1_human6_frame++;
-            if (p1_human6_frame >= p1_human6_frame_count) {
-                p1_human6_frame = 0;
-            }
-
-            p1_human6_duration = 0;
-        }
-        p1_icon_duration += delta;
-        if (p1_icon_duration > (1 / fps)) {
-            p1_icon_plane.material = p1_icon_materials[p1_icon_frame];
-            p1_icon_frame++;
-            if (p1_icon_frame >= p1_icon_frame_count) {
-                p1_icon_frame = 0;
-            }
-
-            p1_icon_duration = 0;
-        }
-    }
-    if (p2_show) {
-        // P2.
-        p2_human1_duration += delta;
-        if (p2_human1_duration > (1 / fps)) {
-            p2_human1_plane.material = p2_human1_materials[p2_human1_frame];
-            p2_human1_frame++;
-            if (p2_human1_frame >= p2_human1_frame_count) {
-                p2_human1_frame = 0;
-            }
-
-            p2_human1_duration = 0;
-        }
-        p2_human2_duration += delta;
-        if (p2_human2_duration > (1 / fps)) {
-            p2_human2_plane.material = p2_human2_materials[p2_human2_frame];
-            p2_human2_frame++;
-            if (p2_human2_frame >= p2_human2_frame_count) {
-                p2_human2_frame = 0;
-            }
-
-            p2_human2_duration = 0;
-        }
-        p2_human3_duration += delta;
-        if (p2_human3_duration > (1 / fps)) {
-            p2_human3_plane.material = p2_human3_materials[p2_human3_frame];
-            p2_human3_frame++;
-            if (p2_human3_frame >= p2_human3_frame_count) {
-                p2_human3_frame = 0;
-            }
-
-            p2_human3_duration = 0;
-        }
-        p2_human4_duration += delta;
-        if (p2_human4_duration > (1 / fps)) {
-            p2_human4_plane.material = p2_human4_materials[p2_human4_frame];
-            p2_human4_frame++;
-            if (p2_human4_frame >= p2_human4_frame_count) {
-                p2_human4_frame = 0;
-            }
-
-            p2_human4_duration = 0;
-        }
-        p2_human5_duration += delta;
-        if (p2_human5_duration > (1 / fps)) {
-            p2_human5_plane.material = p2_human5_materials[p2_human5_frame];
-            p2_human5_frame++;
-            if (p2_human5_frame >= p2_human5_frame_count) {
-                p2_human5_frame = 0;
-            }
-
-            p2_human5_duration = 0;
-        }
-        p2_icon_duration += delta;
-        if (p2_icon_duration > (1 / fps)) {
-            p2_icon_plane.material = p2_icon_materials[p2_icon_frame];
-            p2_icon_frame++;
-            if (p2_icon_frame >= p2_icon_frame_count) {
-                p2_icon_frame = 0;
-            }
-
-            p2_icon_duration = 0;
-        }
-    }
-    if (p3_show) {
         // P3.
-        p3_human1_duration += delta;
-        if (p3_human1_duration > (1 / fps)) {
-            p3_human1_plane.material = p2_human1_materials[p3_human1_frame];
-            p3_human1_frame++;
-            if (p3_human1_frame >= p2_human1_frame_count) {
-                p3_human1_frame = 0;
-            }
+        p3_human1_move.position.x = -100;
+        p3_human2_move.position.x = -100;
+        p3_human3_move.position.x = -100;
+        p3_human4_move.position.x = -100;
+        p3_human5_move.position.x = -100;
 
-            p3_human1_duration = 0;
-        }
-        p3_human2_duration += delta;
-        if (p3_human2_duration > (1 / fps)) {
-            p3_human2_plane.material = p2_human2_materials[p3_human2_frame];
-            p3_human2_frame++;
-            if (p3_human2_frame >= p2_human2_frame_count) {
-                p3_human2_frame = 0;
-            }
+        p3_human1_move.visible = false;
+        p3_human2_move.visible = false;
+        p3_human3_move.visible = false;
+        p3_human4_move.visible = false;
+        p3_human5_move.visible = false;
 
-            p3_human2_duration = 0;
-        }
-        p3_human3_duration += delta;
-        if (p3_human3_duration > (1 / fps)) {
-            p3_human3_plane.material = p2_human3_materials[p3_human3_frame];
-            p3_human3_frame++;
-            if (p3_human3_frame >= p2_human3_frame_count) {
-                p3_human3_frame = 0;
-            }
+        p3_human1_wait_time_value = 1;
+        p3_human2_wait_time_value = 2;
+        p3_human3_wait_time_value = 3;
+        p3_human4_wait_time_value = 4;
+        p3_human5_wait_time_value = 5;
 
-            p3_human3_duration = 0;
-        }
-        p3_human4_duration += delta;
-        if (p3_human4_duration > (1 / fps)) {
-            p3_human4_plane.material = p2_human4_materials[p3_human4_frame];
-            p3_human4_frame++;
-            if (p3_human4_frame >= p2_human4_frame_count) {
-                p3_human4_frame = 0;
-            }
+        p3_human1_wait_time = p3_human1_wait_time_value;
+        p3_human2_wait_time = p3_human2_wait_time_value;
+        p3_human3_wait_time = p3_human3_wait_time_value;
+        p3_human4_wait_time = p3_human4_wait_time_value;
+        p3_human5_wait_time = p3_human5_wait_time_value;
 
-            p3_human4_duration = 0;
-        }
-        p3_human5_duration += delta;
-        if (p3_human5_duration > (1 / fps)) {
-            p3_human5_plane.material = p2_human5_materials[p3_human5_frame];
-            p3_human5_frame++;
-            if (p3_human5_frame >= p2_human5_frame_count) {
-                p3_human5_frame = 0;
-            }
+        p1_show = false;
+        p2_show = false;
+        p3_show = true;
+    }
+}
 
-            p3_human5_duration = 0;
-        }
-        p3_icon_duration += delta;
-        if (p3_icon_duration > (1 / fps)) {
-            p3_icon_plane.material = p3_icon_materials[p3_icon_frame];
-            p3_icon_frame++;
-            if (p3_icon_frame >= p2_icon_frame_count) {
-                p3_icon_frame = 0;
-            }
+function loadTextures(urls, callback) {
+    var textures = [];
 
-            p3_icon_duration = 0;
-        }
+    var onLoad = function () {
+        callback(null, textures);
+    };
+
+    var onProgress = function () { };
+
+    var onError = function (url) {
+        callback(new Error('Cannot load ' + url));
+    };
+
+    var manager = new THREE.LoadingManager(onLoad, onProgress, onError);
+
+    var loader = new THREE.TextureLoader(manager);
+
+    for (var i = 0; i < urls.length; i++) {
+        textures.push(loader.load(urls[i]));
     }
 }

@@ -43,13 +43,6 @@ var setMatrix = function (matrix, value) {
     }
 };
 
-var plane_bg;
-var plane_1;
-var plane_2;
-var plane_3;
-var plane_top_1;
-var plane_top_2;
-
 //gltf
 var model0;
 var model1;
@@ -62,25 +55,6 @@ var adjust_px = 380 / 10;
 var adjust_py = 0;
 var adjust_angle = 25;
 //, side: THREE.DoubleSide
-var rain_texture = THREE.ImageUtils.loadTexture('assets/sprites/rain_drop.png');
-SpriteAnimator.add({ texture: rain_texture, tilesHorizontal: 4, tilesVertical: 4, fps: 10, numberOfTiles: 11 });
-var rain_animate = new THREE.Mesh(new THREE.PlaneGeometry(100, 100), new THREE.MeshBasicMaterial({ transparent: true, depthTest: false, map: rain_texture, side: THREE.DoubleSide }));
-
-var cloud_texture = THREE.ImageUtils.loadTexture('assets/sprites/cloud.png');
-SpriteAnimator.add({ texture: cloud_texture, tilesHorizontal: 12, tilesVertical: 12, fps: 10, numberOfTiles: 121 });
-var cloud_animate = new THREE.Mesh(new THREE.PlaneGeometry(100, 100), new THREE.MeshBasicMaterial({ transparent: true, depthTest: false, map: cloud_texture, side: THREE.DoubleSide }));
-
-var main_texture_1 = THREE.ImageUtils.loadTexture('assets/sprites/animation_1.png');
-SpriteAnimator.add({ texture: main_texture_1, tilesHorizontal: 4, tilesVertical: 4, fps: 8, numberOfTiles: 12 });
-var main_animate_1 = new THREE.Mesh(new THREE.PlaneGeometry(100, 100), new THREE.MeshBasicMaterial({ transparent: true, depthTest: false, map: main_texture_1, side: THREE.DoubleSide }));
-
-var main_texture_2 = THREE.ImageUtils.loadTexture('assets/sprites/animation_2.png');
-SpriteAnimator.add({ texture: main_texture_2, tilesHorizontal: 6, tilesVertical: 6, fps: 8, numberOfTiles: 24 });
-var main_animate_2 = new THREE.Mesh(new THREE.PlaneGeometry(100, 100), new THREE.MeshBasicMaterial({ transparent: true, map: main_texture_2 }));
-
-var main_texture_3 = THREE.ImageUtils.loadTexture('assets/sprites/animation_3.png');
-SpriteAnimator.add({ texture: main_texture_3, tilesHorizontal: 4, tilesVertical: 4, fps: 8, numberOfTiles: 12 });
-var main_animate_3 = new THREE.Mesh(new THREE.PlaneGeometry(100, 100), new THREE.MeshBasicMaterial({ transparent: true, map: main_texture_3 }));
 
 var sun_shade_texture = THREE.ImageUtils.loadTexture('assets/sprites/sun_shade.png');
 SpriteAnimator.add({ texture: sun_shade_texture, tilesHorizontal: 16, tilesVertical: 16, fps: 24, numberOfTiles: 251 });
@@ -140,125 +114,6 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
     var root = new THREE.Object3D();
     scene.add(root);
     root.visible = false;
-
-    //add sprite animator
-    rain_animate.position.x = 0;
-    rain_animate.position.y = 55;
-    rain_animate.position.z = 50;
-    rain_animate.scale.x = rain_animate.scale.y = rain_animate.scale.z = 1;
-    //rain_animate.rotation.x = adjust_angle * 0.0174532925;
-    //root.add(rain_animate);
-    //rain_animate.visible = false;
-
-    cloud_animate.position.x = 0;
-    cloud_animate.position.y = 55;
-    cloud_animate.position.z = 51;
-    cloud_animate.scale.x = cloud_animate.scale.y = cloud_animate.scale.z = 1;
-    //cloud_animate.rotation.x = adjust_angle * 0.0174532925;
-    //root.add(cloud_animate);
-    //cloud_animate.visible = false;
-
-    main_animate_1.position.x = 0;
-    main_animate_1.position.y = 14;
-    main_animate_1.position.z = 52;
-    main_animate_1.scale.x = main_animate_1.scale.y = main_animate_1.scale.z = 1.2;
-    //main_animate_1.rotation.x = adjust_angle * 0.0174532925;
-    //root.add(main_animate_1);
-    //main_animate_1.visible = false;
-
-    main_animate_2.position.x = 0;
-    main_animate_2.position.y = 14;
-    main_animate_2.position.z = 52;
-    main_animate_2.scale.x = main_animate_2.scale.y = main_animate_2.scale.z = 1.2;
-    //main_animate_2.rotation.x = adjust_angle * 0.0174532925;
-    //root.add(main_animate_2);
-    main_animate_2.visible = false;
-
-    main_animate_3.position.x = 0;
-    main_animate_3.position.y = 14;
-    main_animate_3.position.z = 52;
-    main_animate_3.scale.x = main_animate_3.scale.y = main_animate_3.scale.z = 1.2;
-    //main_animate_3.rotation.x = adjust_angle * 0.0174532925;
-    //root.add(main_animate_3);
-    main_animate_3.visible = false;
-
-    //var loader = new THREE.TextureLoader();
-    //var texture = loader.load( 'https://i.imgur.com/RoNmD7W.png' );
-
-    const material_bg = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/background_building.png'), opacity: 1, transparent: true, side: THREE.DoubleSide });
-    plane_bg = new THREE.Mesh(new THREE.PlaneGeometry(150, 150, 10, 10), material_bg);
-    plane_bg.position.x = 0;
-    plane_bg.position.y = 70;
-    plane_bg.position.z = -45;
-    plane_bg.scale.x = plane_bg.scale.y = plane_bg.scale.z = 1;
-    //plane_bg.rotation.x = adjust_angle * 0.0174532925;
-    //plane_bg.visible = false;
-
-    //const geometry = new THREE.PlaneGeometry(50, 50, 10);
-    const material_1 = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/description_1.png'), opacity: 1, transparent: true, side: THREE.DoubleSide });
-    plane_1 = new THREE.Mesh(new THREE.PlaneGeometry(130, 35, 10, 10), material_1);
-    plane_1.position.x = 0;
-    plane_1.position.y = -45;
-    plane_1.position.z = 55;
-    plane_1.scale.x = plane_1.scale.y = plane_1.scale.z = 1.2;
-    //plane_1.rotation.x = 20 * 0.0174532925;
-    // plane_1.visible = false;
-
-    const material_2 = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/description_2.png'), opacity: 1, transparent: true, side: THREE.DoubleSide });
-    plane_2 = new THREE.Mesh(new THREE.PlaneGeometry(130, 35, 10, 10), material_2);
-    plane_2.position.x = 0;
-    plane_2.position.y = -45;
-    plane_2.position.z = 55;
-    plane_2.scale.x = plane_2.scale.y = plane_2.scale.z = 1.2;
-    //plane_2.rotation.x = 20 * 0.0174532925;
-    plane_2.visible = false;
-
-    const material_3 = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/description_3.png'), opacity: 1, transparent: true, side: THREE.DoubleSide });
-    plane_3 = new THREE.Mesh(new THREE.PlaneGeometry(130, 35, 10, 10), material_3);
-    plane_3.position.x = 0;
-    plane_3.position.y = -45;
-    plane_3.position.z = 55;
-    plane_3.scale.x = plane_3.scale.y = plane_3.scale.z = 1.2;
-    // plane_3.rotation.x = 20 * 0.0174532925;
-    plane_3.visible = false;
-
-    const material_top_1 = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/animate_top_1.png'), opacity: 1, transparent: true, side: THREE.DoubleSide });
-    plane_top_1 = new THREE.Mesh(new THREE.PlaneGeometry(95, 95, 10, 10), material_top_1);
-    plane_top_1.position.x = 0;
-    plane_top_1.position.y = 12;
-    plane_top_1.position.z = 0;
-    plane_top_1.scale.x = plane_top_1.scale.y = plane_top_1.scale.z = 1.05;
-    //plane_top_1.rotation.x = (adjust_angle - 90) * 0.0174532925;
-    plane_top_1.rotation.x = -(90) * 0.0174532925;
-    // plane_top_1.visible = false;
-
-    const material_top_2 = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/animate_top_2.png'), opacity: 1, transparent: true, side: THREE.DoubleSide });
-    plane_top_2 = new THREE.Mesh(new THREE.PlaneGeometry(95, 95, 10, 10), material_top_2);
-    plane_top_2.position.x = 0;
-    plane_top_2.position.y = 12;
-    plane_top_2.position.z = 0;
-    plane_top_2.scale.x = plane_top_2.scale.y = plane_top_2.scale.z = 1.05;
-    //plane_top_2.rotation.x = (adjust_angle - 90) * 0.0174532925;
-    plane_top_2.rotation.x = - 90 * 0.0174532925;
-    plane_top_2.visible = false;
-
-    // root.matrixAutoUpdate = false;
-    // root.add(plane_bg);
-
-    // root.matrixAutoUpdate = false;
-    // root.add(plane_1);
-
-    // root.matrixAutoUpdate = false;
-    // root.add(plane_2);
-
-    // root.matrixAutoUpdate = false;
-    // root.add(plane_3);
-
-    // root.matrixAutoUpdate = false;
-    // root.add(plane_top_1);
-
-    // root.matrixAutoUpdate = false;
-    // root.add(plane_top_2);
 
     /* Load Model */
     var threeGLTFLoader0 = new THREE.GLTFLoader();
@@ -575,45 +430,6 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
         root.add(model3);
     });
 
-    // // Sun Shade.
-    // sun_shade_animate.position.x = 0;
-    // sun_shade_animate.position.y = 10.5;
-    // sun_shade_animate.position.z = 0;
-    // sun_shade_animate.scale.x = 1.6;
-    // sun_shade_animate.scale.y = 1.1;
-    // sun_shade_animate.scale.z = 1;
-    // sun_shade_animate.rotation.x = -90 * 0.0174532925;
-    // sun_shade_animate.visible = false;
-
-    // // Soloar Irradiance.
-    // solar_irradiance_animate.position.x = 0;
-    // solar_irradiance_animate.position.y = 10.5;
-    // solar_irradiance_animate.position.z = 0;
-    // solar_irradiance_animate.scale.x = 1.6;
-    // solar_irradiance_animate.scale.y = 1.1;
-    // solar_irradiance_animate.scale.z = 1;
-    // solar_irradiance_animate.rotation.x = -90 * 0.0174532925;
-    // solar_irradiance_animate.visible = false;
-
-    // // Wind Flow.
-    // wind_flow_animate.position.x = 0;
-    // wind_flow_animate.position.y = 30;
-    // wind_flow_animate.position.z = 0;
-    // wind_flow_animate.scale.x = 1.6;
-    // wind_flow_animate.scale.y = 1.1;
-    // wind_flow_animate.scale.z = 1;
-    // wind_flow_animate.rotation.x = -90 * 0.0174532925;
-    // wind_flow_animate.visible = false;
-
-    // root.matrixAutoUpdate = false;
-    // root.add(sun_shade_animate);
-
-    // root.matrixAutoUpdate = false;
-    // root.add(solar_irradiance_animate);
-
-    // root.matrixAutoUpdate = false;
-    // root.add(wind_flow_animate);
-
     var sphere = new THREE.Mesh(
         new THREE.SphereGeometry(0.5, 8, 8),
         new THREE.MeshNormalMaterial()
@@ -918,35 +734,47 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
 }
 
 function choice1_worker() {
+    document.getElementById("text-1").style.display = "block";
+    document.getElementById("text-2").style.display = "none";
+    document.getElementById("text-3").style.display = "none";
+
+    document.getElementById("choice1-btn").src = "assets/images/button_1_red.png";
+    document.getElementById("choice2-btn").src = "assets/images/button_2.png";
+    document.getElementById("choice3-btn").src = "assets/images/button_3.png";
+
     model0.visible = false;
     model1.visible = true;
     model2.visible = false;
     model3.visible = false;
-
-    // sun_shade_animate.visible = true;
-    // solar_irradiance_animate.visible = false;
-    // wind_flow_animate.visible = false;
 }
 
 function choice2_worker() {
+    document.getElementById("text-1").style.display = "none";
+    document.getElementById("text-2").style.display = "block";
+    document.getElementById("text-3").style.display = "none";
+
+    document.getElementById("choice1-btn").src = "assets/images/button_1.png";
+    document.getElementById("choice2-btn").src = "assets/images/button_2_red.png";
+    document.getElementById("choice3-btn").src = "assets/images/button_3.png";
+
     model0.visible = false;
     model1.visible = false;
     model2.visible = true;
     model3.visible = false;
-
-    // sun_shade_animate.visible = false;
-    // solar_irradiance_animate.visible = true;
-    // wind_flow_animate.visible = false;
 }
 
 function choice3_worker() {
+    document.getElementById("text-1").style.display = "none";
+    document.getElementById("text-2").style.display = "none";
+    document.getElementById("text-3").style.display = "block";
+
+    document.getElementById("choice1-btn").src = "assets/images/button_1.png";
+    document.getElementById("choice2-btn").src = "assets/images/button_2.png";
+    document.getElementById("choice3-btn").src = "assets/images/button_3_red.png";
+
     model0.visible = false;
     model1.visible = false;
     model2.visible = false;
     model3.visible = true;
-
-    // sun_shade_animate.visible = false;
-    // solar_irradiance_animate.visible = false;
-    // wind_flow_animate.visible = true;
 }
 
