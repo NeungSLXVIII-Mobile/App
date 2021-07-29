@@ -142,6 +142,7 @@
 			top: 90%;
 			left: 50%;
 			transform: translate(-50%, -50%);
+			z-index: 2;
 			display: none;
 		}
 
@@ -152,6 +153,7 @@
 			top: 90%;
 			left: 50%;
 			transform: translate(-50%, -50%);
+			z-index: 2;
 			display: none;
 		}
 
@@ -162,6 +164,18 @@
 			top: 90%;
 			left: 50%;
 			transform: translate(-50%, -50%);
+			z-index: 2;
+			display: none;
+		}
+
+		.bottom {
+			position: absolute;
+			width: 100%;
+			height: auto;
+			top: 90%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			z-index: 1;
 			display: none;
 		}
 
@@ -290,9 +304,11 @@
 	<img class="choice3-btn" id="choice3-btn" src="assets/images/button_3.png" onclick="choice3_worker()">
 	<img class="choice4-btn" id="choice4-btn" src="assets/images/button_summary.png" onclick="clickSummaryBtn()">
 
-	<img class="text-1" id="text-1" src="assets/images/text_1_v2.png">
-	<img class="text-2" id="text-2" src="assets/images/text_2_v2.png">
-	<img class="text-3" id="text-3" src="assets/images/text_3_v2.png">
+	<img class="text-1" id="text-1" src="assets/images/text_1.png">
+	<img class="text-2" id="text-2" src="assets/images/text_2.png">
+	<img class="text-3" id="text-3" src="assets/images/text_3.png">
+
+	<img class="bottom" id="bottom" src="assets/images/bottom.png">
 
 	<div id="popupPage" style="display: none;">
 		<img src="assets/images/popup.png" class="popup-page" id="popup-page">
@@ -398,6 +414,7 @@
 			document.getElementById("choice3-btn").style.display = "block";
 			document.getElementById("choice4-btn").style.display = "block";
 			document.getElementById("finger360-icon").style.display = "block";
+			document.getElementById("bottom").style.display = "block";
 			openCamera();
 		}
 

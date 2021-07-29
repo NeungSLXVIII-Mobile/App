@@ -53,7 +53,8 @@ var model3;
 var adjust_scale = 2;
 var adjust_px = 380 / 10;
 var adjust_py = 0;
-var adjust_angle = 25;
+var adjust_angle = 60;
+var adjust_angle_z = 5;
 //, side: THREE.DoubleSide
 
 var sun_shade_texture = THREE.ImageUtils.loadTexture('assets/sprites/sun_shade.png');
@@ -87,6 +88,8 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
 
     var renderer = new THREE.WebGLRenderer({ canvas: canvas_draw, alpha: true, antialias: true, logarithmicDepthBuffer: true });
     renderer.setPixelRatio(window.devicePixelRatio);
+
+    //renderer.setClearColor(0xff0000, 1);
 
     var scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera();
@@ -125,6 +128,7 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
 
         model0.scale.x = model0.scale.y = model0.scale.z = 0.1;
         model0.rotation.x = adjust_angle * 0.0174532925;
+        model0.rotation.z = adjust_angle_z * 0.0174532925;
 
         model0.visible = true;
 
@@ -198,6 +202,7 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
 
         model1.scale.x = model1.scale.y = model1.scale.z = 0.1;
         model1.rotation.x = adjust_angle * 0.0174532925;
+        model1.rotation.z = adjust_angle_z * 0.0174532925;
 
         model1.visible = false;
 
@@ -278,6 +283,7 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
 
         model2.scale.x = model2.scale.y = model2.scale.z = 0.1;
         model2.rotation.x = adjust_angle * 0.0174532925;
+        model2.rotation.z = adjust_angle_z * 0.0174532925;
 
         model2.visible = false;
 
@@ -358,6 +364,7 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
 
         model3.scale.x = model3.scale.y = model3.scale.z = 0.1;
         model3.rotation.x = adjust_angle * 0.0174532925;
+        model3.rotation.z = adjust_angle_z * 0.0174532925;
 
         model3.visible = false;
 
