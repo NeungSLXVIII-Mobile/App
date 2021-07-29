@@ -120,7 +120,7 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
         model0 = gltf.scene;
 
         model0.position.x = 0;
-        model0.position.y = 0;
+        model0.position.y = 25;
         model0.position.z = 0;
 
         model0.scale.x = model0.scale.y = model0.scale.z = 0.1;
@@ -193,7 +193,7 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
         model1 = gltf.scene;
 
         model1.position.x = 0;
-        model1.position.y = 0;
+        model1.position.y = 25;
         model1.position.z = 0;
 
         model1.scale.x = model1.scale.y = model1.scale.z = 0.1;
@@ -273,7 +273,7 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
         model2 = gltf.scene;
 
         model2.position.x = 0;
-        model2.position.y = 0;
+        model2.position.y = 25;
         model2.position.z = 0;
 
         model2.scale.x = model2.scale.y = model2.scale.z = 0.1;
@@ -353,7 +353,7 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
         model3 = gltf.scene;
 
         model3.position.x = 0;
-        model3.position.y = 0;
+        model3.position.y = 25;
         model3.position.z = 0;
 
         model3.scale.x = model3.scale.y = model3.scale.z = 0.1;
