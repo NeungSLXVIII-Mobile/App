@@ -89,7 +89,7 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
     var renderer = new THREE.WebGLRenderer({ canvas: canvas_draw, alpha: true, antialias: true, logarithmicDepthBuffer: true });
     renderer.setPixelRatio(window.devicePixelRatio);
 
-    // renderer.setClearColor(0xff0000, 1);
+    //renderer.setClearColor(0xff0000, 1);
 
     var scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera();
