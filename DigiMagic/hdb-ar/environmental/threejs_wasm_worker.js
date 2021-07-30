@@ -100,10 +100,10 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
     //var camera = new THREE.Camera();
     //camera.matrixAutoUpdate = false;
 
-    var light = new THREE.AmbientLight(0xffffff);
-    scene.add(light);
-    // var light = new THREE.AmbientLight(0xffffff, 0.30);
+    // var light = new THREE.AmbientLight(0xffffff);
     // scene.add(light);
+    var light = new THREE.AmbientLight(0xffffff, 0.30);
+    scene.add(light);
 
     var direct_light = new THREE.DirectionalLight(0xffffff, 1);
     direct_light.position.set(1, 1, 2);
@@ -182,7 +182,9 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
         }
 
         if (building0 != undefined) {
-            building0.material = new THREE.MeshPhongMaterial({ map: new THREE.TextureLoader().load('Data/textures/building0.png'), opacity: 1, side: THREE.DoubleSide });
+            // building0.material = new THREE.MeshPhongMaterial({ map: new THREE.TextureLoader().load('Data/textures/building0.png'), opacity: 1, side: THREE.DoubleSide });
+            // building0.material.needsUpdate = true;
+            building0.material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/building0.png'), opacity: 1, side: THREE.DoubleSide });
             building0.material.needsUpdate = true;
         }
 
@@ -257,7 +259,9 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
         }
 
         if (building1 != undefined) {
-            building1.material = new THREE.MeshPhongMaterial({ map: new THREE.TextureLoader().load('Data/textures/building1.png'), opacity: 1, side: THREE.DoubleSide });
+            // building1.material = new THREE.MeshPhongMaterial({ map: new THREE.TextureLoader().load('Data/textures/building1.png'), opacity: 1, side: THREE.DoubleSide });
+            // building1.material.needsUpdate = true;
+            building1.material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/building1.png'), opacity: 1, side: THREE.DoubleSide });
             building1.material.needsUpdate = true;
         }
 
@@ -338,7 +342,9 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
         }
 
         if (building2 != undefined) {
-            building2.material = new THREE.MeshPhongMaterial({ map: new THREE.TextureLoader().load('Data/textures/building2.png'), opacity: 1, side: THREE.DoubleSide });
+            // building2.material = new THREE.MeshPhongMaterial({ map: new THREE.TextureLoader().load('Data/textures/building2.png'), opacity: 1, side: THREE.DoubleSide });
+            // building2.material.needsUpdate = true;
+            building2.material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/building2.png'), opacity: 1, side: THREE.DoubleSide });
             building2.material.needsUpdate = true;
         }
 
@@ -419,7 +425,9 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
         }
 
         if (building3 != undefined) {
-            building3.material = new THREE.MeshPhongMaterial({ map: new THREE.TextureLoader().load('Data/textures/building3.png'), opacity: 1, side: THREE.DoubleSide });
+            // building3.material = new THREE.MeshPhongMaterial({ map: new THREE.TextureLoader().load('Data/textures/building3.png'), opacity: 1, side: THREE.DoubleSide });
+            // building3.material.needsUpdate = true;
+            building3.material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/building3.png'), opacity: 1, side: THREE.DoubleSide });
             building3.material.needsUpdate = true;
         }
 
