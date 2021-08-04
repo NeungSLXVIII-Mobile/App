@@ -225,7 +225,7 @@ loadTextures(urls, function (error, textures) {
     p1_human4_move = new THREE.Mesh(new THREE.PlaneGeometry(30, 30), p1_human4_material);
     p1_human5_move = new THREE.Mesh(new THREE.PlaneGeometry(30, 30), p1_human5_material);
     p1_human6_move = new THREE.Mesh(new THREE.PlaneGeometry(30, 30), p1_human6_material);
-    p1_icon_move = new THREE.Mesh(new THREE.PlaneGeometry(100, 100), p1_icon_material);
+    p1_icon_move = new THREE.Mesh(new THREE.PlaneGeometry(150, 150), p1_icon_material);
 });
 
 // P2.
@@ -265,7 +265,7 @@ loadTextures(urls, function (error, textures) {
     p2_human3_move = new THREE.Mesh(new THREE.PlaneGeometry(30, 30), p2_human3_material);
     p2_human4_move = new THREE.Mesh(new THREE.PlaneGeometry(30, 30), p2_human4_material);
     p2_human5_move = new THREE.Mesh(new THREE.PlaneGeometry(30, 30), p2_human5_material);
-    p2_icon_move = new THREE.Mesh(new THREE.PlaneGeometry(100, 100), p2_icon_material);
+    p2_icon_move = new THREE.Mesh(new THREE.PlaneGeometry(150, 150), p2_icon_material);
 });
 
 // P3.
@@ -305,7 +305,7 @@ loadTextures(urls, function (error, textures) {
     p3_human3_move = new THREE.Mesh(new THREE.PlaneGeometry(30, 30), p3_human3_material);
     p3_human4_move = new THREE.Mesh(new THREE.PlaneGeometry(30, 30), p3_human4_material);
     p3_human5_move = new THREE.Mesh(new THREE.PlaneGeometry(30, 30), p3_human5_material);
-    p3_icon_move = new THREE.Mesh(new THREE.PlaneGeometry(100, 100), p3_icon_material);
+    p3_icon_move = new THREE.Mesh(new THREE.PlaneGeometry(150, 150), p3_icon_material);
 });
 
 var tree1_material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/dummy.png'), opacity: 1, depthTest: false, depthWrite: false, transparent: true, side: THREE.DoubleSide });
