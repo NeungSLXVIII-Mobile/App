@@ -387,11 +387,11 @@ var lamppost2_light_texture = new THREE.TextureLoader().load('Data/textures/lamp
 
 // P1.
 var p1_bicycle_plane;
+var p1_human1_plane;
 var p1_human2_plane;
 var p1_human3_plane;
 var p1_human4_plane;
 var p1_human5_plane;
-var p1_human6_plane;
 var p1_icon_plane;
 // P2.
 var p2_human1_plane;
@@ -641,13 +641,17 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
                 console.log("Lampost02b LV1");
                 lamppost2_2b = model2.children[count];
             }
-            if (model2.children[count].name == "Cube") {
+            if (model2.children[count].name == "Cube1") {
                 console.log("Cube LV1");
                 floor2_1 = model2.children[count];
             }
             if (model2.children[count].name == "Bicycle") {
                 console.log("Bicycle LV1");
                 p1_bicycle_plane = model2.children[count];
+            }
+            if (model2.children[count].name == "Human01") {
+                console.log("Human01 LV1");
+                p1_human1_plane = model2.children[count];
             }
             if (model2.children[count].name == "Human02") {
                 console.log("Human02 LV1");
@@ -664,10 +668,6 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
             if (model2.children[count].name == "Human05") {
                 console.log("Human05 LV1");
                 p1_human5_plane = model2.children[count];
-            }
-            if (model2.children[count].name == "Human06") {
-                console.log("Human06 LV1");
-                p1_human6_plane = model2.children[count];
             }
             if (model2.children[count].name == "Icon") {
                 console.log("Icon LV1");
@@ -754,8 +754,26 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
             model2.add(p1_bicycle_move);
         }
 
+        if (p1_human1_plane != undefined) {
+            // p1_human1_plane.material = p1_human2_material;
+            // p1_human1_plane.material.needsUpdate = true;
+
+            // p1_human1_plane.rotation.y = 180 * 0.0174532925;
+            // p1_human1_plane.rotation.z = 180 * 0.0174532925;
+
+            p1_human1_plane.visible = false;
+
+            p1_human2_move.position.x = -100;
+            p1_human2_move.position.y = human_base_y;
+            p1_human2_move.position.z = p1_human1_plane.position.z;
+
+            p1_human2_move.renderOrder = 1;
+
+            model2.add(p1_human2_move);
+        }
+
         if (p1_human2_plane != undefined) {
-            // p1_human2_plane.material = p1_human2_material;
+            // p1_human2_plane.material = p1_human3_material;
             // p1_human2_plane.material.needsUpdate = true;
 
             // p1_human2_plane.rotation.y = 180 * 0.0174532925;
@@ -763,17 +781,17 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
 
             p1_human2_plane.visible = false;
 
-            p1_human2_move.position.x = -100;
-            p1_human2_move.position.y = human_base_y;
-            p1_human2_move.position.z = p1_human2_plane.position.z;
+            p1_human3_move.position.x = -100;
+            p1_human3_move.position.y = 25 + 20;
+            p1_human3_move.position.z = p1_human2_plane.position.z;
 
-            p1_human2_move.renderOrder = 1;
+            p1_human3_move.renderOrder = 1;
 
-            model2.add(p1_human2_move);
+            model2.add(p1_human3_move);
         }
 
         if (p1_human3_plane != undefined) {
-            // p1_human3_plane.material = p1_human3_material;
+            // p1_human3_plane.material = p1_human4_material;
             // p1_human3_plane.material.needsUpdate = true;
 
             // p1_human3_plane.rotation.y = 180 * 0.0174532925;
@@ -781,17 +799,17 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
 
             p1_human3_plane.visible = false;
 
-            p1_human3_move.position.x = -100;
-            p1_human3_move.position.y = 25 + 20;
-            p1_human3_move.position.z = p1_human3_plane.position.z;
+            p1_human4_move.position.x = -100;
+            p1_human4_move.position.y = human_base_y;
+            p1_human4_move.position.z = p1_human3_plane.position.z;
 
-            p1_human3_move.renderOrder = 1;
+            p1_human4_move.renderOrder = 1;
 
-            model2.add(p1_human3_move);
+            model2.add(p1_human4_move);
         }
 
         if (p1_human4_plane != undefined) {
-            // p1_human4_plane.material = p1_human4_material;
+            // p1_human4_plane.material = p1_human5_material;
             // p1_human4_plane.material.needsUpdate = true;
 
             // p1_human4_plane.rotation.y = 180 * 0.0174532925;
@@ -799,17 +817,17 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
 
             p1_human4_plane.visible = false;
 
-            p1_human4_move.position.x = -100;
-            p1_human4_move.position.y = human_base_y;
-            p1_human4_move.position.z = p1_human4_plane.position.z;
+            p1_human5_move.position.x = -100;
+            p1_human5_move.position.y = human_base_y;
+            p1_human5_move.position.z = p1_human4_plane.position.z;
 
-            p1_human4_move.renderOrder = 1;
+            p1_human5_move.renderOrder = 1;
 
-            model2.add(p1_human4_move);
+            model2.add(p1_human5_move);
         }
 
         if (p1_human5_plane != undefined) {
-            // p1_human5_plane.material = p1_human5_material;
+            // p1_human5_plane.material = p1_human6_material;
             // p1_human5_plane.material.needsUpdate = true;
 
             // p1_human5_plane.rotation.y = 180 * 0.0174532925;
@@ -817,27 +835,9 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
 
             p1_human5_plane.visible = false;
 
-            p1_human5_move.position.x = -100;
-            p1_human5_move.position.y = human_base_y;
-            p1_human5_move.position.z = p1_human5_plane.position.z;
-
-            p1_human5_move.renderOrder = 1;
-
-            model2.add(p1_human5_move);
-        }
-
-        if (p1_human6_plane != undefined) {
-            // p1_human6_plane.material = p1_human6_material;
-            // p1_human6_plane.material.needsUpdate = true;
-
-            // p1_human6_plane.rotation.y = 180 * 0.0174532925;
-            // p1_human6_plane.rotation.z = 180 * 0.0174532925;
-
-            p1_human6_plane.visible = false;
-
             p1_human6_move.position.x = -100;
             p1_human6_move.position.y = human_base_y;
-            p1_human6_move.position.z = p1_human6_plane.position.z;
+            p1_human6_move.position.z = p1_human5_plane.position.z;
 
             p1_human6_move.renderOrder = 1;
 
@@ -1339,9 +1339,12 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
 
             p3_icon_plane.visible = false;
 
-            p3_icon_move.position.x = p3_icon_plane.position.x - 75;
-            p3_icon_move.position.y = p3_icon_plane.position.y - 25;
-            p3_icon_move.position.z = p3_icon_plane.position.z + 75;
+            // p3_icon_move.position.x = p3_icon_plane.position.x - 75;
+            // p3_icon_move.position.y = p3_icon_plane.position.y - 25;
+            // p3_icon_move.position.z = p3_icon_plane.position.z + 75;
+            p3_icon_move.position.x = p3_icon_plane.position.x + 25;
+            p3_icon_move.position.y = p3_icon_plane.position.y;
+            p3_icon_move.position.z = p3_icon_plane.position.z;
 
             p3_icon_move.renderOrder = 1;
 
@@ -1924,27 +1927,27 @@ function choice1_worker() {
 
         p1_human2_move.position.x = 0;
         p1_human2_move.position.y = human_base_y;
-        p1_human2_move.position.z = p1_human3_plane.position.z;
+        p1_human2_move.position.z = p1_human2_plane.position.z;
         p1_human2_move.visible = true;
 
         p1_human3_move.position.x = -100;
         p1_human3_move.position.y = human_base_y;
-        p1_human3_move.position.z = p1_human6_plane.position.z;
+        p1_human3_move.position.z = p1_human5_plane.position.z;
         p1_human3_move.visible = false;
 
         p1_human4_move.position.x = 40;
         p1_human4_move.position.y = human_base_y;
-        p1_human4_move.position.z = p1_human2_plane.position.z;
+        p1_human4_move.position.z = p1_human1_plane.position.z;
         p1_human4_move.visible = true;
 
         p1_human5_move.position.x = -40;
         p1_human5_move.position.y = human_base_y;
-        p1_human5_move.position.z = p1_human4_plane.position.z;
+        p1_human5_move.position.z = p1_human3_plane.position.z;
         p1_human5_move.visible = true;
 
         p1_human6_move.position.x = -80;
         p1_human6_move.position.y = human_base_y;
-        p1_human6_move.position.z = p1_human5_plane.position.z;
+        p1_human6_move.position.z = p1_human4_plane.position.z;
         p1_human6_move.visible = true;
 
         p1_human3_move.renderOrder = 1;
