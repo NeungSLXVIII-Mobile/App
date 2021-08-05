@@ -37,6 +37,11 @@ this.SpriteAnimator = {
         animation.onEnd && animation.onEnd();
     },
 
+    resetFrame: function( animation ) {
+        animation.startFrame = 0;
+        animation.currentTile = animation.startFrame;
+    },
+
     // Update all sprites we know about
     update: function( delta ) {
         var currentColumn, currentRow,

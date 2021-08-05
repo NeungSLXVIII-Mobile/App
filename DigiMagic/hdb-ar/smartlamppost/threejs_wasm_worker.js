@@ -192,7 +192,8 @@ var urls = [
     "assets/sprites/p1_human5_sprite_sheet.png",
     "assets/sprites/p1_human6_sprite_sheet.png",
     //"assets/sprites/p1_icon_sprite_sheet.png",
-    "assets/sprites/p1_icon_sprite_sheet_4096.png",
+    //"assets/sprites/p1_icon_sprite_sheet_4096.png",
+    "assets/sprites/p1_icon_sprite_sheet_2048.png",
 ];
 
 loadTextures(urls, function (error, textures) {
@@ -214,10 +215,10 @@ loadTextures(urls, function (error, textures) {
     p1_human5_material.map = textures[4];
     p1_human6_animation = SpriteAnimator.add({ texture: textures[5], tilesHorizontal: 9, tilesVertical: 9, fps: 24, numberOfTiles: 46 });
     p1_human6_material.map = textures[5];
-    // p1_icon_animation = SpriteAnimator.add({ texture: textures[6], tilesHorizontal: 9, tilesVertical: 9, fps: 24, numberOfTiles: 79 });
-    // p1_icon_material.map = textures[6];
-    p1_icon_animation = SpriteAnimator.add({ texture: textures[6], tilesHorizontal: 14, tilesVertical: 14, fps: 24, numberOfTiles: 79 });
+    p1_icon_animation = SpriteAnimator.add({ texture: textures[6], tilesHorizontal: 9, tilesVertical: 9, fps: 24, numberOfTiles: 79 });
     p1_icon_material.map = textures[6];
+    // p1_icon_animation = SpriteAnimator.add({ texture: textures[6], tilesHorizontal: 14, tilesVertical: 14, fps: 24, numberOfTiles: 79 });
+    // p1_icon_material.map = textures[6];
 
     p1_bicycle_move = new THREE.Mesh(new THREE.PlaneGeometry(30, 30), p1_bicycle_material);
     p1_human2_move = new THREE.Mesh(new THREE.PlaneGeometry(30, 30), p1_human2_material);
@@ -225,7 +226,7 @@ loadTextures(urls, function (error, textures) {
     p1_human4_move = new THREE.Mesh(new THREE.PlaneGeometry(30, 30), p1_human4_material);
     p1_human5_move = new THREE.Mesh(new THREE.PlaneGeometry(30, 30), p1_human5_material);
     p1_human6_move = new THREE.Mesh(new THREE.PlaneGeometry(30, 30), p1_human6_material);
-    p1_icon_move = new THREE.Mesh(new THREE.PlaneGeometry(150, 150), p1_icon_material);
+    p1_icon_move = new THREE.Mesh(new THREE.PlaneGeometry(120, 120), p1_icon_material);
 });
 
 // P2.
@@ -236,7 +237,8 @@ var urls = [
     "assets/sprites/p1_human5_sprite_sheet.png",
     "assets/sprites/p1_human6_sprite_sheet.png",
     //"assets/sprites/p2_icon_sprite_sheet.png",
-    "assets/sprites/p2_icon_sprite_sheet_4096.png",
+    //"assets/sprites/p2_icon_sprite_sheet_4096.png",
+    "assets/sprites/p2_icon_sprite_sheet_2048.png",
 ];
 
 loadTextures(urls, function (error, textures) {
@@ -255,10 +257,10 @@ loadTextures(urls, function (error, textures) {
     p2_human4_material.map = textures[3];
     p2_human5_animation = SpriteAnimator.add({ texture: textures[4], tilesHorizontal: 9, tilesVertical: 9, fps: 24, numberOfTiles: 46 });
     p2_human5_material.map = textures[4];
-    // p2_icon_animation = SpriteAnimator.add({ texture: textures[5], tilesHorizontal: 9, tilesVertical: 9, fps: 24, numberOfTiles: 79 });
-    // p2_icon_material.map = textures[5];
-    p2_icon_animation = SpriteAnimator.add({ texture: textures[5], tilesHorizontal: 14, tilesVertical: 14, fps: 24, numberOfTiles: 79 });
+    p2_icon_animation = SpriteAnimator.add({ texture: textures[5], tilesHorizontal: 9, tilesVertical: 9, fps: 24, numberOfTiles: 79 });
     p2_icon_material.map = textures[5];
+    // p2_icon_animation = SpriteAnimator.add({ texture: textures[5], tilesHorizontal: 14, tilesVertical: 14, fps: 24, numberOfTiles: 79 });
+    // p2_icon_material.map = textures[5];
 
     p2_human1_move = new THREE.Mesh(new THREE.PlaneGeometry(30, 30), p2_human1_material);
     p2_human2_move = new THREE.Mesh(new THREE.PlaneGeometry(30, 30), p2_human2_material);
@@ -276,7 +278,8 @@ var urls = [
     "assets/sprites/p1_human5_sprite_sheet.png",
     "assets/sprites/p1_human6_sprite_sheet.png",
     //"assets/sprites/p3_icon_sprite_sheet.png",
-    "assets/sprites/p3_icon_sprite_sheet_4096.png",
+    //"assets/sprites/p3_icon_sprite_sheet_4096.png",
+    "assets/sprites/p3_icon_sprite_sheet_2048.png",
 ];
 
 loadTextures(urls, function (error, textures) {
@@ -295,10 +298,10 @@ loadTextures(urls, function (error, textures) {
     p2_human4_material.map = textures[3];
     p2_human5_animation = SpriteAnimator.add({ texture: textures[4], tilesHorizontal: 9, tilesVertical: 9, fps: 24, numberOfTiles: 46 });
     p2_human5_material.map = textures[4];
-    // p3_icon_animation = SpriteAnimator.add({ texture: textures[5], tilesHorizontal: 9, tilesVertical: 9, fps: 24, numberOfTiles: 79 });
-    // p3_icon_material.map = textures[5];
-    p3_icon_animation = SpriteAnimator.add({ texture: textures[5], tilesHorizontal: 14, tilesVertical: 14, fps: 24, numberOfTiles: 79 });
+    p3_icon_animation = SpriteAnimator.add({ texture: textures[5], tilesHorizontal: 9, tilesVertical: 9, fps: 24, numberOfTiles: 79 });
     p3_icon_material.map = textures[5];
+    // p3_icon_animation = SpriteAnimator.add({ texture: textures[5], tilesHorizontal: 14, tilesVertical: 14, fps: 24, numberOfTiles: 79 });
+    // p3_icon_material.map = textures[5];
 
     p3_human1_move = new THREE.Mesh(new THREE.PlaneGeometry(30, 30), p3_human1_material);
     p3_human2_move = new THREE.Mesh(new THREE.PlaneGeometry(30, 30), p3_human2_material);
@@ -1621,7 +1624,7 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
 
                 p1_bicycle_move.visible = true;
 
-                p1_bicycle_move.position.x += 40 * (1 / 24);
+                p1_bicycle_move.position.x = -100 + (200 / 79) * p1_icon_animation.currentTile;
                 if (p1_bicycle_move.position.x > 100) {
                     p1_bicycle_move.position.x = -100;
                     p1_bicycle_move.visible = false;
@@ -1629,6 +1632,20 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
                     p1_bicycle_wait_time = p1_bicycle_wait_time_value;
                 }
             }
+            // p1_bicycle_wait_time -= (1 / 24);
+            // if (p1_bicycle_wait_time <= 0) {
+            //     p1_bicycle_wait_time = 0;
+
+            //     p1_bicycle_move.visible = true;
+
+            //     p1_bicycle_move.position.x += 40 * (1 / 24);
+            //     if (p1_bicycle_move.position.x > 100) {
+            //         p1_bicycle_move.position.x = -100;
+            //         p1_bicycle_move.visible = false;
+
+            //         p1_bicycle_wait_time = p1_bicycle_wait_time_value;
+            //     }
+            // }
             p1_human2_wait_time -= (1 / 24);
             if (p1_human2_wait_time <= 0) {
                 p1_human2_wait_time = 0;
@@ -1955,6 +1972,8 @@ function choice1_worker() {
         p1_human5_wait_time = p1_human5_wait_time_value;
         p1_human6_wait_time = p1_human6_wait_time_value;
 
+        SpriteAnimator.resetFrame(p1_icon_animation);
+
         p1_show = true;
         p2_show = false;
         p3_show = false;
@@ -2024,6 +2043,8 @@ function choice2_worker() {
         p2_human4_wait_time = p2_human4_wait_time_value;
         p2_human5_wait_time = p2_human5_wait_time_value;
 
+        SpriteAnimator.resetFrame(p2_icon_animation);
+
         p1_show = false;
         p2_show = true;
         p3_show = false;
@@ -2092,6 +2113,8 @@ function choice3_worker() {
         p3_human3_wait_time = p3_human3_wait_time_value;
         p3_human4_wait_time = p3_human4_wait_time_value;
         p3_human5_wait_time = p3_human5_wait_time_value;
+
+        SpriteAnimator.resetFrame(p3_icon_animation);
 
         p1_show = false;
         p2_show = false;
