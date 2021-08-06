@@ -2024,12 +2024,12 @@ function choice2_worker() {
         p2_human5_move.position.z = p2_human4_plane.position.z;
         p2_human5_move.visible = true;
 
-        p2_human1_move.renderOrder = 1;
+        p2_human2_move.renderOrder = 1;
         p2_human5_move.renderOrder = 2;
         lamppost3_1.renderOrder = 3;
         lamppost3_2a.renderOrder = 4;
         p2_human4_move.renderOrder = 5;
-        p2_human2_move.renderOrder = 6;
+        p2_human1_move.renderOrder = 6;
         p2_human3_move.renderOrder = 7;
         lamppost3_2b.renderOrder = 8;
         p2_icon_move.renderOrder = 9;
