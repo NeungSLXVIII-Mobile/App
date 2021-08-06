@@ -60,6 +60,9 @@ var adjust_angle_z = 5;
 var sun_shade_texture = THREE.ImageUtils.loadTexture('assets/sprites/sun_shade.png');
 var sun_shade_animate = SpriteAnimator.add({ texture: sun_shade_texture, tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 151 });
 
+var sun_shade_time_texture = THREE.ImageUtils.loadTexture('assets/sprites/sun_shade_time.png');
+var sun_shade_time_animate = SpriteAnimator.add({ texture: sun_shade_time_texture, tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 151 });
+
 var solar_irradiance_texture = THREE.ImageUtils.loadTexture('assets/sprites/solar_irradiance.png');
 var solar_irradiance_animate = SpriteAnimator.add({ texture: solar_irradiance_texture, tilesHorizontal: 16, tilesVertical: 16, fps: 24, numberOfTiles: 251 });
 
@@ -109,7 +112,7 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
     direct_light.position.set(1, 1, 2);
     scene.add(direct_light);
 
-    var sun_shade_time = document.getElementById("sun_shade_time");
+    // var sun_shade_time = document.getElementById("sun_shade_time");
 
     ///
     var step = 1;
@@ -274,6 +277,17 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
             building_plane1.material = new THREE.MeshBasicMaterial({ transparent: true, depthTest: true, map: sun_shade_texture, side: THREE.DoubleSide });
             building_plane1.material.needsUpdate = true;
             building_plane1.rotation.x = -180 * 0.0174532925;
+
+            var sun_shade_time_material = new THREE.MeshBasicMaterial({ transparent: true, depthTest: false, map: sun_shade_time_texture, side: THREE.DoubleSide });
+            var sun_shade_time_plane = new THREE.Mesh(new THREE.PlaneGeometry(300, 300), sun_shade_time_material);
+
+            sun_shade_time_plane.position.x = -600;
+            sun_shade_time_plane.position.y = 150;
+            sun_shade_time_plane.position.z = 450;
+
+            sun_shade_time_plane.rotation.x = -90 * 0.0174532925;
+
+            model1.add(sun_shade_time_plane);
         }
 
         root.add(model1);
@@ -712,9 +726,9 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
         renderer.render(scene, camera);
         SpriteAnimator.update(clock.getDelta());
 
-        var current_frame = SpriteAnimator.currentTile(sun_shade_animate);
+        //var current_frame = SpriteAnimator.currentTile(sun_shade_animate);
         //console.log("assets/images/time/TimerVer01" + zero_path(current_frame) + current_frame + ".png");
-        sun_shade_time.src = "assets/images/time/TimerVer01" + zero_path(current_frame) + current_frame + ".png";
+        // sun_shade_time.src = "assets/images/time/TimerVer01" + zero_path(current_frame) + current_frame + ".png";
 
     };
 
@@ -765,7 +779,7 @@ function choice1_worker() {
     document.getElementById("choice2-btn").src = "assets/images/button_2.png";
     document.getElementById("choice3-btn").src = "assets/images/button_3.png";
 
-    sun_shade_time.style.display = "block";
+    // sun_shade_time.style.display = "block";
 
     model0.visible = false;
     model1.visible = true;
@@ -782,7 +796,7 @@ function choice2_worker() {
     document.getElementById("choice2-btn").src = "assets/images/button_2_red.png";
     document.getElementById("choice3-btn").src = "assets/images/button_3.png";
 
-    sun_shade_time.style.display = "none";
+    // sun_shade_time.style.display = "none";
 
     model0.visible = false;
     model1.visible = false;
@@ -799,7 +813,7 @@ function choice3_worker() {
     document.getElementById("choice2-btn").src = "assets/images/button_2.png";
     document.getElementById("choice3-btn").src = "assets/images/button_3_red.png";
 
-    sun_shade_time.style.display = "none";
+    // sun_shade_time.style.display = "none";
 
     model0.visible = false;
     model1.visible = false;
