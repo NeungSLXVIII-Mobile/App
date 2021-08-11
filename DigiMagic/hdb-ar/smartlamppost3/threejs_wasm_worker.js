@@ -1877,6 +1877,15 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
                     p3_human5_wait_time = p3_human5_wait_time_value;
                 }
             }
+
+            if (p3_icon_animation.currentTile >= 8 && p3_icon_animation.currentTile <= 70)
+            {
+                p3_icon_text_move.visible = true;
+            }
+            else
+            {
+                p3_icon_text_move.visible = false;
+            }
         }
     };
 
