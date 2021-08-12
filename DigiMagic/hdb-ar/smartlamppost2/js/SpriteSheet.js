@@ -5,14 +5,16 @@ var p1_human3_path = 'assets/sprites/move1/Human03/Human03';
 var p1_human4_path = 'assets/sprites/move1/Human04/Human04';
 var p1_human5_path = 'assets/sprites/move1/Human05/Human05';
 var p1_human6_path = 'assets/sprites/move1/Human06/Human06';
-var p1_icon_path = 'assets/sprites/move1/ICON01/ICON01';
+//var p1_icon_path = 'assets/sprites/move1/ICON01/ICON01';
+var p1_icon_path = 'assets/sprites/move1/01_450px/01_450px';
 //P2.
 var p2_human1_path = 'assets/sprites/move1/Walk01/Walk01';
 var p2_human2_path = 'assets/sprites/move1/Walk01/Walk01';
 var p2_human3_path = 'assets/sprites/move1/Walk01/Walk01';
 var p2_human4_path = 'assets/sprites/move1/Walk01/Walk01';
 var p2_human5_path = 'assets/sprites/move1/Walk01/Walk01';
-var p2_icon_path = 'assets/sprites/move1/ICON02/ICON02';
+//var p2_icon_path = 'assets/sprites/move1/ICON02/ICON02';
+var p2_icon_path = 'assets/sprites/move1/02_450px/02_450px';
 // P3.
 //var p3_icon_path = 'assets/sprites/move1/ICON03/ICON03';
 var p3_icon_path = 'assets/sprites/move1/03_450px/03_450px';

@@ -237,8 +237,8 @@ var urls = [
     "assets/sprites/p1_human5_sprite_sheet.png",
     "assets/sprites/p1_human6_sprite_sheet.png",
     //"assets/sprites/p2_icon_sprite_sheet.png",
-    //"assets/sprites/p2_icon_sprite_sheet_4096.png",
-    "assets/sprites/p2_icon_sprite_sheet_2048.png",
+    "assets/sprites/p2_icon_sprite_sheet_4096.png",
+    //"assets/sprites/p2_icon_sprite_sheet_2048.png",
 ];
 
 loadTextures(urls, function (error, textures) {
