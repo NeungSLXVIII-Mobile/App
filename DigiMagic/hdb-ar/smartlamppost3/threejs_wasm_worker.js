@@ -280,8 +280,8 @@ var urls = [
     "assets/sprites/p1_human6_sprite_sheet.png",
     //"assets/sprites/p3_icon_sprite_sheet.png",
     //"assets/sprites/p3_icon_sprite_sheet_4096.png",
-    //"assets/sprites/p3_icon_sprite_sheet_2048.png",
-    "assets/sprites/p3_icon_sprite_sheet_icon_only.png",
+    "assets/sprites/p3_icon_sprite_sheet_2048.png",
+    //"assets/sprites/p3_icon_sprite_sheet_icon_only.png",
 ];
 
 loadTextures(urls, function (error, textures) {
