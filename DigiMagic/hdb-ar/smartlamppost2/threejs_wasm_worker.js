@@ -220,13 +220,16 @@ loadTextures(urls, function (error, textures) {
     // p1_icon_animation = SpriteAnimator.add({ texture: textures[6], tilesHorizontal: 14, tilesVertical: 14, fps: 24, numberOfTiles: 79 });
     // p1_icon_material.map = textures[6];
 
+    textures[6].magFilter = THREE.NearestFilter;
+    textures[6].minFilter = THREE.NearestFilter;
+
     p1_bicycle_move = new THREE.Mesh(new THREE.PlaneGeometry(30, 30), p1_bicycle_material);
     p1_human2_move = new THREE.Mesh(new THREE.PlaneGeometry(30, 30), p1_human2_material);
     p1_human3_move = new THREE.Mesh(new THREE.PlaneGeometry(30, 30), p1_human3_material);
     p1_human4_move = new THREE.Mesh(new THREE.PlaneGeometry(30, 30), p1_human4_material);
     p1_human5_move = new THREE.Mesh(new THREE.PlaneGeometry(30, 30), p1_human5_material);
     p1_human6_move = new THREE.Mesh(new THREE.PlaneGeometry(30, 30), p1_human6_material);
-    p1_icon_move = new THREE.Mesh(new THREE.PlaneGeometry(120, 120), p1_icon_material);
+    p1_icon_move = new THREE.Mesh(new THREE.PlaneGeometry(150, 150), p1_icon_material);
 });
 
 // P2.
@@ -261,6 +264,9 @@ loadTextures(urls, function (error, textures) {
     p2_icon_material.map = textures[5];
     // p2_icon_animation = SpriteAnimator.add({ texture: textures[5], tilesHorizontal: 14, tilesVertical: 14, fps: 24, numberOfTiles: 79 });
     // p2_icon_material.map = textures[5];
+
+    textures[5].magFilter = THREE.NearestFilter;
+    textures[5].minFilter = THREE.NearestFilter;
 
     p2_human1_move = new THREE.Mesh(new THREE.PlaneGeometry(30, 30), p2_human1_material);
     p2_human2_move = new THREE.Mesh(new THREE.PlaneGeometry(30, 30), p2_human2_material);
