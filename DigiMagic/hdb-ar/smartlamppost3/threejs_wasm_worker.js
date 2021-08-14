@@ -1636,7 +1636,7 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
             //
         }
 
-        root.visible = true;
+        //root.visible = true;
 
         var delta = clock.getDelta();
 
