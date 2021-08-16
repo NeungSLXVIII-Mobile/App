@@ -36,7 +36,7 @@ var markers = {
         width: 1637,
         height: 2048,
         dpi: 250,
-        url: "DataNFT/Test/1/pinball",
+        url: "DataNFT/Test/2/pinball",
     },
 };
 
