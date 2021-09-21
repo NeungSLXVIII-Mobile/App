@@ -454,6 +454,8 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
             building_plane3.material = new THREE.MeshBasicMaterial({ transparent: true, depthTest: true, map: wind_flow_texture, side: THREE.DoubleSide });
             building_plane3.material.needsUpdate = true;
             building_plane3.rotation.x = -180 * 0.0174532925;
+
+            building_plane3.position.y -= 100;
         }
 
         root.add(model3);
