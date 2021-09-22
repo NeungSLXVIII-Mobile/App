@@ -55,6 +55,8 @@ var adjust_py = 0;
 var adjust_angle = 25;
 //, side: THREE.DoubleSide
 
+var show_button = false;
+
 var human_base_y = 30;
 
 var p1_show = false;
@@ -1602,6 +1604,20 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
               setMatrix(root.matrix, trackedMatrix.interpolated);*/
 
             root.visible = true;
+
+            if (!show_button) {
+                show_button = true;
+
+                document.getElementById("text-tap").style.display = "block";
+                document.getElementById("text-1").style.display = "none";
+                document.getElementById("text-2").style.display = "none";
+                document.getElementById("text-3").style.display = "none";
+
+                document.getElementById("choice1-btn").style.display = "block";
+                document.getElementById("choice2-btn").style.display = "block";
+                document.getElementById("choice3-btn").style.display = "block";
+                document.getElementById("choice4-btn").style.display = "block";
+            }
         }
 
         if (model1 !== undefined) {
@@ -1622,7 +1638,21 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
             //
         }
 
-        //root.visible = true;
+        // root.visible = true;
+
+        // if (!show_button) {
+        //     show_button = true;
+
+        //     document.getElementById("text-tap").style.display = "block";
+        //     document.getElementById("text-1").style.display = "none";
+        //     document.getElementById("text-2").style.display = "none";
+        //     document.getElementById("text-3").style.display = "none";
+
+        //     document.getElementById("choice1-btn").style.display = "block";
+        //     document.getElementById("choice2-btn").style.display = "block";
+        //     document.getElementById("choice3-btn").style.display = "block";
+        //     document.getElementById("choice4-btn").style.display = "block";
+        // }
 
         var delta = clock.getDelta();
 

@@ -57,6 +57,8 @@ var adjust_angle = 60;
 var adjust_angle_z = 5;
 //, side: THREE.DoubleSide
 
+var show_button = false;
+
 var sun_shade_texture = THREE.ImageUtils.loadTexture('assets/sprites/sun_shade.png');
 var sun_shade_animate = SpriteAnimator.add({ texture: sun_shade_texture, tilesHorizontal: 13, tilesVertical: 13, fps: 24, numberOfTiles: 151 });
 
@@ -700,6 +702,20 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
               setMatrix(root.matrix, trackedMatrix.interpolated);*/
 
             root.visible = true;
+
+            if (!show_button) {
+                show_button = true;
+
+                document.getElementById("text-tap").style.display = "block";
+                document.getElementById("text-1").style.display = "none";
+                document.getElementById("text-2").style.display = "none";
+                document.getElementById("text-3").style.display = "none";
+
+                document.getElementById("choice1-btn").style.display = "block";
+                document.getElementById("choice2-btn").style.display = "block";
+                document.getElementById("choice3-btn").style.display = "block";
+                document.getElementById("choice4-btn").style.display = "block";
+            }
         }
 
         if (model0 !== undefined) {
@@ -723,7 +739,21 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
             //
         }
 
-        //root.visible = true;
+        // root.visible = true;
+
+        // if (!show_button) {
+        //     show_button = true;
+
+        //     document.getElementById("text-tap").style.display = "block";
+        //     document.getElementById("text-1").style.display = "none";
+        //     document.getElementById("text-2").style.display = "none";
+        //     document.getElementById("text-3").style.display = "none";
+
+        //     document.getElementById("choice1-btn").style.display = "block";
+        //     document.getElementById("choice2-btn").style.display = "block";
+        //     document.getElementById("choice3-btn").style.display = "block";
+        //     document.getElementById("choice4-btn").style.display = "block";
+        // }
 
         renderer.render(scene, camera);
         SpriteAnimator.update(clock.getDelta());
