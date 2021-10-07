@@ -332,6 +332,8 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
         //var bird_material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/bird.png'), opacity: 1, side: THREE.DoubleSide, skinning: true });
         var bird2_material = new THREE.MeshPhongMaterial({ map: new THREE.TextureLoader().load('Data/textures/bird2.png'), opacity: 1, side: THREE.DoubleSide, skinning: true, morphTargets: true });
         //var bird2_material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/bird2.png'), opacity: 1, side: THREE.DoubleSide, skinning: true });
+        var bird3_material = new THREE.MeshPhongMaterial({ map: new THREE.TextureLoader().load('Data/textures/bird3.png'), opacity: 1, side: THREE.DoubleSide, skinning: true, morphTargets: true });
+        //var bird3_material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/bird3.png'), opacity: 1, side: THREE.DoubleSide, skinning: true });
 
         for (count = 0; count < model3.children.length; count++) {
             //console.log(model3.children[count]);
@@ -405,6 +407,14 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
                                     model3.children[count].children[lv1].children[lv2].children[lv3].children[0].needsUpdate = true;
                                 }
                             }
+                        }
+                    }
+                    else if (model3.children[count].children[lv1].name == "Symmetry") {
+                        //console.log(model3.children[count].children[lv1].children.length);
+                        for (lv2 = 0; lv2 < model3.children[count].children[lv1].children.length; lv2++) {
+                            //console.log(model3.children[count].children[lv1].children[lv2].name);
+                            model3.children[count].children[lv1].children[lv2].children[0].material = bird3_material;
+                            model3.children[count].children[lv1].children[lv2].children[0].needsUpdate = true;
                         }
                     }
                 }
