@@ -260,6 +260,9 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
         mixer_model2 = new THREE.AnimationMixer(gltf.scene);
         gltf.animations.forEach((clip) => {
             mixer_model2.clipAction(clip).play();
+
+            console.log(mixer_model2.clipAction(clip));
+            console.log(clip);
         });
 
         console.log("model2");
@@ -317,6 +320,9 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
         mixer_model3 = new THREE.AnimationMixer(gltf.scene);
         gltf.animations.forEach((clip) => {
             mixer_model3.clipAction(clip).play();
+            
+            console.log(mixer_model3.clipAction(clip));
+            console.log(clip.name);
         });
 
         console.log("model3");
