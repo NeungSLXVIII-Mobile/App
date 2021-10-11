@@ -94,8 +94,9 @@ var adjust_scale2 = 10;
 var adjust_scale3 = 1;
 var adjust_px = 380 / 10;
 var adjust_py = 0;
-var adjust_angle = 60;
-var adjust_angle_z = 5;
+var adjust_angle = 30;
+var adjust_angle_y = -45;
+var adjust_angle_z = 0;
 //, side: THREE.DoubleSide
 
 var show_button = false;
@@ -208,8 +209,9 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
         model1.position.z = 0;
 
         model1.scale.x = model1.scale.y = model1.scale.z = adjust_scale1;
-        // model1.rotation.x = adjust_angle * 0.0174532925;
-        // model1.rotation.z = adjust_angle_z * 0.0174532925;
+        model1.rotation.x = adjust_angle * 0.0174532925;
+        model1.rotation.z = adjust_angle_y * 0.0174532925;
+        model1.rotation.z = adjust_angle_z * 0.0174532925;
 
         model1.visible = false;
 
@@ -247,8 +249,9 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
         model2.position.z = 0;
 
         model2.scale.x = model2.scale.y = model2.scale.z = adjust_scale2;
-        // model2.rotation.x = adjust_angle * 0.0174532925;
-        // model2.rotation.z = adjust_angle_z * 0.0174532925;
+        model2.rotation.x = adjust_angle * 0.0174532925;
+        model2.rotation.y = adjust_angle_y * 0.0174532925;
+        model2.rotation.z = adjust_angle_z * 0.0174532925;
 
         model2.visible = false;
 
@@ -312,15 +315,16 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
         model3.position.z = 0;
 
         model3.scale.x = model3.scale.y = model3.scale.z = adjust_scale3;
-        // model3.rotation.x = adjust_angle * 0.0174532925;
-        // model3.rotation.z = adjust_angle_z * 0.0174532925;
+        model3.rotation.x = adjust_angle * 0.0174532925;
+        model3.rotation.y = adjust_angle_y * 0.0174532925;
+        model3.rotation.z = adjust_angle_z * 0.0174532925;
 
         model3.visible = false;
 
         mixer_model3 = new THREE.AnimationMixer(gltf.scene);
         gltf.animations.forEach((clip) => {
             mixer_model3.clipAction(clip).play();
-            
+
             console.log(mixer_model3.clipAction(clip));
             console.log(clip.name);
         });
@@ -662,19 +666,23 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
               // set matrix of 'root' by detected 'world' matrix
               setMatrix(root.matrix, trackedMatrix.interpolated);*/
 
-            root.visible = true;
+            if (model1 !== undefined && model2 !== undefined && model3 !== undefined) {
+                root.visible = true;
 
-            if (!show_button) {
-                show_button = true;
+                if (!show_button) {
+                    show_button = true;
 
-                document.getElementById("text-tap").style.display = "block";
-                document.getElementById("text-1").style.display = "none";
-                document.getElementById("text-2").style.display = "none";
-                document.getElementById("text-3").style.display = "none";
+                    document.getElementById("text-tap").style.display = "block";
+                    document.getElementById("text-1").style.display = "none";
+                    document.getElementById("text-2").style.display = "none";
+                    document.getElementById("text-3").style.display = "none";
 
-                document.getElementById("choice1-btn").style.display = "block";
-                document.getElementById("choice2-btn").style.display = "block";
-                document.getElementById("choice3-btn").style.display = "block";
+                    document.getElementById("choice1-btn").style.display = "block";
+                    document.getElementById("choice2-btn").style.display = "block";
+                    document.getElementById("choice3-btn").style.display = "block";
+
+                    choice1_worker();
+                }
             }
         }
 
@@ -756,6 +764,10 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
                 model1.position.y = model1_dy;
                 model1.position.z = model1_dz;
             }
+
+            // model1.rotation.x = adjust_angle * 0.0174532925;
+            // model1.rotation.y = adjust_angle_y * 0.0174532925;
+            // model1.rotation.z = adjust_angle_z * 0.0174532925;
         }
         if (model2 !== undefined) {
             if (model2.visible) {
@@ -895,19 +907,23 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
             // }
         }
 
-        // root.visible = true;
+        // if (model1 !== undefined && model2 !== undefined && model3 !== undefined) {
+        //     root.visible = true;
 
-        // if (!show_button) {
-        //     show_button = true;
+        //     if (!show_button) {
+        //         show_button = true;
 
-        //     document.getElementById("text-tap").style.display = "block";
-        //     document.getElementById("text-1").style.display = "none";
-        //     document.getElementById("text-2").style.display = "none";
-        //     document.getElementById("text-3").style.display = "none";
+        //         document.getElementById("text-tap").style.display = "block";
+        //         document.getElementById("text-1").style.display = "none";
+        //         document.getElementById("text-2").style.display = "none";
+        //         document.getElementById("text-3").style.display = "none";
 
-        //     document.getElementById("choice1-btn").style.display = "block";
-        //     document.getElementById("choice2-btn").style.display = "block";
-        //     document.getElementById("choice3-btn").style.display = "block";
+        //         document.getElementById("choice1-btn").style.display = "block";
+        //         document.getElementById("choice2-btn").style.display = "block";
+        //         document.getElementById("choice3-btn").style.display = "block";
+
+        //         choice1_worker();
+        //     }
         // }
 
         renderer.render(scene, camera);
@@ -967,6 +983,16 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
 }
 
 function choice1_worker() {
+    if (model1 == undefined) {
+        return;
+    }
+    if (model2 == undefined) {
+        return;
+    }
+    if (model3 == undefined) {
+        return;
+    }
+
     document.getElementById("text-1").style.display = "block";
     document.getElementById("text-2").style.display = "none";
     document.getElementById("text-3").style.display = "none";
@@ -1014,6 +1040,16 @@ function choice1_worker() {
 }
 
 function choice2_worker() {
+    if (model1 == undefined) {
+        return;
+    }
+    if (model2 == undefined) {
+        return;
+    }
+    if (model3 == undefined) {
+        return;
+    }
+
     document.getElementById("text-1").style.display = "none";
     document.getElementById("text-2").style.display = "block";
     document.getElementById("text-3").style.display = "none";
@@ -1061,6 +1097,16 @@ function choice2_worker() {
 }
 
 function choice3_worker() {
+    if (model1 == undefined) {
+        return;
+    }
+    if (model2 == undefined) {
+        return;
+    }
+    if (model3 == undefined) {
+        return;
+    }
+
     document.getElementById("text-1").style.display = "none";
     document.getElementById("text-2").style.display = "none";
     document.getElementById("text-3").style.display = "block";
