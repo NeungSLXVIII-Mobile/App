@@ -895,20 +895,20 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
             // }
         }
 
-        root.visible = true;
+        // root.visible = true;
 
-        if (!show_button) {
-            show_button = true;
+        // if (!show_button) {
+        //     show_button = true;
 
-            document.getElementById("text-tap").style.display = "block";
-            document.getElementById("text-1").style.display = "none";
-            document.getElementById("text-2").style.display = "none";
-            document.getElementById("text-3").style.display = "none";
+        //     document.getElementById("text-tap").style.display = "block";
+        //     document.getElementById("text-1").style.display = "none";
+        //     document.getElementById("text-2").style.display = "none";
+        //     document.getElementById("text-3").style.display = "none";
 
-            document.getElementById("choice1-btn").style.display = "block";
-            document.getElementById("choice2-btn").style.display = "block";
-            document.getElementById("choice3-btn").style.display = "block";
-        }
+        //     document.getElementById("choice1-btn").style.display = "block";
+        //     document.getElementById("choice2-btn").style.display = "block";
+        //     document.getElementById("choice3-btn").style.display = "block";
+        // }
 
         renderer.render(scene, camera);
 
