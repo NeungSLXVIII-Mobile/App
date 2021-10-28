@@ -91,7 +91,7 @@ var model3_dz = 0;
 //var adjust_scale = 0.095;
 var adjust_scale1 = 50;
 var adjust_scale2 = 10;
-var adjust_scale3 = 1;
+var adjust_scale3 = 100;
 //var adjust_scale3 = 0.25;
 var adjust_px = 380 / 10;
 var adjust_py = 0;
@@ -307,127 +307,127 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
 
         root.add(model2);
     });
-    var threeGLTFLoader3 = new THREE.GLTFLoader();
-    threeGLTFLoader3.load("Data/models/bird.gltf", function (gltf) {
-        model3 = gltf.scene;
+    // var threeGLTFLoader3 = new THREE.GLTFLoader();
+    // threeGLTFLoader3.load("Data/models/bird.gltf", function (gltf) {
+    //     model3 = gltf.scene;
 
-        model3.position.x = 0;
-        model3.position.y = 0;
-        model3.position.z = 0;
+    //     model3.position.x = 0;
+    //     model3.position.y = 0;
+    //     model3.position.z = 0;
 
-        model3.scale.x = model3.scale.y = model3.scale.z = adjust_scale3;
-        model3.rotation.x = adjust_angle * 0.0174532925;
-        model3.rotation.y = (adjust_angle_y + -45) * 0.0174532925;
-        model3.rotation.z = adjust_angle_z * 0.0174532925;
+    //     model3.scale.x = model3.scale.y = model3.scale.z = adjust_scale3;
+    //     model3.rotation.x = adjust_angle * 0.0174532925;
+    //     model3.rotation.y = (adjust_angle_y + -45) * 0.0174532925;
+    //     model3.rotation.z = adjust_angle_z * 0.0174532925;
 
-        model3.visible = false;
+    //     model3.visible = false;
 
-        mixer_model3 = new THREE.AnimationMixer(gltf.scene);
-        gltf.animations.forEach((clip) => {
-            mixer_model3.clipAction(clip).play();
+    //     mixer_model3 = new THREE.AnimationMixer(gltf.scene);
+    //     gltf.animations.forEach((clip) => {
+    //         mixer_model3.clipAction(clip).play();
 
-            console.log(mixer_model3.clipAction(clip));
-            console.log(clip.name);
-        });
+    //         console.log(mixer_model3.clipAction(clip));
+    //         console.log(clip.name);
+    //     });
 
-        console.log("model3");
-        console.log(mixer_model3);
+    //     console.log("model3");
+    //     console.log(mixer_model3);
 
-        var bird_material = new THREE.MeshPhongMaterial({ map: new THREE.TextureLoader().load('Data/textures/bird.png'), opacity: 1, side: THREE.DoubleSide, skinning: true, morphTargets: true });
-        //var bird_material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/bird.png'), opacity: 1, side: THREE.DoubleSide, skinning: true });
-        var bird2_material = new THREE.MeshPhongMaterial({ map: new THREE.TextureLoader().load('Data/textures/bird2.png'), opacity: 1, side: THREE.DoubleSide, skinning: true, morphTargets: true });
-        //var bird2_material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/bird2.png'), opacity: 1, side: THREE.DoubleSide, skinning: true });
-        var bird3_material = new THREE.MeshPhongMaterial({ map: new THREE.TextureLoader().load('Data/textures/bird3.png'), opacity: 1, side: THREE.DoubleSide, skinning: true, morphTargets: true });
-        //var bird3_material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/bird3.png'), opacity: 1, side: THREE.DoubleSide, skinning: true });
+    //     var bird_material = new THREE.MeshPhongMaterial({ map: new THREE.TextureLoader().load('Data/textures/bird.png'), opacity: 1, side: THREE.DoubleSide, skinning: true, morphTargets: true });
+    //     //var bird_material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/bird.png'), opacity: 1, side: THREE.DoubleSide, skinning: true });
+    //     var bird2_material = new THREE.MeshPhongMaterial({ map: new THREE.TextureLoader().load('Data/textures/bird2.png'), opacity: 1, side: THREE.DoubleSide, skinning: true, morphTargets: true });
+    //     //var bird2_material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/bird2.png'), opacity: 1, side: THREE.DoubleSide, skinning: true });
+    //     var bird3_material = new THREE.MeshPhongMaterial({ map: new THREE.TextureLoader().load('Data/textures/bird3.png'), opacity: 1, side: THREE.DoubleSide, skinning: true, morphTargets: true });
+    //     //var bird3_material = new THREE.MeshBasicMaterial({ map: new THREE.TextureLoader().load('Data/textures/bird3.png'), opacity: 1, side: THREE.DoubleSide, skinning: true });
 
-        for (count = 0; count < model3.children.length; count++) {
-            //console.log(model3.children[count]);
-            // Bird.
-            if (model3.children[count].name == "Bird_geo") {
-                //console.log("Bird_geo");
-                //console.log(model3.children[count].children.length);
+    //     for (count = 0; count < model3.children.length; count++) {
+    //         //console.log(model3.children[count]);
+    //         // Bird.
+    //         if (model3.children[count].name == "Bird_geo") {
+    //             //console.log("Bird_geo");
+    //             //console.log(model3.children[count].children.length);
 
-                for (lv1 = 0; lv1 < model3.children[count].children.length; lv1++) {
-                    //console.log(model3.children[count].children[lv1].name);
-                    if (model3.children[count].children[lv1].name == "bodyShape") {
-                        model3.children[count].children[lv1].children[0].material = bird_material;
-                        model3.children[count].children[lv1].children[0].needsUpdate = true;
-                    }
-                    else if (model3.children[count].children[lv1].name == "wingback_sm") {
-                        //console.log(model3.children[count].children[lv1].children.length);
-                        for (lv2 = 0; lv2 < model3.children[count].children[lv1].children.length; lv2++) {
-                            //console.log(model3.children[count].children[lv1].children[lv2].children.length);
-                            for (lv3 = 0; lv3 < model3.children[count].children[lv1].children[lv2].children.length; lv3++) {
-                                //console.log(model3.children[count].children[lv1].children[lv2].children[lv3].name);
-                                model3.children[count].children[lv1].children[lv2].children[lv3].children[0].material = bird2_material;
-                                model3.children[count].children[lv1].children[lv2].children[lv3].children[0].needsUpdate = true;
-                            }
-                        }
-                    }
-                    else if (model3.children[count].children[lv1].name == "Tails") {
-                        //console.log(model3.children[count].children[lv1].children.length);
-                        for (lv2 = 0; lv2 < model3.children[count].children[lv1].children.length; lv2++) {
-                            //console.log(model3.children[count].children[lv1].children[lv2].name);
-                            model3.children[count].children[lv1].children[lv2].children[0].material = bird2_material;
-                            model3.children[count].children[lv1].children[lv2].children[0].needsUpdate = true;
-                        }
-                    }
-                    else if (model3.children[count].children[lv1].name == "Wing_l_") {
-                        //console.log(model3.children[count].children[lv1].children.length);
-                        for (lv2 = 0; lv2 < model3.children[count].children[lv1].children.length; lv2++) {
-                            if (model3.children[count].children[lv1].children[lv2].children[0].material !== undefined) {
-                                model3.children[count].children[lv1].children[lv2].children[0].material = bird2_material;
-                                model3.children[count].children[lv1].children[lv2].children[0].needsUpdate = true;
-                            }
-                            else {
-                                //console.log(model3.children[count].children[lv1].children[lv2].children.length);
-                                for (lv3 = 0; lv3 < model3.children[count].children[lv1].children[lv2].children.length; lv3++) {
-                                    //console.log(model3.children[count].children[lv1].children[lv2].children[lv3].name);
-                                    model3.children[count].children[lv1].children[lv2].children[lv3].children[0].material = bird2_material;
-                                    model3.children[count].children[lv1].children[lv2].children[lv3].children[0].needsUpdate = true;
-                                }
-                            }
-                        }
-                    }
-                    else if (model3.children[count].children[lv1].name == "Wing_207") {
-                        model3.children[count].children[lv1].children[0].material = bird2_material;
-                        model3.children[count].children[lv1].children[0].needsUpdate = true;
-                    }
-                    else if (model3.children[count].children[lv1].name == "Wing_209") {
-                        model3.children[count].children[lv1].children[0].material = bird2_material;
-                        model3.children[count].children[lv1].children[0].needsUpdate = true;
-                    }
-                    else if (model3.children[count].children[lv1].name == "Wing_r_") {
-                        //console.log(model3.children[count].children[lv1].children.length);
-                        for (lv2 = 0; lv2 < model3.children[count].children[lv1].children.length; lv2++) {
-                            if (model3.children[count].children[lv1].children[lv2].children[0].material !== undefined) {
-                                model3.children[count].children[lv1].children[lv2].children[0].material = bird2_material;
-                                model3.children[count].children[lv1].children[lv2].children[0].needsUpdate = true;
-                            }
-                            else {
-                                //console.log(model3.children[count].children[lv1].children[lv2].children.length);
-                                for (lv3 = 0; lv3 < model3.children[count].children[lv1].children[lv2].children.length; lv3++) {
-                                    //console.log(model3.children[count].children[lv1].children[lv2].children[lv3].name);
-                                    model3.children[count].children[lv1].children[lv2].children[lv3].children[0].material = bird2_material;
-                                    model3.children[count].children[lv1].children[lv2].children[lv3].children[0].needsUpdate = true;
-                                }
-                            }
-                        }
-                    }
-                    else if (model3.children[count].children[lv1].name == "Symmetry") {
-                        //console.log(model3.children[count].children[lv1].children.length);
-                        for (lv2 = 0; lv2 < model3.children[count].children[lv1].children.length; lv2++) {
-                            //console.log(model3.children[count].children[lv1].children[lv2].name);
-                            model3.children[count].children[lv1].children[lv2].children[0].material = bird3_material;
-                            model3.children[count].children[lv1].children[lv2].children[0].needsUpdate = true;
-                        }
-                    }
-                }
-            }
-        }
+    //             for (lv1 = 0; lv1 < model3.children[count].children.length; lv1++) {
+    //                 //console.log(model3.children[count].children[lv1].name);
+    //                 if (model3.children[count].children[lv1].name == "bodyShape") {
+    //                     model3.children[count].children[lv1].children[0].material = bird_material;
+    //                     model3.children[count].children[lv1].children[0].needsUpdate = true;
+    //                 }
+    //                 else if (model3.children[count].children[lv1].name == "wingback_sm") {
+    //                     //console.log(model3.children[count].children[lv1].children.length);
+    //                     for (lv2 = 0; lv2 < model3.children[count].children[lv1].children.length; lv2++) {
+    //                         //console.log(model3.children[count].children[lv1].children[lv2].children.length);
+    //                         for (lv3 = 0; lv3 < model3.children[count].children[lv1].children[lv2].children.length; lv3++) {
+    //                             //console.log(model3.children[count].children[lv1].children[lv2].children[lv3].name);
+    //                             model3.children[count].children[lv1].children[lv2].children[lv3].children[0].material = bird2_material;
+    //                             model3.children[count].children[lv1].children[lv2].children[lv3].children[0].needsUpdate = true;
+    //                         }
+    //                     }
+    //                 }
+    //                 else if (model3.children[count].children[lv1].name == "Tails") {
+    //                     //console.log(model3.children[count].children[lv1].children.length);
+    //                     for (lv2 = 0; lv2 < model3.children[count].children[lv1].children.length; lv2++) {
+    //                         //console.log(model3.children[count].children[lv1].children[lv2].name);
+    //                         model3.children[count].children[lv1].children[lv2].children[0].material = bird2_material;
+    //                         model3.children[count].children[lv1].children[lv2].children[0].needsUpdate = true;
+    //                     }
+    //                 }
+    //                 else if (model3.children[count].children[lv1].name == "Wing_l_") {
+    //                     //console.log(model3.children[count].children[lv1].children.length);
+    //                     for (lv2 = 0; lv2 < model3.children[count].children[lv1].children.length; lv2++) {
+    //                         if (model3.children[count].children[lv1].children[lv2].children[0].material !== undefined) {
+    //                             model3.children[count].children[lv1].children[lv2].children[0].material = bird2_material;
+    //                             model3.children[count].children[lv1].children[lv2].children[0].needsUpdate = true;
+    //                         }
+    //                         else {
+    //                             //console.log(model3.children[count].children[lv1].children[lv2].children.length);
+    //                             for (lv3 = 0; lv3 < model3.children[count].children[lv1].children[lv2].children.length; lv3++) {
+    //                                 //console.log(model3.children[count].children[lv1].children[lv2].children[lv3].name);
+    //                                 model3.children[count].children[lv1].children[lv2].children[lv3].children[0].material = bird2_material;
+    //                                 model3.children[count].children[lv1].children[lv2].children[lv3].children[0].needsUpdate = true;
+    //                             }
+    //                         }
+    //                     }
+    //                 }
+    //                 else if (model3.children[count].children[lv1].name == "Wing_207") {
+    //                     model3.children[count].children[lv1].children[0].material = bird2_material;
+    //                     model3.children[count].children[lv1].children[0].needsUpdate = true;
+    //                 }
+    //                 else if (model3.children[count].children[lv1].name == "Wing_209") {
+    //                     model3.children[count].children[lv1].children[0].material = bird2_material;
+    //                     model3.children[count].children[lv1].children[0].needsUpdate = true;
+    //                 }
+    //                 else if (model3.children[count].children[lv1].name == "Wing_r_") {
+    //                     //console.log(model3.children[count].children[lv1].children.length);
+    //                     for (lv2 = 0; lv2 < model3.children[count].children[lv1].children.length; lv2++) {
+    //                         if (model3.children[count].children[lv1].children[lv2].children[0].material !== undefined) {
+    //                             model3.children[count].children[lv1].children[lv2].children[0].material = bird2_material;
+    //                             model3.children[count].children[lv1].children[lv2].children[0].needsUpdate = true;
+    //                         }
+    //                         else {
+    //                             //console.log(model3.children[count].children[lv1].children[lv2].children.length);
+    //                             for (lv3 = 0; lv3 < model3.children[count].children[lv1].children[lv2].children.length; lv3++) {
+    //                                 //console.log(model3.children[count].children[lv1].children[lv2].children[lv3].name);
+    //                                 model3.children[count].children[lv1].children[lv2].children[lv3].children[0].material = bird2_material;
+    //                                 model3.children[count].children[lv1].children[lv2].children[lv3].children[0].needsUpdate = true;
+    //                             }
+    //                         }
+    //                     }
+    //                 }
+    //                 else if (model3.children[count].children[lv1].name == "Symmetry") {
+    //                     //console.log(model3.children[count].children[lv1].children.length);
+    //                     for (lv2 = 0; lv2 < model3.children[count].children[lv1].children.length; lv2++) {
+    //                         //console.log(model3.children[count].children[lv1].children[lv2].name);
+    //                         model3.children[count].children[lv1].children[lv2].children[0].material = bird3_material;
+    //                         model3.children[count].children[lv1].children[lv2].children[0].needsUpdate = true;
+    //                     }
+    //                 }
+    //             }
+    //         }
+    //     }
 
-        root.add(model3);
-    });
+    //     root.add(model3);
+    // });
     // var threeGLTFLoader3 = new THREE.GLTFLoader();
     // threeGLTFLoader3.load("Data/models/bird.gltf", function (gltf) {
     //     model3 = gltf.scene;
@@ -559,6 +559,34 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
 
     //     root.add(model3);
     // });
+    var threeGLTFLoader3 = new THREE.GLTFLoader();
+    threeGLTFLoader3.load("Data/models/bird2.gltf", function (gltf) {
+        model3 = gltf.scene;
+
+        model3.position.x = 0;
+        model3.position.y = 0;
+        model3.position.z = 0;
+
+        model3.scale.x = model3.scale.y = model3.scale.z = adjust_scale3;
+        model3.rotation.x = adjust_angle * 0.0174532925;
+        model3.rotation.y = adjust_angle_y * 0.0174532925;
+        model3.rotation.z = adjust_angle_z * 0.0174532925;
+
+        model3.visible = false;
+
+        mixer_model3 = new THREE.AnimationMixer(gltf.scene);
+        gltf.animations.forEach((clip) => {
+            mixer_model3.clipAction(clip).play();
+
+            console.log(mixer_model3.clipAction(clip));
+            console.log(clip.name);
+        });
+
+        console.log("model3");
+        console.log(mixer_model3);
+
+        root.add(model3);
+    });
 
     var sphere = new THREE.Mesh(
         new THREE.SphereGeometry(0.5, 8, 8),
@@ -1033,16 +1061,32 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
                     }
                 }
 
+                // if (model3_move_up == 1) {
+                //     model3_dy += 1.0;
+                //     if (model3_dy >= 10) {
+                //         model3_dy = 10;
+
+                //         model3_move_up = 0;
+                //     }
+                // }
+                // else if (model3_move_up == 0) {
+                //     model3_dy -= 1.0;
+                //     if (model3_dy <= 0) {
+                //         model3_dy = 0;
+
+                //         model3_move_up = 1;
+                //     }
+                // }
                 if (model3_move_up == 1) {
-                    model3_dy += 1.0;
-                    if (model3_dy >= 10) {
-                        model3_dy = 10;
+                    model3_dy += 0.25;
+                    if (model3_dy >= 50) {
+                        model3_dy = 50;
 
                         model3_move_up = 0;
                     }
                 }
                 else if (model3_move_up == 0) {
-                    model3_dy -= 1.0;
+                    model3_dy -= 0.25;
                     if (model3_dy <= 0) {
                         model3_dy = 0;
 
@@ -1051,8 +1095,8 @@ function start2(container, marker, video, input_width, input_height, canvas_draw
                 }
 
                 model3.position.x = model3_dx;
-                model3.position.y = model3_dy;
-                model2.position.z = model3_dz;
+                model3.position.y = -25 + model3_dy;
+                model3.position.z = model3_dz;
             }
         }
 
