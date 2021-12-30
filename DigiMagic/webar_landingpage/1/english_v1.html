@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
+	<link rel="preload" as="image" href="../image/background_01_v2.png">
+	<link rel="preload" as="script" href="../script/tutorial.js">
+	<title></title>
+</head>
+<body style="background-image: url(&quot;../image/background_01.png&quot;)">
+	<nav>
+		<button id="english-button" class="active-language"><a style="text-decoration: underline;">EN</a></button>
+		<button id="chinese-button"><a href="chinese_v1.html">中文</a></button>
+		<div class="flex-space"></div>
+		<!--<button id="x-button"><a href="https://www.sysnmh.org.sg/en/whats-on/exhibitions/modern-women-of-the-republic---fashion-and-progress-in-china-and-singapore"></a></button>-->
+		<button id="x-button"><a href="https://www.sysnmh.org.sg/en"></a></button>
+	</nav>
+	<div>
+		<div id="display-0">
+			<div id="woman-image-container">
+				<img src="../image/woman_01x2.png">
+			</div>
+			<div id="main-text-box-container">
+				<div class="svg-background" id="green-topic-bar">
+					<h4 class="relative-center">Virtual Guide</h4>
+					<p class="relative-center">Mirroring Society: Charting Change through Fashion (1890s-1930s)</p>
+				</div>
+			</div>
+		</div>
+		
+		<div id="display-1" style="display:none;">
+			<div class="qr-image-container">
+				<img src="../image/woman_01_qr_01.png">
+			</div>
+			<div class="qr-textbox">
+				<p>Point the camera towards the floor, around your feet area, to scan the environment.</p>
+			</div>
+		</div>
+
+
+		<div id="next-button">
+			<button id="back-button" class="svg-background relative-center" onclick="OnClickBack('1','en')" style="display: none">Back</button>
+			<button class="svg-background relative-center" onclick="OnClickNext('1','en')">Next</button>
+		</div>
+		<div id="progress-bar" style="display:none;">
+			<img src="../image/progress_bar_01.png">
+		</div>
+
+		<button id="skip-button" class="svg-background relative-center" onclick="OpneLastPageLink('1','en')" style="display: none">Skip</button>
+		
+		
+	</div>
+	<div id="dot-border"></div>
+	
+
+</body>
+<script type="text/javascript" src="../script/tutorial.js"></script>
+</html>

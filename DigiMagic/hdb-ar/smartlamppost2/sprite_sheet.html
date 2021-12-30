@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>Urban Water Harvesting System (UWHS)</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=1">
+	<link rel="stylesheet" href="css/video-style.css">
+	<script src="js/SpriteSheet.js"></script>
+
+	<style>
+		.start-btn {
+			position: absolute;
+			width: auto;
+			height: 8%;
+			top: 75%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			z-index: 2;
+		}
+	</style>
+
+</head>
+
+<body class="loading" style="background-color:#0c8188;">
+
+	<div id="loading" style="display: none;">
+		<img src="Data/logo.gif" />
+		<span class="loading-text">Loading, please wait</span>
+	</div>
+
+	<!--
+  ==================
+  CAMERA VIDEO & CANVAS
+  ==================
+  -->
+
+	<div id="app">
+		<video loop autoplay muted playsinline id="video">
+		</video>
+
+		<canvas id="canvas"></canvas>
+
+	</div>
+
+
+	<div id="firstPage" style="display: block;">
+		<img class="start-btn" id="start-btn" src="assets/images/start_btn.png" onclick="dlCanvas()" />
+
+		<canvas id="sprite_sheet"></canvas>
+		<a id="dl" download="Canvas.png" href="#">Download Canvas</a>
+	</div>
+
+	<script>
+		/**
+		 * APP / ELEMENTS
+		 */
+		var container = document.getElementById('app');
+		var video = document.getElementById('video');
+		var canvas = document.getElementById('canvas');
+
+		//drawSpriteSheet(p1_bicycle_path, p1_bicycle_frame_count, true, 9, 9, 200, 200, 200, 200, 0);
+		//drawSpriteSheet(p1_human2_path, p1_human2_frame_count, true, 9, 9, 200, 200, 200, 200, 0);
+		//drawSpriteSheet(p1_human3_path, p1_human3_frame_count, true, 9, 9, 200, 200, 200, 200, 0);
+		//drawSpriteSheet(p1_human4_path, p1_human4_frame_count, true, 9, 9, 200, 200, 200, 200, 0);
+		//drawSpriteSheet(p1_human5_path, p1_human5_frame_count, true, 9, 9, 200, 200, 200, 200, 0);
+		//drawSpriteSheet(p1_human6_path, p1_human6_frame_count, true, 9, 9, 200, 200, 200, 200, 0);
+		//drawSpriteSheet(p1_icon_path, p1_icon_frame_count, true, 9, 9, 300, 300, 300, 300, 1);
+		//drawSpriteSheet(p2_icon_path, p2_icon_frame_count, true, 9, 9, 300, 300, 300, 300, 1);
+		//drawSpriteSheet(p3_icon_path, p3_icon_frame_count, true, 9, 9, 300, 300, 300, 300, 1);
+
+		//drawSpriteSheet(p1_icon_path, p1_icon_frame_count, true, 9, 9, 228, 228, 300, 300, 1);
+		//drawSpriteSheet(p2_icon_path, p3_icon_frame_count, true, 9, 9, 228, 228, 300, 300, 1);
+		//drawSpriteSheet(p3_icon_path, p3_icon_frame_count, true, 9, 9, 228, 228, 300, 300, 1);
+
+		//drawSpriteSheet(p1_icon_path, p1_icon_frame_count, true, 9, 9, 456, 456, 450, 450, 1);
+		 drawSpriteSheet(p2_icon_path, p2_icon_frame_count, true, 9, 9, 456, 456, 450, 450, 1);
+		// drawSpriteSheet(p3_icon_path, p3_icon_frame_count, true, 9, 9, 456, 456, 450, 450, 1);
+	</script>
+</body>
+
+</html>

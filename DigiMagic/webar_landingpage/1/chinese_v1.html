@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
+	<link rel="preload" as="image" href="../image/background_01_v2.png">
+	<link rel="preload" as="script" href="../script/tutorial.js">
+	<title></title>
+</head>
+<body style="background-image: url(&quot;../image/background_01.png&quot;)">
+	<nav>
+		<button id="english-button"><a href="english_v1.html">EN</a></button>
+		<button id="chinese-button" class="active-language"><a style="text-decoration: underline;">中文</a></button>
+		<div class="flex-space"></div>
+		<!--<button id="x-button"><a href="https://www.sysnmh.org.sg/en/whats-on/exhibitions/modern-women-of-the-republic---fashion-and-progress-in-china-and-singapore"></a></button>-->
+		<button id="x-button"><a href="https://www.sysnmh.org.sg/en"></a></button>
+	</nav>
+	<div>
+		<div id="display-0">
+			<div id="woman-image-container">
+				<img src="../image/woman_01x2.png">
+			</div>
+			<div id="main-text-box-container">
+				<div class="svg-background" id="green-topic-bar">
+					<h4 class="relative-center">虚拟导览员</h4>
+					<p class="relative-center">社会镜像：时尚与变革 （1890年代-1930年代）</p>
+				</div>
+			</div>
+		</div>
+		
+		<div id="display-1" style="display:none;">
+			<div class="qr-image-container">
+				<img src="../image/woman_01_qr_01.png">
+			</div>
+			<div class="qr-textbox">
+				<p>把摄像头指向地面， 在靠近脚边的区域进行扫描。</p>
+			</div>
+		</div>
+
+
+
+		<div id="next-button">
+			<button id="back-button" class="svg-background relative-center" onclick="OnClickBack('1','ch')" style="display: none">返回</button>
+			<button class="svg-background relative-center" onclick="OnClickNext('1','ch')">下一步</button>
+		</div>
+		<div id="progress-bar" style="display:none;">
+			<img src="../image/progress_bar_01.png">
+		</div>
+
+		<button id="skip-button" class="svg-background relative-center" onclick="OpneLastPageLink('1','ch')" style="display: none">跳过</button>
+		
+		
+	</div>
+	<div id="dot-border"></div>
+</body>
+<style type="text/css">
+	@font-face {
+		font-family: YuantiSCBold;
+		src: url(../font/YuantiSCBold.ttf);
+	}
+
+	body {
+		font-family: YuantiSCBold;
+	}
+
+	#next-button > button {
+		font-family: YuantiSCBold;
+	}
+
+</style>
+<script type="text/javascript" src="../script/tutorial.js"></script>
+</html>
