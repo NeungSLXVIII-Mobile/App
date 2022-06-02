@@ -9,7 +9,7 @@
   </head>
   <body>
     <div id="unity-container" class="unity-desktop">
-      <canvas id="unity-canvas" width=960 height=640></canvas>
+      <canvas id="unity-canvas" width=640 height=960></canvas>
       <div id="unity-loading-bar">
         <div id="unity-logo"></div>
         <div id="unity-progress-bar-empty">
@@ -95,8 +95,8 @@
       } else {
         // Desktop style: Render the game canvas in a window that can be maximized to fullscreen:
 
-        canvas.style.width = "960px";
-        canvas.style.height = "640px";
+        canvas.style.width = "640px";
+        canvas.style.height = "960px";
       }
 
       loadingBar.style.display = "block";
@@ -116,6 +116,46 @@
         });
       };
       document.body.appendChild(script);
+    </script>
+    <div id="applixir_vanishing_div" hidden>
+      <iframe id="applixir_parent" allow="autoplay; fullscreen"></iframe>
+    </div>
+    <script type='text/javascript' src="https://cdn.applixir.com/applixir.sdk3.0m.js"></script>
+  
+    <script type='application/javascript'>
+      function adStatusCallback(status) {
+        // This can contain whatever code you like. The err parameter will return the 
+        // following values (please DO NOT block callback thread or ad will fail):
+        //	'ad-blocker' = an ad blocker was detected
+        //	'network-error' = network connection not available
+        //  'cors-error' = cross-origin error (try clearing browser cache)
+        //  'no-zoneId' = the required zoneId value is missing
+        //  'ad-started' = an ad has been loaded and is starting
+        //  'fb-started' = a fallback has been started by fallback mode
+        //	'ad-watched' = an ad was presented and ran successfully
+        //  'fb-watched' = a fallback ad was presented and ran successfully
+        //	'ad-interrupted' = ad was ended prior to 5 seconds (abnormal end)
+        //	'ads-unavailable' = no ads were returned to the player
+        //  'sys-closing' = the process has completed and the player is closing.
+  
+        if (status)
+          console.log('Applixir status: ' + status);
+  
+      }
+  
+      var options = {
+        zoneId: 5054, // the zone ID from the "Games" page
+        devId: 6738, // optional: your developer ID if using s2s callback
+        gameId: 7226, // optional: the ID for this game from the "Games" page for s2s callback
+        //custom1: nnnn, // optional: custom1 value for s2s callback
+        //custom2: nnnn, // optional: custom2 value for s2s callback
+        //dMode: n, // 0 for no MD5 checksum, 1 for MD5 checksum (recommended)
+        fallback: 1, // 0 for no fallbacks, 1 will show fallback ads when ads-unavailable
+        adStatusCb: adStatusCallback, // optional: function to provide helpful user messages
+  
+      };
+  
+      invokeApplixirVideoUnit(options);
     </script>
   </body>
 </html>
