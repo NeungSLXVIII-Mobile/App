@@ -1,30 +1,30 @@
 {
     "URL":[
-        "https://neungslxviii-mobile.github.io/App/Unity/LOGame/SplatterHouse/bullet_enemy_emission.html",
-        "https://neungslxviii-mobile.github.io/App/Unity/LOGame/SplatterHouse/bullet_enemy.html",
-        "https://neungslxviii-mobile.github.io/App/Unity/LOGame/SplatterHouse/bullet_player1_emission.html",
-        "https://neungslxviii-mobile.github.io/App/Unity/LOGame/SplatterHouse/bullet_player1.html",
-        "https://neungslxviii-mobile.github.io/App/Unity/LOGame/SplatterHouse/bullet_player2_emission.html",
-        "https://neungslxviii-mobile.github.io/App/Unity/LOGame/SplatterHouse/bullet_player2.html",
-        "https://neungslxviii-mobile.github.io/App/Unity/LOGame/SplatterHouse/bullet_player3_emission.html",
-        "https://neungslxviii-mobile.github.io/App/Unity/LOGame/SplatterHouse/bullet_player3.html",
-        "https://neungslxviii-mobile.github.io/App/Unity/LOGame/SplatterHouse/button_player.html",
-        "https://neungslxviii-mobile.github.io/App/Unity/LOGame/SplatterHouse/enemy_1.html",
-        "https://neungslxviii-mobile.github.io/App/Unity/LOGame/SplatterHouse/enemy_2.html",
-        "https://neungslxviii-mobile.github.io/App/Unity/LOGame/SplatterHouse/enemy_block_jump.html",
-        "https://neungslxviii-mobile.github.io/App/Unity/LOGame/SplatterHouse/enemy_block1.html",
-        "https://neungslxviii-mobile.github.io/App/Unity/LOGame/SplatterHouse/enemy_block2.html",
-        "https://neungslxviii-mobile.github.io/App/Unity/LOGame/SplatterHouse/enemy_block3.html",
-        "https://neungslxviii-mobile.github.io/App/Unity/LOGame/SplatterHouse/item_sp.html",
-        "https://neungslxviii-mobile.github.io/App/Unity/LOGame/SplatterHouse/item.html",
-        "https://neungslxviii-mobile.github.io/App/Unity/LOGame/SplatterHouse/obstacle_emission.html",
-        "https://neungslxviii-mobile.github.io/App/Unity/LOGame/SplatterHouse/obstacle.html",
-        "https://neungslxviii-mobile.github.io/App/Unity/LOGame/SplatterHouse/player_emission.html",
-        "https://neungslxviii-mobile.github.io/App/Unity/LOGame/SplatterHouse/player.html",
-        "https://neungslxviii-mobile.github.io/App/Unity/LOGame/SplatterHouse/point.html"
+        "https://neungslxviii-mobile.github.io/App/Unity/LOGame/Megaman/bullet_enemy_emission.html",
+        "https://neungslxviii-mobile.github.io/App/Unity/LOGame/Megaman/bullet_enemy.html",
+        "https://neungslxviii-mobile.github.io/App/Unity/LOGame/Megaman/bullet_player1_emission.html",
+        "https://neungslxviii-mobile.github.io/App/Unity/LOGame/Megaman/bullet_player1.html",
+        "https://neungslxviii-mobile.github.io/App/Unity/LOGame/Megaman/bullet_player2_emission.html",
+        "https://neungslxviii-mobile.github.io/App/Unity/LOGame/Megaman/bullet_player2.html",
+        "https://neungslxviii-mobile.github.io/App/Unity/LOGame/Megaman/bullet_player3_emission.html",
+        "https://neungslxviii-mobile.github.io/App/Unity/LOGame/Megaman/bullet_player3.html",
+        "https://neungslxviii-mobile.github.io/App/Unity/LOGame/Megaman/button_player.html",
+        "https://neungslxviii-mobile.github.io/App/Unity/LOGame/Megaman/enemy_1.html",
+        "https://neungslxviii-mobile.github.io/App/Unity/LOGame/Megaman/enemy_2.html",
+        "https://neungslxviii-mobile.github.io/App/Unity/LOGame/Megaman/enemy_block_jump.html",
+        "https://neungslxviii-mobile.github.io/App/Unity/LOGame/Megaman/enemy_block1.html",
+        "https://neungslxviii-mobile.github.io/App/Unity/LOGame/Megaman/enemy_block2.html",
+        "https://neungslxviii-mobile.github.io/App/Unity/LOGame/Megaman/enemy_block3.html",
+        "https://neungslxviii-mobile.github.io/App/Unity/LOGame/Megaman/item_sp.html",
+        "https://neungslxviii-mobile.github.io/App/Unity/LOGame/Megaman/item.html",
+        "https://neungslxviii-mobile.github.io/App/Unity/LOGame/Megaman/obstacle_emission.html",
+        "https://neungslxviii-mobile.github.io/App/Unity/LOGame/Megaman/obstacle.html",
+        "https://neungslxviii-mobile.github.io/App/Unity/LOGame/Megaman/player_emission.html",
+        "https://neungslxviii-mobile.github.io/App/Unity/LOGame/Megaman/player.html",
+        "https://neungslxviii-mobile.github.io/App/Unity/LOGame/Megaman/point.html"
     ],
     "BULLET_ENEMY":{
-        "COLOR":[0, 0, 0, 0],
+        "COLOR":[1, 0, 0, 0],
         "INTENSITY":5,
         "FRAME_DELAY":5,
         "COLLIDER_OFFSET":[0, 0],
@@ -33,20 +33,20 @@
         "ROTATE":false
     },
     "BULLET_PLAYER1":{
-        "COLOR":[1, 1, 1, 0],
-        "INTENSITY":5,
-        "FRAME_DELAY":5,
-        "COLLIDER_OFFSET":[0, 0],
-        "COLLIDER_SIZE":[32, 32],
-        "BASE_POSITION":[0, 0, 0],
-        "ROTATE":true
-    },
-    "BULLET_PLAYER2":{
         "COLOR":[1, 1, 0, 0],
         "INTENSITY":5,
         "FRAME_DELAY":5,
         "COLLIDER_OFFSET":[0, 0],
         "COLLIDER_SIZE":[32, 32],
+        "BASE_POSITION":[0, 0, 0],
+        "ROTATE":false
+    },
+    "BULLET_PLAYER2":{
+        "COLOR":[1, 1, 1, 0],
+        "INTENSITY":5,
+        "FRAME_DELAY":5,
+        "COLLIDER_OFFSET":[0, 0],
+        "COLLIDER_SIZE":[48, 48],
         "BASE_POSITION":[0, 0, 0],
         "ROTATE":true
     },
@@ -55,9 +55,9 @@
         "INTENSITY":5,
         "FRAME_DELAY":5,
         "COLLIDER_OFFSET":[0, 0],
-        "COLLIDER_SIZE":[32, 32],
+        "COLLIDER_SIZE":[32, 64],
         "BASE_POSITION":[0, 0, 0],
-        "ROTATE":true
+        "ROTATE":false
     },
     "ENEMY_1":{
         "COLOR":[0, 0, 0, 0],
@@ -92,7 +92,7 @@
         "FRAME_DELAY":5,
         "COLLIDER_OFFSET":[0, 0],
         "COLLIDER_SIZE":[96, 128],
-        "BASE_POSITION":[0, 0, 0],
+        "BASE_POSITION":[0, -16, 0],
         "ROTATE":false
     },
     "ENEMY_BLOCK2":{
@@ -101,7 +101,7 @@
         "FRAME_DELAY":5,
         "COLLIDER_OFFSET":[0, 0],
         "COLLIDER_SIZE":[96, 128],
-        "BASE_POSITION":[0, 0, 0],
+        "BASE_POSITION":[0, -16, 0],
         "ROTATE":false
     },
     "ENEMY_BLOCK3":{
@@ -110,7 +110,7 @@
         "FRAME_DELAY":15,
         "COLLIDER_OFFSET":[0, 0],
         "COLLIDER_SIZE":[96, 128],
-        "BASE_POSITION":[0, 0, 0],
+        "BASE_POSITION":[0, -16, 0],
         "ROTATE":false
     },
     "ITEM":{
@@ -132,8 +132,8 @@
         "ROTATE":false
     },
     "OBSTACLE":{
-        "COLOR":[0, 0, 1, 0],
-        "INTENSITY":15,
+        "COLOR":[1, 0, 10, 0],
+        "INTENSITY":5,
         "FRAME_DELAY":5,
         "COLLIDER_OFFSET":[0, 0],
         "COLLIDER_SIZE":[64, 192],
@@ -141,11 +141,11 @@
         "ROTATE":false
     },
     "PLAYER":{
-        "COLOR":[0, 1, 0, 0],
+        "COLOR":[0, 0, 1, 0],
         "INTENSITY":10,
         "FRAME_DELAY":5,
         "COLLIDER_OFFSET":[0, 0],
-        "COLLIDER_SIZE":[64, 128],
+        "COLLIDER_SIZE":[64, 64],
         "BASE_POSITION":[0, 0, 0],
         "ROTATE":false
     },

@@ -24,7 +24,7 @@
         "https://neungslxviii-mobile.github.io/App/Unity/LOGame/SplatterHouse/point.html"
     ],
     "BULLET_ENEMY":{
-        "COLOR":[0, 0, 0, 0],
+        "COLOR":[1, 0, 0, 0],
         "INTENSITY":5,
         "FRAME_DELAY":5,
         "COLLIDER_OFFSET":[0, 0],
