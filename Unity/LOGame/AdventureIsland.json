@@ -1,0 +1,162 @@
+{
+    "URL":[
+        "/LOGame/AdventureIsland/bullet_enemy_emission.html",
+        "/LOGame/AdventureIsland/bullet_enemy.html",
+        "/LOGame/AdventureIsland/bullet_player1_emission.html",
+        "/LOGame/AdventureIsland/bullet_player1.html",
+        "/LOGame/AdventureIsland/bullet_player2_emission.html",
+        "/LOGame/AdventureIsland/bullet_player2.html",
+        "/LOGame/AdventureIsland/bullet_player3_emission.html",
+        "/LOGame/AdventureIsland/bullet_player3.html",
+        "/LOGame/AdventureIsland/button_player.html",
+        "/LOGame/AdventureIsland/enemy_1.html",
+        "/LOGame/AdventureIsland/enemy_2.html",
+        "/LOGame/AdventureIsland/enemy_block_jump.html",
+        "/LOGame/AdventureIsland/enemy_block1.html",
+        "/LOGame/AdventureIsland/enemy_block2.html",
+        "/LOGame/AdventureIsland/enemy_block3.html",
+        "/LOGame/AdventureIsland/item_sp.html",
+        "/LOGame/AdventureIsland/item.html",
+        "/LOGame/AdventureIsland/obstacle_emission.html",
+        "/LOGame/AdventureIsland/obstacle.html",
+        "/LOGame/AdventureIsland/player_emission.html",
+        "/LOGame/AdventureIsland/player.html",
+        "/LOGame/AdventureIsland/point.html",
+        "/LOGame/AdventureIsland/title.html"
+    ],
+    "BULLET_ENEMY":{
+        "COLOR":[1, 0, 0, 0],
+        "INTENSITY":5,
+        "FRAME_DELAY":5,
+        "COLLIDER_OFFSET":[0, 0],
+        "COLLIDER_SIZE":[32, 32],
+        "BASE_POSITION":[0, 0, 0],
+        "ROTATE":false
+    },
+    "BULLET_PLAYER1":{
+        "COLOR":[1, 0, 0, 0],
+        "INTENSITY":3,
+        "FRAME_DELAY":5,
+        "COLLIDER_OFFSET":[0, 0],
+        "COLLIDER_SIZE":[32, 32],
+        "BASE_POSITION":[0, 0, 0],
+        "ROTATE":true
+    },
+    "BULLET_PLAYER2":{
+        "COLOR":[0, 1, 0, 0],
+        "INTENSITY":3,
+        "FRAME_DELAY":5,
+        "COLLIDER_OFFSET":[0, 0],
+        "COLLIDER_SIZE":[48, 48],
+        "BASE_POSITION":[0, 0, 0],
+        "ROTATE":true
+    },
+    "BULLET_PLAYER3":{
+        "COLOR":[0, 0, 1, 0],
+        "INTENSITY":5,
+        "FRAME_DELAY":5,
+        "COLLIDER_OFFSET":[0, 0],
+        "COLLIDER_SIZE":[32, 64],
+        "BASE_POSITION":[0, 0, 0],
+        "ROTATE":true
+    },
+    "ENEMY_1":{
+        "COLOR":[0, 0, 0, 0],
+        "INTENSITY":0,
+        "FRAME_DELAY":5,
+        "COLLIDER_OFFSET":[0, 0],
+        "COLLIDER_SIZE":[64, 64],
+        "BASE_POSITION":[0, 0, 0],
+        "ROTATE":false
+    },
+    "ENEMY_2":{
+        "COLOR":[0, 0, 0, 0],
+        "INTENSITY":0,
+        "FRAME_DELAY":5,
+        "COLLIDER_OFFSET":[0, 0],
+        "COLLIDER_SIZE":[64, 64],
+        "BASE_POSITION":[0, 0, 0],
+        "ROTATE":false
+    },
+    "ENEMY_BLOCK_JUMP":{
+        "COLOR":[0, 0, 0, 0],
+        "INTENSITY":0,
+        "FRAME_DELAY":5,
+        "COLLIDER_OFFSET":[0, 0],
+        "COLLIDER_SIZE":[80, 80],
+        "BASE_POSITION":[0, 0, 0],
+        "ROTATE":false
+    },
+    "ENEMY_BLOCK1":{
+        "COLOR":[0, 0, 0, 0],
+        "INTENSITY":0,
+        "FRAME_DELAY":5,
+        "COLLIDER_OFFSET":[0, 0],
+        "COLLIDER_SIZE":[96, 128],
+        "BASE_POSITION":[0, -16, 0],
+        "ROTATE":false
+    },
+    "ENEMY_BLOCK2":{
+        "COLOR":[0, 0, 0, 0],
+        "INTENSITY":0,
+        "FRAME_DELAY":5,
+        "COLLIDER_OFFSET":[0, 0],
+        "COLLIDER_SIZE":[96, 128],
+        "BASE_POSITION":[0, -16, 0],
+        "ROTATE":false
+    },
+    "ENEMY_BLOCK3":{
+        "COLOR":[0, 0, 0, 0],
+        "INTENSITY":0,
+        "FRAME_DELAY":15,
+        "COLLIDER_OFFSET":[0, 0],
+        "COLLIDER_SIZE":[96, 128],
+        "BASE_POSITION":[0, -16, 0],
+        "ROTATE":false
+    },
+    "ITEM":{
+        "COLOR":[0, 0, 0, 0],
+        "INTENSITY":0,
+        "FRAME_DELAY":5,
+        "COLLIDER_OFFSET":[0, 0],
+        "COLLIDER_SIZE":[32, 32],
+        "BASE_POSITION":[0, 0, 0],
+        "ROTATE":false
+    },
+    "ITEM_SP":{
+        "COLOR":[0, 0, 0, 0],
+        "INTENSITY":0,
+        "FRAME_DELAY":5,
+        "COLLIDER_OFFSET":[0, 0],
+        "COLLIDER_SIZE":[32, 32],
+        "BASE_POSITION":[0, 0, 0],
+        "ROTATE":false
+    },
+    "OBSTACLE":{
+        "COLOR":[0, 0, 1, 0],
+        "INTENSITY":5,
+        "FRAME_DELAY":5,
+        "COLLIDER_OFFSET":[0, 0],
+        "COLLIDER_SIZE":[64, 192],
+        "BASE_POSITION":[0, 0, 0],
+        "ROTATE":false
+    },
+    "PLAYER":{
+        "COLOR":[0, 1, 0, 0],
+        "INTENSITY":5,
+        "FRAME_DELAY":5,
+        "COLLIDER_OFFSET":[0, 0],
+        "COLLIDER_SIZE":[64, 128],
+        "BASE_POSITION":[0, 0, 0],
+        "ROTATE":false
+    },
+    "POINT":{
+        "COLOR":[0, 0, 0, 0],
+        "INTENSITY":0,
+        "FRAME_DELAY":5,
+        "COLLIDER_OFFSET":[0, 0],
+        "COLLIDER_SIZE":[32, 32],
+        "BASE_POSITION":[0, 0, 0],
+        "ROTATE":false
+    }
+}

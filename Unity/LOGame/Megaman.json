@@ -1,27 +1,28 @@
 {
     "URL":[
-        "https://neungslxviii-mobile.github.io/App/Unity/LOGame/Megaman/bullet_enemy_emission.html",
-        "https://neungslxviii-mobile.github.io/App/Unity/LOGame/Megaman/bullet_enemy.html",
-        "https://neungslxviii-mobile.github.io/App/Unity/LOGame/Megaman/bullet_player1_emission.html",
-        "https://neungslxviii-mobile.github.io/App/Unity/LOGame/Megaman/bullet_player1.html",
-        "https://neungslxviii-mobile.github.io/App/Unity/LOGame/Megaman/bullet_player2_emission.html",
-        "https://neungslxviii-mobile.github.io/App/Unity/LOGame/Megaman/bullet_player2.html",
-        "https://neungslxviii-mobile.github.io/App/Unity/LOGame/Megaman/bullet_player3_emission.html",
-        "https://neungslxviii-mobile.github.io/App/Unity/LOGame/Megaman/bullet_player3.html",
-        "https://neungslxviii-mobile.github.io/App/Unity/LOGame/Megaman/button_player.html",
-        "https://neungslxviii-mobile.github.io/App/Unity/LOGame/Megaman/enemy_1.html",
-        "https://neungslxviii-mobile.github.io/App/Unity/LOGame/Megaman/enemy_2.html",
-        "https://neungslxviii-mobile.github.io/App/Unity/LOGame/Megaman/enemy_block_jump.html",
-        "https://neungslxviii-mobile.github.io/App/Unity/LOGame/Megaman/enemy_block1.html",
-        "https://neungslxviii-mobile.github.io/App/Unity/LOGame/Megaman/enemy_block2.html",
-        "https://neungslxviii-mobile.github.io/App/Unity/LOGame/Megaman/enemy_block3.html",
-        "https://neungslxviii-mobile.github.io/App/Unity/LOGame/Megaman/item_sp.html",
-        "https://neungslxviii-mobile.github.io/App/Unity/LOGame/Megaman/item.html",
-        "https://neungslxviii-mobile.github.io/App/Unity/LOGame/Megaman/obstacle_emission.html",
-        "https://neungslxviii-mobile.github.io/App/Unity/LOGame/Megaman/obstacle.html",
-        "https://neungslxviii-mobile.github.io/App/Unity/LOGame/Megaman/player_emission.html",
-        "https://neungslxviii-mobile.github.io/App/Unity/LOGame/Megaman/player.html",
-        "https://neungslxviii-mobile.github.io/App/Unity/LOGame/Megaman/point.html"
+        "/LOGame/Megaman/bullet_enemy_emission.html",
+        "/LOGame/Megaman/bullet_enemy.html",
+        "/LOGame/Megaman/bullet_player1_emission.html",
+        "/LOGame/Megaman/bullet_player1.html",
+        "/LOGame/Megaman/bullet_player2_emission.html",
+        "/LOGame/Megaman/bullet_player2.html",
+        "/LOGame/Megaman/bullet_player3_emission.html",
+        "/LOGame/Megaman/bullet_player3.html",
+        "/LOGame/Megaman/button_player.html",
+        "/LOGame/Megaman/enemy_1.html",
+        "/LOGame/Megaman/enemy_2.html",
+        "/LOGame/Megaman/enemy_block_jump.html",
+        "/LOGame/Megaman/enemy_block1.html",
+        "/LOGame/Megaman/enemy_block2.html",
+        "/LOGame/Megaman/enemy_block3.html",
+        "/LOGame/Megaman/item_sp.html",
+        "/LOGame/Megaman/item.html",
+        "/LOGame/Megaman/obstacle_emission.html",
+        "/LOGame/Megaman/obstacle.html",
+        "/LOGame/Megaman/player_emission.html",
+        "/LOGame/Megaman/player.html",
+        "/LOGame/Megaman/point.html",
+        "/LOGame/Megaman/title.html"
     ],
     "BULLET_ENEMY":{
         "COLOR":[1, 0, 0, 0],
@@ -63,7 +64,7 @@
         "COLOR":[0, 0, 0, 0],
         "INTENSITY":0,
         "FRAME_DELAY":5,
-        "COLLIDER_OFFSET":[0, 0],
+        "COLLIDER_OFFSET":[0, -16],
         "COLLIDER_SIZE":[64, 64],
         "BASE_POSITION":[0, 0, 0],
         "ROTATE":false
@@ -72,7 +73,7 @@
         "COLOR":[0, 0, 0, 0],
         "INTENSITY":0,
         "FRAME_DELAY":5,
-        "COLLIDER_OFFSET":[0, 0],
+        "COLLIDER_OFFSET":[0, -16],
         "COLLIDER_SIZE":[64, 64],
         "BASE_POSITION":[0, 0, 0],
         "ROTATE":false
@@ -92,7 +93,7 @@
         "FRAME_DELAY":5,
         "COLLIDER_OFFSET":[0, 0],
         "COLLIDER_SIZE":[96, 128],
-        "BASE_POSITION":[0, -16, 0],
+        "BASE_POSITION":[0, 0, 0],
         "ROTATE":false
     },
     "ENEMY_BLOCK2":{
@@ -101,7 +102,7 @@
         "FRAME_DELAY":5,
         "COLLIDER_OFFSET":[0, 0],
         "COLLIDER_SIZE":[96, 128],
-        "BASE_POSITION":[0, -16, 0],
+        "BASE_POSITION":[0, 0, 0],
         "ROTATE":false
     },
     "ENEMY_BLOCK3":{
@@ -110,7 +111,7 @@
         "FRAME_DELAY":15,
         "COLLIDER_OFFSET":[0, 0],
         "COLLIDER_SIZE":[96, 128],
-        "BASE_POSITION":[0, -16, 0],
+        "BASE_POSITION":[0, 16, 0],
         "ROTATE":false
     },
     "ITEM":{
@@ -132,7 +133,7 @@
         "ROTATE":false
     },
     "OBSTACLE":{
-        "COLOR":[1, 0, 10, 0],
+        "COLOR":[1, 0, 1, 0],
         "INTENSITY":5,
         "FRAME_DELAY":5,
         "COLLIDER_OFFSET":[0, 0],
