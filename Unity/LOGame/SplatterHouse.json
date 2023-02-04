@@ -31,7 +31,9 @@
         "COLLIDER_OFFSET":[0, 0],
         "COLLIDER_SIZE":[32, 32],
         "BASE_POSITION":[0, 0, 0],
-        "ROTATE":false
+        "ROTATE":false,
+        "CAMERA_IMAGE_POSITION":[0, 0, 0],
+        "CAMERA_IMAGE_SCALE":[1, 1, 1]
     },
     "BULLET_PLAYER1":{
         "COLOR":[1, 1, 1, 0],
@@ -40,7 +42,9 @@
         "COLLIDER_OFFSET":[0, 0],
         "COLLIDER_SIZE":[32, 32],
         "BASE_POSITION":[0, 0, 0],
-        "ROTATE":true
+        "ROTATE":true,
+        "CAMERA_IMAGE_POSITION":[0, 0, 0],
+        "CAMERA_IMAGE_SCALE":[1, 1, 1]
     },
     "BULLET_PLAYER2":{
         "COLOR":[1, 1, 0, 0],
@@ -49,7 +53,9 @@
         "COLLIDER_OFFSET":[0, 0],
         "COLLIDER_SIZE":[32, 32],
         "BASE_POSITION":[0, 0, 0],
-        "ROTATE":true
+        "ROTATE":true,
+        "CAMERA_IMAGE_POSITION":[0, 0, 0],
+        "CAMERA_IMAGE_SCALE":[1, 1, 1]
     },
     "BULLET_PLAYER3":{
         "COLOR":[1, 0, 0, 0],
@@ -58,7 +64,9 @@
         "COLLIDER_OFFSET":[0, 0],
         "COLLIDER_SIZE":[32, 32],
         "BASE_POSITION":[0, 0, 0],
-        "ROTATE":true
+        "ROTATE":true,
+        "CAMERA_IMAGE_POSITION":[0, 0, 0],
+        "CAMERA_IMAGE_SCALE":[1, 1, 1]
     },
     "ENEMY_1":{
         "COLOR":[0, 0, 0, 0],
@@ -67,7 +75,9 @@
         "COLLIDER_OFFSET":[0, 0],
         "COLLIDER_SIZE":[64, 64],
         "BASE_POSITION":[0, 0, 0],
-        "ROTATE":false
+        "ROTATE":false,
+        "CAMERA_IMAGE_POSITION":[0, 0, 0],
+        "CAMERA_IMAGE_SCALE":[0.3, 0.3, 0.3]
     },
     "ENEMY_2":{
         "COLOR":[0, 0, 0, 0],
@@ -76,7 +86,9 @@
         "COLLIDER_OFFSET":[0, 0],
         "COLLIDER_SIZE":[64, 64],
         "BASE_POSITION":[0, 0, 0],
-        "ROTATE":false
+        "ROTATE":false,
+        "CAMERA_IMAGE_POSITION":[0, 0, 0],
+        "CAMERA_IMAGE_SCALE":[0.3, 0.3, 0.3]
     },
     "ENEMY_BLOCK_JUMP":{
         "COLOR":[0, 0, 0, 0],
@@ -85,7 +97,9 @@
         "COLLIDER_OFFSET":[0, 0],
         "COLLIDER_SIZE":[80, 80],
         "BASE_POSITION":[0, 0, 0],
-        "ROTATE":false
+        "ROTATE":false,
+        "CAMERA_IMAGE_POSITION":[0, 0, 0],
+        "CAMERA_IMAGE_SCALE":[1, 1, 1]
     },
     "ENEMY_BLOCK1":{
         "COLOR":[0, 0, 0, 0],
@@ -94,7 +108,9 @@
         "COLLIDER_OFFSET":[0, 0],
         "COLLIDER_SIZE":[96, 128],
         "BASE_POSITION":[0, 0, 0],
-        "ROTATE":false
+        "ROTATE":false,
+        "CAMERA_IMAGE_POSITION":[0, 0, 0],
+        "CAMERA_IMAGE_SCALE":[0.3, 0.3, 0.3]
     },
     "ENEMY_BLOCK2":{
         "COLOR":[0, 0, 0, 0],
@@ -103,7 +119,9 @@
         "COLLIDER_OFFSET":[0, 0],
         "COLLIDER_SIZE":[96, 128],
         "BASE_POSITION":[0, 0, 0],
-        "ROTATE":false
+        "ROTATE":false,
+        "CAMERA_IMAGE_POSITION":[0, 0, 0],
+        "CAMERA_IMAGE_SCALE":[0.3, 0.3, 0.3]
     },
     "ENEMY_BLOCK3":{
         "COLOR":[0, 0, 0, 0],
@@ -112,7 +130,9 @@
         "COLLIDER_OFFSET":[0, 0],
         "COLLIDER_SIZE":[96, 128],
         "BASE_POSITION":[0, 0, 0],
-        "ROTATE":false
+        "ROTATE":false,
+        "CAMERA_IMAGE_POSITION":[0, 0, 0],
+        "CAMERA_IMAGE_SCALE":[0.3, 0.3, 0.3]
     },
     "ITEM":{
         "COLOR":[0, 0, 0, 0],
@@ -121,7 +141,9 @@
         "COLLIDER_OFFSET":[0, 0],
         "COLLIDER_SIZE":[32, 32],
         "BASE_POSITION":[0, 0, 0],
-        "ROTATE":false
+        "ROTATE":false,
+        "CAMERA_IMAGE_POSITION":[0, 0, 0],
+        "CAMERA_IMAGE_SCALE":[1, 1, 1]
     },
     "ITEM_SP":{
         "COLOR":[0, 0, 0, 0],
@@ -130,7 +152,9 @@
         "COLLIDER_OFFSET":[0, 0],
         "COLLIDER_SIZE":[32, 32],
         "BASE_POSITION":[0, 0, 0],
-        "ROTATE":false
+        "ROTATE":false,
+        "CAMERA_IMAGE_POSITION":[0, 0, 0],
+        "CAMERA_IMAGE_SCALE":[1, 1, 1]
     },
     "OBSTACLE":{
         "COLOR":[0, 0, 1, 0],
@@ -139,7 +163,9 @@
         "COLLIDER_OFFSET":[0, 0],
         "COLLIDER_SIZE":[64, 192],
         "BASE_POSITION":[0, 0, 0],
-        "ROTATE":false
+        "ROTATE":false,
+        "CAMERA_IMAGE_POSITION":[0, 0, 0],
+        "CAMERA_IMAGE_SCALE":[1, 1, 1]
     },
     "PLAYER":{
         "COLOR":[0, 1, 0, 0],
@@ -148,7 +174,9 @@
         "COLLIDER_OFFSET":[0, 0],
         "COLLIDER_SIZE":[64, 128],
         "BASE_POSITION":[0, 0, 0],
-        "ROTATE":false
+        "ROTATE":false,
+        "CAMERA_IMAGE_POSITION":[8, 24, 0],
+        "CAMERA_IMAGE_SCALE":[0.3, 0.3, 0.3]
     },
     "POINT":{
         "COLOR":[0, 0, 0, 0],
@@ -157,6 +185,8 @@
         "COLLIDER_OFFSET":[0, 0],
         "COLLIDER_SIZE":[32, 32],
         "BASE_POSITION":[0, 0, 0],
-        "ROTATE":false
+        "ROTATE":false,
+        "CAMERA_IMAGE_POSITION":[0, 0, 0],
+        "CAMERA_IMAGE_SCALE":[1, 1, 1]
     }
 }
